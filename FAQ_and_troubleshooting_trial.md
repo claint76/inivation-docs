@@ -26,9 +26,9 @@ If your question involves confidential information, however, please use
 | I can’t get the image into focus - it’s really blurry.          | Have you got the CS-C adapter ring between the lens and the camera? The adapter ring looks like this: <br/> <br/> ![](media/image2.png) <br/> This doesn’t apply to eDVS. If you have the eDVS, are you aware that the lens screws in and out of the lens holder in order to focus it? |
 | I can't install a linux driver for my DVS128                    | You don't need to; just upgrade to jAER version 1.5 or higher. |
 | I can’t install a linux driver for my USBAERMini2 board.        | There isn’t one - use Windows instead. |
-| I’m using jAER 1.5, but still can’t access my device from Linux | Ensure that the user you’re running jAER as does have access to the device. This might require an udev rule to be added, please refer to the DAVIS240 user guide and its section “Install USB driver - Linux”. |
-| Windows can’t automatically find the right driver for my DAVIS240. | Use zadig to install the correct driver. See the reflashing guide. |
-| Some columns of pixels are not working on my DAVIS240B. | This is by design: see the specifications page, section “DAVIS240B array layout”. |
+| I’m using jAER 1.5, but still can’t access my device from Linux | Ensure that the user you’re running jAER as does have access to the device. This might require an udev rule to be added, please refer to the [DAVIS240](https://inilabs.com/support/hardware/davis240/) user guide and its section “Install USB driver - Linux”. |
+| Windows can’t automatically find the right driver for my DAVIS240. | Use zadig to install the correct driver. See the [reflashing guide](http://www.inilabs.com/support/reflashing). |
+| Some columns of pixels are not working on my DAVIS240B. | This is by design: see the [specifications page](http://www.inilabs.com/products/davis/specifications), section “DAVIS240B array layout”. |
 
 ## FAQ
 | Question | Answer             |
