@@ -35,7 +35,6 @@ guides.
 > [Unsupported software](#unsupported-software)
 > 
 > [Additional user guides](#additional-user-guides)
-
 # Overview of devices and user guides
 
 If you are not sure which device you have, use this table to find the
@@ -43,12 +42,12 @@ correct user guide:
 
 | Image                                             | Name and brief description |  User guide |
 |---------------------------------------------------|----------------------------|-------------|
-| <img src="media/DVS128.png" width="200">          | **DVS128** <br/><br/> A 128x128 DVS in a strong plastic case, with a USB 2.0 interface, CS-mount, tripod mount and  inter-camera synchronization pins.                                                                                                                        | http://www.inivation.com/support/dvs128 |
-| <img src="media/DVS128_PAER.png" width="200">     | **DVS128_PAER** <br/><br/>  A CS-mount bare-board camera, with a 128x128 DVS and with parallel AER interface (Rome and CAVIAR standards).                                                                                                                                     | http://www.inivation.com/support/dvs128paer |
-| <img src="media/eDVS.png" width="200">            | **eDVS** <br/><br/> A credit-card-sized S-mount PCB with a 128x128 DVS embedded with a 4337 microcontroller, with UART connectors, on-board IMU and microSD, PWM outputs, and optional network adapter.                                                                       | http://www.inivation.com/support/edvs |
-| <img src="media/Pushbot.png" width="200">         | **Pushbot** <br/><br/> A robotic platform; ideal for working with the eDVS to quickly prototype sensing behaving systems.                                                                                                                                                     | http://www.inivation.com/support/edvs |
-| <img src="media/DAVIS240A_B_C.png" width="200">   | **DAVIS240A/B/C** <br/><br/> A CS-mount bare-board camera, with a 240x180 DAVIS (DVS plus simultaneous global-shutter intensity frames) and word-serial AER (10x higher data rates). It has a USB 2.0 interface (direct AER interface is also possible) and on-board IMU.     | http://www.inivation.com/support/davis240 |
-| <img src="media/DAS1.png" width="200">            | **DAS1** <br/><br/> A stereo x 64 channel dynamic audio sensor (silicon cochlea).                                                                                                                                                                                           | http://www.inivation.com/support/das |
+| <img src="media/DVS128.png" width="800">          | **DVS128** <br/><br/> A 128x128 DVS in a strong plastic case, with a USB 2.0 interface, CS-mount, tripod mount and  inter-camera synchronization pins.                                                                                                                        | http://www.inivation.com/support/dvs128 |
+| <img src="media/DVS128_PAER.png" width="800">     | **DVS128_PAER** <br/><br/>  A CS-mount bare-board camera, with a 128x128 DVS and with parallel AER interface (Rome and CAVIAR standards).                                                                                                                                     | http://www.inivation.com/support/dvs128paer |
+| <img src="media/eDVS.png" width="800">            | **eDVS** <br/><br/> A credit-card-sized S-mount PCB with a 128x128 DVS embedded with a 4337 microcontroller, with UART connectors, on-board IMU and microSD, PWM outputs, and optional network adapter.                                                                       | http://www.inivation.com/support/edvs |
+| <img src="media/Pushbot.png" width="800">         | **Pushbot** <br/><br/> A robotic platform; ideal for working with the eDVS to quickly prototype sensing behaving systems.                                                                                                                                                     | http://www.inivation.com/support/edvs |
+| <img src="media/DAVIS240A_B_C.png" width="800">   | **DAVIS240A/B/C** <br/><br/> A CS-mount bare-board camera, with a 240x180 DAVIS (DVS plus simultaneous global-shutter intensity frames) and word-serial AER (10x higher data rates). It has a USB 2.0 interface (direct AER interface is also possible) and on-board IMU.     | http://www.inivation.com/support/davis240 |
+| <img src="media/DAS1.png" width="800">            | **DAS1** <br/><br/> A stereo x 64 channel dynamic audio sensor (silicon cochlea).                                                                                                                                                                                           | http://www.inivation.com/support/das |
 
 # Software for event processing
 
