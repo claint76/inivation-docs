@@ -1,15 +1,17 @@
-# FAQ and Troubleshooting Guide
+---
+title: '[]{#_g5gpb4x7p2t7 .anchor}FAQ and Troubleshooting Guide'
+---
 
 Can't find the answer you need? We use multiple Google Groups forums for
 all questions regarding inivation products:
 
-> [[https://groups.google.com/d/forum/caer-users]{.underline}](https://groups.google.com/d/forum/caer-users)
+[[https://groups.google.com/d/forum/caer-users]{.underline}](https://groups.google.com/d/forum/caer-users)
 
-> [[https://groups.google.com/d/forum/jaer-users]{.underline}](https://groups.google.com/d/forum/jaer-users)
+[[https://groups.google.com/d/forum/jaer-users]{.underline}](https://groups.google.com/d/forum/jaer-users)
 
-> [[https://groups.google.com/d/forum/davis-users]{.underline}](https://groups.google.com/d/forum/davis-users)
+[[https://groups.google.com/d/forum/davis-users]{.underline}](https://groups.google.com/d/forum/davis-users)
 
-> [[https://groups.google.com/d/forum/dynapse-users]{.underline}](https://groups.google.com/d/forum/dynapse-users)
+[[https://groups.google.com/d/forum/dynapse-users]{.underline}](https://groups.google.com/d/forum/dynapse-users)
 
 If your question involves confidential information, however, please use
 [[support@inivation.com]{.underline}](mailto:support@inivation.com).
@@ -18,30 +20,32 @@ If your question involves confidential information, however, please use
 >
 > [[FAQ]{.underline}](#faq)
 
-## Troubleshooting guide
+Troubleshooting guide
+=====================
 
-| **Symptoms**                      | **Possible solutions**            |
-|===================================+===================================|
++-----------------------------------+-----------------------------------+
+| **Symptoms**                      | > **Possible solutions**          |
++===================================+===================================+
 | jAER is running and a DVS is      | 1.  Check that there is no lens   |
-| plugged in. Either there are no   |      cap.                         |
+| plugged in. Either there are no   |     > cap.                        |
 | spikes coming out, or there are   |                                   |
 | some spikes but they don\'t make  | 2.  Check that the lens aperture  |
-| sense.                            |      is open.                     |
+| sense.                            |     > is open.                    |
 |                                   |                                   |
 |                                   | 3.  In jAER, load or reload a     |
-|                                   |      standard set of biases for   |
-|                                   |      your device.                |
+|                                   |     > standard set of biases for  |
+|                                   |     > your device.                |
 |                                   |                                   |
 |                                   | 4.  Check that all filters are    |
-|                                   |      disabled.                   |
+|                                   |     > disabled.                   |
 |                                   |                                   |
 |                                   | 5.  Check that "capture events"   |
-|                                   |      and "display events" are    |
-|                                   |      both enabled on the         |
-|                                   |      user-friendly tab of the    |
-|                                   |      "Biases / HW configuration" |
-|                                   |      dialogue (DAVIS only).      |
-|-----------------------------------|-----------------------------------|
+|                                   |     > and "display events" are    |
+|                                   |     > both enabled on the         |
+|                                   |     > user-friendly tab of the    |
+|                                   |     > "Biases / HW configuration" |
+|                                   |     > dialogue (DAVIS only).      |
++-----------------------------------+-----------------------------------+
 | I can't get the image into focus  | Have you got the CS-C adapter     |
 | - it's really blurry.             | ring between the lens and the     |
 |                                   | camera? The adapter ring looks    |
