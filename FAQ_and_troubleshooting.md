@@ -33,6 +33,6 @@ If your question involves confidential information, however, please use
 ## FAQ
 | Question | Answer             |
 |----------|--------------------|
-| Can the DVS see infrared (IR)? What is the range of frequencies that the DVS can see? | The DVS chip can see all visible light plus near-infrared (NIR) down to about 1.1 um. The luminosity function should be that of a standard CMOS sensor (sensitivity peaking around 700-750 nm) although we have not measured this. |
+| Can the DVS see infrared (IR)? What is the range of frequencies that the DVS can see? | The DVS chip can see all visible light plus near-infrared (NIR) down to about 1.1 um. However, the DVS128 dies are packaged with glass that blocks NIR. The DAVIS240 has glass with no IR filter. The luminosity function should be that of a standard CMOS sensor (sensitivity peaking around 700-750 nm) although we have not measured this. |
 | Can I synchronise timestamps between two prototypes? |  Yes, DVS128, DAVIS240 and DAS1 can all be synchronised to each other, see the [Synchronisation guide](http://www.inilabs.com/support/synch). <br/> eDVS and DVS128_PAER don’t have any built in synchronisation capability. |
 | Why is there a frame rate (FPS) on the jAER toolbar? | This is the rate at which jAER is rendering frames for visualisation of the data; the DVS doesn’t output frames but rather outputs events in real time, see the [jAER user guide](http://www.inilabs.com/support/jaer). for more details. |
