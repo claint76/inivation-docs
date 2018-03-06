@@ -24,9 +24,7 @@ which is uploaded in the Vicon Application Software,
 
 <img src="media/vicon_rear_panel.png" width="700">
 
-<img src="media/vicon_gui.png" width="300">
-
-<img src="media/vicon_rear_panel2.png" width="420">
+<img src="media/vicon_gui.png" width="300"> <img src="media/vicon_rear_panel2.png" width="420">
 
 For our specific application we defined a GPO configuration file,
 supplied with Nexus, *Duration.gpo*, that specified the characteristics
@@ -66,7 +64,7 @@ output signal that is read by the first slave camera as an input, pin
 Sync Clk in of the second camera, the Sync Clk out of the second camera
 is linked to the “Sync Clk in” of the third camera, etc. In this way,
 The four camera DAVIS system is synchronized to the first DAVIS camera,
-triggered by the Vicon. In this way, the four camera DAVIS system is
+triggered by the Vicon. In this way, the four camera DAVIS sys  tem is
 synchronized to the first DAVIS camera, triggered by the Vicon.
 
 <br/>
