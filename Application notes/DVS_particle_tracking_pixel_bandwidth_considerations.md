@@ -268,6 +268,7 @@ bandwidth
 computations](https://docs.google.com/spreadsheets/d/1kPs8HCEYqSJeetMF_7tdY9vvbYwcQ3nfYQ2q7GlZ4do/edit?usp=sharing)”
 also computes the quantities above.
 
+---
 #### Footnotes
 1. D.J.Borer, [“4D Flow Visualization with Dynamic Vision Sensors,”](https://e-collection.library.ethz.ch/view/eth:47156) PhD Thesis, ETH Zurich, Zurich, Switzerland, 2014
 
