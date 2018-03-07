@@ -55,7 +55,7 @@ devices.
   - [Spike latency](#spike-latency)
   - [Intrinsic oscillations](#intrinsic-oscillations)
   - [Implications for power consumption](#implications-for-power-consumption)
-- [Dynamic audio sensor biases](#dynamic-audio-sensor-biases)
+- [Dynamic audio sensor biases (NOT)](#dynamic-audio-sensor-biases)
   - [On-chip biases](#on-chip-biases)
   - [Off-chip biases](#off-chip-biases)
   - [Combined table](#combined-table)
@@ -694,7 +694,7 @@ device being rejected by the host computer.
 Full characterisation of chip performance vs power consumption is work
 in progress - we would welcome collaborators in this respect.
 
-## Dynamic audio sensor biases
+## Dynamic audio sensor biases (NOT)
 
 Some key biases are described here. There then follow complete lists of
 the biases.

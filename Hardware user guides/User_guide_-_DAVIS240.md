@@ -1,15 +1,13 @@
----
-title: '[]{#_qdoi277fh3h7 .anchor}User Guide - DAVIS240'
----
+# User Guide - DAVIS240
 
 *Our documentation is regularly being improved along with our products.
 If this guide is missing the answer to any question you may have, please
-don't hesitate to ask us on the appropriate [[support
-forum]{.underline}](https://groups.google.com/d/forum/davis-users/). If
+don't hesitate to ask us on the appropriate [support
+forum](https://groups.google.com/d/forum/davis-users/). If
 your question involves confidential information, however, please use
-[support@inilabs.com]{.underline}. First you could try our*
-*[[troubleshooting
-guide]{.underline}](https://www.inilabs.com/support/faq/).*
+[support@inilabs.com. First you could try our*
+*[troubleshooting
+guide](https://www.inilabs.com/support/faq/).*
 
 This user guide covers DAVIS240 prototypes (DAVIS240A, DAVIS240B, and
 DAVIS240C):
@@ -18,55 +16,31 @@ DAVIS240C):
 height="2.963542213473316in"}
 
 If you are confused about which device you have, please see the
-[[support
-overview]{.underline}](http://www.inilabs.com/support/overview).
+[support overview](http://www.inilabs.com/support/overview).
 
-[[Introduction]{.underline}](#introduction)
+- [Introduction](#introduction)
+- [Getting started](#getting-started)
+- [Install USB driver](#install-usb-driver)
+  - [Linux](#linux)
+  - [Mac Os X](#mac-os-x)
+  - [Windows (win10, win8, win7)](#windows-win10-win8-win7)
+- [Serial number](#serial-number)
+- [Optics](#optics)
+  - [Computations of Field of View](#computations-of-field-of-view)
+- [DAVIS240B array layout](#davis240b-array-layout)
+- [Recorded data format](#recorded-data-format)
+- [Accessories](#accessories)
+  - [Connectors](#connectors)
+  - [DAVIS to CAVIAR adapter](#davis-to-caviar-adapter)
+  - [DAVIS AER cables](#davis-aer-cables)
+- [Receiving address-events directly from the chip](#receiving-address-events-directly-from-the-chip)
+- [Firmware upgrades](#firmware-upgrades)
+- [Dimensions](#dimensions)
+  - [Overview](#overview)
+  - [Bottom board](#bottom-board)
+  - [Top board](#top-board)
 
-[[Getting started]{.underline}](#getting-started)
-
-> [[Install USB driver]{.underline}](#install-usb-driver)
->
-> [[Linux]{.underline}](#linux)
->
-> [[Mac Os X]{.underline}](#mac-os-x)
->
-> [[Windows (win10, win8, win7)]{.underline}](#windows-win10-win8-win7)
-
-[[Serial number]{.underline}](#serial-number)
-
-[[Optics]{.underline}](#optics)
-
-> [[Computations of Field of
-> View]{.underline}](#computations-of-field-of-view)
-
-[[DAVIS240B array layout]{.underline}](#davis240b-array-layout)
-
-[[Recorded data format]{.underline}](#recorded-data-format)
-
-[[Accessories]{.underline}](#accessories)
-
-> [[Connectors]{.underline}](#connectors)
->
-> [[DAVIS to CAVIAR adapter]{.underline}](#davis-to-caviar-adapter)
->
-> [[DAVIS AER cables]{.underline}](#davis-aer-cables)
-
-[[Receiving address-events directly from the
-chip]{.underline}](#receiving-address-events-directly-from-the-chip)
-
-[[Firmware upgrades]{.underline}](#firmware-upgrades)
-
-[[Dimensions]{.underline}](#dimensions)
-
-> [[Overview]{.underline}](#overview)
->
-> [[Bottom board]{.underline}](#bottom-board)
->
-> [[Top board]{.underline}](#top-board)
-
-Introduction
-============
+## Introduction
 
 This user guide covers DAVIS240A, DAVIS240B, and DAVIS240C devices
 (which contain the SBRet10, SBRet20, and SBRet21 vision sensor ICs).
@@ -76,32 +50,31 @@ obtain the latest version of the jAER software and preferably use an
 integrated developer environment (IDE) (e.g. netbeans) to run the latest
 code base.
 
-For specifications see the [[specifications
-page]{.underline}](https://inilabs.com/products/dynamic-vision-sensors/specifications/).
+For specifications see the [specifications
+page](https://inilabs.com/products/dynamic-vision-sensors/specifications/).
 
 The DAVIS240 cameras are USB devices.
 
 The camera output can be processed by jAER or cAER or libcaer; see
-[[inilabs software user
-guides]{.underline}](http://inilabs.com/support/software/). The Getting
+[inilabs software user
+guides](http://inilabs.com/support/software/). The Getting
 Started guide here covers use in jAER.
 
-Getting started
-===============
+## Getting started
 
 1.  Unpack your camera. You should have a DAVIS camera with C-mount
     > lens, C-CS adapter ring, mini tripod and USB A - microB cable.
 
-2.  Install jAER, following the instructions in the [[jAER user
-    > guide]{.underline}](http://www.inilabs.com/support/jaer).
+2.  Install jAER, following the instructions in the [jAER user
+    > guide](http://www.inilabs.com/support/jaer).
 
-3.  Install drivers - see the [[install USB
-    > driver]{.underline}](#install-usb-driver) section below.
+3.  Install drivers - see the [install USB
+    > driver](#install-usb-driver) section below.
 
 4.  Run jAER, choose the correct chip class, choose the correct
     > interface and load a standard set of biases, as described in the
-    > [[jAER user
-    > guide]{.underline}](http://www.inilabs.com/support/jaer):
+    > [jAER user
+    > guide](http://www.inilabs.com/support/jaer):
 
     a.  The correct chip class is
         > eu.seebetter.ini.chips.davis.DAViS240(A/B/C). Choose the A, B
@@ -113,8 +86,7 @@ Getting started
         > jAER/biasgenSettings/Davis240a/bc depending on the device you
         > have.
 
-Install USB driver
-------------------
+## Install USB driver
 
 Begin by plugging in the DAVIS240 camera into your computer.
 
@@ -127,10 +99,10 @@ libusb4java packages and requires no further installation.
 You must grant your user access to the USB device. This can be achieved
 by creating, as root, an udev rule file such as:
 
-/etc/udev/rules.d/65-inilabs.rules
+> /etc/udev/rules.d/65-inilabs.rules
 
-You can find ready-to-use udev rules files in [[our Git
-repository]{.underline}](https://github.com/inilabs/devices-bin/tree/master/drivers/linux/udev-rules).
+You can find ready-to-use udev rules files in [our Git
+repository](https://github.com/inilabs/devices-bin/tree/master/drivers/linux/udev-rules).
 Here they are:
 
 \# All DVS/DAVIS systems
@@ -192,11 +164,11 @@ successfully".
 
 If this doesn't work you will need to use the "zadig" tool to install
 the correct driver. In this case, please follow the instructions for
-zadig in the [[reflashing
-guide]{.underline}](http://www.inilabs.com/support/reflashing).
+zadig in the [reflashing
+guide](http://www.inilabs.com/support/reflashing).
 
-Serial number
-=============
+## Serial number
+
 
 For support, we may ask you to identify the device by serial number.
 This image shows you where to find it:
@@ -207,8 +179,8 @@ height="3.9027777777777777in"}
 It is a 12 digit number of the form: "6000840100NN". We only use the
 last two digits.
 
-Optics
-======
+## Optics
+
 
 The lens mount is designed for CS mount lenses. If you have a C-mount
 lens (which can be identified from a marking on the lens), you need to
@@ -239,8 +211,8 @@ The following table shows the horizontal and vertical field of view in
 degrees and its size at various distances for different common focal
 lengths.
 
-Computations of Field of View
------------------------------
+### Computations of Field of View
+
 
 +---------+---------+---------+---------+---------+---------+---------+
 | DAVIS24 |         |         |         |         |         |         |
@@ -272,8 +244,7 @@ Computations of Field of View
 
 \* Default length is 4.5mm lens
 
-DAVIS240B array layout
-======================
+## DAVIS240B array layout
 
 There are 20 APS test pixels to the left. The APS test pixels are
 typically slightly overexposed, compared to the main array, with the
@@ -289,8 +260,7 @@ image:
 ![](media/image21.png){width="6.520833333333333in"
 height="4.888888888888889in"}
 
-Recorded data format
-====================
+## Recorded data format
 
 When data is logged, a file of type ".aedat " is created. Here is a
 summary of the format. A ".aedat" file contains headers, where each
@@ -305,11 +275,9 @@ Note: An IMU sample is a subclass of an APS type event. 7 words are sent
 in series, these being 3 axes for accel, temperature, and 3 axes for
 gyro - look at jAER's IMUSample class for more info.
 
-Accessories
-===========
+## Accessories
 
-Connectors
-----------
+### Connectors
 
 There are these connectors to the sides of the front face of the device:
 
@@ -319,7 +287,6 @@ height="5.013888888888889in"}
 These shows what these connectors are connected to:
 
 ![](media/image20.png){width="6.520833333333333in" height="3.7916666666666665in"}
-=================================================================================
 
 (Note that in a previous version of this documentation, AERMonAdd6 and
 AERMonAdd7 were accidentally swapped)
@@ -327,8 +294,7 @@ AERMonAdd7 were accidentally swapped)
 ![](media/image22.png){width="4.362755905511811in"
 height="2.0989588801399823in"}
 
-DAVIS to CAVIAR adapter
------------------------
+### DAVIS to CAVIAR adapter
 
 Optionally available is this small PCB that translates the DAVIS AER
 connector to a full CAVIAR compatible connector:
@@ -339,8 +305,7 @@ height="2.9166666666666665in"}
 If you prefer to design your own adapter, a perfect match for the 40
 pins connector on the DAVIS is a SAMTEC FLE-120-01-G-DV
 
-DAVIS AER cables
-----------------
+### DAVIS AER cables
 
 The SAMTEC FFSD-20-D-X-01-N can connect the DAVIS AER connector with
 another device:
@@ -355,8 +320,7 @@ another device:
 
 In the SAMTEC product codes, X is the length of the cable in inches.
 
-Receiving address-events directly from the chip
-===============================================
+## Receiving address-events directly from the chip
 
 If you use the above connector to directly access the AER bus from the
 DAVIS chip, the pins are at 3.3V. In order to handshake directly with
@@ -371,31 +335,26 @@ window:
 
 Alternatively, you can enable AER external control using libcaer as
 shown in this c++ code example
-[[here]{.underline}](https://github.com/inilabs/libcaer/blob/master/examples/davis_enable_aer.cpp).
+[here](https://github.com/inilabs/libcaer/blob/master/examples/davis_enable_aer.cpp).
 
-Firmware upgrades
-=================
+## Firmware upgrades
 
-If we advise you to upgrade your firmware, please read the [[reflashing
-guide]{.underline}](http://www.inilabs.com/support/reflashing).
+If we advise you to upgrade your firmware, please read the [reflashing
+guide](http://www.inilabs.com/support/reflashing).
 
-Dimensions
-==========
+## Dimensions
 
-Overview
---------
+### Overview
 
 ![](media/image18.png){width="6.520833333333333in"
 height="4.555555555555555in"}
 
-Bottom board
-------------
+### Bottom board
 
 ![](media/image25.png){width="3.9739588801399823in"
 height="3.907587489063867in"}
 
-Top board
----------
+### Top board
 
 ![](media/image12.png){width="3.3975656167979005in"
 height="2.838542213473316in"}
