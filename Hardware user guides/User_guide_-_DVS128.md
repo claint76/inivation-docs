@@ -1,6 +1,5 @@
 # User guide - DVS128 Dynamic Vision Sensor
 
-
 *Our documentation is regularly being improved along with our products.
 If this guide is missing the answer to any question you may have, please
 don't hesitate to ask us on the appropriate [support
@@ -34,11 +33,8 @@ Specifications for this and other DVS models can be seen here:
 
 1.  Unpack camera. You should have camera with lens, mini tripod, and a
     cs-c adapter ring.
-
 2.  Install jAER, following the instructions in the [jAER user guide](http://www.inilabs.com/support/jaer).
-
 3.  Plug in the DVS128 to your PC (or Mac) using a USB A-B cable.
-
 4.  Follow the instructions here to install drivers:\
     [https://sourceforge.net/p/jaer/wiki/jAER%20USB%20Driver%20Install/](https://sourceforge.net/p/jaer/wiki/jAER%20USB%20Driver%20Install/)
 

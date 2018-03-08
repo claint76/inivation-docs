@@ -2,34 +2,24 @@
 
 *Our documentation is regularly being improved along with our products.
 If this guide is missing the answer to any question you may have, please
-don't hesitate to ask us on the appropriate [[support
-forum]](https://groups.google.com/d/forum/davis-users/). If
+don't hesitate to ask us on the appropriate [support
+forum](https://groups.google.com/d/forum/davis-users/). If
 your question involves confidential information, however, please use
 [support@inilabs.com]. First you could try our*
-*[[troubleshooting
-guide]](https://www.inilabs.com/support/faq/).*
+*[troubleshooting
+guide](https://www.inilabs.com/support/faq/).*
 
-[Introduction](#introduction)
-
-[DVS128 PAER](#dvs128-paer)
-
-[DAVIS128](#davis128)
-
-[DAVIS208](#davis208)
-
-[DAVIS240](#davis240)
-
-[DAVIS346](#davis346)
-
-[DAVIS640](#davis640)
-
-[H-DAVIS640](#h-davis640)
-
-[DAS1 (CochleaAMS1b/AMS1c)](#das1-cochleaams1bams1c)
-
-[CochleaLP](#cochlealp)
-
-[CochleaTow4Ear](#cochleatow4ear)
+- [Introduction](#introduction)
+- [DVS128 PAER](#dvs128-paer)
+- [DAVIS128](#davis128)
+- [DAVIS208](#davis208)
+- [DAVIS240](#davis240)
+- [DAVIS346](#davis346)
+- [DAVIS640](#davis640)
+- [H-DAVIS640](#h-davis640)
+- [DAS1 (CochleaAMS1b/AMS1c)](#das1-cochleaams1bams1c)
+- [CochleaLP](#cochlealp)
+- [CochleaTow4Ear](#cochleatow4ear)
 
 ## Introduction
 

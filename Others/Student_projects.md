@@ -50,20 +50,20 @@ Below are suggestions for projects which will be useful to us and in
 some cases to our industrial clients. Novel suggestions for projects
 also welcome. Please get in touch if you are interested.
 
-* > [Tracking of flashing LED](#tracking-of-flashing-led-markers)
-* > [People counting](#people-counting)
-* > [Perspective-n-Point](#perspective-n-point-problem)
-* > [Optic flow](#optic-flow)
-* > [Low contrast imaging](#low-contrast-imaging)
-* > [True North - Winner Takes](#true-north---winner-takes-all)
-* > [Pest tracking](#pest-tracking)
-* > [Vibrocam](#vibrocam)
-* > [APIs to libcaer](#apis-to-libcaer)
-* > [Eye-blink counting for wakefulness](#eye-blink-counting-for-wakefulness-estimation)
-* > [Gaze tracking](#gaze-tracking)
-* > [Characterization of dynamic vision sensors](#characterization-of-dynamic-vision-sensors)
-* > [Spike­-based classification of event­-based visual data](#spike-based-classification-of-event-based-visual-data)
-* > [Depth from motion using dynamic vision sensors](#depth-from-motion-using-dynamic-vision-sensors)
+* [Tracking of flashing LED](#tracking-of-flashing-led-markers)
+* [People counting](#people-counting)
+* [Perspective-n-Point](#perspective-n-point-problem)
+* [Optic flow](#optic-flow)
+* [Low contrast imaging](#low-contrast-imaging)
+* [True North - Winner Takes](#true-north---winner-takes-all)
+* [Pest tracking](#pest-tracking)
+* [Vibrocam](#vibrocam)
+* [APIs to libcaer](#apis-to-libcaer)
+* [Eye-blink counting for wakefulness](#eye-blink-counting-for-wakefulness-estimation)
+* [Gaze tracking](#gaze-tracking)
+* [Characterization of dynamic vision sensors](#characterization-of-dynamic-vision-sensors)
+* [Spike­-based classification of event­-based visual data](#spike-based-classification-of-event-based-visual-data)
+* [Depth from motion using dynamic vision sensors](#depth-from-motion-using-dynamic-vision-sensors)
 
 # Tracking of flashing LED markers
 
