@@ -1,52 +1,34 @@
----
-title: |
-    []{#_hrx8g9c5i547 .anchor}User Guide - Synchronisation of dynamic sensor
-    prototypes and stereo configurations
----
+# User Guide - Synchronisation of dynamic sensor prototypes and stereo configurations
 
 *Our documentation is regularly being improved along with our products.
 If this guide is missing the answer to any question you may have, please
-don't hesitate to ask us on the appropriate [[support
-forum]{.underline}](https://groups.google.com/d/forum/davis-users/). If
+don't hesitate to ask us on the appropriate [support
+forum](https://groups.google.com/d/forum/davis-users/). If
 your question involves confidential information, however, please use
-[support@inilabs.com]{.underline}. First you could try our*
-*[[troubleshooting
-guide]{.underline}](https://www.inilabs.com/support/faq/).*
+[support@inilabs.com. First you could try our*
+*[troubleshooting
+guide](https://www.inilabs.com/support/faq/).*
 
 This guide describes how to synchronise the event timestamps from
 dynamic vision and audio sensors when using them together.
 
-[[Device synchronisation
-overview]{.underline}](#device-synchronisation-overview)
+- [Device synchronisation overview](#device-synchronisation-overview)
+  - [Synchronisation protocol and event injection](#synchronisation-protocol-and-event-injection)
+  - [DVS128 synchronisation](#dvs128-synchronisation)
+  - [DAVIS240 synchronisation](#davis240-synchronisation)
+    - [External input events](#external-input-events)
+    - [Timestamp synchronization](#timestamp-synchronization)
+  - [DAS1 synchronisation](#das1-synchronisation)
+- [Synchronising devices of different types](#synchronising-devices-of-different-types)
 
-[[Synchronisation protocol and event
-injection]{.underline}](#synchronisation-protocol-and-event-injection)
-
-[[DVS128 synchronisation]{.underline}](#dvs128-synchronisation)
-
-[[DAVIS240 synchronisation]{.underline}](#davis240-synchronisation)
-
-> [[External input events]{.underline}](#external-input-events)
->
-> [[Timestamp synchronization]{.underline}](#timestamp-synchronization)
-
-[[DAS1 synchronisation]{.underline}](#das1-synchronisation)
-
-[[Synchronising devices of different
-types]{.underline}](#synchronising-devices-of-different-types)
-
-Device synchronisation overview
-===============================
+## Device synchronisation overview
 
 The following prototypes deliver packets of timestamped address-events
 over USB:
 
--   [[DVS128]{.underline}](#dvs128-synchronisation)
-
--   [[DAVIS240]{.underline}](#davis240-synchronisation)
-
--   [[DAS1]{.underline}](#das1-synchronisation)
-
+-   [DVS128](#dvs128-synchronisation)
+-   [DAVIS240](#davis240-synchronisation)
+-   [DAS1](#das1-synchronisation)
 -   FX3 development board
 
 In order to utilize the timestamps from more than one device, either
@@ -58,16 +40,14 @@ signal. This signal can either be generated from one of the devices (the
 deliver trigger signals to devices which cause them to insert special
 events into their event streams.
 
-Synchronisation protocol and event injection
-============================================
+### Synchronisation protocol and event injection
 
 All devices use one of two compatible protocols, with minor differences
 between these two protocols:
 
 -   DVS128, DAS1 and DAVIS240 with logic from 2014 use protocol 1.
-
 -   DAVIS240 with logic from 2015 and FX3 development boards use
-    > protocol 2.
+    protocol 2.
 
 In protocol 1, a device must be told whether it is a master, which
 produces synchronisation pulses, or whether it is a slave, which
@@ -113,8 +93,9 @@ a synchronisation clock and its IN pin will be used to inject special
 events, or a slave, meaning both the IN and OUT pins are dedicated to
 synchronisation, by respectively receiving and forwarding the clock.
 
-DVS128 synchronisation
-======================
+### DVS128 synchronisation
+
+<img src="media/synchronisation_DVS128.png" width="400">
 
 Multiple DVS128 cameras can be synchronized to microsecond time-stamp
 precision by connecting them between each other so they can exchange a
@@ -125,15 +106,14 @@ This signal is 3.3V. DO NOT connect this with devices using a 5V signal!
 To connect cameras, you can use coax cables together with T-connectors
 and the Pomona Electronics 5069 coax breakout adaptor with 0.025" pin
 connectors (e.g.
-[[http://www.digikey.com/product-search/en?x=-1075&y=-87&lang=en&site=us&KeyWords=pomona+5069]{.underline}](http://www.digikey.com/product-search/en?x=-1075&y=-87&lang=en&site=us&KeyWords=pomona+5069)
+[http://www.digikey.com/product-search/en?x=-1075&y=-87&lang=en&site=us&KeyWords=pomona+5069](http://www.digikey.com/product-search/en?x=-1075&y=-87&lang=en&site=us&KeyWords=pomona+5069)
 or
-[[http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm]{.underline}](http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm)).
+[http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm](http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm)).
 
 Minimally, however, you just need to use rectangular female header pin
 crimps and a copper cable, as shown in this picture:
 
-![Connecting DVS128 to synchronize
-timestamps](media/image8.jpg){width="6.25in" height="4.46875in"}
+<img src="media/synchronisation_DVS128_conn.png" width="600">
 
 For synchronisation, DVS128 cameras with a firmware version number \>=
 11 should be used, older firmware versions are not synchronized properly
@@ -155,6 +135,8 @@ master (where the OUT is connected) the checkbox \'Timestamp master /
 Enable sync event output\' in the DVS128-menu has to be checked, for the
 slave(s), it has to be unchecked.
 
+<img src="media/synchronisation_DVS128_timestamp.png" width="600">
+
 The master camera keeps its bottom LED lit, while the slaves extinguish
 theirs.
 
@@ -170,9 +152,9 @@ special event with bit 15 set on every falling edge of the IN pin.
 
 The IN pin is not 5V tolerant. High must not exceed 3.3V.
 
-**(Warning!** Do not connect with a DAVIS240, see
-[[here]{.underline}](#synchronising-devices-of-different-types) for a
-discussion.**)**
+**Warning! Do not connect with a DAVIS240, see
+[here](#synchronising-devices-of-different-types) for a
+discussion.**
 
 To enable this mode, while the DVS128 is plugged in, use the DVS128 menu
 to enable the checkbox \'Timestamp master / Enable sync event output\',
@@ -182,54 +164,50 @@ Falling edges of the IN pin should result in the logging of special
 events, which are denoted by having the SYNC\_EVENT\_BITMASK bit set in
 their address (bit 15).
 
-DAVIS240 synchronisation
-========================
+### DAVIS240 synchronisation
+
+<img src="media/synchronisation_DAVIS240.png" width="600">
 
 Synchronisation of different devices is a feature that DAVIS240 performs
 through two 3.5mm audio jacks, one at each side of the device. These are
 labelled "IN" and "OUT" on the back of the device (although these are
 written back to front), as in this image:
 
-![](media/image12.jpg){width="6.520833333333333in"
-height="3.9027777777777777in"}
+<img src="media/synchronisation_DAVIS240_conn.png" width="600">
 
 The pinout of these jacks is as follows:
 
-Pin 1: Ground (external first circle of an audio jack from the cable,
-"sleeve").
+<img src="media/synchronisation_DAVIS240_jack_pinout.png" width="300">
 
-Pin 3: Signal (external 2nd circle).
-
-> Pin 2: Clock (tip)
->
-> Pin 4: the tip of the jack also performs a Switch function, that can
-> let the device know if there is a cable attached. This is currently
-> not used.
+- Pin 1: Ground (external first circle of an audio jack from the cable, "sleeve").
+- Pin 3: Signal (external 2nd circle).
+- Pin 2: Clock (tip)
+- Pin 4: the tip of the jack also performs a Switch function, that can
+let the device know if there is a cable attached. This is currently
+not used.
 
 The signal voltage is 5V.
 
-**(Warning!** The signal voltage in DAVIS240 is different to that of
+**Warning! The signal voltage in DAVIS240 is different to that of
 DVS128 or DAS1 - If you wish to synchronise between DAVIS240 and
-DVS128/DAS1, please ask us for [[more
-information]{.underline}](#synchronising-devices-of-different-types) -
+DVS128/DAS1, please ask us for [more
+information](#synchronising-devices-of-different-types) -
 directly connecting DAVIS240 to DVS128/DAS1 may damage the
-DVS128/DAS1!**)**
+DVS128/DAS1!)**
 
 To synchronise two devices you need a stereo 3.5mm plug patch cable.
 When directly connecting two devices, use a cable like this:
 
-![](media/image9.png){width="3.4843755468066493in"
-height="3.48994094488189in"}
+<img src="media/synchronisation_DAVIS240_cables.png" width="300">
 
 If needing to access the two signals separately, you should instead use
 cables like these:
 
-![](media/image7.png){width="3.0989588801399823in"
-height="3.103908573928259in"}
+<img src="media/synchronisation_DAVIS240_cables_2.png" width="300">
 
 You can get these from digikey or any AV store.
 
-### External input events
+#### External input events
 
 Signal 1 (pin 3, JinSIG above) is used for external event injection; it
 detects rising or falling edges or pulses of a certain polarity and
@@ -247,10 +225,9 @@ and select the "External Input Config" tab. Then enable the detection
 using the top radio button and select the mode by the other buttons
 below:
 
-![](media/image14.png){width="6.267716535433071in"
-height="4.597222222222222in"}
+<img src="media/synchronisation_DAVIS240_chained.png" width="600">
 
-### Timestamp synchronization
+#### Timestamp synchronization
 
 Signal 2 (pin 2, JinCLK above) is used for timestamp synchronization
 between devices. This corrects drift in the digital clocks of the
@@ -258,7 +235,7 @@ devices and keeps them in lock-step.
 
 The timestamp sync signal is a 10 KHz clock, following the protocol
 described
-[[above]{.underline}](#synchronisation-protocol-and-event-injection).
+[above](#synchronisation-protocol-and-event-injection).
 
 The moment two (or more) cameras are connected together, all the slaves
 automatically sync their timestamp increments to the master. The slave
@@ -274,9 +251,7 @@ Once you\'ve connected all devices, it\'s usually a good idea to tell
 the master to issue a timestamp reset so all devices have a common
 starting point. To do this:
 
--   From jAER: press \"0\" (zero) in the jAER window which controls the
-    > master;
-
+-   From jAER: press \"0\" (zero) in the jAER window which controls the master;
 -   in cAER: toggle /1/DAVIS-FX2/multiplexer/TimestampReset.
 
 We did an experiment using 150m of untwisted 2-conductor cable to
@@ -285,23 +260,22 @@ sacrificed 3.5mm audio patch cable. The setup is shown below. The person
 being filmed in the video stands at the foot of the stairs alongside a
 blinking LED bike light and was bouncing a tennis ball.
 
-![](media/image13.png){width="6.267716535433071in"
-height="1.7916666666666667in"}
+<img src="media/synchronisation_DAVIS240_ex1.png" width="600">
 
-See t[[his video of the synchronized
-playback]{.underline}](https://youtu.be/E7TQBlZ8rJ0) of the recorded
+See [this video of the synchronized
+playback](https://youtu.be/E7TQBlZ8rJ0) of the recorded
 video.
 
-![](media/image10.png){width="6.267716535433071in"
-height="3.2777777777777777in"}
+<img src="media/synchronisation_DAVIS240_ex2.png" width="600">
 
-DAS1 synchronisation
-====================
+### DAS1 synchronisation
+
+<img src="media/synchronisation_DAS1.png" width="600">
 
 The Dynamic Audio Sensor belongs to the same generation of devices as
-the [[DVS128]{.underline}](#dvs128-synchronisation), and as such is
-synchronized in exactly the same way. Please [[refer to the guide
-above]{.underline}](#dvs128-synchronisation).
+the [DVS128](#dvs128-synchronisation), and as such is
+synchronized in exactly the same way. Please [refer to the guide
+above](#dvs128-synchronisation).
 
 Three pins are present, which have the same functionality as the ones in
 DVS128. The voltage (3.3V) and the protocol are the same.
@@ -311,20 +285,17 @@ changing is the AEChip that has to be selected in jAER:
 ***ch.unizh.ini.jaer.chip.cochlea.CochleaAMS1c***, as well as the name
 of the menu: ***CochleaAMS1c*** instead of DVS128.
 
-Synchronising devices of different types
-========================================
+## Synchronising devices of different types
 
-All iniLabs devices use a [[compatible
-protocol]{.underline}](#synchronisation-protocol-and-event-injection)
+All iniLabs devices use a [compatible
+protocol](#synchronisation-protocol-and-event-injection)
 for synchronization. The only difference between devices is the voltage
 of the involved signals.
 
 -   DVS128 and DAS1 use 3.3V.
-
 -   DAVIS240 uses 5V.
-
 -   The FX3 development boards can use both 3.3V and 5V, selectable via
-    > a jumper.
+    a jumper.
 
 Given the different signal voltages, a DAVIS240 cannot be connected
 directly to a DVS128 or DAS1. While having it act as a slave and receive

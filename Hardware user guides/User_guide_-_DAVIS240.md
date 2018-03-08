@@ -12,8 +12,7 @@ guide](https://www.inilabs.com/support/faq/).*
 This user guide covers DAVIS240 prototypes (DAVIS240A, DAVIS240B, and
 DAVIS240C):
 
-![](media/image19.jpg){width="3.454705818022747in"
-height="2.963542213473316in"}
+<img src="media/DAVIS240.png" width="600"> 
 
 If you are confused about which device you have, please see the
 [support overview](http://www.inilabs.com/support/overview).
@@ -63,28 +62,25 @@ Started guide here covers use in jAER.
 ## Getting started
 
 1.  Unpack your camera. You should have a DAVIS camera with C-mount
-    > lens, C-CS adapter ring, mini tripod and USB A - microB cable.
+    lens, C-CS adapter ring, mini tripod and USB A - microB cable.
 
-2.  Install jAER, following the instructions in the [jAER user
-    > guide](http://www.inilabs.com/support/jaer).
+2.  Install jAER, following the instructions in the [jAER user guide](http://www.inilabs.com/support/jaer).
 
-3.  Install drivers - see the [install USB
-    > driver](#install-usb-driver) section below.
+3.  Install drivers - see the [install USB driver](#install-usb-driver) section below.
 
 4.  Run jAER, choose the correct chip class, choose the correct
-    > interface and load a standard set of biases, as described in the
-    > [jAER user
-    > guide](http://www.inilabs.com/support/jaer):
+    interface and load a standard set of biases, as described in the
+    [jAER user guide](http://www.inilabs.com/support/jaer):
 
     a.  The correct chip class is
-        > eu.seebetter.ini.chips.davis.DAViS240(A/B/C). Choose the A, B
-        > or C depending on the camera version, e.g. DAVIS240C.
+        eu.seebetter.ini.chips.davis.DAViS240(A/B/C). Choose the A, B
+        or C depending on the camera version, e.g. DAVIS240C.
 
     b.  The correct interface is *DAVis FX xxxxxxxx.*
 
     c.  The correct biases are found in:
-        > jAER/biasgenSettings/Davis240a/bc depending on the device you
-        > have.
+        jAER/biasgenSettings/Davis240a/bc depending on the device you
+        have.
 
 ## Install USB driver
 
@@ -106,14 +102,16 @@ repository](https://github.com/inilabs/devices-bin/tree/master/drivers/linux/ude
 Here they are:
 
 \# All DVS/DAVIS systems
-
+```
 SUBSYSTEM==\"usb\", ATTR{idVendor}==\"152a\",
 ATTR{idProduct}==\"84\[0-1\]?\", MODE=\"0666\"
+```
 
 \# eDVS 4337
-
+```
 SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0403\", ATTR{idProduct}==\"6014\",
 MODE=\"0666\"
+```
 
 If you're using a distribution that supports SELinux tags (i.e. Fedora
 since Fedora Core 2; Debian as of the etch release; Ubuntu as of 8.04
@@ -123,26 +121,27 @@ version 11.1; SUSE Linux Enterprise 11 features SELinux as a
 selinux/ sub-folder. These are:
 
 \# All DVS/DAVIS systems
-
+```
 SUBSYSTEM==\"usb\", ATTR{idVendor}==\"152a\",
 ATTR{idProduct}==\"84\[0-1\]?\", TAG+=\"uaccess\"
+```
 
 \# eDVS 4337
-
+```
 SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0403\", ATTR{idProduct}==\"6014\",
 TAG+=\"uaccess\"
-
+```
 To reload the udev system without rebooting type, as root:
 
-\$ udevadm control \--reload-rules
+> \$ udevadm control \--reload-rules
 
 or, for newer udev versions:
 
-\$ udevadm control \--reload
+> \$ udevadm control \--reload
 
 Sometimes, it may also help to run:
 
-\$ udevadm control \--trigger
+> \$ udevadm control \--trigger
 
 Or otherwise reboot.
 
@@ -164,23 +163,19 @@ successfully".
 
 If this doesn't work you will need to use the "zadig" tool to install
 the correct driver. In this case, please follow the instructions for
-zadig in the [reflashing
-guide](http://www.inilabs.com/support/reflashing).
+zadig in the [reflashing guide](http://www.inilabs.com/support/reflashing).
 
 ## Serial number
-
 
 For support, we may ask you to identify the device by serial number.
 This image shows you where to find it:
 
-![](media/image26.jpg){width="6.520833333333333in"
-height="3.9027777777777777in"}
+<img src="media/DAVIS240_serial.png" width="600"> 
 
 It is a 12 digit number of the form: "6000840100NN". We only use the
 last two digits.
 
 ## Optics
-
 
 The lens mount is designed for CS mount lenses. If you have a C-mount
 lens (which can be identified from a marking on the lens), you need to
@@ -213,34 +208,14 @@ lengths.
 
 ### Computations of Field of View
 
-
-+---------+---------+---------+---------+---------+---------+---------+
-| DAVIS24 |         |         |         |         |         |         |
-| 0       |         |         |         |         |         |         |
-+=========+=========+=========+=========+=========+=========+=========+
-| Lens    | Angular | Angular | Angular | Linear  |
-| focal   | field   | field   | field   | field   |
-| length  | of view | of view | of view | of view |
-|         |         |         |         |         |
-| (mm)    | horizon | vertica | diagona | horizon |
-|         | tal     | l       | l       | tal     |
-|         |         |         | (deg)   | (cm)    |
-|         | (deg)   | (deg)   |         |         |
-+---------+---------+---------+---------+---------+---------+---------+
-|         |         |         |         | distanc |         |         |
-|         |         |         |         | e       |         |         |
-|         |         |         |         | (cm)    |         |         |
-+---------+---------+---------+---------+---------+---------+---------+
-|         |         |         |         | *10*    | *30*    | *100*   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 3.5     | 64.6    | 50.6    | 76.6    | 12.6    | 37.9    | 126.3   |
-+---------+---------+---------+---------+---------+---------+---------+
-| 4.5     | 52.3    | 40.4    | 63.1    | 9.8     | 29.5    | 98.3    |
-+---------+---------+---------+---------+---------+---------+---------+
-| 6       | 40.5    | 30.9    | 49.4    | 7.4     | 22.1    | 73.7    |
-+---------+---------+---------+---------+---------+---------+---------+
-| 12      | 20.9    | 15.7    | 25.9    | 3.7     | 11.1    | 36.8    |
-+---------+---------+---------+---------+---------+---------+---------+
+| DAVIS240                 |                                           |                                       |                                       |                                          |
+|--------------------------|-------------------------------------------|---------------------------------------|---------------------------------------|------------------------------------------|
+| Lens focal length (mm)   | Angular field of view horizontal (deg)    | Angular field of view vertical (deg)  | Angular field of view diagonal (deg)  | Linear field of view horizontal (cm)     |
+|                          |                                           |                                       |                                       | dist. 10 cm | dist. 30 cm | dist. 100 cm |
+| 3.5                      | 64.6                                      | 50.6                                  | 76.6                                  | 12.6        | 37.9        | 126.3        |
+| 4.5                      | 52.3                                      | 40.4                                  | 63.1                                  | 9.8         | 29.5        | 98.3         |
+| 6                        | 40.5                                      | 30.9                                  | 49.4                                  | 7.4         | 22.1        | 73.7         |
+| 12                       | 20.9                                      | 15.7                                  | 25.9                                  | 3.7         | 11.1        | 36.8         |
 
 \* Default length is 4.5mm lens
 
@@ -257,8 +232,7 @@ completely homogeneous is 190 x 180 for DVS and 170 x 180 for APS and
 DVS combined. The differences between these columns can be seen in this
 image:
 
-![](media/image21.png){width="6.520833333333333in"
-height="4.888888888888889in"}
+<img src="media/DAVIS240_array_layout.png" width="600"> 
 
 ## Recorded data format
 
@@ -268,8 +242,7 @@ header line starts with \'\#\' and ends with the hex characters 0x0D
 0x0A (CRLF, windows line ending). Then there are a series of 8-byte
 words, of the following format:
 
-![](media/image5.png){width="7.515625546806649in"
-height="1.3376760717410323in"}
+<img src="media/DAVIS240_out_format.png" width="800"> 
 
 Note: An IMU sample is a subclass of an APS type event. 7 words are sent
 in series, these being 3 axes for accel, temperature, and 3 axes for
@@ -281,26 +254,23 @@ gyro - look at jAER's IMUSample class for more info.
 
 There are these connectors to the sides of the front face of the device:
 
-![](media/image23.png){width="6.520833333333333in"
-height="5.013888888888889in"}
+<img src="media/DAVIS240_conn.png" width="600"> 
 
 These shows what these connectors are connected to:
 
-![](media/image20.png){width="6.520833333333333in" height="3.7916666666666665in"}
+<img src="media/DAVIS240_conn1_pinout.png" width="600"> 
 
 (Note that in a previous version of this documentation, AERMonAdd6 and
 AERMonAdd7 were accidentally swapped)
 
-![](media/image22.png){width="4.362755905511811in"
-height="2.0989588801399823in"}
+<img src="media/DAVIS240_conn2_pinout.png" width="600"> 
 
 ### DAVIS to CAVIAR adapter
 
 Optionally available is this small PCB that translates the DAVIS AER
 connector to a full CAVIAR compatible connector:
 
-![](media/image24.png){width="6.520833333333333in"
-height="2.9166666666666665in"}
+<img src="media/DAVIS240_CAVIAR_adapter.png" width="600"> 
 
 If you prefer to design your own adapter, a perfect match for the 40
 pins connector on the DAVIS is a SAMTEC FLE-120-01-G-DV
@@ -310,13 +280,13 @@ pins connector on the DAVIS is a SAMTEC FLE-120-01-G-DV
 The SAMTEC FFSD-20-D-X-01-N can connect the DAVIS AER connector with
 another device:
 
-![](media/image7.png){width="2.5in" height="1.875in"}
+<img src="media/DAVIS240_AER_cables.png" width="300"> 
 
 -   The SAMTEC FFSD-20-D-X-01-N-R can connect DAVIS AER connector with
-    > other device with one of the connectors inverted.
+    other device with one of the connectors inverted.
 
 -   The SAMTEC FFSD-08-D-X-01-N can connect the DAVIS I2C and POWER
-    > connector with other device.
+    connector with other device.
 
 In the SAMTEC product codes, X is the length of the cable in inches.
 
@@ -331,7 +301,7 @@ You do this in jAER by ticking the "Enable external AER control" tick
 box on the "Chip configuration" tab of the "Hardware config / Biases"
 window:
 
-![](media/image9.png){width="5.822916666666667in" height="7.03125in"}
+<img src="media/DAVIS240_receive_ev_from_chip.png" width="600"> 
 
 Alternatively, you can enable AER external control using libcaer as
 shown in this c++ code example
@@ -339,22 +309,18 @@ shown in this c++ code example
 
 ## Firmware upgrades
 
-If we advise you to upgrade your firmware, please read the [reflashing
-guide](http://www.inilabs.com/support/reflashing).
+If we advise you to upgrade your firmware, please read the [reflashing guide](http://www.inilabs.com/support/reflashing).
 
 ## Dimensions
 
 ### Overview
 
-![](media/image18.png){width="6.520833333333333in"
-height="4.555555555555555in"}
+<img src="media/DAVIS240_overview.png" width="400"> 
 
 ### Bottom board
 
-![](media/image25.png){width="3.9739588801399823in"
-height="3.907587489063867in"}
+<img src="media/DAVIS240_bottom.png" width="400"> 
 
 ### Top board
 
-![](media/image12.png){width="3.3975656167979005in"
-height="2.838542213473316in"}
+<img src="media/DAVIS240_top.png" width="400"> 
