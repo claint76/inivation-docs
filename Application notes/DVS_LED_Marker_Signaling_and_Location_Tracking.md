@@ -89,6 +89,7 @@ If we assume an oscillation generates a square waveform, we can expect
 two events per wavelength at any given frequency. This is shown in the
 diagram below:
 
+<p align="center">
 <img src="media/events_oscillation_graph.png" width="700">
 
 The diagram illustrates an ideal response of DVS pixels to the signal

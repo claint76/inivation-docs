@@ -13,6 +13,7 @@ This user guide covers the USB3 development kit, which can be used with
 a range of prototype chips, including: DAVIS346BColor/Mono, and
 DAVIS640Color/Mono.
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit.png" width="700"> 
 
 If you are confused about which device you have, please see the
@@ -152,10 +153,12 @@ guide](http://www.inilabs.com/support/reflashing).
 For support, we may ask you to identify the device by serial number.
 This image shows you where to find it:
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit_serial.png" width="700"> 
 
 ## Connectors
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit_connectors.png" width="600"> 
 
 The CAVIAR compatible bank can also be used for connecting to TrueNorth;
@@ -173,6 +176,7 @@ The 4 bank power switches as shown above must all be set to position 1
 (for 3.3V signals to daughterboard). **BE SURE TO CHECK THIS, AS IT'S
 EASY TO JOG THEM**.
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_switches.png" width="700"> 
 
 The jumpers should all be pushed to the last left position.
@@ -187,6 +191,7 @@ corrupted and you need to hold it in reset in order to reflash from the
 FX3. In addition, when uploading the firmware to RAM with flashy remove
 the jumper J39.
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit_jumpers.png" width="700"> 
 
 Default Jumper settings for DAVIS640
@@ -197,6 +202,7 @@ The synchronization and external I/O signals are mapped onto the
 CAVIAR/AER connector. The following image shows the connector and how
 the pins are mapped:
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit_synch_IO.png" width="700"> 
 
 It is also possible to map the synchronization pins of the board to the
@@ -217,6 +223,7 @@ Which daughterboard you should have:
 Here is a picture of the motherboard with a V10I2 daughterboard, with
 DAVIS640 chip installed:
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit_daughterboard.png" width="700"> 
 
 Note the TrueNorth port to the top right.
@@ -253,18 +260,22 @@ guide](http://www.inilabs.com/support/reflashing).
 
 With default cAER bias settings
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit_example1.png" width="700"> 
 
 jAER output [with biases:](https://github.com/SensorsINI/jaer/blob/master/biasgenSettings/Davis640/DAVIS640_TestExp.xml)
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit_example2.png" width="700"> 
 
 DAVIS640Color example output
 
 Input:
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit_color_input.png" width="700"> 
 
 Output, in presence of gradient of illumination:
 
+<p align="center">
 <img src="media/DAVIS_usb3_dev_kit_color_output.png" width="700"> 

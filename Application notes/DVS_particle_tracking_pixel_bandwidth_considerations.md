@@ -33,6 +33,7 @@ soap bubble, cell, etc, will likely not conform to this assumption.
 We will assume the particles move at a speed *U* at a distance *Z* from
 the sensor and that the lens has focal length *f*<sub>c</sub>.
 
+<p align="center">
 <img src="media/gaussian_intensity_profile_spot.png" width="700">
 
 We will assume a particle is imaged as a spot (usually dark, but here
@@ -66,7 +67,7 @@ each DVS pixel. The following equation (1) (3.6 in Borer) provides the
 intensity as a function of time and the resulting Fourier frequency
 spectrum.
 
-<img src="media/intensity_spectrum_fourier.png" width="700"> (1)
+><img src="media/intensity_spectrum_fourier.png" width="700"> (1)
 
 Here *I*<sub>max</sub> is the maximum intensity, and *f* is the
 frequency in Hertz.
@@ -74,6 +75,7 @@ frequency in Hertz.
 The key equations are the following. The temporal bandwidth (frequency
 range) of the moving particle is given by the standard deviation of the
 Fourier transform, which is given by (2):
+
 
 > <img src="media/sd_fourier_transform.png" width="100"> (2)
 
@@ -135,6 +137,7 @@ the bandwidth, which is given by the spread of the spectrum. From the
 spectrum plot, it is clear that the pixel 3dB bandwidth needs to be
 above 1.5kHz to capture most of the power.
 
+<p align="center">
 <img src="media/example_spectrum_plot.png" width="600">
 
 *Plots of (1) in case of U=10; % speed in m/s of particle perpendicular
@@ -148,6 +151,7 @@ to sensor*
 
 *p=40e-6; % pixel pitch meters*
 
+<p align="center">
 <img src="media/example_gaussian_intensity.png" width="500">
 
 *Gaussian intensity profile for above example*
@@ -182,6 +186,7 @@ inquire with inilabs regarding engineering for these scenarios. Note
 that the primary requirement for high pixel bandwidth is high
 illumination level.
 
+<p align="center">
 <img src="media/DVS128_pixel_bandwith.png" width="600">
 
 *DVS128 pixel bandwidth, from Lichtsteiner et al. 2008. The plots show

@@ -11,6 +11,7 @@ following steps:
 
 1.  Prepare the cameras set up and the checkboard calibration pattern.
 
+<p align="center">
 <img src="media/camera_setup1.png" width="300"> <img src="media/camera_setup2.png" width="300">
 
 2.  Open two viewers with jAER software. Save images of the checkboard
@@ -29,14 +30,17 @@ following steps:
     the acquired images from the two cameras. The toolbox recognize
     the calibration pattern in every pair of images.
 
+    <p align="center">
     <img src="media/calibration_pattern_tool1.png" width="600">
 
     Press the calibrate button. The toolbox calculates the stereo
     calibration parameters, displays thecalibration errors and plot the
     position of the cameras in a 3D space.
 
+    <p align="center">
     <img src="media/calibration_pattern_tool2.png" width="600">
 
+    <p align="center">
     <img src="media/calibration_pattern_tool3.png" width="600">
 
     Stereo calibration parameters:

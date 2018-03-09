@@ -11,6 +11,7 @@ guide](https://www.inilabs.com/support/faq/).*
 
 This user guide covers the DVS128 camera:
 
+<p align="center">
 <img src="media/DVS128.png" width="500">
 
 - [Specifications](#specifications)
@@ -107,6 +108,7 @@ two DVS128 by separate USB interfaces and they will be treated as a
 stereo pair. Recording, playback, control of biases, common filtering,
 etc are applied to the resulting stereo stream.
 
+<p align="center">
 <img src="media/DVS128_stereo_pair.png" width="600">
 
 The events are internally represented as objects of type BinocularEvent.
@@ -131,6 +133,7 @@ setIgnoreTimestampNonmonotincity() flag. This option is controlled by
 the File/Check for non-monotonic time in input streams option, as shown
 below:
 
+<p align="center">
 <img src="media/DVS128_non_monotonicity.png" width="600">
 
 ## Firmware updates
@@ -151,12 +154,14 @@ risk).
 You can check which firmware version you have and then optionally
 update. Do this by using the USB menu (with the DVS128 plugged in):
 
+<p align="center">
 <img src="media/DVS128_firmware_update.png" width="600">
 
 Updating firmware always has an element of risk and if something goes
 wrong you may need to return the camera for a new EEPROM. If you elect
 to update, you should see a progress bar followed by success:
 
+<p align="center">
 <img src="media/DVS128_updating_firmware.png" width="600">
 
 ## LEDs and sync connectors
@@ -168,8 +173,10 @@ time-stamp master; it turns off if the DVS128 is clocked externally -
 see the [synchronisation
 guide](http://www.inilabs.com/support/synch).
 
+<p align="center">
 <img src="media/DVS128_conn.png" width="600">
 
 ## DVS128 Case Drawings
 
+<p align="center">
 <img src="media/DVS128_case_draw.png" width="600">

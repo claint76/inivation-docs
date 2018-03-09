@@ -11,6 +11,7 @@ guide](https://www.inilabs.com/support/faq/).*
 
 This user guide covers DVS128\_PAER devices:
 
+<p align="center">
 <img src="media/DVS128_PAER.png" width="500">
 
 If you are confused about which device you have, please see the
@@ -33,6 +34,7 @@ is only intended to monitor the camera output because the USB interface
 is designed to passively monitor ("sniff") the AER bus without affecting
 communication with other hardware.
 
+<p align="center">
 <img src="media/DVS128_PAER_front.png" width="400">
 <img src="media/DVS128_PAER_back.png" width="400">
 
@@ -71,6 +73,7 @@ REQ/ACK jumper is shorted (see below).
 
 ### DVS128\_PAER LEDs and Jumpers
 
+<p align="center">
 <img src="media/DVS128_PAER_conn.png" width="700">
 
 There are two LEDs, L1 and L2 at the top center of the PCB:
