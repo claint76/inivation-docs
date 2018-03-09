@@ -26,8 +26,6 @@ Header</span>](#common-version-header)
 > [<span class="underline">Ordering</span>](#ordering-1)
 > 
 > [<span class="underline">DAVIS</span>](#davis)
-> 
-> [<span class="underline">DAS1</span>](#das1)
 
 [<span class="underline">AEDAT 3</span>](#aedat-3)
 
@@ -54,9 +52,6 @@ Header</span>](#common-version-header)
 > [<span class="underline">IMU 9-axes Event</span>](#imu-9-axes-event)
 > 
 > [<span class="underline">ADC Sample Event</span>](#adc-sample-event)
-> 
-> [<span class="underline">Ear (Cochlea)
-> Event</span>](#ear-cochlea-event)
 > 
 > [<span class="underline">Configuration
 > Event</span>](#configuration-event)
@@ -478,74 +473,6 @@ the timestamp of the pixel readouts closest to those moments:
   - > End of Exposure: first signal read pixel.
 
   - > End of Frame: last signal read pixel.
-
-## DAS1
-
-The DAS1 (Dynamic Audio Sensor, CochleaAMS1c AEChip class) stores its
-data according to the following format:
-
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>13</td>
-<td>Type (ADC or AER)</td>
-<td>Defines the type of address stored here. ‘0’ means AER from Cochlea chip, ‘1’ means sample from external ADC.</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td>ADC scanner sync</td>
-<td>Signals if the current ADC sample is newly synchronized with the Scanner. If ‘1’, it is, so we can clear and reset buffers. If ‘0’, just get the ADC data.</td>
-</tr>
-<tr class="odd">
-<td>11-10</td>
-<td>ADC channel</td>
-<td>Defines which of the four possible ADC channels this sample belongs to.</td>
-</tr>
-<tr class="even">
-<td>9-0</td>
-<td>ADC sample or AER address</td>
-<td><p>If Type=ADC, then this contains the 10-bit ADC sample.</p>
-<p>If Type=AER, then this is the 10-bit AER address from the Cochlea chip. The 10 bits are to be interpreted this way:</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>9-8</td>
-<td>Neuron number (0 to 3).</td>
-</tr>
-<tr class="even">
-<td>7-2</td>
-<td>Channel number (from 0 to 63, where 0 is highest frequency, 63 lowest frequency).</td>
-</tr>
-<tr class="odd">
-<td>1</td>
-<td>Left/Right ear (‘0’ is left, ‘1’ is right).</td>
-</tr>
-<tr class="even">
-<td>0</td>
-<td>Neuron bank (‘0’ if from BPF, ‘1’ if from SOS).</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-</tbody>
-</table>
-
-Note that although the DAS1 has synchronisation ports, the insertion of
-external trigger events into the event stream via a synchronisation
-pulse has never been implemented in the firmware.
 
 # AEDAT 3
 
@@ -1436,64 +1363,6 @@ endian.
 </tbody>
 </table>
 
-### Ear (Cochlea) Event
-
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit data</td>
-<td><p>Holds information on the ear (Cochlea) event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5"><span class="underline">Validity mark.</span></a></td>
-</tr>
-<tr class="even">
-<td>1-4</td>
-<td>Ear position (up to 16, 0/1 L/R front, 2/3 L/R back).</td>
-</tr>
-<tr class="odd">
-<td>5-15</td>
-<td>Channel number (up to 2048, 0 highest frequency).</td>
-</tr>
-<tr class="even">
-<td>16-23</td>
-<td>Neuron number (up to 256).</td>
-</tr>
-<tr class="odd">
-<td>24-30</td>
-<td>Filter number/type (up to 128).</td>
-</tr>
-<tr class="even">
-<td>31</td>
-<td>Polarity (1 - ON, 0 - OFF).</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-</tbody>
-</table>
-
 ### Configuration Event
 
 <table>
@@ -2058,6 +1927,5 @@ lines:
 | DAVIS346B       | Davis346BMono, Davis346BRgb, Davis346                                                                                                                                                               |
 | DAVIS346Cbsi    | Davis346bsi                                                                                                                                                                                         |
 | DAVIS640        | Davis640Mono, Davis640Rgb                                                                                                                                                                           |
-| DAVISHet640     | DavisHet640Mono, DavisHet640Rgbw, CDavis, CDavis640, Davis640Rgbw, CDavis640Rgbw                                                                                                                    |
-| DAS1            | CochleaAms1c                                                                                                                                                                                        |
+| DAVISHet640     | DavisHet640Mono, DavisHet640Rgbw, CDavis, CDavis640, Davis640Rgbw, CDavis640Rgbw                                                                                                                    |                                                                                                                                                                                       |
 | DYNAPSE         | Dynap-se, DYNAPSEFX2                                                                                                                                                                                |

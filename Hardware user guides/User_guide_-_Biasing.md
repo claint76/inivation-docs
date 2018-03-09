@@ -10,8 +10,7 @@ your question involves confidential information, however, please use
 guide](https://www.inilabs.com/support/faq/).*
 
 This guide explains how to control the on-chip parameters ("biases") of
-our Dynamic Vision Sensors (DVS128, eDVS, DAVIS240) and Dynamic Audio
-Sensors (DAS1).
+our Dynamic Vision Sensors (DVS128, eDVS, DAVIS240).
 
 Note: The eDVS and DVS128-PAER use the same chip as the DVS128 - in this
 guide, all information about the DVS128 applies equally to these other
@@ -52,13 +51,7 @@ devices.
     - [Background events](#background-events)
     - [APS crosstalk](#aps-crosstalk)
     - [Accumulation of noise can indicate light intensity](#accumulation-of-noise-can-indicate-light-intensity)
-  - [Spike latency](#spike-latency)
-  - [Intrinsic oscillations](#intrinsic-oscillations)
   - [Implications for power consumption](#implications-for-power-consumption)
-- [Dynamic audio sensor biases (NOT)](#dynamic-audio-sensor-biases)
-  - [On-chip biases](#on-chip-biases)
-  - [Off-chip biases](#off-chip-biases)
-  - [Combined table](#combined-table)
 
 ## What is a bias?
 
@@ -105,12 +98,11 @@ guide](http://www.inilabs.com/support/jaer).
 
 The *Expert controls* (DVS128) or *Bias Current Control* (DAVIS240) tab
 of the *Biases / HW Configuration* tab shows how the biases are
-currently set and allows you to change them. On the DAS1, look at the
-*on-chip biases* tab of the *expert controls* tab.
+currently set and allows you to change them.
 
 ### Simple biases
 
-The DVS128 and the DAS1 use a design of bias generator with a 24 bit
+The DVS128 uses a design of bias generator with a 24 bit
 value which controls each current. Here is the control tab for the
 DVS128:
 
@@ -660,14 +652,6 @@ the image are due to the light being driven by an oscillating current:
 
 <img src="media/on_off_event_reconstruction.png" width="600">
 
-### Spike latency
-
-...
-
-### Intrinsic oscillations
-
-...
-
 ### Implications for power consumption
 
 The power consumption of the DVS / DAVIS chip is usually dwarfed by the
@@ -693,198 +677,3 @@ device being rejected by the host computer.
 
 Full characterisation of chip performance vs power consumption is work
 in progress - we would welcome collaborators in this respect.
-
-## Dynamic audio sensor biases (NOT)
-
-Some key biases are described here. There then follow complete lists of
-the biases.
-
--   **vBias1** and **vBias2** set the high and low frequency centres of
-    the first and last channels, respectively. There is then a chain
-    of resistors which create linearly spaced voltages between these
-    for each of the channels. These then created exponentially spaced
-    currents, which define the centre frequencies of each channel.
-    Setting these currents higher set the respective cut-off frequency
-    higher.
-
--   **Vtau** sets the time constant of the forward amplifiers in the
-    second-order sections.
-
--   **Vq** sets the time constant of the feedback amp in the
-    second-order sections - this controls the Q factor globally. This
-    current is dependent on **Vtau**.
-
--   **NeuronVLeak** controls the leak current of the neurons. Without
-    some leak, neurons become continuously active. Note that this is
-    both an off-chip bias and an on-chip bias - the off-chip bias
-    dominates in case of conflict.
-
--   **Vgain** adjusts the input current to the neurons. A higher current
-    means a higher gain and more events.
-
--   **Vth1** and **Vth4** set the thresholds for the first and last
-    (fourth) neurons in each ganglion. A chain of resistors then
-    creates the linearly spaced biases for the other two neurons. By
-    convention, Vth1 is higher than Vth4, which means that neuron 1
-    fires more readily and more frequently than neuron 4.
-
--   **vRefract** controls the refractory period of the neurons. Ideally
-    they would have a refractory period limiting the neurons in the
-    highest frequency channel to one spike per cycle. A lower bias
-    gives a longer refractory period. Note that this is both an
-    off-chip bias and an on-chip bias - the off-chip bias dominates in
-    case of conflict.
-
-For the complete list of biases below, the meaning may only be apparent
-in conjunction with this paper:
-
-[Liu, S. C., van Schaik, A., Minch, B., & Delbruck, T. (2014).
-Asynchronous Binaural Spatial Audition Sensor With 2 64 4 Channel
-Output. Biomedical Circuits and Systems, IEEE Transactions on, 8(4),
-453-464.](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6658899)
-
-### On-chip biases
-
-  Name           Description
-  -------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  VAGC           Used in AGC DAC for gain control of Vq.
-  Curstartbpf    Experimental (BPF) - ignore.
-  DACBufferNb    Buffers the outputs of the local DACs. Note that there is also an off-chip bias which can overpower this, but only if bridged with a jumper.
-  Vbp            Experimental (BPF) - ignore.
-  IBias20OpAmp   Bias current for the output stage of the on-chip preamplifier.
-  N.C.           Not connected
-  Vsetio         Experimental (LPF) - ignore.
-  Vdc1           Sets dc res shift tilt to Vin input.
-  NeuronRp       Sets bias current of threshold comparator in neuron. Note that this is both an off-chip bias and an on-chip bias - the off-chip bias dominates in case of conflict.
-  Vclbtgate      Sets cutoff frequency of CLBT (compatible lateral bipolar transistor).
-  Vioff          Experimental (LPF) - ignore.
-  Vbias2         Sets the centre frequency of the last (lowest frequency) channel.
-  IBias10OpAmp   Bias current for the input stage of the on-chip preamplifier.
-  Vthbpf2        Experimental (BPF) - ignore.
-  Follbias       Sets bias for follower in pads.
-  pdbiasTX       Pull-down bias for X-direction AER.
-  Vrefract       Controls the refractory period of the neurons. Ideally they would have a refractory period limiting the neurons in the highest frequency channel to one spike per cycle. A lower bias gives a longer refractory period. Note that this is both an off-chip bias and an on-chip bias - the off-chip bias dominates in case of conflict.
-  VbampP         Sets bias of low voltage input amp driving I to neuron.
-  Vcascode       Sets cascode for all cells.
-  Vbpf2          Experimental (BPF) - ignore.
-  Ibias10OTA     One of the biases for the on-chip preamplifier circuit.
-  Vthbpf1        Experimental (BPF) - ignore.
-  Curstart       Sets SOS DAC masterbias current.
-  Vbias1         Sets the centre frequency of the first (highest frequency) channel.
-  NeuronVleak    Controls the leak current of the neuron. Note that this is both an off-chip bias and an on-chip bias - the off-chip bias dominates in case of conflict.
-  Vioffbpfn      Experimental (BPF) - ignore.
-  Vcasbpf        Experimental (LPF) - ignore.
-  Vdc2           Sets dc res shift tilt to Vin input.
-  Vterm          Sets bias current of terminator xtor in diffusor.
-  Vclbtcasc      Sets cascode bias of CLBT (compatible lateral bipolar transistor).
-  reqpuTX        Pull down on the X request for AER - keep to the maximum.
-  Vbpf1          Experimental (BPF) - ignore.
-
-### Off-chip biases
-
-  Name                 Descriptioon
-  -------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Vterm                Sets bias of terminator transistor in experimental diffusor circuit for local influence of neighboring Qs - ignore.
-  Vrefhres             Sets source bias of terminator transistor in diffusor.
-  VthAGC               Sets input to diffpair for VQ. This is labelled "Vref' in fig. 3 of the aforementioned paper.
-  Vrefreadout          Experimental (BPF) - ignore.
-  BiasDACBufferNBias   This can be used to buffer the outputs of the local DACs. To use it, there is a jumper on the board that must be bridged.
-  Vrefract             Controls the refractory period of the neurons. Ideally they would have a refractory period limiting the neurons in the highest frequency channel to one spike per cycle. A lower bias gives a longer refractory period. Note that this is both an off-chip bias and an on-chip bias - the off-chip bias dominates in case of conflict.
-  PreampAGCThr         Threshold for microphone preamp AGC gain reduction turn on.
-  VrefPreamp           Set the reference voltage for the on-chip preamp.
-  NeuronRp             Sets bias current of threshold comparator in neuron. Note that this is both an off-chip bias and an on-chip bias - the off-chip bias dominates in case of conflict.
-  Vthbpf1x             Experimental (BPF) - ignore.
-  Vioffbpfn            Experimental (BPF) - ignore.
-  NeuronVLeak          Controls the leak current of the neuron. Note that this is both an off-chip bias and an on-chip bias - the off-chip bias dominates in case of conflict.
-  DCOutputlevel        Microphone DC output level to chip
-  Vthbpf2x             Experimental (BPF) - ignore.
-  DACSpOut2            Experimental (Test DAC) ignore.
-  DACSpOut1            Experimental (Test DAC) ignore.
-  Vth4                 Set the threshold for the last (fourth) neuron in each ganglion. By convention this is a lower voltage c.f. Vth1, leading to a less responsive and less active neuron.
-  VCas2x               Experimental (LPF) - ignore.
-  Vrefo                Experimental (LPF) - ignore.
-  Vrefn2               Experimental (BPF) - ignore.
-  Vq                   Sets tau of feedback amp in SOS.
-  Vpf                  Sets bias current for scanner follower.
-  Vgain                Adjusts the input current to the neurons.
-  Vrefn                Experimental (BPF) - ignore.
-  VAI0                 Experimental (BPF) - ignore.
-  Vdd1                 Powers up DAC.
-  Vth1                 Set the threshold for the first neurons in each ganglion. By convention this is a higher voltage c.f. Vth4, leading to a more responsive and active neuron.
-  Vref                 Experimental (LPF) - ignore.
-  Vtau                 Sets tau of forward amp in SOS.
-  VcondVt              Sets threshold for an experimental conductance-based neuron in the BPF filter bank - ignore.
-  Vpm                  Sets bias of vertical conductor of diffusor for gain.
-  Vhm                  Sets bias of horizontal conductor of diffusor for gain.
-
-### Combined table
-
-In this table, the above tables are combined, making it clear where an
-on-chip bias has been doubled with an off-chip bias:
-
-  **Name(s)**                        **On-chip**   **Off-chip**   **Indicative voltage value**
-  ---------------------------------- ------------- -------------- -------------------------------
-  VAGC                               Y                            0.029
-  Curstartbpf                        Y                            2.046
-  DACBufferNb / BiasDACBufferNBias   Y             Y              
-  Vbp                                Y                            2.552
-  IBias20OpAmp                       Y                            2.958
-  N.C.                               Y                            
-  Vsetio                             Y                            
-  Vdc1                               Y                            
-  NeuronRp                           Y             Y              2.658 (1.214)
-  Vclbtgate                          Y                            1.644
-  Vioff                              Y                            
-  Vbias2                             Y                            2.474
-  IBias10OpAmp                       Y                            2.990
-  Vthbpf2                            Y                            2.962
-  Follbias                           Y                            0.458
-  pdbiasTX                           Y                            
-  Vrefract                           Y             Y              0.444
-  VbampP                             Y                            2.844
-  Vcascode                           Y                            1.081, but see ClbtCasc
-  Vbpf2                              Y                            2.962
-  Ibias10OTA                         Y                            0.066
-  Vthbpf1 / Vthbpf1x                 Y             Y              2.851
-  Curstart                           Y                            
-  Vbias1                             Y                            2,326
-  NeuronVleak                        Y             Y              2.810
-  Vioffbpfn                          Y                            0.000
-  Vcasbpf / VCas2x                   Y             Y              0.000
-  Vdc2                               Y                            
-  Vterm                              Y                            
-  Vclbtcasc                          Y                            Maybe 1.081, but see vCascode
-  reqpuTX                            Y                            1.622
-  Vbpf1                              Y                            2.851
-  Vterm                                            Y              0.000
-  Vrefhres                                         Y              1.537
-  VthAGC                                           Y              1.208
-  Vrefreadout                                      Y              2.166
-  PreampAGCThr / TH                                Y              0.420
-  VrefPreamp                                       Y              0.940
-  Vioffbpfn                                        Y              
-  DCOutputlevel                                    Y              1.213
-  Vthbpf2x                                         Y              
-  DACSpOut2                                        Y              
-  DACSpOut1                                        Y              
-  Vth4                                             Y              0.320
-  Vrefo                                            Y              
-  Vrefn2                                           Y              1.340
-  Vq / VRefQ                                       Y              3.137
-  Vpf                                              Y              1.757
-  Vgain                                            Y              2.784
-  Vrefn                                            Y              1.756
-  VAI0                                             Y              3.116
-  Vdd1                                             Y              
-  Vth1                                             Y              1.923
-  Vref                                             Y              3.063
-  Vtau                                             Y              
-  VcondVt                                          Y              3.250
-  Vpm                                              Y              0.396
-  Vhm                                              Y              0.433
-
-On board and not matched to list above:
-
-CBPF = 1.783
-
-RX = 0.353

@@ -18,7 +18,6 @@ dynamic vision and audio sensors when using them together.
   - [DAVIS240 synchronisation](#davis240-synchronisation)
     - [External input events](#external-input-events)
     - [Timestamp synchronization](#timestamp-synchronization)
-  - [DAS1 synchronisation](#das1-synchronisation)
 - [Synchronising devices of different types](#synchronising-devices-of-different-types)
 
 ## Device synchronisation overview
@@ -28,7 +27,6 @@ over USB:
 
 -   [DVS128](#dvs128-synchronisation)
 -   [DAVIS240](#davis240-synchronisation)
--   [DAS1](#das1-synchronisation)
 -   FX3 development board
 
 In order to utilize the timestamps from more than one device, either
@@ -45,7 +43,7 @@ events into their event streams.
 All devices use one of two compatible protocols, with minor differences
 between these two protocols:
 
--   DVS128, DAS1 and DAVIS240 with logic from 2014 use protocol 1.
+-   DVS128, and DAVIS240 with logic from 2014 use protocol 1.
 -   DAVIS240 with logic from 2015 and FX3 development boards use
     protocol 2.
 
@@ -87,7 +85,7 @@ and what is an event injection signal. This also means we can reliably
 detect when a clock is fed into a device and automatically figure out if
 it\'s a slave or a master, as described above.
 
-The DVS128 and DAS1 only have two pins total, so there are software
+The DVS128 only have two pins total, so there are software
 switches to select if it\'s a master, meaning its OUT pin will generate
 a synchronisation clock and its IN pin will be used to inject special
 events, or a slave, meaning both the IN and OUT pins are dedicated to
@@ -189,11 +187,11 @@ not used.
 The signal voltage is 5V.
 
 **Warning! The signal voltage in DAVIS240 is different to that of
-DVS128 or DAS1 - If you wish to synchronise between DAVIS240 and
-DVS128/DAS1, please ask us for [more
+DVS128 - If you wish to synchronise between DAVIS240 and
+DVS128, please ask us for [more
 information](#synchronising-devices-of-different-types) -
-directly connecting DAVIS240 to DVS128/DAS1 may damage the
-DVS128/DAS1!)**
+directly connecting DAVIS240 to DVS128 may damage the
+DVS128!)**
 
 To synchronise two devices you need a stereo 3.5mm plug patch cable.
 When directly connecting two devices, use a cable like this:
@@ -268,23 +266,6 @@ video.
 
 <img src="media/synchronisation_DAVIS240_ex2.png" width="600">
 
-### DAS1 synchronisation
-
-<img src="media/synchronisation_DAS1.png" width="600">
-
-The Dynamic Audio Sensor belongs to the same generation of devices as
-the [DVS128](#dvs128-synchronisation), and as such is
-synchronized in exactly the same way. Please [refer to the guide
-above](#dvs128-synchronisation).
-
-Three pins are present, which have the same functionality as the ones in
-DVS128. The voltage (3.3V) and the protocol are the same.
-
-Master/slave mode has to be selected via software, the only thing
-changing is the AEChip that has to be selected in jAER:
-***ch.unizh.ini.jaer.chip.cochlea.CochleaAMS1c***, as well as the name
-of the menu: ***CochleaAMS1c*** instead of DVS128.
-
 ## Synchronising devices of different types
 
 All iniLabs devices use a [compatible
@@ -292,18 +273,18 @@ protocol](#synchronisation-protocol-and-event-injection)
 for synchronization. The only difference between devices is the voltage
 of the involved signals.
 
--   DVS128 and DAS1 use 3.3V.
+-   DVS128 use 3.3V.
 -   DAVIS240 uses 5V.
 -   The FX3 development boards can use both 3.3V and 5V, selectable via
     a jumper.
 
 Given the different signal voltages, a DAVIS240 cannot be connected
-directly to a DVS128 or DAS1. While having it act as a slave and receive
-3.3V from a DVS128/DAS1 should be safe, it is not guaranteed to work
+directly to a DVS128. While having it act as a slave and receive
+3.3V from a DVS128 should be safe, it is not guaranteed to work
 correctly.
 
 The other way around, having a DAVIS240 act as a master for a
-DVS128/DAS1, can damage the slave device, and should not be done.
+DVS128, can damage the slave device, and should not be done.
 
-If you need to synchronize DAVIS240 with DVS128/DAS1, please contact our
+If you need to synchronize DAVIS240 with DVS128, please contact our
 support department for more information.

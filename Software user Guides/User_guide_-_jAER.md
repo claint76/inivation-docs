@@ -332,8 +332,7 @@ annotation you want.
     > best performance from the new FX3 prototypes.
 
   - > A compatible hardware device (e.g.
-    > [<span class="underline">DVS128, DAVIS240,
-    > DAS1</span>](http://www.inilabs.com/products/)), unless you intend
+    > [<span class="underline">DVS128, DAVIS240</span>](http://www.inilabs.com/products/)), unless you intend
     > to work with recorded data.
 
   - > A Java Runtime Environment installation, version 1.8 or newer, for
@@ -666,7 +665,6 @@ iniLabs:
 | DAVIS240A                  | eu.seebetter.ini.chips.davis.DAVIS240A    |
 | DAVIS240B                  | eu.seebetter.ini.chips.davis.DAVIS240B    |
 | DAVIS240C                  | eu.seebetter.ini.chips.davis.DAVIS240C    |
-| DAS1                       | ch.unizh.ini.jaer.chip.CochleaAMS1c       |
 | DAVIS128, DAVIS128\_RGB    | eu.seebetter.ini.chips.davis.DAVIS128     |
 | DAVIS346, DAVIS346\_RGB    | eu.seebetter.ini.chips.davis.DAVIS346B    |
 | DAVIS346B                  | eu.seebetter.ini.chips.davis.DAVIS346cBSI |
@@ -929,11 +927,12 @@ following dialogue:
 
 ![](media/image18.png)
 
-Use this dialogue to choose the right firmware file. For example, for
-the DAS1, the correct firmware file is:
+Use this dialogue to choose the right firmware file.
 
+**|point| JUST CHANGE IT!!!! MAYBE IS IMPORTANT!!!!
+For example, for the DAS1, the correct firmware file is:
 devices \\ firmware \\ CypressFX2 \\ firmware\_FX2LP\_Cochleaams1c \\
-firmwareFX2\_Cochleaams1c.bix
+firmwareFX2\_Cochleaams1c.bix**
 
 Once you do this, unplug and replug the device and it should start.
 
@@ -1303,7 +1302,7 @@ logging, and displaying AER from systems is very useful, the true power
 of this representation is explored by doing things with the events.
 
 Adding a new event filter is the way you can process events from your
-system (retina, cochlea, multineuron learning chip, etc) in jAER. You
+system (retina, multineuron learning chip, etc) in jAER. You
 can develop your own event processing filter by following these steps:
 
 1.  > Subclass *net.sf.jear.eventprocessing.EventFilter2D*

@@ -10,7 +10,7 @@ This guide explains how to use our “Flashy” tool to benefit from
 firmware and logic upgrades. It also documents USB drivers for inilabs
 devices.
 
-Our DVS128, DAVIS240, DAS1 and FX3 prototypes have a programmable logic
+Our DVS128, DAVIS240 and FX3 prototypes have a programmable logic
 device (CPLD or FPGA) for directly interfacing with the sensor chip, and
 another chip for communication via USB (usually a Cypress FX2/3). In
 this guide:

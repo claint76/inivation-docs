@@ -40,7 +40,6 @@ correct user guide:
 | <img src="media/eDVS.png" width="400">            | **eDVS** <br/><br/> A credit-card-sized S-mount PCB with a 128x128 DVS embedded with a 4337 microcontroller, with UART connectors, on-board IMU and microSD, PWM outputs, and optional network adapter.                                                                       | http://www.inivation.com/support/edvs |
 | <img src="media/Pushbot.png" width="400">         | **Pushbot** <br/><br/> A robotic platform; ideal for working with the eDVS to quickly prototype sensing behaving systems.                                                                                                                                                     | http://www.inivation.com/support/edvs |
 | <img src="media/DAVIS240A_B_C.png" width="400">   | **DAVIS240A/B/C** <br/><br/> A CS-mount bare-board camera, with a 240x180 DAVIS (DVS plus simultaneous global-shutter intensity frames) and word-serial AER (10x higher data rates). It has a USB 2.0 interface (direct AER interface is also possible) and on-board IMU.     | http://www.inivation.com/support/davis240 |
-| <img src="media/DAS1.png" width="400">            | **DAS1** <br/><br/> A stereo x 64 channel dynamic audio sensor (silicon cochlea).                                                                                                                                                                                           | http://www.inivation.com/support/das |
 
 # Software for event processing
 
@@ -63,7 +62,7 @@ The eDVS has a microcontroller on board so you can directly implement
 event-based visual processing algorithms; or you can stream the events
 to further hardware via UART.
 
-The DVS128\_PAER and the DAS1 both have a parallel AER bus for direct
+The DVS128\_PAER has a parallel AER bus for direct
 connection to other neuromorphic devices. You can also directly access
 the word-serial AER bus pins on the DAVIS240.
 

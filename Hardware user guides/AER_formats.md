@@ -17,9 +17,6 @@ guide](https://www.inilabs.com/support/faq/).*
 - [DAVIS346](#davis346)
 - [DAVIS640](#davis640)
 - [H-DAVIS640](#h-davis640)
-- [DAS1 (CochleaAMS1b/AMS1c)](#das1-cochleaams1bams1c)
-- [CochleaLP](#cochlealp)
-- [CochleaTow4Ear](#cochleatow4ear)
 
 ## Introduction
 
@@ -57,8 +54,7 @@ with an Enable signal and enabling it only during phase (2).
 
 The format of the data depends on the sensor type and size.
 
-The DVS128 with PAER connector, as well as the DAS1 and the Cochleas
-have a parallel AER interface, meaning all the data for an event is
+The DVS128 with PAER connector have a parallel AER interface, meaning all the data for an event is
 pushed out at once from the chip. In the following detailed
 descriptions, this is called 'Simple AER protocol'.
 
@@ -191,61 +187,6 @@ if XSelect = '1' then
 else
 
     Y Address, address is: 8 bits, 7 downto 0, 9-8 are don't care
-
-end if;
-```
-
-## DAS1 (CochleaAMS1b/AMS1c)
-```
-AER bus width: 10 (9 downto 0)
-
-Simple AER protocol
-
-Neuron is: 2 bits, 9 downto 8. Specify one of 4 neurons with range of
-VTs
-
-Channel is: 6 bits, 7 downto 2. Channel 0 is hi freq, Channel 63 is low
-frequency
-
-Ear L/R is: 1 bit, on 1 (1 - Right, 0 - Left)
-
-Filter type SOS/BPF: 1 bit, on 0 (1 - SOS, 0 - BPF)
-```
-
-## CochleaLP
-```
-AER bus width: 8 (7 downto 0)
-
-Simple AER protocol
-
-Channel is: 6 bits, 7 downto 2
-
-Ear L/R is: 1 bit, on 1 (0 - Right, 1 - Left)
-
-Polarity is: 1 bit, on 0 (0 - ON, 1 - OFF)
-```
-
-## CochleaTow4Ear
-```
-AER bus width: 10 (9 downto 0), B9 to B0
-
-XSelect is: 9
-
-if XSelect = '1' then
-
-    Neuron is: 2 bits, 2 downto 1
-
-    0 and 3-8 are don't care
-
-else
-
-    Selects L/R pair or T/B pair: 1 bit, on 7 (L/R is B7=0, T/B is B7=1)
-
-    Channel is: 7 bits, 6 downto 0 (for each pair L/R or T/B)
-
-    Ear L/R or T/B (depending on B7) is: 1 bit, on 0
-
-    8 is don't care
 
 end if;
 ```
