@@ -14,9 +14,7 @@ DAVIS240C):
 
 <img src="media/DAVIS240.png" width="600"> 
 
-If you are confused about which device you have, please see the
-[support overview](http://www.inilabs.com/support/overview).
-
+## Table of contents
 - [Introduction](#introduction)
 - [Getting started](#getting-started)
 - [Install USB driver](#install-usb-driver)
@@ -32,6 +30,7 @@ If you are confused about which device you have, please see the
   - [Connectors](#connectors)
   - [DAVIS to CAVIAR adapter](#davis-to-caviar-adapter)
   - [DAVIS AER cables](#davis-aer-cables)
+- [AER format](#aer-format)
 - [Receiving address-events directly from the chip](#receiving-address-events-directly-from-the-chip)
 - [Firmware upgrades](#firmware-upgrades)
 - [Dimensions](#dimensions)
@@ -289,6 +288,75 @@ another device:
     connector with other device.
 
 In the SAMTEC product codes, X is the length of the cable in inches.
+
+## AER format
+
+All neuromorphic chips sold by iniLabs use the AER (Address Event
+Representation) protocol to transmit events off-chip in an asynchronous
+manner.
+
+The AER protocol is a simple protocol using a variable number of lines
+(bus) to transmit data, and two lines (REQ and ACK) to synchronize the
+data between the sender and the receiver asynchronously using a
+four-phase handshake. (This is also called a bundled asynchronous
+protocol). The ACK and REQ lines are active-low.
+
+here is explained the protocol from the receiver's perspective,
+where REQ is to be considered an input and ACK an output:
+
+1.  The receiver waits for the REQ line to be asserted by the sender
+2.  At this point, the data on the bus can be considered valid and stored
+3.  The receiver confirms having read the data by asserting ACK
+4.  It then waits until the sender has again deasserted REQ, deasserts ACK itself and goes back to wait in (1) for the next transaction
+
+The following website has number of very detailed explanations for
+further reading:
+
+[http://www.cl.cam.ac.uk/\~djg11/wwwhpr/fourphase/fourphase.html](http://www.cl.cam.ac.uk/~djg11/wwwhpr/fourphase/fourphase.html)
+
+Also, for details on AER, please look at:
+
+[https://www.ini.uzh.ch/\~amw/scx/std002.pdf](https://www.ini.uzh.ch/~amw/scx/std002.pdf)
+
+For FPGA implementations, we recommend synchronizing at least the REQ
+input using a double-flip-flop synchronizer. Data itself should also
+synchronized in this way, or by connecting it directly to a register
+with an Enable signal and enabling it only during phase (2).
+
+The format of the data depends on the sensor type and size.
+
+All current iniLabs DAVIS sensors employ a serial data
+format, meaning that the X and Y addresses are not output concurrently,
+but separately one after the other.
+
+One extra data bit, called XSelect, is used to disambiguate between the
+two types of address.
+
+Current sensors employ a row-wise readout scheme, so a Y (row) address
+will always be followed by a series of one or more X (column) addresses.
+The column address will also contain the Polarity information bit.
+
+NOTE: DAVIS240 A/B/C sensors may produce glitches known as "row-only
+events", where a Y (row) address is followed immediately by another Y
+(row) address. In this case, just discard the earlier address.
+
+The format for DAVIS240 is documented in detail below:
+
+```
+AER bus width: 10 (9 downto 0)
+
+XSelect is: 9
+
+if XSelect = '1' then
+
+    X Address, address is: 8 bits, 8 downto 1, polarity on 0
+
+else
+
+    Y Address, address is: 8 bits, 7 downto 0, 8 is don't care
+
+end if;
+```
 
 ## Receiving address-events directly from the chip
 
