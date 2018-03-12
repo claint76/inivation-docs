@@ -1,3 +1,5 @@
+# User Guide - Reflashing Devices
+
 *Our documentation is regularly being improved along with our products.
 If this guide is missing the answer to any question you may have, please
 don’t hesitate to ask us on the appropriate
