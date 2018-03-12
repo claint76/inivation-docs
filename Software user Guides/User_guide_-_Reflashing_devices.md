@@ -1,12 +1,6 @@
 # User Guide - Reflashing Devices
-
-*Our documentation is regularly being improved along with our products.
-If this guide is missing the answer to any question you may have, please
-don’t hesitate to ask us on the appropriate
-[<span class="underline">issues
-tracker</span>](https://github.com/inilabs/flashy/issues/). First you
-could try our* *[<span class="underline">troubleshooting
-guide</span>](https://www.inilabs.com/support/faq/).*
+> *For more informations, visit [iniVation support](https://inivation.com/support/)*
+---
 
 This guide explains how to use our “Flashy” tool to benefit from
 firmware and logic upgrades. It also documents USB drivers for inilabs
@@ -17,54 +11,28 @@ device (CPLD or FPGA) for directly interfacing with the sensor chip, and
 another chip for communication via USB (usually a Cypress FX2/3). In
 this guide:
 
-  - > “firmware” refers to the programming of the communication chip;
+  - “firmware” refers to the programming of the communication chip;  
+  - “logic” refers to the programmable logic.
 
-  - > “logic” refers to the programmable logic.
+## Table of contents
 
-[<span class="underline">What is Flashy?</span>](#what-is-flashy)
-
-[<span class="underline">How to install
-Flashy</span>](#how-to-install-flashy)
-
-> [<span class="underline">Getting Flashy</span>](#getting-flashy)
-> 
-> [<span class="underline">Building Flashy</span>](#building-flashy)
-
-[<span class="underline">How to use Flashy</span>](#how-to-use-flashy)
-
-> [<span class="underline">Launching Flashy</span>](#launching-flashy)
-> 
-> [<span class="underline">Selecting a
-> device</span>](#selecting-a-device)
-> 
-> [<span class="underline">Linux</span>](#linux)
-> 
-> [<span class="underline">Windows - Using Zadig to install WinUSB
-> driver</span>](#windows---using-zadig-to-install-winusb-driver)
-> 
-> [<span class="underline">Troubleshooting zadig driver
-> installation:</span>](#troubleshooting-zadig-driver-installation)
-> 
-> [<span class="underline">Windows 7
-> example:</span>](#windows-7-example)
-> 
-> [<span class="underline">Windows 10
-> example:</span>](#windows-10-example)
-> 
-> [<span class="underline">Section 1: erasing the
-> EEPROM</span>](#section-1-erasing-the-eeprom)
-> 
-> [<span class="underline">Section 2: uploading firmware for the first
-> time</span>](#section-2-uploading-firmware-for-the-first-time)
-> 
-> [<span class="underline">Section 3: uploading new firmware and new
-> logic</span>](#section-3-uploading-new-firmware-and-new-logic)
-
-[<span class="underline">DAVIS240 problem with early
-prototypes</span>](#davis240-problem-with-early-prototypes)
-
-[<span class="underline">Which device? Which firmware? Which
-logic?</span>](#which-device-which-firmware-which-logic)
+- [What is Flashy?](#what-is-flashy)
+- [How to install Flashy](#how-to-install-flashy)
+  - [Getting Flashy](#getting-flashy)
+  - [Building Flashy](#building-flashy)
+- [How to use Flashy](#how-to-use-flashy)
+  - [Launching Flashy](#launching-flashy)
+  - [Selecting a device](#selecting-a-device)
+    - [Linux](#linux)
+    - [Windows - Using Zadig to install WinUSB driver](#windows---using-zadig-to-install-winusb-driver)
+      - [Troubleshooting zadig driver installation:](#troubleshooting-zadig-driver-installation)
+        - [Windows 7 example:](#windows-7-example)
+        - [Windows 10 example:](#windows-10-example)
+    - [Section 1: erasing the EEPROM](#section-1-erasing-the-eeprom)
+    - [Section 2: uploading firmware for the first time](#section-2-uploading-firmware-for-the-first-time)
+    - [Section 3: uploading new firmware and new logic](#section-3-uploading-new-firmware-and-new-logic)
+- [DAVIS240 problem with early prototypes](#davis240-problem-with-early-prototypes)
+- [Which device? Which firmware? Which logic?](#which-device-which-firmware-which-logic)
 
 # What is Flashy?
 
@@ -88,14 +56,14 @@ version 1.8.0 u40. The sourcecode is available in the iniLabs GIT
 repository
 at:
 
-[<span class="underline">https://github.com/inilabs/flashy</span>](https://github.com/inilabs/flashy)
+[https://github.com/inilabs/flashy](https://github.com/inilabs/flashy)
 
 It can be opened as a Maven project in both NetBeans and Eclipse.
 
 Directly runnable JARs can be found
 at:
 
-[<span class="underline">https://github.com/inilabs/flashy/releases</span>](https://github.com/inilabs/flashy/releases)
+[https://github.com/inilabs/flashy/releases](https://github.com/inilabs/flashy/releases)
 
 The latest official version is 0.9.8. Use the -with-dependencies JAR for
 easy deployment.
@@ -116,38 +84,38 @@ recent enough; see note above. Also please note that you do NOT need to
 build it to use it. Make sure you choose the “release-profile” to build
 and run:
 
-![](media/image19.png)
+<p align="center"><img src="media/flashy_building.png" width="500" /></p>
 
 # How to use Flashy
 
 If you have an older device which still contains old firmware and logic,
 you will first need to erase its EEPROM. Flashy automatically detects
 when this is the case and offers you the option. Take a look at
-[<span class="underline">Section
-1</span>](#section-1-erasing-the-eeprom) for detailed instructions.
+[Section
+1](#section-1-erasing-the-eeprom) for detailed instructions.
 
 If you have a device with an empty EEPROM, the first thing to do then is
 to upload a temporary firmware, which is then used to write the new,
 final firmware to EEPROM and upload the new logic. Please see
-[<span class="underline">Section
-2</span>](#section-2-uploading-firmware-for-the-first-time) for details
+[Section
+2](#section-2-uploading-firmware-for-the-first-time) for details
 on this.
 
 Once you have a running, new firmware, you can just update the firmware
 or logic with a new revision at the click of a button. See
-[<span class="underline">Section
-3</span>](#section-3-uploading-new-firmware-and-new-logic) for details.
+[Section
+3](#section-3-uploading-new-firmware-and-new-logic) for details.
 
 ## Launching Flashy
 
 Flashy is launched by executing the jar file:
 
-Flashy-0.9.8-jar-with-dependencies.jar
+> Flashy-0.9.8-jar-with-dependencies.jar
 
 To execute this JAR, on Windows it should work to just double-click it.
 On Linux or Mac Os X, open a shell prompt and enter:
 
-java -jar Flashy-0.9.8-jar-with-dependencies.jar
+> java -jar Flashy-0.9.8-jar-with-dependencies.jar
 
 Note: Make sure that jAER or cAER are not running at the same time\!
 
@@ -167,24 +135,24 @@ file and reload udev.
 You must grant your user access to the USB device. This can be achieved
 by creating, as root, the appropriate udev rules files:
 
-/etc/udev/rules.d/65-inilabs.rules
+> /etc/udev/rules.d/65-inilabs.rules
 
-/etc/udev/rules.d/66-inilabs\_dev.rules
+> /etc/udev/rules.d/66-inilabs\_dev.rules
 
 You can find ready-to-use udev rules files in
-[<span class="underline">our Git
-repository</span>](https://github.com/inilabs/devices-bin/tree/master/drivers/linux/udev-rules).
+[our Git
+repository](https://github.com/inilabs/devices-bin/tree/master/drivers/linux/udev-rules).
 
 If you’re using a distribution that supports SELinux tags, such as
 Fedora, please use the udev rules files in the selinux/ sub-folder.
 
 To reload the udev system without rebooting type, as root:
 
-$ udevadm control --reload-rules
+> $ udevadm control --reload-rules
 
 or, for newer udev versions:
 
-$ udevadm control --reload
+> $ udevadm control --reload
 
 Now unplug and replug the camera into your computer. You’re done\!
 
@@ -206,26 +174,20 @@ Thesycon UsbIO driver installed for your camera device. This must be
 substituted with the WinUSB driver (standard USB driver from Microsoft).
 Fortunately, doing so is easy with the Zadig tool.
 
-## 
-
-Zadig is available from [<span class="underline">its official
-website</span>](http://zadig.akeo.ie/).
-
-## 
+Zadig is available from [its official
+website](http://zadig.akeo.ie/).
 
 Once you start Zadig, you should see a list of devices. If not, go to
 options and tick “List all devices”. Make sure you choose the correct
 device (not for instance your mouse\!).
 
 Then click *Install WCID Driver* to install the WinUSB driver:
-([<span class="underline">WCID
-devices</span>](https://github.com/pbatard/libwdi/wiki/WCID-Devices) are
+([WCID
+devices](https://github.com/pbatard/libwdi/wiki/WCID-Devices) are
 installed automatically for new instances of devices plugged into the
 computer).
 
-## 
-
-## ![](media/image9.png)
+<p align="center"><img src="media/flashy_zadig_driver_install.png" width="600" /></p>
 
 If you already have a device installed, you may instead need to select
 *Replace Driver* rather than *Install WCID Driver*. You should check
@@ -234,9 +196,7 @@ driver installed.
 
 You will be notified once done.
 
-## 
-
-## ![](media/image10.png)
+<p align="center"><img src="media/flashy_zadig_driver_installed.png" width="500" /></p>
 
 You should now see the correct driver (WinUSB Generic Device) in the
 Device Manager. The llibUSB and libUSBK drivers should NOT be installed;
@@ -245,35 +205,36 @@ or libusbK APIs.
 
 #### Troubleshooting zadig driver installation:
 
-1.  > We have seen that in some cases, after taking these steps, you
-    > need to restart your computer in order for Flashy to not give the
-    > “Impossible to open device....” message.
+1.  We have seen that in some cases, after taking these steps, you
+    need to restart your computer in order for Flashy to not give the
+    “Impossible to open device....” message.
+2.  We have also seen that Zadig does not list the device even when it
+    is shown as “Unknown Device” in the Device Manager. In this case,
+    you may need to extract the WinUSB driver manually. In Zadig,
+    switch to *Options/Advanced mode* and use the folder icon to
+    select a folder to extract the driver files to. Then use the usual
+    Windows driver installer dialog to search this folder for the
+    driver.
 
-2.  > We have also seen that Zadig does not list the device even when it
-    > is shown as “Unknown Device” in the Device Manager. In this case,
-    > you may need to extract the WinUSB driver manually. In Zadig,
-    > switch to *Options/Advanced mode* and use the folder icon to
-    > select a folder to extract the driver files to. Then use the usual
-    > Windows driver installer dialog to search this folder for the
-    > driver.  
-    > ![](media/image8.png)![](media/image22.png)
+<img src="media/flashy_zadig_throubleshooting.png" width="500" />
+<img src="media/flashy_zadig_throubleshooting2.png" width="400" />
 
 After driver installation, you should see the driver installed in the
 Device Manager as shown below:
 
 ##### Windows 7 example:
 
-## ![](media/image17.png)
+<p align="center"><img src="media/flashy_zadig_driver_install_win7.png" width="700" /></p>
 
 ##### Windows 10 example:
 
-![](media/image14.png)
+<p align="center"><img src="media/flashy_zadig_driver_install_win10.png" width="700" /></p>
 
 Note that because iniLabs uses a vendor/product identification (VID/PID)
 range purchased from Thesycon, Windows will identify the driver as shown
 below; this is OK.
 
-![](media/image18.png)
+<p align="center"><img src="media/flashy_zadig_driver_install_identification.png" width="500" /></p>
 
 ## Section 1: erasing the EEPROM
 
@@ -283,17 +244,17 @@ firmware will usually appear as “INI SeeBetter null”.
 
 Navigate then to the “Device Specific” tab on the right.
 
+<p align="center"><img src="media/flashy_erase_eeprom.png" width="500" /></p>
+
 You will be presented with your only option of erasing the current
 content of the EEPROM.
 
 Please click on it and wait for the process to complete.
 
+<p align="center"><img src="media/flashy_erase_eeprom2.png" width="500" /></p>
+
 Once done, close Flashy and unplug the device. Plug it in again and
-continue to Section 2.
-
-## 
-
-##   
+continue to Section 2. 
 
 ## Section 2: uploading firmware for the first time
 
@@ -307,6 +268,8 @@ appear as “null null null”.
 
 Navigate then to the “Device Specific” tab on the right.
 
+<p align="center"><img src="media/flashy_upload_firmware.png" width="500" /></p>
+
 There you will need to select a file, containing the firmware you wish
 to upload, and then press the appropriate button. The needed firmware
 can be found in our Git repository.
@@ -314,11 +277,13 @@ can be found in our Git repository.
 For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
 file:
 
-[<span class="underline">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic\_DAVIS.bix</span>](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix)
+[https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic\_DAVIS.bix](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix)
 (BIX format)
 
 For DVS128 reprogramming, please also use the same DAVIS240 file as
 above at this step\!
+
+<p align="center"><img src="media/flashy_upload_firmware2.png" width="500" /></p>
 
 This upload is usually completed very quickly, you may just see the
 progress bar window flash by. Don’t be alarmed by this, it’s expected.
@@ -334,90 +299,94 @@ DAVIS FX2”, followed by their serial number.
 
 Navigate then to the “Device Specific” tab on the right.
 
+<p align="center"><img src="media/flashy_upload_firmware_logic.png" width="500" /></p>
+
 The following screen will appear:
+
+<p align="center"><img src="media/flashy_upload_firmware_logic2.png" width="700" /></p>
 
 As you can see, it’s divided into three parts:
 
-A) The first row is concerned with updating the firmware of the USB chip
-of the device (Cypress FX2 or FX3, depending on the board you have). You
-can either load new firmware, or erase the EEPROM (“Erase Flash”
-button). To load new firmware, select the appropriate file, and then
-press the “Flash FX2/3 firmware” button.
+1.  The first row is concerned with updating the firmware of the USB chip
+    of the device (Cypress FX2 or FX3, depending on the board you have). You
+    can either load new firmware, or erase the EEPROM (“Erase Flash”
+    button). To load new firmware, select the appropriate file, and then
+    press the “Flash FX2/3 firmware” button.
 
-For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
-file:
+    For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
+    file:
 
-[<span class="underline">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic\_DAVIS.iic</span>](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)
-(IIC format)
+    [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic\_DAVIS.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)
+    (IIC format)
 
-For DVS128 boards, it’s a different
-file:
+    For DVS128 boards, it’s a different
+    file:
 
-[<span class="underline">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2\_RetinaCPLD.iic</span>](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)
-(IIC format)
+    [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2\_RetinaCPLD.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)
+    (IIC format)
 
-B) The second row is used to update the logic (bitstream) on the
-CPLD/FPGA.
+2. The second row is used to update the logic (bitstream) on the
+    CPLD/FPGA.
 
-Select the appropriate file and press “Upload CPLD bitstream”. Uploading
-new logic to the small board CPLD requires about 4 minutes.
+    Select the appropriate file and press “Upload CPLD bitstream”. Uploading
+    new logic to the small board CPLD requires about 4 minutes.
 
-All bitstream binaries can be found in the following directory in our
-Git
-repository:
+    All bitstream binaries can be found in the following directory in our
+    Git
+    repository:
 
-[<span class="underline">https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/</span>](https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/)
+    [https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/](https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/)
 
-For DAVIS240 V4 boards (small USB 2.0 boards), use the following files:
+    For DAVIS240 V4 boards (small USB 2.0 boards), use the following files:
 
-  - > DAVIS240a chips -\>
-    > [<span class="underline">MachXO\_DAVIS/SystemLogic2\_MachXO\_DAVIS240a.xsvf</span>](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)
+      - DAVIS240a chips -\>
+        [MachXO\_DAVIS/SystemLogic2\_MachXO\_DAVIS240a.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)
 
-  - > DAVIS240b chips -\>
-    > [<span class="underline">MachXO\_DAVIS/SystemLogic2\_MachXO\_DAVIS240b.xsvf</span>](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)
+      - DAVIS240b chips -\>
+        [MachXO\_DAVIS/SystemLogic2\_MachXO\_DAVIS240b.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)
 
-  - > DAVIS240c chips -\>
-    > [<span class="underline">MachXO\_DAVIS/SystemLogic2\_MachXO\_DAVIS240c.xsvf</span>](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf)
+      - DAVIS240c chips -\>
+        [MachXO\_DAVIS/SystemLogic2\_MachXO\_DAVIS240c.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf)
 
-For DVS128 boards, uploading new logic is not usually required. If you
-still think it’s needed in your case, the following file is the right
-one:
+    For DVS128 boards, uploading new logic is not usually required. If you
+    still think it’s needed in your case, the following file is the right
+    one:
 
-[<span class="underline">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128\_logic.xsvf</span>](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
+    [https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128\_logic.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
 
-While flashing firmware or logic, you should see a progress dialog like
-this; if you don’t see this progress bar then there is some error, most
-likely an outdated Java version.
+    While flashing firmware or logic, you should see a progress dialog like
+    this; if you don’t see this progress bar then there is some error, most
+    likely an outdated Java version.
 
-![](media/image13.png)
+    <p align="center"><img src="media/flashy_dialog.png" width="800" /></p>
 
-C) The third row can be used to set the device’s serial number.
+3. The third row can be used to set the device’s serial number.
 
-Just enter up to 8 characters into the text field and press “Write
-Serial Number”. This should only be done the very first time, when the
-device still shows its default serial number of “00000000”.
+    Just enter up to 8 characters into the text field and press “Write
+    Serial Number”. This should only be done the very first time, when the
+    device still shows its default serial number of “00000000”.
 
-Please don’t change the serial number unless you really need to, and be
-prepared to read tiny numbers printed on the board in case of support
-requests to us if you do.
+    Please don’t change the serial number unless you really need to, and be
+    prepared to read tiny numbers printed on the board in case of support
+    requests to us if you do.
 
-Once you’re done, close Flashy and unplug the device.
+    Once you’re done, close Flashy and unplug the device.
 
-After plugging it in again, you’re ready to go\! Enjoy your up-to-date
-iniLabs camera.
+    After plugging it in again, you’re ready to go\! Enjoy your up-to-date
+    iniLabs camera.
 
 # DAVIS240 problem with early prototypes
 
 If you cannot flash the EEPROM please take a look at the camera’s upper
 side and make sure your device looks as follows:
 
-![](media/image16.png)
+<p align="center"><img src="media/flashy_early_prototypes.png" width="800" /></p>
 
 If your device shows two rows of resistors instead of one as in the
 following image, please get in touch with us at
-[<span class="underline">support@inilabs.com</span>](mailto:support@inilabs.com)
+[support@inilabs.com](mailto:support@inilabs.com)
 
-![](media/image21.png)
+<p align="center"><img src="media/flashy_early_prototypes2.png" width="800" /></p>
 
 # Which device? Which firmware? Which logic?
 
@@ -432,32 +401,32 @@ following image, please get in touch with us at
 <tbody>
 <tr class="odd">
 <td><strong>DVS128</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic</span></a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic</a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf</a></td>
 </tr>
 <tr class="even">
 <td><strong>DAVIS240C</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic</span></a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic</a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf</a></td>
 </tr>
 <tr class="odd">
 <td><strong>DAVIS240B</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic</span></a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic</a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf</a></td>
 </tr>
 <tr class="even">
 <td><strong>DAVIS240A</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic</span></a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic</a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf</a></td>
 </tr>
 <tr class="odd">
 <td><strong>DAVIS346</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS346_80MHz_16bit_v4.img"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS346_80MHz_16bit_v4.img</span></a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS/SystemLogic2_MachXO3_DAVIS346.bit"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS/SystemLogic2_MachXO3_DAVIS346.bit</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS346_80MHz_16bit_v4.img">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS346_80MHz_16bit_v4.img</a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS/SystemLogic2_MachXO3_DAVIS346.bit">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS/SystemLogic2_MachXO3_DAVIS346.bit</a></td>
 </tr>
 <tr class="even">
 <td><strong>DevKit FX3 USB 3.0</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_80MHz_16bit_v4.img"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_80MHz_16bit_v4.img</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_80MHz_16bit_v4.img">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_80MHz_16bit_v4.img</a></td>
 <td><table>
 <thead>
 <tr class="header">
@@ -468,23 +437,23 @@ following image, please get in touch with us at
 <tbody>
 <tr class="odd">
 <td>V10 - DAVIS640</td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit</a></td>
 </tr>
 <tr class="even">
 <td>V9 - DAVIS346B</td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit</a></td>
 </tr>
 <tr class="odd">
 <td>V8 - DAVIS346Cbsi</td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit"><span class="underline">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit</a></td>
 </tr>
 </tbody>
 </table></td>
 </tr>
 <tr class="odd">
 <td><strong>DYNAP-SE-1</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/blob/master/firmware/CypressFX2/SeeBetterLogic_Dynapse.iic"><span class="underline">https://github.com/inilabs/devices-bin/blob/master/firmware/CypressFX2/SeeBetterLogic_Dynapse.iic</span></a></td>
-<td><a href="https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/Spartan6_Dynapse/"><span class="underline">https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/Spartan6_Dynapse/</span></a></td>
+<td><a href="https://github.com/inilabs/devices-bin/blob/master/firmware/CypressFX2/SeeBetterLogic_Dynapse.iic">https://github.com/inilabs/devices-bin/blob/master/firmware/CypressFX2/SeeBetterLogic_Dynapse.iic</a></td>
+<td><a href="https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/Spartan6_Dynapse/">https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/Spartan6_Dynapse/</a></td>
 </tr>
 </tbody>
 </table>
