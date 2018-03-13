@@ -577,68 +577,17 @@ Here is an example of recorded data:
 
 The various elements are listed in this table:
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Item</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Example from above</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Time slice</td>
-<td>The period of time covered by the currently rendered frame.</td>
-<td>80.0ms</td>
-</tr>
-<tr class="even">
-<td>Absolute time</td>
-<td>The last timestamp in the last event packet to be completely processed before the screen refresh.</td>
-<td>112.920s</td>
-</tr>
-<tr class="odd">
-<td>Raw events</td>
-<td>The number of events used to render the current frame</td>
-<td><p>136236evts</p>
-<p>evts is events</p></td>
-</tr>
-<tr class="even">
-<td>Filtered events</td>
-<td><p>The number of events used after filtering</p>
-<p>This count includes APS samples from a DAVIS. If no filters are applied then only raw events are shown</p></td>
-<td><p>129144evts</p>
-<p>In this case, a BackgroundActivity filter is eliminating some events so the number of filtered events is slightly lower</p></td>
-</tr>
-<tr class="odd">
-<td>The event rate</td>
-<td>The number of events that being produced per second</td>
-<td><p>1614.7Keps</p>
-<p>eps is events per second</p></td>
-</tr>
-<tr class="even">
-<td>The play rate</td>
-<td>A multiplication factor of playback speed with regards to real time. This can also display “Paused” if the viewer is paused.</td>
-<td><p>1.6 X</p>
-<p>This means that playback is 1.6 times faster than real time. If you see e.g. “400mX”, this means 0.4 times real time</p></td>
-</tr>
-<tr class="odd">
-<td>The actual frame rate and the desired frame rate.</td>
-<td>The actual frame rate should never exceed the desired frame rate. The desired frame rate can can be set to a value between 1 and 1000fps</td>
-<td><p>20/32fps</p>
-<p>In this case the viewer is trying to render 32 frames per second, but it only achieves 20 because of high computational load.</p></td>
-</tr>
-<tr class="even">
-<td>The delay after a frame is rendered</td>
-<td>The amount of time that the process is idle before the main loop begins again - this gives an indication of processor load.</td>
-<td>1ms</td>
-</tr>
-<tr class="odd">
-<td>FS - Full (Colour) Scale</td>
-<td>For certain event rendering modes, the number of events with a single address within the time slice of the frame necessary to render the corresponding pixel with full colour. You can think of this as a contrast control for the display - a higher number means a lower contrast.</td>
-<td>FS=3</td>
-</tr>
-</tbody>
-</table>
+| Item    | Description         | Example from above                                                                                       |
+| -------- | --------------- | ------------------------------------------------------------------------------------------------- |
+| Time slice        | The period of time covered by the currently rendered frame.                                       | 80.0ms
+| Absolute time     | The last timestamp in the last event packet to be completely processed before the screen refresh. | 112.920s
+| Raw events        | The number of events used to render the current frame                                             | 136236evts (evts is events)
+| Filtered events   | The number of events used after filtering. This count includes APS samples from a DAVIS. If no filters are applied then only raw events are shown | 129144evts <br/> In this case, a BackgroundActivity filter is eliminating some events so the number of filtered events is slightly lower
+| The event rate    | The number of events that being produced per second                                               | 1614.7Keps (eps is events per second)
+| The play rate     | A multiplication factor of playback speed with regards to real time. This can also display “Paused” if the viewer is paused. | 1.6 X <br/> This means that playback is 1.6 times faster than real time. If you see e.g. “400mX”, this means 0.4 times real time
+| The actual frame rate and the desired frame rate. | The actual frame rate should never exceed the desired frame rate. The desired frame rate can can be set to a value between 1 and 1000fps | 20/32fps <br/> In this case the viewer is trying to render 32 frames per second, but it only achieves 20 because of high computational load.
+| The delay after a frame is rendered | The amount of time that the process is idle before the main loop begins again - this gives an indication of processor load. | 1ms
+| FS - Full (Colour) Scale | For certain event rendering modes, the number of events with a single address within the time slice of the frame necessary to render the corresponding pixel with full colour. You can think of this as a contrast control for the display - a higher number means a lower contrast. | FS=3
 
 The infobar is the same for live data, except that the play rate is
 replaced with Live/seq, as shown here:
@@ -661,7 +610,7 @@ If you do not see this infobar, you may need to resize your window. In
 the example
 above:
 
-| **Item**   | **Description**                                                                                                                | **Example from above** |
+| Item       | Description                                                                                                                    | Example from above     |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
 | Frame      | this is the number of APS frames since the beginning of the recording or from when the live device was plugged in.             | 84744                  |
 | Exposure   | this is the effective exposure duration (this should always match the target exposure duration in the HW configuration panel). | 2.20 ms                |
@@ -1750,35 +1699,14 @@ Controls
 - Section IMU (DAVIS only)
   - Switch of Enable and Display unless needed
 
-## 
-
 ## General Keyboard Shortcuts
 
-<table>
-<thead>
-<tr class="header">
-<th>Space</th>
-<th>Pause/restart display (during either real-time or playback)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Arrows</td>
-<td><p>Up/down: FS (number of events needed to be included in frame)</p>
-<p>Left/right: Frame bin size</p></td>
-</tr>
-<tr class="even">
-<td>C</td>
-<td>Cycle through event colour schemes</td>
-</tr>
-<tr class="odd">
-<td>L</td>
-<td>Log events file start/stop</td>
-</tr>
-</tbody>
-</table>
-
-## 
+| Key    | Action                                          |
+| ------ | ----------------------------------------------- |
+| Space  | Pause/restart display (during either real-time or playback)                                    |
+| Arrows | Up/down: FS (number of events needed to be included in frame) <br/> Left/right: Frame bin size |
+| C      | Cycle through event colour schemes                        |
+| L      | Log events file start/stop |
 
 ## Playback Mode
 
@@ -1787,8 +1715,9 @@ File → Open logged data file
 File → Playback logged data immediately… (useful with L command to
 immediately preview)
 
-| S      | Slow down playback                              |
+| Key    | Action                                          |
 | ------ | ----------------------------------------------- |
+| S      | Slow down playback                              |
 | F      | Faster playback                                 |
 | 3      | 3D rendering mode on/off                        |
 | Ctrl-W | Close playback window, return to live view mode |
