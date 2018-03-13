@@ -256,7 +256,7 @@ reset and signal read) according to the following scheme:
 The following image explains the same thing in a more graphic way (IMU
 data is not shown in this graphic, however):
 
-<p align="center"><img src="media/apsDVS-event-raw.png" width="800" /></p>
+<p align="center"><img src="media/apsDVS-event-raw.png" width="800"/></p>
 
 Frames, in this format, are laid out as a sequence of events, one for
 each pixel. The timestamp for each pixel is also stored and corresponds

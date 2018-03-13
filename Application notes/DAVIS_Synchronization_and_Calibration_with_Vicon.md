@@ -22,11 +22,12 @@ in a synchronization configuration file (GPO, General Purpose Output),
 which is uploaded in the Vicon Application Software,
 [Nexus](https://www.vicon.com/products/software/nexus).
 
-<p align="center">
-<img src="media/vicon_rear_panel.png" width="700">
+<p align="center"><img src="media/vicon_rear_panel.png" width="700"/></p>
 
 <p align="center">
-<img src="media/vicon_gui.png" width="300"> <img src="media/vicon_rear_panel2.png" width="420">
+<img src="media/vicon_gui.png" width="300"/>
+<img src="media/vicon_rear_panel2.png" width="420"/>
+</p>
 
 For our specific application we defined a GPO configuration file,
 supplied with Nexus, *Duration.gpo*, that specified the characteristics
@@ -46,8 +47,7 @@ picture). The reference cable connects one non triggered Sync Output
 Socket with the pin 5 (yellow cable). The pink cable in the pictures is
 connected to the GND (pin 1).
 
-<p align="center">
-<img src="media/vicon_davis_conn.png" width="400">
+<p align="center"><img src="media/vicon_davis_conn.png" width="400"/></p>
 
 
 When the DAVIS detect a rising or a falling edge between pin 4 and 5
@@ -58,8 +58,7 @@ To enable the detection of the special events in jAER, it is needed to
 go to the hardware configuration panel, then Exterrnal Input Config Tab,
 and enable the ExInput.RunDetector:Enable signal detector.
 
-<p align="center">
-<img src="media/jaer_enable_special_event.png" width="600">
+<p align="center"><img src="media/jaer_enable_special_event.png" width="600"/></p>
 
 The black cable in the picture is used to synchronize the master DAVIS
 camera with the other slaves cameras. Pin 8, Sync Clk Out, generate an
@@ -72,8 +71,7 @@ triggered by the Vicon. In this way, the four camera DAVIS sys  tem is
 synchronized to the first DAVIS camera, triggered by the Vicon.
 
 <br/>
-<p align="center">
-<img src="media/vicon_synch_structure.png" width="800">
+<p align="center"><img src="media/vicon_synch_structure.png" width="800"/></p>
 <br/><br/>
 
 # Calibration with the Vicon
@@ -109,28 +107,23 @@ We expressed the basic vector of the frame, in the Vicon coordinate
 system, as a set of vectors, linearly independent and orthogonal. The
 basis vector of the Vicon system can be written as:
 
-<p align="center">
-<img src="media/vicon_basis_vector.png" width="300">
+<p align="center"><img src="media/vicon_basis_vector.png" width="300"/></p>
 
 The position of the same frame basis vector referred from the DAVIS1 can
 be estimated through triangulation. In this way it is possible to define
 the 3D coordinate of each markers at the extremities of the frame X, Y
 and Z, coordinate of the basis vector in the DAVIS1 system.
 
-<p align="center">
-<img src="media/vicon_coordinates_basis_vector.png" width="300">
+<p align="center"><img src="media/vicon_coordinates_basis_vector.png" width="300"/></p>
 
 In the DAVIS1 space the basis vector can be defined as:
 
-<p align="center">
-<img src="media/vicon_basis_vector2.png" width="300">
+<p align="center"><img src="media/vicon_basis_vector2.png" width="300"/></p>
 
 The transformation matrix T<sub>Vicon-\>1</sub> is so defined:
 
-<p align="center">
-<img src="media/vicon_transformation_matrix.png" width="300">
+<p align="center"><img src="media/vicon_transformation_matrix.png" width="300"/></p>
 
 An example of calibration with Vicon:
 
-<p align="center">
-<img src="media/vicon_example_synch.png" width="700">
+<p align="center"><img src="media/vicon_example_synch.png" width="700"/></p>

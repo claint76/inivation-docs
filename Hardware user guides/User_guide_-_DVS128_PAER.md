@@ -11,8 +11,7 @@ guide](https://www.inilabs.com/support/faq/).*
 
 This user guide covers DVS128\_PAER devices:
 
-<p align="center">
-<img src="media/DVS128_PAER.png" width="500">
+<p align="center"> <img src="media/DVS128_PAER.png" width="500"/></p>
 
 If you are confused about which device you have, please see the
 [support overview](http://www.inilabs.com/support/overview).
@@ -35,8 +34,9 @@ is designed to passively monitor ("sniff") the AER bus without affecting
 communication with other hardware.
 
 <p align="center">
-<img src="media/DVS128_PAER_front.png" width="400">
-<img src="media/DVS128_PAER_back.png" width="400">
+<img src="media/DVS128_PAER_front.png" width="350" />
+<img src="media/DVS128_PAER_back.png" width="300" />
+</p>
 
 The DVS128\_PAER uses a Silicon Laboratories C8051F320 microcontroller.
 On the host side, the same USB driver that communicates with the DVS128
@@ -73,8 +73,7 @@ REQ/ACK jumper is shorted (see below).
 
 ### DVS128\_PAER LEDs and Jumpers
 
-<p align="center">
-<img src="media/DVS128_PAER_conn.png" width="700">
+<p align="center"> <img src="media/DVS128_PAER_conn.png" width="700"/></p>
 
 There are two LEDs, L1 and L2 at the top center of the PCB:
 

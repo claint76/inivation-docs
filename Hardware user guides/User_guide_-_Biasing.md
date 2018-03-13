@@ -99,8 +99,7 @@ The DVS128 uses a design of bias generator with a 24 bit
 value which controls each current. Here is the control tab for the
 DVS128:
 
-<p align="center">
-<img src="media/bias_control_tab_DVS128.png" width="800">
+<p align="center"><img src="media/bias_control_tab_DVS128.png" width="800"/></p>
 
 Each row represents a bias and has the name, sex, type, slider and
 value. The sex indicates whether the bias is applied to an N- or P-type
@@ -132,8 +131,7 @@ calculated values.
 
 Here is the control tab for the DAVIS240:
 
-<p align="center">
-<img src="media/bias_control_tab_DAVIS240.png" width="800">
+<p align="center"><img src="media/bias_control_tab_DAVIS240.png" width="800"/></p>
 
 In this case, the bias currents are created by [a two-stage coarse-fine
 circuit](https://www.ini.uzh.ch/~tobi/wiki/lib/exe/fetch.php?media=yangcfbiasgeniscas2012_-_final.pdf).
@@ -188,8 +186,7 @@ detail.
 The DAS1 also makes extensive use of voltage biases, which are supplied
 from an external DAC. Here is the panel which controls these:
 
-<p align="center">
-<img src="media/bias_control_tab_DAS1.png" width="800"> 
+<p align="center"><img src="media/bias_control_tab_DAS1.png" width="800"/></p>
 
 In this case, the slider linearly encodes a value from 0 to 5V. The DACs
 are 12 bit, and since there are not 4096 pixels across the screen, the
@@ -250,8 +247,7 @@ effectively with biases; detailed knowledge of analogue electronics is
 not required. Here is an abstracted diagram of the DVS pixel (taken from
 Lichtsteiner et al. 2008):
 
-<p align="center">
-<img src="media/DVS_pixel.png" width="400">
+<p align="center"><img src="media/DVS_pixel.png" width="400"/></p>
 
 This shows that there are 3 parts of the DVS pixel:
 
@@ -511,8 +507,7 @@ We have seen that the speeds of the first and second stage circuits can
 be modified independently from each other. Consider the example shown in
 this diagram:
 
-<p align="center">
-<img src="media/many_events.png" width="800">
+<p align="center"><img src="media/many_events.png" width="800"/></p>
 
 Let's assume that there is an instantaneous increase in light which is
 large enough to produce three threshold changes, given the choice of the
@@ -638,8 +633,7 @@ regions. The following image was created by accumulating all the ON
 events over several seconds whilst observing the sun at a traffic light.
 The bloom around the sun is apparent:
 
-<p align="center">
-<img src="media/on_events_reconstruction.png" width="600">
+<p align="center"><img src="media/on_events_reconstruction.png" width="600"/></p>
 
 On the other hand, in dark conditions, noise is dominated by irregular
 ON and OFF events, which are more frequent from darker regions. The
@@ -649,8 +643,7 @@ desk. In this case, the cables are black against a white wall, and
 produce more events. The additional events from a light to the bottom of
 the image are due to the light being driven by an oscillating current:
 
-<p align="center">
-<img src="media/on_off_event_reconstruction.png" width="600">
+<p align="center"><img src="media/on_off_event_reconstruction.png" width="600"/></p>
 
 ### Implications for power consumption
 

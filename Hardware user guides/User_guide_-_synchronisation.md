@@ -86,8 +86,7 @@ synchronisation, by respectively receiving and forwarding the clock.
 
 ### DVS128 synchronisation
 
-<p align="center">
-<img src="media/synchronisation_DVS128.png" width="400">
+<p align="center"><img src="media/synchronisation_DVS128.png" width="400"/></p>
 
 Multiple DVS128 cameras can be synchronized to microsecond time-stamp
 precision by connecting them between each other so they can exchange a
@@ -105,8 +104,7 @@ or
 Minimally, however, you just need to use rectangular female header pin
 crimps and a copper cable, as shown in this picture:
 
-<p align="center">
-<img src="media/synchronisation_DVS128_conn.png" width="600">
+<p align="center"><img src="media/synchronisation_DVS128_conn.png" width="600"/></p>
 
 For synchronisation, DVS128 cameras with a firmware version number \>=
 11 should be used, older firmware versions are not synchronized properly
@@ -128,8 +126,7 @@ master (where the OUT is connected) the checkbox \'Timestamp master /
 Enable sync event output\' in the DVS128-menu has to be checked, for the
 slave(s), it has to be unchecked.
 
-<p align="center">
-<img src="media/synchronisation_DVS128_timestamp.png" width="600">
+<p align="center"><img src="media/synchronisation_DVS128_timestamp.png" width="600"/></p>
 
 The master camera keeps its bottom LED lit, while the slaves extinguish
 theirs.
@@ -160,21 +157,18 @@ their address (bit 15).
 
 ### DAVIS240 synchronisation
 
-<p align="center">
-<img src="media/synchronisation_DAVIS240.png" width="600">
+<p align="center"><img src="media/synchronisation_DAVIS240.png" width="600"/></p>
 
 Synchronisation of different devices is a feature that DAVIS240 performs
 through two 3.5mm audio jacks, one at each side of the device. These are
 labelled "IN" and "OUT" on the back of the device (although these are
 written back to front), as in this image:
 
-<p align="center">
-<img src="media/synchronisation_DAVIS240_conn.png" width="600">
+<p align="center"><img src="media/synchronisation_DAVIS240_conn.png" width="600"/></p>
 
 The pinout of these jacks is as follows:
 
-<p align="center">
-<img src="media/synchronisation_DAVIS240_jack_pinout.png" width="300">
+<p align="center"><img src="media/synchronisation_DAVIS240_jack_pinout.png" width="300"/></p>
 
 - Pin 1: Ground (external first circle of an audio jack from the cable, "sleeve").
 - Pin 3: Signal (external 2nd circle).
@@ -195,14 +189,12 @@ DVS128!)**
 To synchronise two devices you need a stereo 3.5mm plug patch cable.
 When directly connecting two devices, use a cable like this:
 
-<p align="center">
-<img src="media/synchronisation_DAVIS240_cables.png" width="300">
+<p align="center"><img src="media/synchronisation_DAVIS240_cables.png" width="300"/></p>
 
 If needing to access the two signals separately, you should instead use
 cables like these:
 
-<p align="center">
-<img src="media/synchronisation_DAVIS240_cables_2.png" width="300">
+<p align="center"><img src="media/synchronisation_DAVIS240_cables_2.png" width="300"/></p>
 
 You can get these from digikey or any AV store.
 
@@ -224,8 +216,7 @@ and select the "External Input Config" tab. Then enable the detection
 using the top radio button and select the mode by the other buttons
 below:
 
-<p align="center">
-<img src="media/synchronisation_DAVIS240_chained.png" width="600">
+<p align="center"><img src="media/synchronisation_DAVIS240_chained.png" width="600"/></p>
 
 #### Timestamp synchronization
 
@@ -260,15 +251,13 @@ sacrificed 3.5mm audio patch cable. The setup is shown below. The person
 being filmed in the video stands at the foot of the stairs alongside a
 blinking LED bike light and was bouncing a tennis ball.
 
-<p align="center">
-<img src="media/synchronisation_DAVIS240_ex1.png" width="600">
+<p align="center"><img src="media/synchronisation_DAVIS240_ex1.png" width="600"/></p>
 
 See [this video of the synchronized
 playback](https://youtu.be/E7TQBlZ8rJ0) of the recorded
 video.
 
-<p align="center">
-<img src="media/synchronisation_DAVIS240_ex2.png" width="600">
+<p align="center"><img src="media/synchronisation_DAVIS240_ex2.png" width="600"/></p>
 
 ## Synchronising devices of different types
 

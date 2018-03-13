@@ -4,8 +4,7 @@
 
 This page is about the eDVS4337, launched in 2014:
 
-<p align="center">
-<img src="media/eDVS.png" width="600">
+<p align="center"><img src="media/eDVS.png" width="600"/></p>
 
 If you are confused about which device you have, please see the
 [support
@@ -107,18 +106,15 @@ processing algorithms.
 
 **Front:**
 
-<p align="center">
-<img src="media/eDVS_front.png" width="600">
+<p align="center"><img src="media/eDVS_front.png" width="600"/></p>
 
 **Back:**
 
-<p align="center">
-<img src="media/eDVS_back.png" width="600">
+<p align="center"><img src="media/eDVS_back.png" width="600"/></p>
 
 **Board Dimensions:**
 
-<p align="center">
-<img src="media/eDVS_dim.png" width="600">
+<p align="center"><img src="media/eDVS_dim.png" width="600"/></p>
 
 ## Getting started
 
@@ -148,8 +144,7 @@ Start jAER and ensure that, in the *AEChip* menu, the
 *ch.unizh.ini.jaer.chip.retina.DVS128 chip* class is selected. If it
 isn't, just search for it in the menu and select it.
 
-<p align="center">
-<img src="media/eDVS_start.png" width="800">
+<p align="center"><img src="media/eDVS_start.png" width="800"/></p>
 
 Click on the *Interface* menu (circled in red above) and select the item
 named *eDVS hardware interface chooser*. In the second half of the
@@ -161,8 +156,7 @@ in jAER, try selecting *rescan* from the drop-down menu or click on
 For devices with serial numbers 613xx, use a Baud rate of 4 Mbps; for
 devices with serial number 126xx, use a Baud rate of 12 Mbps.
 
-<p align="center">
-<img src="media/eDVS_start2.png" width="800">
+<p align="center"><img src="media/eDVS_start2.png" width="800"/></p>
 
 You should now be seeing DVS events on your screen.
 
@@ -312,16 +306,14 @@ datasheet](http://cache.nxp.com/documents/data_sheet/LPC435X_3X_2X_1X.pdf?fpsp=1
 On the PCB, this pin is pulled up to VCC through a pull-up resistor by
 default, as can be seen here:
 
-<p align="center">
-<img src="media/eDVS_force_program.png" width="600">
+<p align="center"><img src="media/eDVS_force_program.png" width="600"/></p>
 
 The track highlighted in red on the under-side of the board is the pin
 in question, and to pull it down you can simply short it momentarily
 with GND. The following schematic extract shows also all the nearby GND
 pads:
 
-<p align="center">
-<img src="media/eDVS_track_force_program.png" width="800">
+<p align="center"><img src="media/eDVS_track_force_program.png" width="800"/></p>
 
 While the pin is shorted to GND, press the RESET button (blue button on
 both sides of the board) and release it. If done correctly, the LED
@@ -735,8 +727,7 @@ usual](#accessing-the-device-manually). The commands are
 also the same, but certain ones, to enable or disable the motors for
 example, will now work on the PushBot.
 
-<p align="center">
-<img src="media/eDVS_push_bot.png" width="600">
+<p align="center"><img src="media/eDVS_push_bot.png" width="600"/></p>
 
 The PushBot gets really interesting if you've got a WLAN module too, so
 you can actually control the robot from a distance.
@@ -746,8 +737,6 @@ shown below (right UART port on WLAN module to only UART port on PushBot
 back-side). Please ensure that the WLAN module is configured and able to
 connect to a network first!
 
-<p align="center">
-<img src="media/eDVS_wlan.png" width="300">
+<p align="center"><img src="media/eDVS_wlan.png" width="300"/></p>
 
-<p align="center">
-<img src="media/eDVS_wlan_pos.png" width="600">
+<p align="center"><img src="media/eDVS_wlan_pos.png" width="600"/></p>

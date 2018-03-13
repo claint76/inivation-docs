@@ -156,9 +156,9 @@ These screenshots show jAER rendering the output from 3 boards
 simultaneously using various different viewing modes for the spike
 events:
 
-<img src="media/jaer_render_1.png" width="200" />
-<img src="media/jaer_render_2.png" width="300" />
-<img src="media/jaer_render_3.png" width="300" />
+<p align="center"><img src="media/jaer_render_1.png" width="200" /></p>
+<p align="center"><img src="media/jaer_render_2.png" width="300" /></p>
+<p align="center"><img src="media/jaer_render_3.png" width="300" /></p>
 
 ## What is Address-Event Representation (AER)?
 

@@ -39,11 +39,11 @@ During the connection, all the options from caer are gathered together
 and the gui is finalized. This can take up to few seconds, the loading
 time depends on the number of setting that are being exposed by caer.
 
-<img src="media/caerctl-gui-javafx_screen1.png" width="800">
+<p align="center"><img src="media/caerctl-gui-javafx_screen1.png" width="800"/></p>
 
 You can now start changing options and biases.
 
-<img src="media/caerctl-gui-javafx_screen2.png" width="800">
+<p align="center"><img src="media/caerctl-gui-javafx_screen2.png" width="800"/></p>
 
 You can use caer control utility for changing all filters and bias
 settings. Depending on the included modules at compile time, caer will

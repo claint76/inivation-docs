@@ -5,8 +5,7 @@
 This user guide covers DAVIS240 prototypes (DAVIS240A, DAVIS240B, and
 DAVIS240C):
 
-<p align="center">
-<img src="media/DAVIS240.png" width="600"> 
+<p align="center"><img src="media/DAVIS240.png" width="600"/></p> 
 
 ## Table of contents
 - [Introduction](#introduction)
@@ -163,8 +162,7 @@ zadig in the [reflashing guide](http://www.inilabs.com/support/reflashing).
 For support, we may ask you to identify the device by serial number.
 This image shows you where to find it:
 
-<p align="center">
-<img src="media/DAVIS240_serial.png" width="600"> 
+<p align="center"><img src="media/DAVIS240_serial.png" width="600"/></p>
 
 It is a 12 digit number of the form: "6000840100NN". We only use the
 last two digits.
@@ -226,8 +224,7 @@ completely homogeneous is 190 x 180 for DVS and 170 x 180 for APS and
 DVS combined. The differences between these columns can be seen in this
 image:
 
-<p align="center">
-<img src="media/DAVIS240_array_layout.png" width="600"> 
+<p align="center"><img src="media/DAVIS240_array_layout.png" width="600"/></p>
 
 ## Recorded data format
 
@@ -237,8 +234,7 @@ header line starts with \'\#\' and ends with the hex characters 0x0D
 0x0A (CRLF, windows line ending). Then there are a series of 8-byte
 words, of the following format:
 
-<p align="center">
-<img src="media/DAVIS240_out_format.png" width="800"> 
+<p align="center"><img src="media/DAVIS240_out_format.png" width="800"/></p>
 
 Note: An IMU sample is a subclass of an APS type event. 7 words are sent
 in series, these being 3 axes for accel, temperature, and 3 axes for
@@ -250,27 +246,23 @@ gyro - look at jAER's IMUSample class for more info.
 
 There are these connectors to the sides of the front face of the device:
 
-<p align="center">
-<img src="media/DAVIS240_conn.png" width="600"> 
+<p align="center"><img src="media/DAVIS240_conn.png" width="600"/></p>
 
 These shows what these connectors are connected to:
 
-<p align="center">
-<img src="media/DAVIS240_conn1_pinout.png" width="600"> 
+<p align="center"><img src="media/DAVIS240_conn1_pinout.png" width="600"/></p>
 
 (Note that in a previous version of this documentation, AERMonAdd6 and
 AERMonAdd7 were accidentally swapped)
 
-<p align="center">
-<img src="media/DAVIS240_conn2_pinout.png" width="600"> 
+<p align="center"><img src="media/DAVIS240_conn2_pinout.png" width="600"/></p> 
 
 ### DAVIS to CAVIAR adapter
 
 Optionally available is this small PCB that translates the DAVIS AER
 connector to a full CAVIAR compatible connector:
 
-<p align="center">
-<img src="media/DAVIS240_CAVIAR_adapter.png" width="600"> 
+<p align="center"><img src="media/DAVIS240_CAVIAR_adapter.png" width="600"/></p>
 
 If you prefer to design your own adapter, a perfect match for the 40
 pins connector on the DAVIS is a SAMTEC FLE-120-01-G-DV
@@ -280,8 +272,7 @@ pins connector on the DAVIS is a SAMTEC FLE-120-01-G-DV
 The SAMTEC FFSD-20-D-X-01-N can connect the DAVIS AER connector with
 another device:
 
-<p align="center">
-<img src="media/DAVIS240_AER_cables.png" width="300"> 
+<p align="center"><img src="media/DAVIS240_AER_cables.png" width="300"/></p>
 
 -   The SAMTEC FFSD-20-D-X-01-N-R can connect DAVIS AER connector with
     other device with one of the connectors inverted.
@@ -371,8 +362,7 @@ You do this in jAER by ticking the "Enable external AER control" tick
 box on the "Chip configuration" tab of the "Hardware config / Biases"
 window:
 
-<p align="center">
-<img src="media/DAVIS240_receive_ev_from_chip.png" width="600"> 
+<p align="center"><img src="media/DAVIS240_receive_ev_from_chip.png" width="600"/></p>
 
 Alternatively, you can enable AER external control using libcaer as
 shown in this c++ code example
@@ -386,15 +376,12 @@ If we advise you to upgrade your firmware, please read the [reflashing guide](ht
 
 ### Overview
 
-<p align="center">
-<img src="media/DAVIS240_overview.png" width="400"> 
+<p align="center"><img src="media/DAVIS240_overview.png" width="400"/></p>
 
 ### Bottom board
 
-<p align="center">
-<img src="media/DAVIS240_bottom.png" width="400"> 
+<p align="center"><img src="media/DAVIS240_bottom.png" width="400"/></p>
 
 ### Top board
 
-<p align="center">
-<img src="media/DAVIS240_top.png" width="400"> 
+<p align="center"><img src="media/DAVIS240_top.png" width="400"/></p>

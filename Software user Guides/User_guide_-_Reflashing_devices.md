@@ -216,8 +216,10 @@ or libusbK APIs.
     Windows driver installer dialog to search this folder for the
     driver.
 
-<img src="media/flashy_zadig_throubleshooting.png" width="500" />
-<img src="media/flashy_zadig_throubleshooting2.png" width="400" />
+<p align="center">
+<img src="media/flashy_zadig_throubleshooting.png" width="400" />
+<img src="media/flashy_zadig_throubleshooting2.png" width="300" />
+</p>
 
 After driver installation, you should see the driver installed in the
 Device Manager as shown below:
