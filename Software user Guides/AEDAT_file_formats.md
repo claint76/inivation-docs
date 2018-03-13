@@ -60,59 +60,15 @@ format, addressing a couple of shortcomings.
 
 The following table summarizes what software supports which formats:
 
-<table>
-<thead>
-<tr class="header">
-<th>Software</th>
-<th><a href="#aedat-1.0"><strong>AEDAT 1.0</strong></a></th>
-<th><a href="#aedat-2.0"><strong>AEDAT 2.0</strong></a></th>
-<th><a href="#aedat-3.1"><strong>AEDAT 3.0</strong></a></th>
-<th><a href="#aedat-3.0"><strong>AEDAT 3.1</strong></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td>Read</td>
-<td>Write</td>
-<td>Read</td>
-<td>Write</td>
-<td>Read</td>
-<td>Write</td>
-<td>Read</td>
-<td>Write</td>
-</tr>
-<tr class="even">
-<td><a href="http://inilabs.com/support/software/jaer/"><strong>jAER</strong></a></td>
-<td><strong>X</strong></td>
-<td></td>
-<td><strong>X</strong></td>
-<td><strong>X</strong></td>
-<td><p><strong>X</strong></p>
-<p><strong>(RAW format)</strong></p></td>
-<td></td>
-<td><p><strong>X</strong></p>
-<p><strong>(RAW format)</strong></p></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><a href="http://inilabs.com/support/software/caer/"><strong>cAER</strong></a></td>
-<td></td>
-<td></td>
-<td><p><strong>X</strong></p>
-<p><strong>(files only)</strong></p></td>
-<td></td>
-<td><strong>X</strong></td>
-<td></td>
-<td><strong>X</strong></td>
-<td><strong>X</strong></td>
-</tr>
-</tbody>
-</table>
+| Software | AEDAT 1.0 | AEDAT 1.0 | AEDAT 2.0        | AEDAT 2.0 | AEDAT 3.0              | AEDAT 3.0 | AEDAT 3.1      | AEDAT 3.1 |
+|:--------:|:---------:|:---------:|:----------------:|:---------:|:----------------------:|:---------:|:--------------:|:---------:|
+|          | Read      | Write     | Read             | Write     | Read                   | Write     | Read           | Write     |
+| jAER     | X         |           | X                | X         | X (RAW format)         |           | X (RAW format) |           |
+| cAER     |           |           | X*  (files only) |           | X*                     |           | X              | X         |
 
 **X = Complete**
 
-**X = In progress**
+**X\* = In progress**
 
 # Common Version Header
 
@@ -180,7 +136,7 @@ following format to store polarity (luminosity change) events generated
 by the
 device:
 
-| **Bits** | **Meaning**    | **Description**                                                                  |
+| Bits     | Meaning        | Description                                                                      |
 | -------- | -------------- | -------------------------------------------------------------------------------- |
 | 15       | External event | External event detected on the IN pin (TS-Master mode).                          |
 | 14-8     | Y address      | Y event address. (0, 0) in lower left corner of screen.                          |
@@ -257,153 +213,44 @@ The DAVIS camera family stores polarity (luminosity change) events, IMU
 (Inertial Measurement Unit) samples and pixel intensity values (both APS
 reset and signal read) according to the following scheme:
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>31</td>
-<td>Type</td>
-<td>Defines the type of address stored here. ‘0’ means DVS, ‘1’ means APS or IMU (see bits 11-10).</td>
-</tr>
-<tr class="even">
-<td><p>30-12 If IMU:</p>
-<table>
-<thead>
-<tr class="header">
-<th>30-28</th>
-<th>IMU sample type</th>
-<th><p>Type of IMU sample:</p>
-<table>
-<thead>
-<tr class="header">
-<th>0</th>
-<th>Accel X</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Accel Y</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Accel Z</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>Temperature</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Gyro X</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>Gyro Y</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>Gyro Z</td>
-</tr>
-</tbody>
-</table></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>27-12</td>
-<td>IMU sample</td>
-<td>For IMU events, 7 words are sent in series, these being:<br />
-- 3 axes for accel,<br />
-- Temperature,<br />
-- 3 axes for gyro.</td>
-</tr>
-</tbody>
-</table>
-<p>If DVS or APS:</p>
-<table>
-<thead>
-<tr class="header">
-<th>30-22</th>
-<th>Y address</th>
-<th>Y event address. (0, 0) in lower left corner of screen.</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>21-12</td>
-<td>X address</td>
-<td>X event address. (0, 0) in lower left corner of screen.</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="odd">
-<td></td>
-</tr>
-<tr class="even">
-<td>11-10</td>
-<td>Sub-Type</td>
-<td><p>If Type=APS:</p>
-<table>
-<thead>
-<tr class="header">
-<th>00</th>
-<th>APS Reset Read</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>01</td>
-<td>APS Signal Read</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>Unused</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>IMU Sample</td>
-</tr>
-</tbody>
-</table>
-<p>If Type=DVS:</p>
-<table>
-<thead>
-<tr class="header">
-<th>00</th>
-<th>DVS Polarity OFF</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>01</td>
-<td>External Event (same as 11)</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>DVS Polarity ON</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>External Event (same as 01)</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="odd">
-<td>9-0</td>
-<td>ADC sample</td>
-<td>10-bit ADC sample representing pixel intensity. Only for Type=APS, else zero.</td>
-</tr>
-</tbody>
-</table>
+### Bit 31
+| Bits     | Meaning        | Description                                                                          |
+| -------- | -------------- | ------------------------------------------------------------------------------------ |
+| 31       | Type | Defines the type of address stored here. ‘0’ means DVS, ‘1’ means APS or IMU (see bits 11-10). |
+
+---
+### Bit 30-12
+#### IMU:
+| Bits     | Meaning         | Description                                                                                                                                          |
+| -------- | --------------  | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 30-28    | IMU sample type | Type of IMU sample: <br> 0 -> Accel X <br> 1 -> Accel Y <br> 2 -> Accel Z <br> 3 -> Temperature <br> 4 -> Gyro X <br> 5 -> Gyro Y  <br> 6 -> Gyro Z  |
+| 27-12    | IMU sample      | For IMU events, 7 words are sent in series, these being: <br> - 3 axes for accel, <br> - Temperature, <br> - 3 axes for gyro.                        |
+
+#### DVS or APS:
+| Bits     | Meaning         | Description                                                                      |
+| -------- | --------------  | -------------------------------------------------------------------------------- |
+| 30-22    | Y address       | Y event address. (0, 0) in lower left corner of screen.                          |
+| 21-12    | X address       | X event address. (0, 0) in lower left corner of screen.                          |
+
+---
+### Bit 11-10
+#### APS:
+| Bits     | Meaning         | Description                                                                             |
+| -------- | --------------  | --------------------------------------------------------------------------------------- |
+| 11-10    | sub-Type        | 00 -> APS Reset Read <br> 01 -> APS Signal Read <br> 10 -> Unused <br> 11 -> IMU Sample |
+
+#### DVS:
+| Bits     | Meaning         | Description                                                                                                                     |
+| -------- | --------------  | ------------------------------------------------------------------------------------------------------------------------------- |
+| 11-10    | sub-Type        | 00 -> DVS Polarity OFF <br> 01 -> External Event (same as 11) <br> 10 -> DVS Polarity ON <br> 11 -> External Event (Same as 01) |
+
+---
+### Bit 9-0
+| Bits     | Meaning        | Description                                                                      |
+| -------- | -------------- | -------------------------------------------------------------------------------- |
+| 9-0      | ADC sample     | 10-bit ADC sample representing pixel intensity. Only for Type=APS, else zero.    |
+
+---
 
 The following image explains the same thing in a more graphic way (IMU
 data is not shown in this graphic, however):
@@ -541,58 +388,16 @@ This header is specific to each and every event packet.
 The common header has a constant size of 28 bytes and the following
 format:
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-1</td>
-<td>eventType</td>
-<td>Numerical type ID, unique to each event type (see ‘<a href="#53bwez55pmd9">Event Types</a>’ table).</td>
-</tr>
-<tr class="even">
-<td>2-3</td>
-<td>eventSource</td>
-<td>Numerical source ID, identifies who generated the events inside a system.</td>
-</tr>
-<tr class="odd">
-<td>4-7</td>
-<td>eventSize</td>
-<td>Size of one event in bytes.</td>
-</tr>
-<tr class="even">
-<td>8-11</td>
-<td>eventTSOffset</td>
-<td>Offset from the start of an event, in bytes, at which the main 32 bit time-stamp can be found.</td>
-</tr>
-<tr class="odd">
-<td>12-15</td>
-<td>eventTSOverflow</td>
-<td>Overflow counter for the standard 32bit event time-stamp. Used to generate the 64 bit time-stamp.</td>
-</tr>
-<tr class="even">
-<td>16-19</td>
-<td>eventCapacity</td>
-<td><p>Maximum number of events this packet can store.</p>
-<p><em><strong>This always equals eventNumber in files and streams, it can only have a different value for in-memory packets.</strong></em></p></td>
-</tr>
-<tr class="odd">
-<td>20-23</td>
-<td>eventNumber</td>
-<td>Total number of events present in this packet (valid + invalid).</td>
-</tr>
-<tr class="even">
-<td>24-27</td>
-<td>eventValid</td>
-<td>Total number of valid events present in this packet.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning         | Description                                                                                       |
+| -------- | --------------- | ------------------------------------------------------------------------------------------------- |
+| 0-1      | eventType       | Numerical type ID, unique to each event type (see ‘Event Types’ table).                           |
+| 2-3      | eventSource     | Numerical source ID, identifies who generated the events inside a system.                         |
+| 4-7      | eventSize       | Size of one event in bytes.                                                                       | 
+| 8-11     | eventTSOffset   | Offset from the start of an event, in bytes, at which the main 32 bit time-stamp can be found.    |
+| 12-15    | eventTSOverflow | Overflow counter for the standard 32bit event time-stamp. Used to generate the 64 bit time-stamp. |
+| 16-19    | eventCapacity   | Maximum number of events this packet can store. **This always equals eventNumber in files and streams, it can only have a different value for in-memory packets. |
+| 20-23    | eventNumber     | Total number of events present in this packet (valid + invalid).                                  |
+| 24-27    | eventValid      | Total number of valid events present in this packet.                                              |
 
 By multiplying ***eventCapacity*** with ***eventSize***, and adding the
 ***28 bytes of header size***, you can quickly and precisely calculate
@@ -638,83 +443,21 @@ that you number them from 100 upwards.
 
 The following event types are supported by default:
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Event ID</strong></th>
-<th><strong>Event</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>SPECIAL_EVENT</td>
-<td>Encodes special occurrences, such as timestamp related notifications or external input events.</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>POLARITY_EVENT</td>
-<td>Contains change information, with an X/Y address and an ON/OFF polarity. The (0, 0) address is in the upper left corner (standard computer graphics format).</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>FRAME_EVENT</td>
-<td>Encodes intensity frames, like you would get from a normal APS camera. It supports multiple channels for color, as well as multiple Regions of Interest (ROI). The (0, 0) pixel is in the upper left corner (standard computer graphics format).</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>IMU6_EVENT</td>
-<td>Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included.</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>IMU9_EVENT</td>
-<td><p>Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included.</p>
-<p>Further, 3-axes from the magnetometer are included, which can be used to get a compass-like heading.</p></td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>SAMPLE_EVENT</td>
-<td>Represents different types of ADC readings, up to 24 bits of resolution.</td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>EAR_EVENT</td>
-<td>Encodes events from a silicon cochlea chip, containing information about which ear (microphone) generated the event, as well as which channel was involved and additional information on filters and neurons.</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>CONFIG_EVENT</td>
-<td>Contains information about the current configuration of the device. By having configuration as a standardized event format, it becomes host-software agnostic, and it also becomes part of the event stream, enabling easy tracking of changes through time, by putting them into the event stream at the moment they happen. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.</td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>POINT1D</td>
-<td>Contains one dimensional data points as floats, together with support for distinguishing type and scale.</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>POINT2D</td>
-<td>Contains two dimensional data points as floats, together with support for distinguishing type and scale.</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>POINT3D</td>
-<td>Contains three dimensional data points as floats, together with support for distinguishing type and scale.</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>POINT4D</td>
-<td>Contains four dimensional data points as floats, together with support for distinguishing type and scale.</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>SPIKE_EVENT</td>
-<td>Encodes events from a Dynap-se chip. This event contains information about which chipid generated the event, as well as which core id and which neuron. These addresses are available if the user configure the SRAM of the Dynap-se to route out spikes. Therefore the user can mask or route devices depending on the routing scheme that he decides to use.</td>
-</tr>
-</tbody>
-</table>
+| Event ID  | Event             | Description                                                                                       |
+| --------- | ----------------- | ------------------------------------------------------------------------------------------------- |
+| 0         | SPECIAL_EVENT     | Encodes special occurrences, such as timestamp related notifications or external input events.
+| 1         | POLARITY_EVENT    | Contains change information, with an X/Y address and an ON/OFF polarity. The (0, 0) address is in the upper left corner (standard computer graphics format).
+| 2         | FRAME_EVENT       | Encodes intensity frames, like you would get from a normal APS camera. It supports multiple channels for color, as well as multiple Regions of Interest (ROI). The (0, 0) pixel is in the upper left corner (standard computer graphics format).
+| 3         | IMU6_EVENT        | Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included.
+| 4         | IMU9_EVENT        | Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included. Further, 3-axes from the magnetometer are included, which can be used to get a compass-like heading.
+| 5         | SAMPLE_EVENT      | Represents different types of ADC readings, up to 24 bits of resolution.
+| 6         | EAR_EVENT         | Encodes events from a silicon cochlea chip, containing information about which ear (microphone) generated the event, as well as which channel was involved and additional information on filters and neurons.
+| 7         | CONFIG_EVENT      | Contains information about the current configuration of the device. By having configuration as a standardized event format, it becomes host-software agnostic, and it also becomes part of the event stream, enabling easy tracking of changes through time, by putting them into the event stream at the moment they happen. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.
+| 8         | POINT1D           | Contains one dimensional data points as floats, together with support for distinguishing type and scale.
+| 9         | POINT2D           | Contains two dimensional data points as floats, together with support for distinguishing type and scale.
+| 10        | POINT3D           | Contains three dimensional data points as floats, together with support for distinguishing type and scale.
+| 11        | POINT4D           | Contains four dimensional data points as floats, together with support for distinguishing type and scale.
+| 12        | SPIKE_EVENT       | Encodes events from a Dynap-se chip. This event contains information about which chipid generated the event, as well as which core id and which neuron. These addresses are available if the user configure the SRAM of the Dynap-se to route out spikes. Therefore the user can mask or route devices depending on the routing scheme that he decides to use.
 
 Further, the first bit (bit 0) of the first byte of any event is
 reserved to be a validity bit. This bit is used to mark whether an event
@@ -739,300 +482,82 @@ following sections.
 
 ### Special Event
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit data</td>
-<td><p>Holds information on the special event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-7</td>
-<td>Type of special event (up to 128 types supported).</td>
-</tr>
-<tr class="odd">
-<td>8-31</td>
-<td>Optional data (up to 24 bits).</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning         | Description                               |
+| -------- | --------------- | ------------------------------------------|
+| 0-3      | 32 bit data     | Holds information on the special event.   |
+| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.        |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | Validity mark                                     |
+| 1-7      | Type of special event (up to 128 types supported) |
+| 8-31     | Optional data (up to 24 bits)                     |
 
 Currently, the following special event types are defined:
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Type ID</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>TIMESTAMP_WRAP</td>
-<td>A 32 bit timestamp wrap occurred. No ‘optional data’ present.</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>TIMESTAMP_RESET</td>
-<td><p>A timestamp reset occurred. No ‘optional data’ present.</p>
-<p><strong>Note</strong>: Timestamp reset will have the highest possible timestamp value, to ensure it is always the last event of an event stream, and acts thus as a separator between the old and the new event time stream.</p></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>EXTERNAL_INPUT_RISING_EDGE</td>
-<td>A rising edge was detected (External Input module on device). No ‘optional data’ present.</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>EXTERNAL_INPUT_FALLING_EDGE</td>
-<td>A falling edge was detected (External Input module on device). No ‘optional data’ present.</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>EXTERNAL_INPUT_PULSE</td>
-<td>A pulse was detected (External Input module on device). No ‘optional data’ present.</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>DVS_ROW_ONLY</td>
-<td>A DVS row-only event was detected (a row address without any following column addresses). ‘Optional data’ is present, encoding the address of the row that generated this DVS row-only event.</td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>EXTERNAL_INPUT1_RISING_EDGE</td>
-<td>A rising edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>EXTERNAL_INPUT1_FALLING_EDGE</td>
-<td>A falling edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.</td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>EXTERNAL_INPUT1_PULSE</td>
-<td>A pulse was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>EXTERNAL_INPUT2_RISING_EDGE</td>
-<td>A rising edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>EXTERNAL_INPUT2_FALLING_EDGE</td>
-<td>A falling edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>EXTERNAL_INPUT2_PULSE</td>
-<td>A pulse was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>EXTERNAL_GENERATOR_RISING_EDGE</td>
-<td>A rising edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.</td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td>EXTERNAL_GENERATOR_FALLING_EDGE</td>
-<td>A falling edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.</td>
-</tr>
-<tr class="odd">
-<td>14</td>
-<td>APS_FRAME_START</td>
-<td>An APS frame capture has started (Frame Event will follow). No ‘optional data’ present.</td>
-</tr>
-<tr class="even">
-<td>15</td>
-<td>APS_FRAME_END</td>
-<td>An APS frame capture has completed (Frame Event is alongside). No ‘optional data’ present.</td>
-</tr>
-<tr class="odd">
-<td>16</td>
-<td>APS_EXPOSURE_START</td>
-<td>An APS frame exposure has started (Frame Event will follow). No ‘optional data’ present.</td>
-</tr>
-<tr class="even">
-<td>17</td>
-<td>APS_EXPOSURE_END</td>
-<td>An APS frame exposure has completed (Frame Event will follow). No ‘optional data’ present.</td>
-</tr>
-</tbody>
-</table>
+| Type ID   | Type                              | Description                                                                                       |
+| --------- | -----------------                 | ------------------------------------------------------------------------------------------------- |
+| 0         | TIMESTAMP_WRAP                    | A 32 bit timestamp wrap occurred. No ‘optional data’ present.
+| 1         | TIMESTAMP_RESET                   | A timestamp reset occurred. No ‘optional data’ present. **Note:** Timestamp reset will have the highest possible timestamp value, to ensure it is always the last event of an event stream, and acts thus as a separator between the old and the new event time stream.
+| 2         | EXTERNAL_INPUT_RISING_EDGE        | A rising edge was detected (External Input module on device). No ‘optional data’ present.
+| 3         | EXTERNAL_INPUT_FALLING_EDGE       | A falling edge was detected (External Input module on device). No ‘optional data’ present.
+| 4         | EXTERNAL_INPUT_PULSE              | A pulse was detected (External Input module on device). No ‘optional data’ present.
+| 5         | DVS_ROW_ONLY                      | A DVS row-only event was detected (a row address without any following column addresses). ‘Optional data’ is present, encoding the address of the row that generated this DVS row-only event.
+| 6         | EXTERNAL_INPUT1_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.
+| 7         | EXTERNAL_INPUT1_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.
+| 8         | EXTERNAL_INPUT1_PULSE             | A pulse was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.
+| 9         | EXTERNAL_INPUT2_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.
+| 10        | EXTERNAL_INPUT2_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.
+| 11        | EXTERNAL_INPUT2_PULSE             | A pulse was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.
+| 12        | EXTERNAL_GENERATOR_RISING_EDGE    | A rising edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.
+| 13        | EXTERNAL_GENERATOR_FALLING_EDGE   | A falling edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.
+| 14        | APS_FRAME_START                   | An APS frame capture has started (Frame Event will follow). No ‘optional data’ present.
+| 15        | APS_FRAME_END                     | An APS frame capture has completed (Frame Event is alongside). No ‘optional data’ present.
+| 16        | APS_EXPOSURE_START                | An APS frame exposure has started (Frame Event will follow). No ‘optional data’ present.
+| 17        | APS_EXPOSURE_END                  | An APS frame exposure has completed (Frame Event will follow). No ‘optional data’ present.
 
 ### Polarity Event
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit data</td>
-<td><p>Holds information on the polarity (luminosity change) event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>Polarity (luminosity change): ‘1’ means increase (ON), ‘0’ means decrease (OFF).</td>
-</tr>
-<tr class="odd">
-<td>2-16</td>
-<td>Y event address, up to 15 bits. (0, 0) in upper left corner of screen.</td>
-</tr>
-<tr class="even">
-<td>17-31</td>
-<td>X event address, up to 15 bits. (0, 0) in upper left corner of screen.</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning         | Description                               |
+| -------- | --------------- | ------------------------------------------|
+| 0-3      | 32 bit data     | Holds information on the polarity (luminosity change) event.   |
+| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.        |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                                                      |
+| -------- | -------------------------------------------------                                |
+| 0        | Validity mark                                                                    |
+| 1        | Polarity (luminosity change): ‘1’ means increase (ON), ‘0’ means decrease (OFF). |
+| 2-16     | Y event address, up to 15 bits. (0, 0) in upper left corner of screen.           |
+| 17-31    | X event address, up to 15 bits. (0, 0) in upper left corner of screen.           |
 
 ### Frame Event
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit info</td>
-<td><p>Holds information on the frame event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-3</td>
-<td><p>Color channels number, to track multiple color channels, for example RGB. Valid values are:</p>
-<p><em><strong>GRAYSCALE(1), RGB(3)</strong></em> and <em><strong>RGBA(4)</strong></em>.</p></td>
-</tr>
-<tr class="odd">
-<td>4-7</td>
-<td><p>Color filter information, used for interpolating color images (demosaicing). Valid values are:</p>
-<p><em><strong>MONO(0), RGBG(1), GRGB(2), GBGR(3), BGRG(4), RGBW(5), GRWB(6), WBGR(7), BWRG(8)</strong></em>.</p></td>
-</tr>
-<tr class="even">
-<td>8-14</td>
-<td>ROI (Region of Interest) identifier (up to 128).</td>
-</tr>
-<tr class="odd">
-<td>15-31</td>
-<td>Reserved for future expansion.</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>32 bit Start of Frame Capture timestamp</td>
-<td>Event-level microsecond Start of Frame Capture timestamp.</td>
-</tr>
-<tr class="odd">
-<td>8-11</td>
-<td>32 bit End of Frame Capture timestamp</td>
-<td>Event-level microsecond End of Frame Capture timestamp. <strong>NOTE:</strong> This timestamp is considered the primary timestamp for the purpose of ordering packets.</td>
-</tr>
-<tr class="even">
-<td>12-15</td>
-<td>32 bit Start of Exposure timestamp</td>
-<td>Event-level microsecond Start of Exposure timestamp.</td>
-</tr>
-<tr class="odd">
-<td>16-19</td>
-<td>32 bit End of Exposure timestamp</td>
-<td>Event-level microsecond End of Exposure timestamp.</td>
-</tr>
-<tr class="even">
-<td>20-23</td>
-<td>X length</td>
-<td>X axis length in pixels.</td>
-</tr>
-<tr class="odd">
-<td>24-27</td>
-<td>Y length</td>
-<td>Y axis length in pixels.</td>
-</tr>
-<tr class="even">
-<td>28-31</td>
-<td>X position</td>
-<td>X axis position (upper left offset) in pixels.</td>
-</tr>
-<tr class="odd">
-<td>32-35</td>
-<td>Y position</td>
-<td>Y axis position (upper left offset) in pixels.</td>
-</tr>
-<tr class="even">
-<td>36-End of Event</td>
-<td>Pixels</td>
-<td>Pixel array, 16 bit unsigned integers, normalized to 16 bit depth. Values represent intensity at that pixel and are ready for direct display. First pixel (0, 0) is in upper left corner of screen. Pixels are laid out row by row (increasing X axis), going from top to bottom (increasing Y axis). While the pixel array goes on until the end of the Frame event, only the pixels up to (‘X length’ * ‘Y length’ * ‘Channel number’) are actually valid and contain relevant data. The rest have a value of zero and should not be accessed.</td>
-</tr>
-</tbody>
-</table>
+| Bytes             | Meaning                                    | Description                               |
+| --------          | ---------------                            | ------------------------------------------|
+| 0-3               | 32 bit data                                | Holds information on the frame event.     |
+| 4-7               | 32 bit Start of Frame Capture timestamp    | Event-level microsecond Start of Frame Capture timestamp.        |
+| 8-11              | 32 bit End of Frame Capture timestamp      | Event-level microsecond End of Frame Capture timestamp. NOTE: This timestamp is considered the primary timestamp for the purpose of ordering packets.  
+| 12-15             | 32 bit Start of Exposure timestamp         | Event-level microsecond Start of Exposure timestamp.
+| 16-19             | 32 bit End of Exposure timestamp           | Event-level microsecond End of Exposure timestamp. 
+| 20-23             | X length                                   | X axis length in pixels.
+| 24-27             | Y length                                   | Y axis length in pixels.  
+| 28-31             | X position                                 | X axis position (upper left offset) in pixels.  
+| 32-35             | Y position                                 | Y axis position (upper left offset) in pixels.  
+| 36-End of Event   | Pixels                                     | Pixel array, 16 bit unsigned integers, normalized to 16 bit depth. Values represent intensity at that pixel and are ready for direct display. First pixel (0, 0) is in upper left corner of screen. Pixels are laid out row by row (increasing X axis), going from top to bottom (increasing Y axis). While the pixel array goes on until the end of the Frame event, only the pixels up to (‘X length’ * ‘Y length’ * ‘Channel number’) are actually valid and contain relevant data. The rest have a value of zero and should not be accessed.
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                                                      |
+| -------- | -------------------------------------------------------------------------------- |
+| 0        | Validity mark                                                                    |
+| 1-3      | Color channels number, to track multiple color channels, for example RGB. Valid values are: **GRAYSCALE(1)**, **RGB(3)** and **RGBA(4)**. |
+| 4-7      | Color filter information, used for interpolating color images (demosaicing). Valid values are: **MONO(0)**, **RGBG(1)**, **GRGB(2)**, **GBGR(3)**, **BGRG(4)**, **RGBW(5)**, **GRWB(6)**, **WBGR(7)**, **BWRG(8)**.   |
+| 8-14     | ROI (Region of Interest) identifier (up to 128).           |
+| 15-31    | Reserved for future expansion.                             |
 
 A frame is considered to be one event - a “frame event”. A frame packet
 may contain 1 or more frame events. Multiplying **eventSize** by
@@ -1080,81 +605,24 @@ right, Y going up and Z towards where the lens is pointing. Rotation for
 the gyroscope is counter-clockwise along the increasing axis, for all
 three axes.
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit info</td>
-<td><p>Holds information on the IMU 6-axes event.</p>
-<p><em><strong>This is needed right now only to hold the validity mark, and is sized to 4 bytes for performance/alignment reasons.</strong></em></p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-31</td>
-<td>Reserved for future expansion</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-<tr class="odd">
-<td>8-11</td>
-<td>accel_x (float)</td>
-<td>Acceleration in the X axis, measured in g (9.81m/s²).</td>
-</tr>
-<tr class="even">
-<td>12-15</td>
-<td>accel_y (float)</td>
-<td>Acceleration in the Y axis, measured in g (9.81m/s²).</td>
-</tr>
-<tr class="odd">
-<td>16-19</td>
-<td>accel_z (float)</td>
-<td>Acceleration in the Z axis, measured in g (9.81m/s²).</td>
-</tr>
-<tr class="even">
-<td>20-23</td>
-<td>gyro_x (float)</td>
-<td>Rotation in the X axis, measured in °/s.</td>
-</tr>
-<tr class="odd">
-<td>24-27</td>
-<td>gyro_y (float)</td>
-<td>Rotation in the Y axis, measured in °/s.</td>
-</tr>
-<tr class="even">
-<td>28-31</td>
-<td>gyro_z (float)</td>
-<td>Rotation in the Z axis, measured in °/s.</td>
-</tr>
-<tr class="odd">
-<td>32-35</td>
-<td>temp (float)</td>
-<td>Temperature, measured in °C.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning          | Description                               |
+| -------- | ---------------- | ------------------------------------------|
+| 0-3      | 32 bit info      | Holds information on the special event. **This is needed right now only to hold the validity mark, and is sized to 4 bytes for performance/alignment reasons.**  |
+| 4-7      | 32 bit timestamp | Event-level microsecond timestamp.        |
+| 8-11     | accel_x (float)  | Acceleration in the X axis, measured in g (9.81m/s²).        |
+| 12-15    | accel_y (float)  | Acceleration in the Y axis, measured in g (9.81m/s²)..        |
+| 16-19    | accel_z (float)  | Acceleration in the Z axis, measured in g (9.81m/s²).        |
+| 20-23    | gyro_x (float)   | Rotation in the X axis, measured in °/s.        |
+| 24-27    | gyro_y (float)   | Rotation in the Y axis, measured in °/s.       |
+| 28-31    | gyro_z (float)   | Rotation in the Z axis, measured in °/s.       |
+| 32-35    | temp (float)     | Temperature, measured in °C.        |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | Validity mark                                     |
+| 1-31     | Reserved for future expansion                     |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
@@ -1166,456 +634,144 @@ right, Y going up and Z towards where the lens is pointing. Rotation for
 the gyroscope is counter-clockwise along the increasing axis, for all
 three axes.
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit info</td>
-<td><p>Holds information on the IMU 6-axes event.</p>
-<p><em><strong>This is needed right now only to hold the validity mark, and is sized to 4 bytes for performance/alignment reasons.</strong></em></p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-31</td>
-<td>Reserved for future expansion</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-<tr class="odd">
-<td>8-11</td>
-<td>accel_x (float)</td>
-<td>Acceleration in the X axis, measured in g (9.81m/s²).</td>
-</tr>
-<tr class="even">
-<td>12-15</td>
-<td>accel_y (float)</td>
-<td>Acceleration in the Y axis, measured in g (9.81m/s²).</td>
-</tr>
-<tr class="odd">
-<td>16-19</td>
-<td>accel_z (float)</td>
-<td>Acceleration in the Z axis, measured in g (9.81m/s²).</td>
-</tr>
-<tr class="even">
-<td>20-23</td>
-<td>gyro_x (float)</td>
-<td>Rotation in the X axis, measured in °/s.</td>
-</tr>
-<tr class="odd">
-<td>24-27</td>
-<td>gyro_y (float)</td>
-<td>Rotation in the Y axis, measured in °/s.</td>
-</tr>
-<tr class="even">
-<td>28-31</td>
-<td>gyro_z (float)</td>
-<td>Rotation in the Z axis, measured in °/s.</td>
-</tr>
-<tr class="odd">
-<td>32-35</td>
-<td>temp (float)</td>
-<td>Temperature, measured in °C.</td>
-</tr>
-<tr class="even">
-<td>36-39</td>
-<td>comp_x (float)</td>
-<td>Magnetometer X axis, measured in µT (magnetic flux density).</td>
-</tr>
-<tr class="odd">
-<td>40-43</td>
-<td>comp_y (float)</td>
-<td>Magnetometer Y axis, measured in µT (magnetic flux density).</td>
-</tr>
-<tr class="even">
-<td>44-47</td>
-<td>comp_z (float)</td>
-<td>Magnetometer Z axis, measured in µT (magnetic flux density).</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning         | Description                               |
+| -------- | --------------- | ------------------------------------------|
+| 0-3      | 32 bit info     | Holds information on the IMU 6-axes event. **This is needed right now only to hold the validity mark, and is sized to 4 bytes for performance/alignment reasons.**
+| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.        |
+| 8-11     | accel_x (float) | Acceleration in the X axis, measured in g (9.81m/s²).        |
+| 12-15    | accel_y (float) | Acceleration in the Y axis, measured in g (9.81m/s²)..        |
+| 16-19    | accel_z (float) | Acceleration in the Z axis, measured in g (9.81m/s²).        |
+| 20-23    | gyro_x (float)  | Rotation in the X axis, measured in °/s.        |
+| 24-27    | gyro_y (float)  | Rotation in the Y axis, measured in °/s.       |
+| 28-31    | gyro_z (float)  | Rotation in the Z axis, measured in °/s.       |
+| 32-35    | temp (float)    | Temperature, measured in °C.        |
+| 36-39    | comp_x (float)  | Magnetometer X axis, measured in µT (magnetic flux density).        |
+| 40-43    | comp_y (float)  | Magnetometer Y axis, measured in µT (magnetic flux density).        |
+| 44-47    | comp_z (float)  | Magnetometer Z axis, measured in µT (magnetic flux density).        |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | Validity mark                                     |
+| 1-31     | Reserved for future expansion                     |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
 
 ### ADC Sample Event
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit data</td>
-<td><p>Holds information on the ADC sample event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-7</td>
-<td>ADC sample type, to distinguish between multiple ADC samples and their sources (up to 128).</td>
-</tr>
-<tr class="odd">
-<td>8-31</td>
-<td>ADC sample value (up to 24 bits). Higher values mean a higher voltage, 0 is ground.</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning         | Description                               |
+| -------- | --------------- | ------------------------------------------|
+| 0-3      | 32 bit data     | Holds information on the ADC sample event.|
+| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.        |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | Validity mark                                     |
+| 1-7      | ADC sample type, to distinguish between multiple ADC samples and their sources (up to 128). |
+| 8-31     | ADC sample value (up to 24 bits). Higher values mean a higher voltage, 0 is ground.                     |
 
 ### Configuration Event
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>module address</td>
-<td><p>Holds information on the device configuration event, mainly the actual module address and the validity mark.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-7</td>
-<td>Configuration module address.</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>parameter address</td>
-<td>Configuration parameter address.</td>
-</tr>
-<tr class="odd">
-<td>2-5</td>
-<td>parameter</td>
-<td>Configuration parameter content (4 bytes as 32 bit integer).</td>
-</tr>
-<tr class="even">
-<td>6-9</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning           | Description                               |
+| -------- | ---------------   | ------------------------------------------|
+| 0        | module address    | Holds information on the device configuration event, mainly the actual module address and the validity mark.   |
+| 1        | parameter address | Configuration parameter address.        |
+| 2-5      | parameter         | Configuration parameter content (4 bytes as 32 bit integer).        |
+| 6-9      | 32 bit timestamp  | Event-level microsecond timestamp. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.        |
+
+Byte 0 is divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | Validity mark                                     |
+| 1-7      | Configuration module address.                     |
 
 ### Point1D Event
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit info</td>
-<td><p>Holds information on the Point1D event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-7</td>
-<td>Type, to distinguish between different types of data points, up to 128 are supported.</td>
-</tr>
-<tr class="odd">
-<td>8-15</td>
-<td>Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).</td>
-</tr>
-<tr class="even">
-<td>16-31</td>
-<td>Reserved for future expansion</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>X (float)</td>
-<td>X axis measurement (one data point).</td>
-</tr>
-<tr class="odd">
-<td>8-11</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning          | Description                               |
+| -------- | ---------------- | ------------------------------------------|
+| 0-3      | 32 bit info      | Holds information on the Point1D event.   |
+| 4-7      | X (float)        | X axis measurement (one data point).      |
+| 8-11     | 32 bit timestamp | Event-level microsecond timestamp.        |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | Validity mark                                     |
+| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported. |
+| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).                     |
+| 16-31    | Reserved for future expansion                     |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
 
 ### Point2D Event
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit info</td>
-<td><p>Holds information on the Point2D event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-7</td>
-<td>Type, to distinguish between different types of data points, up to 128 are supported.</td>
-</tr>
-<tr class="odd">
-<td>8-15</td>
-<td>Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).</td>
-</tr>
-<tr class="even">
-<td>16-31</td>
-<td>Reserved for future expansion</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>X (float)</td>
-<td>X axis measurement (first data point).</td>
-</tr>
-<tr class="odd">
-<td>8-11</td>
-<td>Y (float)</td>
-<td>Y axis measurement (second data point).</td>
-</tr>
-<tr class="even">
-<td>12-15</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning          | Description                               |
+| -------- | ---------------- | ------------------------------------------|
+| 0-3      | 32 bit info      | Holds information on the Point1D event.   |
+| 4-7      | X (float)        | X axis measurement (one data point).      |
+| 8-11     | Y (float)        | Y axis measurement (second data point).   |
+| 12-15    | 32 bit timestamp | Event-level microsecond timestamp.        |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | Validity mark                                     |
+| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported. |
+| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).                     |
+| 16-31    | Reserved for future expansion                     |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
 
 ### Point3D Event
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit info</td>
-<td><p>Holds information on the Point3D event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-7</td>
-<td>Type, to distinguish between different types of data points, up to 128 are supported.</td>
-</tr>
-<tr class="odd">
-<td>8-15</td>
-<td>Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).</td>
-</tr>
-<tr class="even">
-<td>16-31</td>
-<td>Reserved for future expansion</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>X (float)</td>
-<td>X axis measurement (first data point).</td>
-</tr>
-<tr class="odd">
-<td>8-11</td>
-<td>Y (float)</td>
-<td>Y axis measurement (second data point).</td>
-</tr>
-<tr class="even">
-<td>12-15</td>
-<td>Z (float)</td>
-<td>Z axis measurement (third data point).</td>
-</tr>
-<tr class="odd">
-<td>16-19</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning          | Description                               |
+| -------- | ---------------- | ------------------------------------------|
+| 0-3      | 32 bit info      | Holds information on the Point1D event.   |
+| 4-7      | X (float)        | X axis measurement (one data point).      |
+| 8-11     | Y (float)        | Y axis measurement (second data point).   |
+| 12-15    | Z (float)        | Z axis measurement (third data point).    |
+| 16-19    | 32 bit timestamp | Event-level microsecond timestamp.        |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | Validity mark                                     |
+| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported. |
+| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).                     |
+| 16-31    | Reserved for future expansion                     |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
 
 ### Point4D Event
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit info</td>
-<td><p>Holds information on the Point4D event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><a href="#148hj6cwb4r5">Validity mark.</a></td>
-</tr>
-<tr class="even">
-<td>1-7</td>
-<td>Type, to distinguish between different types of data points, up to 128 are supported.</td>
-</tr>
-<tr class="odd">
-<td>8-15</td>
-<td>Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).</td>
-</tr>
-<tr class="even">
-<td>16-31</td>
-<td>Reserved for future expansion</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="even">
-<td>4-7</td>
-<td>X (float)</td>
-<td>X axis measurement (first data point).</td>
-</tr>
-<tr class="odd">
-<td>8-11</td>
-<td>Y (float)</td>
-<td>Y axis measurement (second data point).</td>
-</tr>
-<tr class="even">
-<td>12-15</td>
-<td>Z (float)</td>
-<td>Z axis measurement (third data point).</td>
-</tr>
-<tr class="odd">
-<td>16-19</td>
-<td>W (float)</td>
-<td>W axis measurement (fourth data point, complex coordinates).</td>
-</tr>
-<tr class="even">
-<td>20-23</td>
-<td>32 bit timestamp</td>
-<td>Event-level microsecond timestamp.</td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning          | Description                               |
+| -------- | ---------------- | ------------------------------------------|
+| 0-3      | 32 bit info      | Holds information on the Point1D event.   |
+| 4-7      | X (float)        | X axis measurement (one data point).      |
+| 8-11     | Y (float)        | Y axis measurement (second data point).   |
+| 12-15    | Z (float)        | Z axis measurement (third data point).    |
+| 16-19    | W (float)        | W axis measurement (fourth data point, complex coordinates).    |
+| 20-23    | 32 bit timestamp | Event-level microsecond timestamp.        |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | Validity mark                                     |
+| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported. |
+| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).                     |
+| 16-31    | Reserved for future expansion                     |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
@@ -1677,55 +833,24 @@ The color filter enumeration values are different, due in part to a
 smaller available range; the ROI identifier is thus positioned
 differently. Both features were never in active use for AEDAT 3.0:
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-3</td>
-<td>32 bit info</td>
-<td><p>Holds information on the frame event.</p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bits</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>...</td>
-</tr>
-<tr class="even">
-<td>1-3</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td>4-6</td>
-<td><p>Color filter information, used for interpolating color images (demosaicing). Valid values are:</p>
-<p><em><strong>MONO(0), RGBG(1), RGBW(2)</strong></em>.</p></td>
-</tr>
-<tr class="even">
-<td>7-13</td>
-<td>ROI (Region of Interest) identifier (up to 128).</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning          | Description                               |
+| -------- | ---------------- | ------------------------------------------|
+| 0-3      | 32 bit info      | Holds information on the frame event.   |
+
+Bytes 0-1 are divided in the following way:
+
+| Bits     | Description                                       |
+| -------- | ------------------------------------------------- |
+| 0        | ...                                     |
+| 1-3      | ... |
+| 4-6      | Color filter information, used for interpolating color images (demosaicing). Valid values are: **MONO(0)**, **RGBG(1)**, **RGBW(2)**.
+| 7-13     | ROI (Region of Interest) identifier (up to 128).                     |
 
 ## New Event Types
 
 The following event types were not implemented in version 3.0:
 
-| **Point1D** |
+| Point1D |
 | ----------- |
 | **Point2D** |
 | **Point3D** |
@@ -1760,44 +885,13 @@ All header fields/integers are little-endian\!
 
 The 20 bytes network header format is the following:
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>Bytes</strong></th>
-<th><strong>Meaning</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0-7</td>
-<td>64bit AEDAT 3.X magic number</td>
-<td>Magic number signalling presence of AEDAT 3.X header and data: <strong>0x1D378BC90B9A6658</strong>.</td>
-</tr>
-<tr class="even">
-<td>8-15</td>
-<td>Sequence Number</td>
-<td><p>Increasing 64 bit integer to detect missing message parts.</p>
-<p><em><strong>Not used for stream protocols (TCP), set to zero.</strong></em></p></td>
-</tr>
-<tr class="odd">
-<td>16</td>
-<td>Version Number</td>
-<td>The AEDAT 3.X version number part. 0x00 for AEDAT 3.0, 0x01 for AEDAT 3.1.</td>
-</tr>
-<tr class="even">
-<td>17</td>
-<td>Format Number</td>
-<td>The numerical ID representing the used <a href="#formats">format</a>.</td>
-</tr>
-<tr class="odd">
-<td>18-19</td>
-<td>Source ID</td>
-<td><p>Source ID for all the events of this network stream.</p>
-<p>One network stream always carries data from only one Source ID on the sender system.</p></td>
-</tr>
-</tbody>
-</table>
+| Bytes    | Meaning          | Description                               |
+| -------- | ---------------- | ------------------------------------------|
+| 0-7      | 64bit AEDAT 3.X magic number      | Magic number signalling presence of AEDAT 3.X header and data: **0x1D378BC90B9A6658.**   |
+| 8-15     | Sequence Number        | Increasing 64 bit integer to detect missing message parts. **Not used for stream protocols (TCP), set to zero.**      |
+| 16       | Version Number        | The AEDAT 3.X version number part. 0x00 for AEDAT 3.0, 0x01 for AEDAT 3.1.   |
+| 17       | Format Number        | The numerical ID representing the used  [format](#formats).    |
+| 18-19    | Source ID        | Source ID for all the events of this network stream. One network stream always carries data from only one Source ID on the sender system.    |
 
 # Supported Devices
 
