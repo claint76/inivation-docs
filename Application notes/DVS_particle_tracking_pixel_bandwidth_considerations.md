@@ -1,14 +1,5 @@
 # DVS particle tracking pixel bandwidth considerations (iniLabs AppNote)
 
-*inilabs documentation is permanently in development along with our
-products. If this guide is missing the answer to any question you may
-have, please don’t hesitate to ask us. We use the
-[sourceforge jAER help
-forum](http://sourceforge.net/p/jaer/discussion/631958/) for all
-questions regarding inilabs products. If your question involves
-confidential information, however, please use
-[support@inilabs.com](mailto:support@inilabs.com).*
-
 A common application of DVS sensors is for tracking moving particles.
 For a DVS to respond with temporal contrast events to these particles,
 the required pixel bandwidth were analyzed by David Borer in his PhD

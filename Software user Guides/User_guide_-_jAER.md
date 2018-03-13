@@ -5,6 +5,7 @@
 This guide explains how to use our jAER software, an open-source GUI for
 visualisation of event-based data and rapid application development.
 
+## Table of contents
 - [What is jAER?](#what-is-jaer)
   - [How does jAER work?](#how-does-jaer-work)
   - [What is Address-Event Representation (AER)?](#what-is-address-event-representation-aer)

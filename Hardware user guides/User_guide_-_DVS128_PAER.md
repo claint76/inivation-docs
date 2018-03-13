@@ -1,14 +1,5 @@
 # User guide - DVS128\_PAER Dynamic Vision
 
-*Our documentation is regularly being improved along with our products.
-If this guide is missing the answer to any question you may have, please
-don't hesitate to ask us on the appropriate [support
-forum](https://groups.google.com/d/forum/davis-users/). If
-your question involves confidential information, however, please use
-[support@inilabs.com. First you could try our*
-*[troubleshooting
-guide](https://www.inilabs.com/support/faq/).*
-
 This user guide covers DVS128\_PAER devices:
 
 <p align="center"> <img src="media/DVS128_PAER.png" width="500"/></p>
@@ -16,6 +7,7 @@ This user guide covers DVS128\_PAER devices:
 If you are confused about which device you have, please see the
 [support overview](http://www.inilabs.com/support/overview).
 
+## Table of contents
 - [What is the DVS128\_PAER?](#what-is-the-dvs128_paer)
 - [Specifications](#specifications)
 - [How to use](#how-to-use)

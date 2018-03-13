@@ -6,6 +6,7 @@ This user guide covers the DVS128 camera:
 
 <p align="center"><img src="media/DVS128.png" width="500" /></p>
 
+## Table of contents
 - [Specifications](#specifications)
 - [Getting started](#getting-started)
 - [Optics](#optics)

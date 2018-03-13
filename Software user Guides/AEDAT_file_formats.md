@@ -2,6 +2,7 @@
 > *For more information, visit [iniVation support](https://inivation.com/support/)*
 ---
 
+## Table of contents
 - [Introduction](#introduction)
 - [Software Support](#software-support)
 - [Common Version Header](#common-version-header)

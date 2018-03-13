@@ -50,6 +50,7 @@ Below are suggestions for projects which will be useful to us and in
 some cases to our industrial clients. Novel suggestions for projects
 also welcome. Please get in touch if you are interested.
 
+## Table of contents
 * [Tracking of flashing LED](#tracking-of-flashing-led-markers)
 * [People counting](#people-counting)
 * [Perspective-n-Point](#perspective-n-point-problem)

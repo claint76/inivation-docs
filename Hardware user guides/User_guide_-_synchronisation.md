@@ -5,6 +5,7 @@
 This guide describes how to synchronise the event timestamps from
 dynamic vision and audio sensors when using them together.
 
+## Table of contents
 - [Device synchronisation overview](#device-synchronisation-overview)
   - [Synchronisation protocol and event injection](#synchronisation-protocol-and-event-injection)
   - [DVS128 synchronisation](#dvs128-synchronisation)

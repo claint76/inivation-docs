@@ -2,6 +2,7 @@
 > *For more information, visit [iniVation support](https://inivation.com/support/)*
 ---
 
+## Table of contents
 - [What is libcaer?](#what-is-libcaer)
 - [Installation](#installation)
 - [Automated Installation](#automated-installation)

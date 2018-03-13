@@ -18,6 +18,7 @@ guide](http://www.inilabs.com/support/faq).
 This document explains where to find help, with links to our user
 guides.
 
+## Table of contents
 - [Overview of devices and user guides](#overview-of-devices-and-user-guides)
 - [Software for event processing](#software-for-event-processing)
 - [What are the different ways I can work with event data from my device?](#what-are-the-different-ways-i-can-work-with-event-data-from-my-device)

@@ -2,24 +2,13 @@
 > *For more information, visit [iniVation support](https://inivation.com/support/)*
 ---
 
-*Our documentation is regularly being improved along with our products.
-If this guide is missing the answer to any question you may have, please
-don't hesitate to ask us on the appropriate [support
-forum](https://groups.google.com/d/forum/davis-users/). If
-your question involves confidential information, however, please use
-[support@inilabs.com]. First you could try our*
-*[troubleshooting
-guide](https://www.inilabs.com/support/faq/).*
-
 This user guide covers the USB3 development kit, which can be used with
 a range of prototype chips, including: DAVIS346BColor/Mono, and
 DAVIS640Color/Mono.
 
 <p align="center"><img src="media/DAVIS_usb3_dev_kit.png" width="700"/></p>
 
-If you are confused about which device you have, please see the
-[support overview](http://www.inilabs.com/support).
-
+## Table of contents
 - [Introduction](#introduction)
 - [Getting started](#getting-started)
 - [Chip classes](#chip-classes)

@@ -6,13 +6,11 @@ This page is about the eDVS4337, launched in 2014:
 
 <p align="center"><img src="media/eDVS.png" width="600"/></p>
 
-If you are confused about which device you have, please see the
-[support
-overview](http://www.inilabs.com/support/overview). For
-support for older eDVS prototypes see here:
+For support for older eDVS prototypes see here:
 
 [https://wiki.lsr.ei.tum.de/nst/programming/edvsgettingstarted](https://wiki.lsr.ei.tum.de/nst/programming/edvsgettingstarted)
 
+## Table of contents
 - [Specification](#specification)
 - [Board layout](#board-layout)
 - [Getting started](#getting-started)

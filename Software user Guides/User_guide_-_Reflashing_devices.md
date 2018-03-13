@@ -15,7 +15,6 @@ this guide:
   - “logic” refers to the programmable logic.
 
 ## Table of contents
-
 - [What is Flashy?](#what-is-flashy)
 - [How to install Flashy](#how-to-install-flashy)
   - [Getting Flashy](#getting-flashy)

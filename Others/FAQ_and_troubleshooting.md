@@ -11,6 +11,7 @@ all questions regarding inivation products:
 If your question involves confidential information, however, please use
 [support@inivation.com](mailto:support@inivation.com).
 
+## Table of contents
 - [Troubleshooting guide](#troubleshooting-guide)
 - [FAQ](#faq)
 

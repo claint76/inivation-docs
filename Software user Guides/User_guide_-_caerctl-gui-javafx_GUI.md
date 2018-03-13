@@ -2,6 +2,7 @@
 > *For more information, visit [iniVation support](https://inivation.com/support/)*
 ---
 
+## Table of contents
 - [Getting caerctl-gui-javafx](#getting-caerctl-gui-javafx)
 - [For users](#for-users)
 - [For developers](#for-developers)

@@ -9,6 +9,7 @@ Note: The eDVS and DVS128-PAER use the same chip as the DVS128 - in this
 guide, all information about the DVS128 applies equally to these other
 devices.
 
+## Table of contents
 - [What is a bias?](#what-is-a-bias)
 - [How are biases generated in our sensors?](#how-are-biases-generated-in-our-sensors)
 - [Understanding the biases control panel](#understanding-the-biases-control-panel)
