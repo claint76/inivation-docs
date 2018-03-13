@@ -215,31 +215,31 @@ the DVS128 follow the order from the control tab, whereas those from the
 DAVIS240 have been reordered as necessary to match the biases from
 DVS128, despite name changes:
 
-|**Name of bias on DVS128**  |**Name of bias on DAVIS240**  |**Brief description**
-|----------------------------|------------------------------|----------------------------------------------------------------------------------------------------------
-|Pr                          |PrBp                          |First stage ("Photoreceptor")
-|cas                         |\-                            |First stage cascode
-|foll                        |PrSFBp                        |Source follower separating first and second stages
-|diff                        |DiffBn                        |Second stage ("Differential")
-|diffOn                      |OnBn                          |Threshold for On events
-|diffOff                     |OffBn                         |Threshold for Off events
-|injGnd                      |\-                            |Injected ground
-|req                         |PixInvBn                      |Pull down for passive load inverters in digital AER pixel circuitry
-|refr                        |RefrBp                        |Refractory period
-|PuY                         |AEPuYBp                       |Pull up on request from Y arbiter
-|PuX                         |AEPuXBp                       |Pull up on request from X arbiter
-|reqPd                       |AEPdBn                        |Pull down on chip request
-|\-                          |ApsCasEpc                     |Cascode separating APS and DVS parts of pixel
-|\-                          |DiffCasBnc                    |Cascodes in differential comparator
-|\-                          |ApsROSFBn                     |Source follower for column-parallel APS readout
-|                            |LcolTimeoutBn                 |Timeout after a row event
-|\-                          |apsOverflowLevel              |APS overflow level
-|\-                          |LocalBufBn                    |\*
-|\-                          |IFThrBn                       |\*
-|\-                          |IFRefrBn                      |\*
-|\-                          |PadFollBn                     |\*
-|                            | biasBuffer                   |\*
-|                            |                              |\* These biases relate to fixed or experimental features, and are not explained here (just leave them alone).
+| Name of bias on DVS128     | Name of bias on DAVIS240     | Brief description                                                                                              |
+| -------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Pr                         | PrBp                         | First stage ("Photoreceptor")                                                                                  |
+| cas                        | \-                           | First stage cascode                                                                                            |
+| foll                       | PrSFBp                       | Source follower separating first and second stages                                                             |
+| diff                       | DiffBn                       | Second stage ("Differential")                                                                                  |
+| diffOn                     | OnBn                         | Threshold for On events                                                                                        |
+| diffOff                    | OffBn                        | Threshold for Off events                                                                                       |
+| injGnd                     | \-                           | Injected ground                                                                                                |
+| req                        | PixInvBn                     | Pull down for passive load inverters in digital AER pixel circuitry                                            |
+| refr                       | RefrBp                       | Refractory period                                                                                              |
+| PuY                        | AEPuYBp                      | Pull up on request from Y arbiter                                                                              |
+| PuX                        | AEPuXBp                      | Pull up on request from X arbiter                                                                              |
+| reqPd                      | AEPdBn                       | Pull down on chip request                                                                                      |
+| \-                         | ApsCasEpc                    | Cascode separating APS and DVS parts of pixel                                                                  |
+| \-                         | DiffCasBnc                   | Cascodes in differential comparator                                                                            |
+| \-                         | ApsROSFBn                    | Source follower for column-parallel APS readout                                                                |
+|                            | LcolTimeoutBn                | Timeout after a row event                                                                                      |
+| \-                         | apsOverflowLevel             | APS overflow level                                                                                             |
+| \-                         | LocalBufBn                   | \*                                                                                                             |
+| \-                         | IFThrBn                      | \*                                                                                                             |
+| \-                         | IFRefrBn                     | \*                                                                                                             |
+| \-                         | PadFollBn                    | \*                                                                                                             |
+|                            |  biasBuffer                  | \*                                                                                                             |
+|                            |                              | \* These biases relate to fixed or experimental features, and are not explained here (just leave them alone).  |
 
 In the following sections, the biases are explained in detail.
 

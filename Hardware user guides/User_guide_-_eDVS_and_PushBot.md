@@ -422,32 +422,32 @@ upcoming (example) reply:
 
 List of available sensory data:
 
-  | Bit  | Decimal    | Name             | \#  | Description                                        |    Format                                      |
-  |------|------------|------------------|-----|----------------------------------------------------|------------------------------------------------|
-  | 0    | 1          | BATTERY          | 1   | battery voltage (in mVolt)                         | up to 4 digits (0..9999)                       |
-  | 1    | 2          | ADC CHANNEL 0    | 1   | raw ADC reading from pin 2                         | up to 4 digits (0..1023)                       |
-  | 2    | 4          | ADC CHANNEL 1    | 1   | raw ADC reading from pin 3                         | up to 4 digits (0..1023)                       |
-  | 3    | 8          | ADC CHANNEL 2    | 1   | raw ADC reading from pin 4                         | up to 4 digits (0..1023)                       |
-  | 4    | 16         | ADC CHANNEL 3    | 1   | raw ADC reading from pin 5                         | up to 4 digits (0..1023)                       |
-  | 5    | 32         | ADC CHANNEL 4    | 1   | raw ADC reading from pin 6                         | up to 4 digits (0..1023)                       |
-  | 6    | 64         | ADC CHANNEL 5    | 1   | raw ADC reading from pin 7                         | up to 4 digits (0..1023)                       |
-  | 7    | 128        | RAW GYRO         | 3   | raw gyroscope data (3 axes) (+/- 2000º/s)          | +/- up to 5 digits (+/-32767)                  |
-  | 8    | 256        | RAW ACC          | 3   | raw accelerometer data (3 axes) (+/- 2g)           | +/- up to 5 digits (+/-32767)                  |
-  | 9    | 512        | RAW COMP         | 3   | raw magnetic values (3 axes) (+/- 1229 uT)         | +/- up to 4 digits (+/-4095)                   |
-  | 10   | 1024       | CAL GYRO         | 3   | calibrated gyroscope data in dps                   | up to 8 hexadecimal digits (Q16)               |
-  | 11   | 2048       | CAL ACC          | 3   | calibrated accelerometer data in g\'s              | up to 8 hexadecimal digits (Q16)               |
-  | 12   | 4096       | CAL COMP         | 3   | calibrated magnetic values in microtesla           | up to 8 hexadecimal digits (Q16)               |
-  | 13   | 8192       | QUARTERNION      | 4   | 9 axis quarternion                                 | up to 8 hexadecimal digits (Q30)               |
-  | 14   | 16384      | EULER ANGLES     | 4   | Euler angles in degrees                            | up to 8 hexadecimal digits (Q30)               |
-  | 15   | 32768      | ROTATION MATRIX  | 9   | rotation matrix                                    | up to 8 hexadecimal digits (Q30)               |
-  | 16   | 65536      | HEADING          | 1   | heading in degrees                                 | up to 8 hexadecimal digits (Q16)               |
-  | 17   | 131072     | LINEAR ACC       | 3   | linear acceleration in m/s\^2                      | up to 8 hexadecimal digits (Float)             |
-  | 18   | 262144     | IMU STATUS       | 2   | IMU status: temperature in milliC, time in milliSec| +/- up to 5 digits (+/99999)and (+/- 31 bits)  |
-  | 19   | 524288     | PWM\_SIGNALS     | 4   | currently set PWM duty cycles (in uS and %)        | +/- up to 3 digits (+/-1000000 and +/-100)     |
-  | 20   | 1048576    | MOTOR\_CURRENTS  | 2   | motor currents from the motor driver (in mA)       | up to 4 digits (0..9999)                       |
-  | 21   | 2097152    | EVENT\_RATE      | 1   | event rate (events per second)                     | up to 7 digits (0..1000000)                    |
-  |      |            |                  |     |                                                    |                                                |
-  | 28   | 268435456  | MOTOR\_SENSORS   | 2   | wheel tick counter (only present in PushBot)       | +/- up to 11 digits( +/- 31 bits)              |
+| Bit  | Decimal    | Name             | \#  | Description                                         |    Format                                      |
+| ---- | ---------- | ---------------- | --- | --------------------------------------------------- | ---------------------------------------------- |
+| 0    | 1          | BATTERY          | 1   | battery voltage (in mVolt)                          | up to 4 digits (0..9999)                       |
+| 1    | 2          | ADC CHANNEL 0    | 1   | raw ADC reading from pin 2                          | up to 4 digits (0..1023)                       |
+| 2    | 4          | ADC CHANNEL 1    | 1   | raw ADC reading from pin 3                          | up to 4 digits (0..1023)                       |
+| 3    | 8          | ADC CHANNEL 2    | 1   | raw ADC reading from pin 4                          | up to 4 digits (0..1023)                       |
+| 4    | 16         | ADC CHANNEL 3    | 1   | raw ADC reading from pin 5                          | up to 4 digits (0..1023)                       |
+| 5    | 32         | ADC CHANNEL 4    | 1   | raw ADC reading from pin 6                          | up to 4 digits (0..1023)                       |
+| 6    | 64         | ADC CHANNEL 5    | 1   | raw ADC reading from pin 7                          | up to 4 digits (0..1023)                       |
+| 7    | 128        | RAW GYRO         | 3   | raw gyroscope data (3 axes) (+/- 2000º/s)           | +/- up to 5 digits (+/-32767)                  |
+| 8    | 256        | RAW ACC          | 3   | raw accelerometer data (3 axes) (+/- 2g)            | +/- up to 5 digits (+/-32767)                  |
+| 9    | 512        | RAW COMP         | 3   | raw magnetic values (3 axes) (+/- 1229 uT)          | +/- up to 4 digits (+/-4095)                   |
+| 10   | 1024       | CAL GYRO         | 3   | calibrated gyroscope data in dps                    | up to 8 hexadecimal digits (Q16)               |
+| 11   | 2048       | CAL ACC          | 3   | calibrated accelerometer data in g\'s               | up to 8 hexadecimal digits (Q16)               |
+| 12   | 4096       | CAL COMP         | 3   | calibrated magnetic values in microtesla            | up to 8 hexadecimal digits (Q16)               |
+| 13   | 8192       | QUARTERNION      | 4   | 9 axis quarternion                                  | up to 8 hexadecimal digits (Q30)               |
+| 14   | 16384      | EULER ANGLES     | 4   | Euler angles in degrees                             | up to 8 hexadecimal digits (Q30)               |
+| 15   | 32768      | ROTATION MATRIX  | 9   | rotation matrix                                     | up to 8 hexadecimal digits (Q30)               |
+| 16   | 65536      | HEADING          | 1   | heading in degrees                                  | up to 8 hexadecimal digits (Q16)               |
+| 17   | 131072     | LINEAR ACC       | 3   | linear acceleration in m/s\^2                       | up to 8 hexadecimal digits (Float)             |
+| 18   | 262144     | IMU STATUS       | 2   | IMU status: temperature in milliC, time in milliSec | +/- up to 5 digits (+/99999)and (+/- 31 bits)  |
+| 19   | 524288     | PWM\_SIGNALS     | 4   | currently set PWM duty cycles (in uS and %)         | +/- up to 3 digits (+/-1000000 and +/-100)     |
+| 20   | 1048576    | MOTOR\_CURRENTS  | 2   | motor currents from the motor driver (in mA)        | up to 4 digits (0..9999)                       |
+| 21   | 2097152    | EVENT\_RATE      | 1   | event rate (events per second)                      | up to 7 digits (0..1000000)                    |
+|      |            |                  |     |                                                     |                                                |
+| 28   | 268435456  | MOTOR\_SENSORS   | 2   | wheel tick counter (only present in PushBot)        | +/- up to 11 digits( +/- 31 bits)              |
 
 Custom application sensors should use bits 28 - 31; bits 22 - 27 are
 reserved for future applications.
@@ -470,13 +470,13 @@ Every timestamp has 1 us resolution.
 
 **Examples:**
 
-| Format                            | Data packet                       |
-|-----------------------------------|-----------------------------------|
-| !E0 will result in data packets   | 1yyyyyyy.pxxxxxxx                 |
+| Format                            | Data packet                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| !E0 will result in data packets   | 1yyyyyyy.pxxxxxxx                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | !E1 will result in data packets   | 1yyyyyyy.pxxxxxxx.1ttttttt <br/> (time stamp wrap-around after 2\^7 us = 128 us) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2\^14 us = 16 384 =\~ 16 ms) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2\^21 us = 2 097 152 us =\~ 2 sec) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2\^28 us = 268 435 456 us =\~ 4.5 min) <br/> |
-| !E2 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt <br/> (time stamp wrap-around after 2\^16 us = 65 535 us =\~ 65ms) |
-| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2\^24 = 16 777 216 us =\~ 16 sec) |
-| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2\^24 = 4 294 967 296 us =\~ 72 min) |
+| !E2 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt <br/> (time stamp wrap-around after 2\^16 us = 65 535 us =\~ 65ms)                                                                                                                                                                                                                                                                                                                                                             |
+| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2\^24 = 16 777 216 us =\~ 16 sec)                                                                                                                                                                                                                                                                                                                                                 |
+| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2\^24 = 4 294 967 296 us =\~ 72 min)                                                                                                                                                                                                                                                                                                                                     |
 
 ### Recording
 
@@ -486,11 +486,11 @@ For event recording on SD-card, the format is always as !E1 above, i.e.
 below):
 
 | Time           | Data packet                                           |
-|----------------|-------------------------------------------------------|
-|\< 128us:       | 1yyyyyyy.pxxxxxxx.1ttttttt                            |
-|\< 16384 us:    | 1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt                   |
-|\< 2097152 us:  | 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt          |
-|else            | 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt |
+| -------------- | ----------------------------------------------------- |
+| \< 128us:      | 1yyyyyyy.pxxxxxxx.1ttttttt                            |
+| \< 16384 us:   | 1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt                   |
+| \< 2097152 us: | 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt          |
+| else           | 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt |
 
 (a leading 1 in a time stamp byte indicates the final byte of
 time-stamp)
@@ -518,65 +518,65 @@ http://de.farnell.com/te-connectivity-amp/1483352-2/micromatch-8-pol-150mm/dp/10
 
 ### GPIO
 
-  |Pin  | Primary Function  | Secondary Function(s)|
-  |-----|-------------------|----------------------|
-  |1    | Supply Voltage    |                      |
-  |2    | GPIO2\[5\]        | PWM Channel A 2      |
-  |3    | GPIO2\[6\]        | PWM Channel A 2      |
-  |4    | GPIO2\[2\]        | PWM Channel C 0      |
-  |5    | GPIO5\[12\]       | Timer2 Capture 2     |
-  |6    | GPIO5\[13\]       | Timer3 Capture 1     |
-  |7    | GPIO5\[14\]       | Timer0 Capture 2     |
-  |8    | GND               |                      |
+| Pin  | Primary Function  | Secondary Function(s) |
+| ---- | ----------------- | --------------------- |
+| 1    | Supply Voltage    |                       |
+| 2    | GPIO2\[5\]        | PWM Channel A 2       |
+| 3    | GPIO2\[6\]        | PWM Channel A 2       |
+| 4    | GPIO2\[2\]        | PWM Channel C 0       |
+| 5    | GPIO5\[12\]       | Timer2 Capture 2      |
+| 6    | GPIO5\[13\]       | Timer3 Capture 1      |
+| 7    | GPIO5\[14\]       | Timer0 Capture 2      |
+| 8    | GND               |                       |
 
 ### ADC
 
-  |Pin  | Function       |
-  |-----| ---------------|
-  |1    | Analog Supply  |
-  |2    | ADC 0          |
-  |3    | ADC 1          |
-  |4    | ADC 2          |
-  |5    | ADC 3          |
-  |6    | ADC 4          |
-  |7    | ADC 5          |
-  |8    | Analog GND     |
+| Pin  | Function       |
+| ---- | -------------- |
+| 1    | Analog Supply  |
+| 2    | ADC 0          |
+| 3    | ADC 1          |
+| 4    | ADC 2          |
+| 5    | ADC 3          |
+| 6    | ADC 4          |
+| 7    | ADC 5          |
+| 8    | Analog GND     |
 
 ### PWM Outputs
 
 
-  |Pin  | Primary Function  | Secondary Function(s)  |            |
-  |-----| ------------------|------------------------|------------|
-  |1    | Supply Voltage    |                        |            |
-  |2    | PWM Channel A 0   | TWI SDA                | GPIO5\[3\] |
-  |3    | PWM Channel A 1   | TWI SCK                | GPIO5\[4\] |
-  |4    | PWM Channel B 0   | GPIO5\[15\]            |            |
-  |5    | PWM Channel B 1   | GPIO5\[16\]            |            |
-  |6    | PWM Channel C 0   | GPIO5\[7\]             |            |
-  |7    | PWM Channel C 1   | GPIO1\[10\]            |            |
-  |8    | GND               |                        |            |
-                            |                        |            |
+| Pin  | Primary Function  | Secondary Function(s)  |            |
+| ---- | ----------------- | ---------------------- | ---------- |
+| 1    | Supply Voltage    |                        |            |
+| 2    | PWM Channel A 0   | TWI SDA                | GPIO5\[3\] |
+| 3    | PWM Channel A 1   | TWI SCK                | GPIO5\[4\] |
+| 4    | PWM Channel B 0   | GPIO5\[15\]            |            |
+| 5    | PWM Channel B 1   | GPIO5\[16\]            |            |
+| 6    | PWM Channel C 0   | GPIO5\[7\]             |            |
+| 7    | PWM Channel C 1   | GPIO1\[10\]            |            |
+| 8    | GND               |                        |            |
+
 ### SPI
 
-  |Pin  | Primary Function  | Secondary Function(s)  |
-  |-----|-------------------|------------------------|
-  |1    | Supply Voltage    |                        |
-  |2    | MOSI              | GPIO0\[9\]             |
-  |3    | MISO              | GPIO0\[8\]             |
-  |4    | SCK               |                        |
-  |5    | SSEL              | GPIO0\[4\]             |
-  |6    | GND               |                        |
+|Pin  | Primary Function  | Secondary Function(s)  |
+| --- | ----------------- | ---------------------- |
+|1    | Supply Voltage    |                        |
+|2    | MOSI              | GPIO0\[9\]             |
+|3    | MISO              | GPIO0\[8\]             |
+|4    | SCK               |                        |
+|5    | SSEL              | GPIO0\[4\]             |
+|6    | GND               |                        |
 
 ### UART0 (Slave)
 
-  |Pin  | Primary Function  | Secondary Function(s)  |
-  |-----|-------------------|------------------------|
-  |1    | Supply Voltage    |                        |
-  |2    | RXD               | GPIO5\[1\]             |
-  |3    | TXD               | GPIO5\[0\]             |
-  |4    | GND               |                        |
-  |5    | CTS               | GPIO1\[8\]             |
-  |6    | RTS               | GPIO0\[10\]            |
+|Pin  | Primary Function  | Secondary Function(s)  |
+| --- | ----------------- | ---------------------- |
+|1    | Supply Voltage    |                        |
+|2    | RXD               | GPIO5\[1\]             |
+|3    | TXD               | GPIO5\[0\]             |
+|4    | GND               |                        |
+|5    | CTS               | GPIO1\[8\]             |
+|6    | RTS               | GPIO0\[10\]            |
 
 UART is already set up in the default firmware. The UART0 port can be
 accessed from outside and it supports exactly the same command structure
@@ -586,15 +586,14 @@ easily.
 
 ### UART1 (Master)
 
-
-  |Pin  | Primary Function  | Secondary Function(s)  |
-  |-----| ------------------| -----------------------|
-  |1    | Supply Voltage    |                        |
-  |2    | TXD               | GPIO1\[14\]            |
-  |3    | RXD               | GPIO1\[7\]             |
-  |4    | GND               |                        |
-  |5    | RTS               | GPIO2\[11\]            |
-  |6    | CTS               | GPIO2\[133\]           |
+|Pin  | Primary Function  | Secondary Function(s)  |
+| --- | ----------------- | ---------------------- |
+|1    | Supply Voltage    |                        |
+|2    | TXD               | GPIO1\[14\]            |
+|3    | RXD               | GPIO1\[7\]             |
+|4    | GND               |                        |
+|5    | RTS               | GPIO2\[11\]            |
+|6    | CTS               | GPIO2\[133\]           |
 
 ## Optional: WLAN module
 

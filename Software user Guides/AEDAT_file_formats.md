@@ -61,11 +61,11 @@ format, addressing a couple of shortcomings.
 
 The following table summarizes what software supports which formats:
 
-| Software | AEDAT 1.0 | AEDAT 1.0 | AEDAT 2.0        | AEDAT 2.0 | AEDAT 3.0              | AEDAT 3.0 | AEDAT 3.1      | AEDAT 3.1 |
-|:--------:|:---------:|:---------:|:----------------:|:---------:|:----------------------:|:---------:|:--------------:|:---------:|
-|          | Read      | Write     | Read             | Write     | Read                   | Write     | Read           | Write     |
-| jAER     | X         |           | X                | X         | X (RAW format)         |           | X (RAW format) |           |
-| cAER     |           |           | X*  (files only) |           | X*                     |           | X              | X         |
+|  Software  |  AEDAT 1.0  |  AEDAT 1.0  |  AEDAT 2.0         |  AEDAT 2.0  |  AEDAT 3.0               |  AEDAT 3.0  |  AEDAT 3.1       |  AEDAT 3.1  |
+| :--------: | :---------: | :---------: | :----------------: | :---------: | :----------------------: | :---------: | :--------------: | :---------: |
+|            |  Read       |  Write      |  Read              |  Write      |  Read                    |  Write      |  Read            |  Write      |
+|  jAER      |  X          |             |  X                 |  X          |  X (RAW format)          |             |  X (RAW format)  |             |
+|  cAER      |             |             |  X*  (files only)  |             |  X*                      |             |  X               |  X          |
 
 **X = Complete**
 
@@ -215,9 +215,9 @@ The DAVIS camera family stores polarity (luminosity change) events, IMU
 reset and signal read) according to the following scheme:
 
 ### Bit 31
-| Bits     | Meaning        | Description                                                                          |
-| -------- | -------------- | ------------------------------------------------------------------------------------ |
-| 31       | Type | Defines the type of address stored here. ‘0’ means DVS, ‘1’ means APS or IMU (see bits 11-10). |
+| Bits     | Meaning        | Description                                                                                       |
+| -------- | -------------- | ------------------------------------------------------------------------------------------------- |
+| 31       | Type           | Defines the type of address stored here. ‘0’ means DVS, ‘1’ means APS or IMU (see bits 11-10).    |
 
 ---
 ### Bit 30-12
@@ -229,7 +229,7 @@ reset and signal read) according to the following scheme:
 
 #### DVS or APS:
 | Bits     | Meaning         | Description                                                                      |
-| -------- | --------------  | -------------------------------------------------------------------------------- |
+| -------- | --------------- | -------------------------------------------------------------------------------- |
 | 30-22    | Y address       | Y event address. (0, 0) in lower left corner of screen.                          |
 | 21-12    | X address       | X event address. (0, 0) in lower left corner of screen.                          |
 
@@ -237,12 +237,12 @@ reset and signal read) according to the following scheme:
 ### Bit 11-10
 #### APS:
 | Bits     | Meaning         | Description                                                                             |
-| -------- | --------------  | --------------------------------------------------------------------------------------- |
+| -------- | --------------- | --------------------------------------------------------------------------------------- |
 | 11-10    | sub-Type        | 00 -> APS Reset Read <br> 01 -> APS Signal Read <br> 10 -> Unused <br> 11 -> IMU Sample |
 
 #### DVS:
 | Bits     | Meaning         | Description                                                                                                                     |
-| -------- | --------------  | ------------------------------------------------------------------------------------------------------------------------------- |
+| -------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | 11-10    | sub-Type        | 00 -> DVS Polarity OFF <br> 01 -> External Event (same as 11) <br> 10 -> DVS Polarity ON <br> 11 -> External Event (Same as 01) |
 
 ---
@@ -389,16 +389,16 @@ This header is specific to each and every event packet.
 The common header has a constant size of 28 bytes and the following
 format:
 
-| Bytes    | Meaning         | Description                                                                                       |
-| -------- | --------------- | ------------------------------------------------------------------------------------------------- |
-| 0-1      | eventType       | Numerical type ID, unique to each event type (see ‘Event Types’ table).                           |
-| 2-3      | eventSource     | Numerical source ID, identifies who generated the events inside a system.                         |
-| 4-7      | eventSize       | Size of one event in bytes.                                                                       | 
-| 8-11     | eventTSOffset   | Offset from the start of an event, in bytes, at which the main 32 bit time-stamp can be found.    |
-| 12-15    | eventTSOverflow | Overflow counter for the standard 32bit event time-stamp. Used to generate the 64 bit time-stamp. |
+| Bytes    | Meaning         | Description                                                                                                                                                      |
+| -------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0-1      | eventType       | Numerical type ID, unique to each event type (see ‘Event Types’ table).                                                                                          |
+| 2-3      | eventSource     | Numerical source ID, identifies who generated the events inside a system.                                                                                        |
+| 4-7      | eventSize       | Size of one event in bytes.                                                                                                                                      | 
+| 8-11     | eventTSOffset   | Offset from the start of an event, in bytes, at which the main 32 bit time-stamp can be found.                                                                   |
+| 12-15    | eventTSOverflow | Overflow counter for the standard 32bit event time-stamp. Used to generate the 64 bit time-stamp.                                                                |
 | 16-19    | eventCapacity   | Maximum number of events this packet can store. **This always equals eventNumber in files and streams, it can only have a different value for in-memory packets. |
-| 20-23    | eventNumber     | Total number of events present in this packet (valid + invalid).                                  |
-| 24-27    | eventValid      | Total number of valid events present in this packet.                                              |
+| 20-23    | eventNumber     | Total number of events present in this packet (valid + invalid).                                                                                                 |
+| 24-27    | eventValid      | Total number of valid events present in this packet.                                                                                                             |
 
 By multiplying ***eventCapacity*** with ***eventSize***, and adding the
 ***28 bytes of header size***, you can quickly and precisely calculate
@@ -444,21 +444,21 @@ that you number them from 100 upwards.
 
 The following event types are supported by default:
 
-| Event ID  | Event             | Description                                                                                       |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------------- |
-| 0         | SPECIAL_EVENT     | Encodes special occurrences, such as timestamp related notifications or external input events.
-| 1         | POLARITY_EVENT    | Contains change information, with an X/Y address and an ON/OFF polarity. The (0, 0) address is in the upper left corner (standard computer graphics format).
-| 2         | FRAME_EVENT       | Encodes intensity frames, like you would get from a normal APS camera. It supports multiple channels for color, as well as multiple Regions of Interest (ROI). The (0, 0) pixel is in the upper left corner (standard computer graphics format).
-| 3         | IMU6_EVENT        | Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included.
-| 4         | IMU9_EVENT        | Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included. Further, 3-axes from the magnetometer are included, which can be used to get a compass-like heading.
-| 5         | SAMPLE_EVENT      | Represents different types of ADC readings, up to 24 bits of resolution.
-| 6         | EAR_EVENT         | Encodes events from a silicon cochlea chip, containing information about which ear (microphone) generated the event, as well as which channel was involved and additional information on filters and neurons.
-| 7         | CONFIG_EVENT      | Contains information about the current configuration of the device. By having configuration as a standardized event format, it becomes host-software agnostic, and it also becomes part of the event stream, enabling easy tracking of changes through time, by putting them into the event stream at the moment they happen. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.
-| 8         | POINT1D           | Contains one dimensional data points as floats, together with support for distinguishing type and scale.
-| 9         | POINT2D           | Contains two dimensional data points as floats, together with support for distinguishing type and scale.
-| 10        | POINT3D           | Contains three dimensional data points as floats, together with support for distinguishing type and scale.
-| 11        | POINT4D           | Contains four dimensional data points as floats, together with support for distinguishing type and scale.
-| 12        | SPIKE_EVENT       | Encodes events from a Dynap-se chip. This event contains information about which chipid generated the event, as well as which core id and which neuron. These addresses are available if the user configure the SRAM of the Dynap-se to route out spikes. Therefore the user can mask or route devices depending on the routing scheme that he decides to use.
+| Event ID  | Event             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0         | SPECIAL_EVENT     | Encodes special occurrences, such as timestamp related notifications or external input events.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 1         | POLARITY_EVENT    | Contains change information, with an X/Y address and an ON/OFF polarity. The (0, 0) address is in the upper left corner (standard computer graphics format).                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 2         | FRAME_EVENT       | Encodes intensity frames, like you would get from a normal APS camera. It supports multiple channels for color, as well as multiple Regions of Interest (ROI). The (0, 0) pixel is in the upper left corner (standard computer graphics format).                                                                                                                                                                                                                                                                                                                                  |
+| 3         | IMU6_EVENT        | Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 4         | IMU9_EVENT        | Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included. Further, 3-axes from the magnetometer are included, which can be used to get a compass-like heading.                                                                                                                                                                                                                                                                                                                              |
+| 5         | SAMPLE_EVENT      | Represents different types of ADC readings, up to 24 bits of resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 6         | EAR_EVENT         | Encodes events from a silicon cochlea chip, containing information about which ear (microphone) generated the event, as well as which channel was involved and additional information on filters and neurons.                                                                                                                                                                                                                                                                                                                                                                     |
+| 7         | CONFIG_EVENT      | Contains information about the current configuration of the device. By having configuration as a standardized event format, it becomes host-software agnostic, and it also becomes part of the event stream, enabling easy tracking of changes through time, by putting them into the event stream at the moment they happen. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.  |
+| 8         | POINT1D           | Contains one dimensional data points as floats, together with support for distinguishing type and scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 9         | POINT2D           | Contains two dimensional data points as floats, together with support for distinguishing type and scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 10        | POINT3D           | Contains three dimensional data points as floats, together with support for distinguishing type and scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| 11        | POINT4D           | Contains four dimensional data points as floats, together with support for distinguishing type and scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 12        | SPIKE_EVENT       | Encodes events from a Dynap-se chip. This event contains information about which chipid generated the event, as well as which core id and which neuron. These addresses are available if the user configure the SRAM of the Dynap-se to route out spikes. Therefore the user can mask or route devices depending on the routing scheme that he decides to use.                                                                                                                                                                                                                    |
 
 Further, the first bit (bit 0) of the first byte of any event is
 reserved to be a validity bit. This bit is used to mark whether an event
@@ -483,10 +483,10 @@ following sections.
 
 ### Special Event
 
-| Bytes    | Meaning         | Description                               |
-| -------- | --------------- | ------------------------------------------|
-| 0-3      | 32 bit data     | Holds information on the special event.   |
-| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.        |
+| Bytes    | Meaning          | Description                               |
+| -------- | ---------------- | ----------------------------------------- |
+| 0-3      | 32 bit data      | Holds information on the special event.   |
+| 4-7      | 32 bit timestamp | Event-level microsecond timestamp.        |
 
 Bytes 0-3 are divided in the following way:
 
@@ -498,38 +498,38 @@ Bytes 0-3 are divided in the following way:
 
 Currently, the following special event types are defined:
 
-| Type ID   | Type                              | Description                                                                                       |
-| --------- | -----------------                 | ------------------------------------------------------------------------------------------------- |
-| 0         | TIMESTAMP_WRAP                    | A 32 bit timestamp wrap occurred. No ‘optional data’ present.
-| 1         | TIMESTAMP_RESET                   | A timestamp reset occurred. No ‘optional data’ present. **Note:** Timestamp reset will have the highest possible timestamp value, to ensure it is always the last event of an event stream, and acts thus as a separator between the old and the new event time stream.
-| 2         | EXTERNAL_INPUT_RISING_EDGE        | A rising edge was detected (External Input module on device). No ‘optional data’ present.
-| 3         | EXTERNAL_INPUT_FALLING_EDGE       | A falling edge was detected (External Input module on device). No ‘optional data’ present.
-| 4         | EXTERNAL_INPUT_PULSE              | A pulse was detected (External Input module on device). No ‘optional data’ present.
-| 5         | DVS_ROW_ONLY                      | A DVS row-only event was detected (a row address without any following column addresses). ‘Optional data’ is present, encoding the address of the row that generated this DVS row-only event.
-| 6         | EXTERNAL_INPUT1_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.
-| 7         | EXTERNAL_INPUT1_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.
-| 8         | EXTERNAL_INPUT1_PULSE             | A pulse was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.
-| 9         | EXTERNAL_INPUT2_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.
-| 10        | EXTERNAL_INPUT2_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.
-| 11        | EXTERNAL_INPUT2_PULSE             | A pulse was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.
-| 12        | EXTERNAL_GENERATOR_RISING_EDGE    | A rising edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.
-| 13        | EXTERNAL_GENERATOR_FALLING_EDGE   | A falling edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.
-| 14        | APS_FRAME_START                   | An APS frame capture has started (Frame Event will follow). No ‘optional data’ present.
-| 15        | APS_FRAME_END                     | An APS frame capture has completed (Frame Event is alongside). No ‘optional data’ present.
-| 16        | APS_EXPOSURE_START                | An APS frame exposure has started (Frame Event will follow). No ‘optional data’ present.
-| 17        | APS_EXPOSURE_END                  | An APS frame exposure has completed (Frame Event will follow). No ‘optional data’ present.
+| Type ID   | Type                              | Description                                                                                                                                                                                                                                                               |
+| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0         | TIMESTAMP_WRAP                    | A 32 bit timestamp wrap occurred. No ‘optional data’ present.                                                                                                                                                                                                             |
+| 1         | TIMESTAMP_RESET                   | A timestamp reset occurred. No ‘optional data’ present. **Note:** Timestamp reset will have the highest possible timestamp value, to ensure it is always the last event of an event stream, and acts thus as a separator between the old and the new event time stream.   |
+| 2         | EXTERNAL_INPUT_RISING_EDGE        | A rising edge was detected (External Input module on device). No ‘optional data’ present.                                                                                                                                                                                 |
+| 3         | EXTERNAL_INPUT_FALLING_EDGE       | A falling edge was detected (External Input module on device). No ‘optional data’ present.                                                                                                                                                                                |
+| 4         | EXTERNAL_INPUT_PULSE              | A pulse was detected (External Input module on device). No ‘optional data’ present.                                                                                                                                                                                       |
+| 5         | DVS_ROW_ONLY                      | A DVS row-only event was detected (a row address without any following column addresses). ‘Optional data’ is present, encoding the address of the row that generated this DVS row-only event.                                                                             |
+| 6         | EXTERNAL_INPUT1_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.                                                                                                                                                            |
+| 7         | EXTERNAL_INPUT1_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.                                                                                                                                                           |
+| 8         | EXTERNAL_INPUT1_PULSE             | A pulse was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.                                                                                                                                                                  |
+| 9         | EXTERNAL_INPUT2_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.                                                                                                                                                            |
+| 10        | EXTERNAL_INPUT2_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.                                                                                                                                                           |
+| 11        | EXTERNAL_INPUT2_PULSE             | A pulse was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.                                                                                                                                                                  |
+| 12        | EXTERNAL_GENERATOR_RISING_EDGE    | A rising edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.                                                                                                                                  |
+| 13        | EXTERNAL_GENERATOR_FALLING_EDGE   | A falling edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.                                                                                                                                 |
+| 14        | APS_FRAME_START                   | An APS frame capture has started (Frame Event will follow). No ‘optional data’ present.                                                                                                                                                                                   |
+| 15        | APS_FRAME_END                     | An APS frame capture has completed (Frame Event is alongside). No ‘optional data’ present.                                                                                                                                                                                |
+| 16        | APS_EXPOSURE_START                | An APS frame exposure has started (Frame Event will follow). No ‘optional data’ present.                                                                                                                                                                                  |
+| 17        | APS_EXPOSURE_END                  | An APS frame exposure has completed (Frame Event will follow). No ‘optional data’ present.                                                                                                                                                                                |
 
 ### Polarity Event
 
-| Bytes    | Meaning         | Description                               |
-| -------- | --------------- | ------------------------------------------|
-| 0-3      | 32 bit data     | Holds information on the polarity (luminosity change) event.   |
-| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.        |
+| Bytes    | Meaning         | Description                                                  |
+| -------- | --------------- | ------------------------------------------------------------ |
+| 0-3      | 32 bit data     | Holds information on the polarity (luminosity change) event. |
+| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.                           |
 
 Bytes 0-3 are divided in the following way:
 
 | Bits     | Description                                                                      |
-| -------- | -------------------------------------------------                                |
+| -------- | -------------------------------------------------------------------------------- |
 | 0        | Validity mark                                                                    |
 | 1        | Polarity (luminosity change): ‘1’ means increase (ON), ‘0’ means decrease (OFF). |
 | 2-16     | Y event address, up to 15 bits. (0, 0) in upper left corner of screen.           |
@@ -537,28 +537,28 @@ Bytes 0-3 are divided in the following way:
 
 ### Frame Event
 
-| Bytes             | Meaning                                    | Description                               |
-| --------          | ---------------                            | ------------------------------------------|
-| 0-3               | 32 bit data                                | Holds information on the frame event.     |
-| 4-7               | 32 bit Start of Frame Capture timestamp    | Event-level microsecond Start of Frame Capture timestamp.        |
-| 8-11              | 32 bit End of Frame Capture timestamp      | Event-level microsecond End of Frame Capture timestamp. NOTE: This timestamp is considered the primary timestamp for the purpose of ordering packets.  
-| 12-15             | 32 bit Start of Exposure timestamp         | Event-level microsecond Start of Exposure timestamp.
-| 16-19             | 32 bit End of Exposure timestamp           | Event-level microsecond End of Exposure timestamp. 
-| 20-23             | X length                                   | X axis length in pixels.
-| 24-27             | Y length                                   | Y axis length in pixels.  
-| 28-31             | X position                                 | X axis position (upper left offset) in pixels.  
-| 32-35             | Y position                                 | Y axis position (upper left offset) in pixels.  
-| 36-End of Event   | Pixels                                     | Pixel array, 16 bit unsigned integers, normalized to 16 bit depth. Values represent intensity at that pixel and are ready for direct display. First pixel (0, 0) is in upper left corner of screen. Pixels are laid out row by row (increasing X axis), going from top to bottom (increasing Y axis). While the pixel array goes on until the end of the Frame event, only the pixels up to (‘X length’ * ‘Y length’ * ‘Channel number’) are actually valid and contain relevant data. The rest have a value of zero and should not be accessed.
+| Bytes             | Meaning                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ----------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0-3               | 32 bit data                                | Holds information on the frame event.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| 4-7               | 32 bit Start of Frame Capture timestamp    | Event-level microsecond Start of Frame Capture timestamp.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 8-11              | 32 bit End of Frame Capture timestamp      | Event-level microsecond End of Frame Capture timestamp. NOTE: This timestamp is considered the primary timestamp for the purpose of ordering packets.                                                                                                                                                                                                                                                                                                                                                                                                |
+| 12-15             | 32 bit Start of Exposure timestamp         | Event-level microsecond Start of Exposure timestamp.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 16-19             | 32 bit End of Exposure timestamp           | Event-level microsecond End of Exposure timestamp.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 20-23             | X length                                   | X axis length in pixels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 24-27             | Y length                                   | Y axis length in pixels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 28-31             | X position                                 | X axis position (upper left offset) in pixels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 32-35             | Y position                                 | Y axis position (upper left offset) in pixels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 36-End of Event   | Pixels                                     | Pixel array, 16 bit unsigned integers, normalized to 16 bit depth. Values represent intensity at that pixel and are ready for direct display. First pixel (0, 0) is in upper left corner of screen. Pixels are laid out row by row (increasing X axis), going from top to bottom (increasing Y axis). While the pixel array goes on until the end of the Frame event, only the pixels up to (‘X length’ * ‘Y length’ * ‘Channel number’) are actually valid and contain relevant data. The rest have a value of zero and should not be accessed.     |
 
 Bytes 0-3 are divided in the following way:
 
-| Bits     | Description                                                                      |
-| -------- | -------------------------------------------------------------------------------- |
-| 0        | Validity mark                                                                    |
-| 1-3      | Color channels number, to track multiple color channels, for example RGB. Valid values are: **GRAYSCALE(1)**, **RGB(3)** and **RGBA(4)**. |
-| 4-7      | Color filter information, used for interpolating color images (demosaicing). Valid values are: **MONO(0)**, **RGBG(1)**, **GRGB(2)**, **GBGR(3)**, **BGRG(4)**, **RGBW(5)**, **GRWB(6)**, **WBGR(7)**, **BWRG(8)**.   |
-| 8-14     | ROI (Region of Interest) identifier (up to 128).           |
-| 15-31    | Reserved for future expansion.                             |
+| Bits     | Description                                                                                                                                                                                                            |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0        | Validity mark                                                                                                                                                                                                          |
+| 1-3      | Color channels number, to track multiple color channels, for example RGB. Valid values are: **GRAYSCALE(1)**, **RGB(3)** and **RGBA(4)**.                                                                              |
+| 4-7      | Color filter information, used for interpolating color images (demosaicing). Valid values are: **MONO(0)**, **RGBG(1)**, **GRGB(2)**, **GBGR(3)**, **BGRG(4)**, **RGBW(5)**, **GRWB(6)**, **WBGR(7)**, **BWRG(8)**.    |
+| 8-14     | ROI (Region of Interest) identifier (up to 128).                                                                                                                                                                       |
+| 15-31    | Reserved for future expansion.                                                                                                                                                                                         |
 
 A frame is considered to be one event - a “frame event”. A frame packet
 may contain 1 or more frame events. Multiplying **eventSize** by
@@ -606,17 +606,17 @@ right, Y going up and Z towards where the lens is pointing. Rotation for
 the gyroscope is counter-clockwise along the increasing axis, for all
 three axes.
 
-| Bytes    | Meaning          | Description                               |
-| -------- | ---------------- | ------------------------------------------|
-| 0-3      | 32 bit info      | Holds information on the special event. **This is needed right now only to hold the validity mark, and is sized to 4 bytes for performance/alignment reasons.**  |
-| 4-7      | 32 bit timestamp | Event-level microsecond timestamp.        |
-| 8-11     | accel_x (float)  | Acceleration in the X axis, measured in g (9.81m/s²).        |
-| 12-15    | accel_y (float)  | Acceleration in the Y axis, measured in g (9.81m/s²)..        |
-| 16-19    | accel_z (float)  | Acceleration in the Z axis, measured in g (9.81m/s²).        |
-| 20-23    | gyro_x (float)   | Rotation in the X axis, measured in °/s.        |
-| 24-27    | gyro_y (float)   | Rotation in the Y axis, measured in °/s.       |
-| 28-31    | gyro_z (float)   | Rotation in the Z axis, measured in °/s.       |
-| 32-35    | temp (float)     | Temperature, measured in °C.        |
+| Bytes    | Meaning          | Description                                                                                                                                                     |
+| -------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0-3      | 32 bit info      | Holds information on the special event. **This is needed right now only to hold the validity mark, and is sized to 4 bytes for performance/alignment reasons.** |
+| 4-7      | 32 bit timestamp | Event-level microsecond timestamp.                                                                                                                              |
+| 8-11     | accel_x (float)  | Acceleration in the X axis, measured in g (9.81m/s²).                                                                                                           |
+| 12-15    | accel_y (float)  | Acceleration in the Y axis, measured in g (9.81m/s²)..                                                                                                          |
+| 16-19    | accel_z (float)  | Acceleration in the Z axis, measured in g (9.81m/s²).                                                                                                           |
+| 20-23    | gyro_x (float)   | Rotation in the X axis, measured in °/s.                                                                                                                        |
+| 24-27    | gyro_y (float)   | Rotation in the Y axis, measured in °/s.                                                                                                                        |
+| 28-31    | gyro_z (float)   | Rotation in the Z axis, measured in °/s.                                                                                                                        |
+| 32-35    | temp (float)     | Temperature, measured in °C.                                                                                                                                    |
 
 Bytes 0-3 are divided in the following way:
 
@@ -635,20 +635,20 @@ right, Y going up and Z towards where the lens is pointing. Rotation for
 the gyroscope is counter-clockwise along the increasing axis, for all
 three axes.
 
-| Bytes    | Meaning         | Description                               |
-| -------- | --------------- | ------------------------------------------|
-| 0-3      | 32 bit info     | Holds information on the IMU 6-axes event. **This is needed right now only to hold the validity mark, and is sized to 4 bytes for performance/alignment reasons.**
-| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.        |
-| 8-11     | accel_x (float) | Acceleration in the X axis, measured in g (9.81m/s²).        |
-| 12-15    | accel_y (float) | Acceleration in the Y axis, measured in g (9.81m/s²)..        |
-| 16-19    | accel_z (float) | Acceleration in the Z axis, measured in g (9.81m/s²).        |
-| 20-23    | gyro_x (float)  | Rotation in the X axis, measured in °/s.        |
-| 24-27    | gyro_y (float)  | Rotation in the Y axis, measured in °/s.       |
-| 28-31    | gyro_z (float)  | Rotation in the Z axis, measured in °/s.       |
-| 32-35    | temp (float)    | Temperature, measured in °C.        |
-| 36-39    | comp_x (float)  | Magnetometer X axis, measured in µT (magnetic flux density).        |
-| 40-43    | comp_y (float)  | Magnetometer Y axis, measured in µT (magnetic flux density).        |
-| 44-47    | comp_z (float)  | Magnetometer Z axis, measured in µT (magnetic flux density).        |
+| Bytes    | Meaning         | Description                                                                                                                                                          |
+| -------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0-3      | 32 bit info     | Holds information on the IMU 6-axes event. **This is needed right now only to hold the validity mark, and is sized to 4 bytes for performance/alignment reasons.**   |
+| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.                                                                                                                                   |
+| 8-11     | accel_x (float) | Acceleration in the X axis, measured in g (9.81m/s²).                                                                                                                |
+| 12-15    | accel_y (float) | Acceleration in the Y axis, measured in g (9.81m/s²)..                                                                                                               |
+| 16-19    | accel_z (float) | Acceleration in the Z axis, measured in g (9.81m/s²).                                                                                                                |
+| 20-23    | gyro_x (float)  | Rotation in the X axis, measured in °/s.                                                                                                                             |
+| 24-27    | gyro_y (float)  | Rotation in the Y axis, measured in °/s.                                                                                                                             |
+| 28-31    | gyro_z (float)  | Rotation in the Z axis, measured in °/s.                                                                                                                             |
+| 32-35    | temp (float)    | Temperature, measured in °C.                                                                                                                                         |
+| 36-39    | comp_x (float)  | Magnetometer X axis, measured in µT (magnetic flux density).                                                                                                         |
+| 40-43    | comp_y (float)  | Magnetometer Y axis, measured in µT (magnetic flux density).                                                                                                         |
+| 44-47    | comp_z (float)  | Magnetometer Z axis, measured in µT (magnetic flux density).                                                                                                         |
 
 Bytes 0-3 are divided in the following way:
 
@@ -663,26 +663,26 @@ endian.
 ### ADC Sample Event
 
 | Bytes    | Meaning         | Description                               |
-| -------- | --------------- | ------------------------------------------|
+| -------- | --------------- | ----------------------------------------- |
 | 0-3      | 32 bit data     | Holds information on the ADC sample event.|
 | 4-7      | 32 bit timestamp| Event-level microsecond timestamp.        |
 
 Bytes 0-3 are divided in the following way:
 
-| Bits     | Description                                       |
-| -------- | ------------------------------------------------- |
-| 0        | Validity mark                                     |
-| 1-7      | ADC sample type, to distinguish between multiple ADC samples and their sources (up to 128). |
-| 8-31     | ADC sample value (up to 24 bits). Higher values mean a higher voltage, 0 is ground.                     |
+| Bits     | Description                                                                                    |
+| -------- | ---------------------------------------------------------------------------------------------- |
+| 0        | Validity mark                                                                                  |
+| 1-7      | ADC sample type, to distinguish between multiple ADC samples and their sources (up to 128).    |
+| 8-31     | ADC sample value (up to 24 bits). Higher values mean a higher voltage, 0 is ground.            |
 
 ### Configuration Event
 
-| Bytes    | Meaning           | Description                               |
-| -------- | ---------------   | ------------------------------------------|
-| 0        | module address    | Holds information on the device configuration event, mainly the actual module address and the validity mark.   |
-| 1        | parameter address | Configuration parameter address.        |
-| 2-5      | parameter         | Configuration parameter content (4 bytes as 32 bit integer).        |
-| 6-9      | 32 bit timestamp  | Event-level microsecond timestamp. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.        |
+| Bytes    | Meaning           | Description                                                                                                                                                                                                                                                                            |
+| -------- | ---------------   | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0        | module address    | Holds information on the device configuration event, mainly the actual module address and the validity mark.                                                                                                                                                                           |
+| 1        | parameter address | Configuration parameter address.                                                                                                                                                                                                                                                       |
+| 2-5      | parameter         | Configuration parameter content (4 bytes as 32 bit integer).                                                                                                                                                                                                                           |
+| 6-9      | 32 bit timestamp  | Event-level microsecond timestamp. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.  |
 
 Byte 0 is divided in the following way:
 
@@ -694,19 +694,19 @@ Byte 0 is divided in the following way:
 ### Point1D Event
 
 | Bytes    | Meaning          | Description                               |
-| -------- | ---------------- | ------------------------------------------|
+| -------- | ---------------- | ----------------------------------------- |
 | 0-3      | 32 bit info      | Holds information on the Point1D event.   |
 | 4-7      | X (float)        | X axis measurement (one data point).      |
 | 8-11     | 32 bit timestamp | Event-level microsecond timestamp.        |
 
 Bytes 0-3 are divided in the following way:
 
-| Bits     | Description                                       |
-| -------- | ------------------------------------------------- |
-| 0        | Validity mark                                     |
-| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported. |
-| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).                     |
-| 16-31    | Reserved for future expansion                     |
+| Bits     | Description                                                                                                                                |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0        | Validity mark                                                                                                                              |
+| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported.                                                      |
+| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).    |
+| 16-31    | Reserved for future expansion                                                                                                              |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
@@ -714,7 +714,7 @@ endian.
 ### Point2D Event
 
 | Bytes    | Meaning          | Description                               |
-| -------- | ---------------- | ------------------------------------------|
+| -------- | ---------------- | ----------------------------------------- |
 | 0-3      | 32 bit info      | Holds information on the Point1D event.   |
 | 4-7      | X (float)        | X axis measurement (one data point).      |
 | 8-11     | Y (float)        | Y axis measurement (second data point).   |
@@ -722,12 +722,12 @@ endian.
 
 Bytes 0-3 are divided in the following way:
 
-| Bits     | Description                                       |
-| -------- | ------------------------------------------------- |
-| 0        | Validity mark                                     |
-| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported. |
-| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).                     |
-| 16-31    | Reserved for future expansion                     |
+| Bits     | Description                                                                                                                                |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0        | Validity mark                                                                                                                              |
+| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported.                                                      |
+| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).    |
+| 16-31    | Reserved for future expansion                                                                                                              |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
@@ -744,12 +744,12 @@ endian.
 
 Bytes 0-3 are divided in the following way:
 
-| Bits     | Description                                       |
-| -------- | ------------------------------------------------- |
-| 0        | Validity mark                                     |
-| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported. |
-| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).                     |
-| 16-31    | Reserved for future expansion                     |
+| Bits     | Description                                                                                                                                |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0        | Validity mark                                                                                                                              |
+| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported.                                                      |
+| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).    |
+| 16-31    | Reserved for future expansion                                                                                                              |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
@@ -767,12 +767,12 @@ endian.
 
 Bytes 0-3 are divided in the following way:
 
-| Bits     | Description                                       |
-| -------- | ------------------------------------------------- |
-| 0        | Validity mark                                     |
-| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported. |
-| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).                     |
-| 16-31    | Reserved for future expansion                     |
+| Bits     | Description                                                                                                                                |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0        | Validity mark                                                                                                                              |
+| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported.                                                      |
+| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).    |
+| 16-31    | Reserved for future expansion                                                                                                              |
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
@@ -834,29 +834,29 @@ The color filter enumeration values are different, due in part to a
 smaller available range; the ROI identifier is thus positioned
 differently. Both features were never in active use for AEDAT 3.0:
 
-| Bytes    | Meaning          | Description                               |
-| -------- | ---------------- | ------------------------------------------|
+| Bytes    | Meaning          | Description                             |
+| -------- | ---------------- | --------------------------------------- |
 | 0-3      | 32 bit info      | Holds information on the frame event.   |
 
 Bytes 0-1 are divided in the following way:
 
-| Bits     | Description                                       |
-| -------- | ------------------------------------------------- |
-| 0        | ...                                     |
-| 1-3      | ... |
-| 4-6      | Color filter information, used for interpolating color images (demosaicing). Valid values are: **MONO(0)**, **RGBG(1)**, **RGBW(2)**.
-| 7-13     | ROI (Region of Interest) identifier (up to 128).                     |
+| Bits     | Description                                                                                                                            |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 0        | ...                                                                                                                                    |
+| 1-3      | ...                                                                                                                                    |
+| 4-6      | Color filter information, used for interpolating color images (demosaicing). Valid values are: **MONO(0)**, **RGBG(1)**, **RGBW(2)**.  |
+| 7-13     | ROI (Region of Interest) identifier (up to 128).                                                                                       |
 
 ## New Event Types
 
 The following event types were not implemented in version 3.0:
 
-| Point1D |
-| ----------- |
-| **Point2D** |
-| **Point3D** |
-| **Point4D** |
-| **Spike**   |
+| Point1D       |
+| ------------- |
+| **Point2D**   |
+| **Point3D**   |
+| **Point4D**   |
+| **Spike**     |
 
 # Network Streaming
 
@@ -886,13 +886,13 @@ All header fields/integers are little-endian\!
 
 The 20 bytes network header format is the following:
 
-| Bytes    | Meaning          | Description                               |
-| -------- | ---------------- | ------------------------------------------|
-| 0-7      | 64bit AEDAT 3.X magic number      | Magic number signalling presence of AEDAT 3.X header and data: **0x1D378BC90B9A6658.**   |
-| 8-15     | Sequence Number        | Increasing 64 bit integer to detect missing message parts. **Not used for stream protocols (TCP), set to zero.**      |
-| 16       | Version Number        | The AEDAT 3.X version number part. 0x00 for AEDAT 3.0, 0x01 for AEDAT 3.1.   |
-| 17       | Format Number        | The numerical ID representing the used  [format](#formats).    |
-| 18-19    | Source ID        | Source ID for all the events of this network stream. One network stream always carries data from only one Source ID on the sender system.    |
+| Bytes    | Meaning                        | Description                                                                                                                               |
+| -------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 0-7      | 64bit AEDAT 3.X magic number   | Magic number signalling presence of AEDAT 3.X header and data: **0x1D378BC90B9A6658.**                                                    |
+| 8-15     | Sequence Number                | Increasing 64 bit integer to detect missing message parts. **Not used for stream protocols (TCP), set to zero.**                          |
+| 16       | Version Number                 | The AEDAT 3.X version number part. 0x00 for AEDAT 3.0, 0x01 for AEDAT 3.1.                                                                |
+| 17       | Format Number                  | The numerical ID representing the used  [format](#formats).                                                                               |
+| 18-19    | Source ID                      | Source ID for all the events of this network stream. One network stream always carries data from only one Source ID on the sender system. |
 
 # Supported Devices
 
@@ -901,19 +901,19 @@ as would be written in [Source
 ID](#header-lines) header
 lines:
 
-| **Device Name** | **Alternative names which devices may have been called in the past (not including different capitalisations), these are not to be used for Source ID headers, they are only here as a reference\!** |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| File            |                                                                                                                                                                                                     |
-| Network         |                                                                                                                                                                                                     |
-| DVS128          | Tmpdiff128                                                                                                                                                                                          |
-| DAVIS240A       | SBret10                                                                                                                                                                                             |
-| DAVIS240B       | SBret20                                                                                                                                                                                             |
-| DAVIS240C       | SBret21                                                                                                                                                                                             |
-| DAVIS128        | Davis128Mono, Davis128Rgb                                                                                                                                                                           |
-| DAVIS208        | Davis208Mono, Davis208Rgbw, PixelParade, SenseDavis192, SensDavis192                                                                                                                                |
-| DAVIS346A       | Davis346AMono, Davis346ARgb                                                                                                                                                                         |
-| DAVIS346B       | Davis346BMono, Davis346BRgb, Davis346                                                                                                                                                               |
-| DAVIS346Cbsi    | Davis346bsi                                                                                                                                                                                         |
-| DAVIS640        | Davis640Mono, Davis640Rgb                                                                                                                                                                           |
-| DAVISHet640     | DavisHet640Mono, DavisHet640Rgbw, CDavis, CDavis640, Davis640Rgbw, CDavis640Rgbw                                                                                                                    |                                                                                                                                                                                       |
-| DYNAPSE         | Dynap-se, DYNAPSEFX2                                                                                                                                                                                |
+| Device Name    | Alternative names which devices may have been called in the past (not including different capitalisations), these are not to be used for Source ID headers, they are only here as a reference\!  |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| File           |                                                                                                                                                                                                  |
+| Network        |                                                                                                                                                                                                  |
+| DVS128         | Tmpdiff128                                                                                                                                                                                       |
+| DAVIS240A      | SBret10                                                                                                                                                                                          |
+| DAVIS240B      | SBret20                                                                                                                                                                                          |
+| DAVIS240C      | SBret21                                                                                                                                                                                          |
+| DAVIS128       | Davis128Mono, Davis128Rgb                                                                                                                                                                        |
+| DAVIS208       | Davis208Mono, Davis208Rgbw, PixelParade, SenseDavis192, SensDavis192                                                                                                                             |
+| DAVIS346A      | Davis346AMono, Davis346ARgb                                                                                                                                                                      |
+| DAVIS346B      | Davis346BMono, Davis346BRgb, Davis346                                                                                                                                                            |
+| DAVIS346Cbsi   | Davis346bsi                                                                                                                                                                                      |
+| DAVIS640       | Davis640Mono, Davis640Rgb                                                                                                                                                                        |
+| DAVISHet640    | DavisHet640Mono, DavisHet640Rgbw, CDavis, CDavis640, Davis640Rgbw, CDavis640Rgbw                                                                                                                 |
+| DYNAPSE        | Dynap-se, DYNAPSEFX2                                                                                                                                                                             |

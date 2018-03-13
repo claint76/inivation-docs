@@ -77,14 +77,14 @@ Started guide here covers use in jAER.
 ## Chip classes
 
 
-|**Chip**               |**Class**                                      |
-|-----------------------|-----------------------------------------------|
-|DAVIS240C              |eu.seebetter.ini.chips.davis.DAVIS240C         |
-|DAVIS346Mono           |eu.seebetter.ini.chips.davis.Davis346B         |
-|DAVIS346Color          |eu.seebetter.ini.chips.davis.Davis346BColor\*  |
-|DAVIS640Mono           |eu.seebetter.ini.chips.davis.Davis640          |
-|DAVIS640Color          |eu.seebetter.ini.chips.davis.Davis640Color\*   |
-|Different chip?        | Please ask us to fill in this information ... |
+| Chip                  | Class                                         |
+| --------------------- | --------------------------------------------- |
+| DAVIS240C             | eu.seebetter.ini.chips.davis.DAVIS240C        |
+| DAVIS346Mono          | eu.seebetter.ini.chips.davis.Davis346B        |
+| DAVIS346Color         | eu.seebetter.ini.chips.davis.Davis346BColor\* |
+| DAVIS640Mono          | eu.seebetter.ini.chips.davis.Davis640         |
+| DAVIS640Color         | eu.seebetter.ini.chips.davis.Davis640Color\*  |
+| Different chip?       |  Please ask us to fill in this information ...|
 
 \*Note that colour rendering in jAER is rather resource intensive (at
 time of writing), limiting the frame rate which can effectively be
@@ -215,12 +215,12 @@ onwards have this option.
 
 Which daughterboard you should have:
 
-|**Chip**           | **Daughterboard**                             |
-|-------------------|-----------------------------------------------|
-|DAVIS240C          | V7                                            |
-|DAVIS346Mono/Color | V9I2                                          |
-|DAVIS640Mono/Color | V10I2                                         |
-|Different chip?    | Please ask us to fill in this information ..  |
+| Chip               | Daughterboard                                 |
+| -----------------  | --------------------------------------------- |
+| DAVIS240C          | V7                                            |
+| DAVIS346Mono/Color | V9I2                                          |
+| DAVIS640Mono/Color | V10I2                                         |
+| Different chip?    | Please ask us to fill in this information ..  |
 
 Here is a picture of the motherboard with a V10I2 daughterboard, with
 DAVIS640 chip installed:
@@ -241,10 +241,10 @@ use the C to CS converter adapter ring (supplied with the device) that
 moves the lens further from the chip.
 
 | Chip      | Array dimensions(mm) | Imager min size (inch)  | Suggested lens focal lengths (mm) | Angular field of view horizontal (deg) | Angular field of view vertical (deg) | Angular field of view diagonal (deg) |
-|-----------|------------|---------|---------------|----------------|----------------|---------------| 
-| DAVIS240C | 4.44x3.33  | 1/3     | 4.5 <br/> 6   | 53 <br/> 41    | 41 <br/> 31    |  63 <br/> 50  |
-| DAVIS346  | 6.4x4.81   | 1/2     | 6 <br/> 8     | 56 <br/> 44    | 44 <br/> 33    |  67 <br/> 53  |
-| DAVIS640  | 11.84x8.88 | 1       | 12 <br/> 16   | 53 <br/> 41    | 41 <br/> 31    |  63 <br/> 50  |
+| --------- | -------------------- | ----------------------- | --------------------------------- | -------------------------------------- | ------------------------------------ | ------------------------------------ | 
+| DAVIS240C | 4.44x3.33            | 1/3                     | 4.5 <br/> 6                       | 53 <br/> 41                            | 41 <br/> 31                          |  63 <br/> 50                         |
+| DAVIS346  | 6.4x4.81             | 1/2                     | 6 <br/> 8                         | 56 <br/> 44                            | 44 <br/> 33                          |  67 <br/> 53                         |
+| DAVIS640  | 11.84x8.88           | 1                       | 12 <br/> 16                       | 53 <br/> 41                            | 41 <br/> 31                          |  63 <br/> 50                         |
 
 ## Recorded data format
 
