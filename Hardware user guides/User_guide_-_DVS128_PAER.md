@@ -52,7 +52,7 @@ guide](http://www.inilabs.com/support/biasing) for how to
 bias the device in order to get the best performance out of your device
 for your application, in terms of speed, noise etc.
 
-[http://www.inilabs.com/support/dvs128](http://www.inilabs.com/support/dvs128)
+http://www.inilabs.com/support/dvs128
 
 **Additional notes:**
 

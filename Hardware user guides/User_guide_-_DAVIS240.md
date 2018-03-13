@@ -305,11 +305,11 @@ where REQ is to be considered an input and ACK an output:
 The following website has number of very detailed explanations for
 further reading:
 
-[http://www.cl.cam.ac.uk/\~djg11/wwwhpr/fourphase/fourphase.html](http://www.cl.cam.ac.uk/~djg11/wwwhpr/fourphase/fourphase.html)
+http://www.cl.cam.ac.uk/~djg11/wwwhpr/fourphase/fourphase.html
 
 Also, for details on AER, please look at:
 
-[https://www.ini.uzh.ch/\~amw/scx/std002.pdf](https://www.ini.uzh.ch/~amw/scx/std002.pdf)
+https://www.ini.uzh.ch/~amw/scx/std002.pdf
 
 For FPGA implementations, we recommend synchronizing at least the REQ
 input using a double-flip-flop synchronizer. Data itself should also

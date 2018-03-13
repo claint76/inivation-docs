@@ -278,7 +278,7 @@ can be found in our Git repository.
 For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
 file:
 
-[https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic\_DAVIS.bix](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix)
+https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix
 (BIX format)
 
 For DVS128 reprogramming, please also use the same DAVIS240 file as
@@ -317,13 +317,13 @@ As you can see, it’s divided into three parts:
     For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
     file:
 
-    [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic\_DAVIS.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)
+    https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic
     (IIC format)
 
     For DVS128 boards, it’s a different
     file:
 
-    [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2\_RetinaCPLD.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)
+    https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic
     (IIC format)
 
 2. The second row is used to update the logic (bitstream) on the
@@ -336,7 +336,7 @@ As you can see, it’s divided into three parts:
     Git
     repository:
 
-    [https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/](https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/)
+    https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/
 
     For DAVIS240 V4 boards (small USB 2.0 boards), use the following files:
 
@@ -353,7 +353,7 @@ As you can see, it’s divided into three parts:
     still think it’s needed in your case, the following file is the right
     one:
 
-    [https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128\_logic.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
+    https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf
 
     While flashing firmware or logic, you should see a progress dialog like
     this; if you don’t see this progress bar then there is some error, most

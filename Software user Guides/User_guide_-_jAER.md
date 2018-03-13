@@ -800,9 +800,9 @@ some functions. In particular you can send "startlogging filename.aedat"
 to start recording data to a file.
 
 See
-[https://sourceforge.net/p/jaer/wiki/Home/](https://sourceforge.net/p/jaer/wiki/Home/),
+https://sourceforge.net/p/jaer/wiki/Home/,
 in particular
-[https://sourceforge.net/p/jaer/wiki/Interfacing%20to%20jAER/.](https://sourceforge.net/p/jaer/wiki/Interfacing%20to%20jAER/)
+https://sourceforge.net/p/jaer/wiki/Interfacing%20to%20jAER/
 
 You can use this startlogging command and send it to multiple computers
 to start logging data nearly simultaneously.
@@ -902,7 +902,7 @@ these sliders change the biases of the sensor.
 This document explains in detail how to bias dynamic
 sensors:
 
-[http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
+http://inilabs.com/support/hardware/biasing/
 
 For DAVIS240, the “Bias Current Config” tab gives you complete control
 over the on-chip biases which parametrise the sensor.
@@ -930,7 +930,7 @@ The “Expert controls” tab looks something like this:
 This document explains in detail how to bias dynamic
 sensors:
 
-[http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
+http://inilabs.com/support/hardware/biasing/
 
 # Data recording (logging)
 
@@ -941,12 +941,12 @@ ask you where you want to save the recording. It will create a file in
 version 2.0 format. See here to understand the details of the file
 format:
 
-[http://inilabs.com/support/software/fileformat/](http://inilabs.com/support/software/fileformat/)
+http://inilabs.com/support/software/fileformat/
 
 ## Working with .aedat data in matlab
 
 These matlab scripts are in the working copy folder
-[https://github.com/SensorsINI/scripts/tree/master/matlab](https://github.com/SensorsINI/scripts/tree/master/matlab)
+https://github.com/SensorsINI/scripts/tree/master/matlab
 
 ### Reading raw events into matlab
 
@@ -963,7 +963,7 @@ can use the *EventExtractor* that goes with each chip class. Using the
 java class is faster but may fragment matlab memory.
 
 \* For matlab example, see the function
-[https://github.com/SensorsINI/scripts/blob/master/matlab/retina/extractRetina128EventsFromAddr.m](https://github.com/SensorsINI/scripts/blob/master/matlab/retina/extractRetina128EventsFromAddr.m)
+https://github.com/SensorsINI/scripts/blob/master/matlab/retina/extractRetina128EventsFromAddr.m
 
 \* For java class usage, examine the following example
 

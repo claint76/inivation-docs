@@ -284,7 +284,8 @@ shown above.
 ### Linux
 
 Flash magic is not available for Linux; an open-source alternative is:
-[http://www.windscooting.com/softy/mxli.html\#Latest](http://www.windscooting.com/softy/mxli.html#Latest)\
+http://www.windscooting.com/softy/mxli.html#Latest
+
 Further instructions on request (the process is similar to the above).
 
 ### Recovering from faulty firmware
