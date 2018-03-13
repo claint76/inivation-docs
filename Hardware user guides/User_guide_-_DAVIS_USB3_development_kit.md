@@ -1,4 +1,6 @@
 # User Guide - DAVIS USB3 development kit
+> *For more information, visit [iniVation support](https://inivation.com/support/)*
+---
 
 *Our documentation is regularly being improved along with our products.
 If this guide is missing the answer to any question you may have, please

@@ -1,5 +1,6 @@
 # User guide - jAER
-> *For more informations, visit [iniVation support](https://inivation.com/support/)*
+> *For more information, visit [iniVation support](https://inivation.com/support/)*
+---
 
 This guide explains how to use our jAER software, an open-source GUI for
 visualisation of event-based data and rapid application development.

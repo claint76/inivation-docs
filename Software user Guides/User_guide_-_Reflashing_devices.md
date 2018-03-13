@@ -1,5 +1,5 @@
 # User Guide - Reflashing Devices
-> *For more informations, visit [iniVation support](https://inivation.com/support/)*
+> *For more information, visit [iniVation support](https://inivation.com/support/)*
 ---
 
 This guide explains how to use our “Flashy” tool to benefit from

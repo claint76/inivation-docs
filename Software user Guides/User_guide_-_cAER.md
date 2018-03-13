@@ -1,13 +1,6 @@
 # User guide - cAER
-
-*Our documentation is regularly being improved along with our products.
-If this guide is missing the answer to any question you may have, please
-don't hesitate to ask us on the appropriate [support
-forum](https://groups.google.com/d/forum/davis-users/). If
-your question involves confidential information, however, please use
-[support@inilabs.com. First you could try our*
-*[troubleshooting
-guide](https://www.inilabs.com/support/faq/).*
+> *For more information, visit [iniVation support](https://inivation.com/support/)*
+---
 
 This guide describes cAER installation and how to stream event data via
 network. We assume you have a Linux or MacOS X system.

@@ -1,5 +1,6 @@
 # AEDAT file formats
-> *For more informations, visit [iniVation support](https://inivation.com/support/)*
+> *For more information, visit [iniVation support](https://inivation.com/support/)*
+---
 
 - [Introduction](#introduction)
 - [Software Support](#software-support)

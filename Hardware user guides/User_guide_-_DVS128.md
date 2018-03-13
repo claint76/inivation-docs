@@ -1,4 +1,6 @@
 # User guide - DVS128 Dynamic Vision Sensor
+> *For more information, visit [iniVation support](https://inivation.com/support/)*
+---
 
 This user guide covers the DVS128 camera:
 
