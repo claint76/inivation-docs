@@ -390,70 +390,13 @@ following image, please get in touch with us at
 
 # Which device? Which firmware? Which logic?
 
-<table>
-<thead>
-<tr class="header">
-<th><strong>CAMERA MODEL</strong></th>
-<th><strong>FIRMWARE</strong></th>
-<th><strong>LOGIC</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>DVS128</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic</a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf</a></td>
-</tr>
-<tr class="even">
-<td><strong>DAVIS240C</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic</a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf</a></td>
-</tr>
-<tr class="odd">
-<td><strong>DAVIS240B</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic</a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf</a></td>
-</tr>
-<tr class="even">
-<td><strong>DAVIS240A</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic</a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf</a></td>
-</tr>
-<tr class="odd">
-<td><strong>DAVIS346</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS346_80MHz_16bit_v4.img">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS346_80MHz_16bit_v4.img</a></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS/SystemLogic2_MachXO3_DAVIS346.bit">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS/SystemLogic2_MachXO3_DAVIS346.bit</a></td>
-</tr>
-<tr class="even">
-<td><strong>DevKit FX3 USB 3.0</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_80MHz_16bit_v4.img">https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_80MHz_16bit_v4.img</a></td>
-<td><table>
-<thead>
-<tr class="header">
-<th><strong>Daughter Board - Chip</strong></th>
-<th><strong>Logic</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>V10 - DAVIS640</td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit</a></td>
-</tr>
-<tr class="even">
-<td>V9 - DAVIS346B</td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit</a></td>
-</tr>
-<tr class="odd">
-<td>V8 - DAVIS346Cbsi</td>
-<td><a href="https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit">https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit</a></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr class="odd">
-<td><strong>DYNAP-SE-1</strong></td>
-<td><a href="https://github.com/inilabs/devices-bin/blob/master/firmware/CypressFX2/SeeBetterLogic_Dynapse.iic">https://github.com/inilabs/devices-bin/blob/master/firmware/CypressFX2/SeeBetterLogic_Dynapse.iic</a></td>
-<td><a href="https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/Spartan6_Dynapse/">https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/Spartan6_Dynapse/</a></td>
-</tr>
-</tbody>
-</table>
+| Camera model     | Firmware        | Logic                                                                      |
+| --------          | -------------- | -------------------------------------------------------------------------------- |
+| DVS128            | [firmware](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)      | [logic](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
+| DAVIS240C         | [firmware](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)        | [logic](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf )
+| DAVIS240B         | [firmware](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)        | [logic](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)
+| DAVIS240A         | [firmware](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)        | [logic](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)
+| DAVIS346          | [firmware](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS346_80MHz_16bit_v4.img)     | [logic](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS/SystemLogic2_MachXO3_DAVIS346.bit )
+| DevKit FX3 USB 3.0| [firmware](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_80MHz_16bit_v4.img )   | Daughter Board - Chip V10 - DAVIS640 -> [logic](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit)
+|                   |                                                                                                                   | Daughter Board - Chip V9 - DAVIS346B -> [logic](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit)
+|                   |                                                                                                                   | Daughter Board - Chip V8 - DAVIS346Cbsi -> [logic](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit) 
