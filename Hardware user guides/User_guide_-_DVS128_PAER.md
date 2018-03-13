@@ -4,9 +4,6 @@ This user guide covers DVS128\_PAER devices:
 
 <p align="center"> <img src="media/DVS128_PAER.png" width="500"/></p>
 
-If you are confused about which device you have, please see the
-[support overview](http://www.inilabs.com/support/overview).
-
 ## Table of contents
 - [What is the DVS128\_PAER?](#what-is-the-dvs128_paer)
 - [Specifications](#specifications)
