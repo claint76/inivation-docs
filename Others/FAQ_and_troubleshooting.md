@@ -3,10 +3,10 @@
 Can't find the answer you need? We use multiple Google Groups forums for
 all questions regarding inivation products:
 
-- https://groups.google.com/d/forum/caer-users
-- https://groups.google.com/d/forum/jaer-users
-- https://groups.google.com/d/forum/davis-users
-- https://groups.google.com/d/forum/dynapse-users
+- [https://groups.google.com/d/forum/caer-users](https://groups.google.com/d/forum/caer-users)
+- [https://groups.google.com/d/forum/jaer-users](https://groups.google.com/d/forum/jaer-users)
+- [https://groups.google.com/d/forum/davis-users](https://groups.google.com/d/forum/davis-users)
+- [https://groups.google.com/d/forum/dynapse-users](https://groups.google.com/d/forum/dynapse-users)
 
 If your question involves confidential information, however, please use
 [support@inivation.com](mailto:support@inivation.com).

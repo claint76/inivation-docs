@@ -26,3 +26,12 @@ Documentation for iniVation products.
 - [User_guide_-_caerctl-gui-javafx_GUI](https://inivation.github.io/inivation-docs/Software%20user%20guides/User_guide_-_caerctl-gui-javafx_GUI)
 - [User_guide_-_jAER](https://inivation.github.io/inivation-docs/Software%20user%20guides/User_guide_-_jAER)
 - [User_guide_-_libcaer](https://inivation.github.io/inivation-docs/Software%20user%20guides/User_guide_-_libcaer)
+
+# Hints on to write .md to have good html rendering
+## Hint1
+don't use raw links, as: https://github.com/inivation/inivation-docs; use instead ```[https://github.com/inivation/inivation-docs](https://github.com/inivation/inivation-docs)```
+otherwise it does not work the automatic linking, when rendered
+## Hint2
+when doing internal links, put "-" for each space present in the title, **NOT CONSIDERING** symbols, like /.
+For example, a title like "# hello / hello - hello" must be referenced as [ref](#hello--hello---hello)
+### hello / hello - hello

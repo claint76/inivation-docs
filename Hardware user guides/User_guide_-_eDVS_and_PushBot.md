@@ -56,7 +56,7 @@ A standalone dynamic vision sensor circuit board with microcontroller
 
 Specifications are compared to those of other DVS models here:
 
-http://www.inilabs.com/products/dynamic-vision-sensors/specifications
+[http://www.inilabs.com/products/dynamic-vision-sensors/specifications](http://www.inilabs.com/products/dynamic-vision-sensors/specifications)
 
 Application examples:
 -   Autonomous mobile robotics.
@@ -201,7 +201,7 @@ boards, you might need to tailor the standard firmware to your own
 application's needs. The latest version of the firmware can be checked
 out with Git from:
 
-https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337
+[https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337](https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337)
 
 Please follow the instructions within that directories README.txt file
 to install the LPCXpresso development environment.
@@ -213,7 +213,7 @@ HEX file for reprogramming through the UART0 port or the USB plug.
 
 You can find already compiled HEX files at
 
-https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337/Releases
+[https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337/Releases](https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337/Releases)
 
 The latest hex files are EDVSBoardOS-4mbps.hex; EDVSBoardOS-6mbps.hex
 and EDVSBoardOS-12mbps.hex. Choose the hex file denoted with the baud
@@ -232,7 +232,8 @@ entering reprogramming mode. Just close the terminal window.
 ### Windows & MacOS X
 
 For Windows and Mac OS X, the supported tool is FlashMagic, available at
-http://www.flashmagictool.com/.
+[http://www.flashmagictool.com/](http://www.flashmagictool.com/).
+
 The current version (9.51) runs on Windows XP/Vista/7/8 and version 8.50
 on MacOS X 10.6+. The following instruction were written for FlashMagic
 7.85, but still apply to newer version as well.
@@ -284,7 +285,8 @@ shown above.
 ### Linux
 
 Flash magic is not available for Linux; an open-source alternative is:
-http://www.windscooting.com/softy/mxli.html#Latest
+
+[http://www.windscooting.com/softy/mxli.html#Latest](http://www.windscooting.com/softy/mxli.html#Latest)
 
 Further instructions on request (the process is similar to the above).
 
@@ -496,16 +498,16 @@ I2C is available in the PWM outputs connector.
 
 **All connectors on the board are this type (6 pin or 8 pin):**
 
-http://de.farnell.com/te-connectivity-amp/7-188275-6/federleiste-smd-6pol/dp/1056234
+[http://de.farnell.com/te-connectivity-amp/7-188275-6/federleiste-smd-6pol/dp/1056234](http://de.farnell.com/te-connectivity-amp/7-188275-6/federleiste-smd-6pol/dp/1056234)
 
-http://de.farnell.com/te-connectivity-amp/7-188275-8/federleiste-smd-8pol/dp/2399717
+[http://de.farnell.com/te-connectivity-amp/7-188275-8/federleiste-smd-8pol/dp/2399717](http://de.farnell.com/te-connectivity-amp/7-188275-8/federleiste-smd-8pol/dp/2399717)
 
 If you want to connect to your custom device, consider acquiring some of
 those cables:
 
-http://de.farnell.com/te-connectivity-amp/1483351-2/micromatch-6-pol-150mm/dp/1056211
+[http://de.farnell.com/te-connectivity-amp/1483351-2/micromatch-6-pol-150mm/dp/1056211](http://de.farnell.com/te-connectivity-amp/1483351-2/micromatch-6-pol-150mm/dp/1056211)
 
-http://de.farnell.com/te-connectivity-amp/1483352-2/micromatch-8-pol-150mm/dp/1056214
+[http://de.farnell.com/te-connectivity-amp/1483352-2/micromatch-8-pol-150mm/dp/1056214](http://de.farnell.com/te-connectivity-amp/1483352-2/micromatch-8-pol-150mm/dp/1056214)
 
 ### GPIO
 

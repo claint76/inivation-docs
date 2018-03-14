@@ -185,7 +185,7 @@ calibration when the headset inevitably moves, and for reinitialisation
 of pupil position in the presence of distractors (glints, blinks etc).
 
 Previous Work:
-http://wiki.cogain.org/images/7/7f/COGAIN-D5.5.pdf
+[http://wiki.cogain.org/images/7/7f/COGAIN-D5.5.pdf](http://wiki.cogain.org/images/7/7f/COGAIN-D5.5.pdf)
 
 # Characterization of dynamic vision sensors 
 
