@@ -29,7 +29,7 @@ For support for older eDVS prototypes see here:
     - [Linux](#linux)
     - [Recovering from faulty firmware](#recovering-from-faulty-firmware)
 - [Accessing the device manually](#accessing-the-device-manually)
-  - [UART Protocol (PC-\>Board)](#uart-protocol-pc-board)
+  - [UART Protocol (PC->Board)](#uart-protocol-pc-board)
   - [Enabling / Disabling Data Streaming](#enabling-disabling-data-streaming)
 - [Event recording formats](#event-recording-formats)
   - [Streaming](#streaming)
@@ -42,10 +42,10 @@ For support for older eDVS prototypes see here:
   - [UART0 (Slave)](#uart0-slave)
   - [UART1 (Master)](#uart1-master)
 - [Optional: WLAN module](#optional-wlan-module)
-  - [Connecting the wlan module to PC via USB-\>UART](#connecting-the-wlan-module-to-pc-via-usb-uart)
+  - [Connecting the wlan module to PC via USB->UART](#connecting-the-wlan-module-to-pc-via-usb-uart)
   - [Configuring the WIFI network credentials on the module with putty (new ZentriOS wlan
     module)](#configuring-the-wifi-network-credentials-on-the-module-with-putty-new-zentrios-wlan-module)
-  - [Configure the wlan module via tcp (the Telnet function on putty) after we get the mac address of\
+  - [Configure the wlan module via tcp (the Telnet function on putty) after we get the mac address of
     the module in the previous section](#configure-the-wlan-module-via-tcp-the-telnet-function-on-putty-after-we-get-the-mac-address-of-the-module-in-the-previous-section)
   - [Communicating with the pushbot via wifi](#communicating-with-the-pushbot-via-wifi)
 - [Optional: PushBot](#optional-pushbot)
@@ -87,7 +87,7 @@ Power
 Physical Specs
 -   Size: approx. 80x50mm (smaller than a credit card).
 -   Lens: S-mount (M12x0.5).
--   Field of view: default \~55deg (hor./ver.); optional lenses 20 - 120deg.
+-   Field of view: default ~55deg (hor./ver.); optional lenses 20 - 120deg.
 
 Special Features
 -   Wake-up on visual activity, adjustable threshold.
@@ -126,15 +126,15 @@ Once installed, connect the eDVS via USB to your computer. The drivers
 for USB serial port emulation are already part of all modern operating
 systems, so no special installation is required at this point. The
 recently connected devices should show up on your system as a serial
-communication device, for example as a COM:\<x\> port on Windows or
-/dev/ttyUSB\<x\> on Linux. If your OS does not find drivers, download
+communication device, for example as a COM:<x> port on Windows or
+/dev/ttyUSB<x> on Linux. If your OS does not find drivers, download
 FTDI's latest [VCP drivers for FT232HL](http://www.ftdichip.com/Drivers/VCP.htm)
 
 Note for Linux users: you may need to ensure you have the correct
 permissions for accessing /dev/ttyUSBn (where n = 0,1,2, etc). For
 example, running the following command as root:
 
-> \# chmod 666 /dev/ttyUSB0
+> # chmod 666 /dev/ttyUSB0
 
 Will give you access to device ttyUSB0.
 
@@ -177,7 +177,7 @@ The default biases DVS128Slow.xml or DVS128Fast.xml are suitable for
 many situations.
 
 Here is the default set of bias with associated names (which is loaded
-on power-up):\
+on power-up):
 
 ```python
 bias[ 0] = 1067;       // 0x00042B // Tmpdiff128.IPot.cas
@@ -224,7 +224,7 @@ To enter reprogramming mode, use the programming command from a serial
 console (see section "[Accessing the device
 manually](#accessing-the-device-manually)", below):
 
-> P\\n
+> Pn
 
 Ensure you do not hit any other keys or send further characters after
 entering reprogramming mode. Just close the terminal window.
@@ -239,12 +239,12 @@ on MacOS X 10.6+. The following instruction were written for FlashMagic
 
 #### Step 1 - Communication
 
-Device: *LPC4337*\
-Flash Bank: *A*\
-Com Port: Serial port of the FTDI chip, depends on system.\
+Device: *LPC4337*
+Flash Bank: *A*
+Com Port: Serial port of the FTDI chip, depends on system.
 Baud Rate: *115200* (try lower baud rates if connection fails; e.g.
-*19200*)\
-Interface: *None (ISP)*\
+*19200*)
+Interface: *None (ISP)*
 Oscillator (MHz): *12*
 
 #### Step 2 - Erase 
@@ -298,8 +298,8 @@ enter programming mode via USB isn't available then.
 
 To correct this, it's possible to manually force the microprocessor to
 enter programming mode directly, by shorting a specific pin to GND
-(ground). This pin is P2\_7, more information can be found in Section
-6.2 \"Pin description\" of the [LPC4337
+(ground). This pin is P2_7, more information can be found in Section
+6.2 "Pin description" of the [LPC4337
 datasheet](http://cache.nxp.com/documents/data_sheet/LPC435X_3X_2X_1X.pdf?fpsp=1&WT_TYPE=Data%20Sheets&WT_VENDOR=FREESCALE&WT_FILE_FORMAT=pdf&WT_ASSET=Documentation&fileExt=.pdf).
 
 On the PCB, this pin is pulled up to VCC through a pull-up resistor by
@@ -347,10 +347,10 @@ CR* in every *LF*, as well as set to *Force off* both *Local echo* and
 After pressing the Open button, you'll be able to send commands to the
 device. The list of commands is available in the next section.
 
-### UART Protocol (PC-\>Board) 
+### UART Protocol (PC->Board) 
 
-Supported Commands (all commands need to be terminated by '\\n'; i.e.
-\<return\>):
+Supported Commands (all commands need to be terminated by 'n'; i.e.
+<return>):
 
 ```
 E+/-                  - enable/disable event sending
@@ -407,13 +407,13 @@ will stream the ADC channel 0 and channel 2 (10=0b1010) readings at
 upcoming (example) reply:
 
 ```
--S1 1000\\n\
--S3 0250\\n
+-S1 1000n
+-S3 0250n
 ```
 
 List of available sensory data:
 
-| Bit  | Decimal    | Name             | \#  | Description                                         |    Format                                      |
+| Bit  | Decimal    | Name             | #  | Description                                         |    Format                                      |
 | ---- | ---------- | ---------------- | --- | --------------------------------------------------- | ---------------------------------------------- |
 | 0    | 1          | BATTERY          | 1   | battery voltage (in mVolt)                          | up to 4 digits (0..9999)                       |
 | 1    | 2          | ADC CHANNEL 0    | 1   | raw ADC reading from pin 2                          | up to 4 digits (0..1023)                       |
@@ -426,19 +426,19 @@ List of available sensory data:
 | 8    | 256        | RAW ACC          | 3   | raw accelerometer data (3 axes) (+/- 2g)            | +/- up to 5 digits (+/-32767)                  |
 | 9    | 512        | RAW COMP         | 3   | raw magnetic values (3 axes) (+/- 1229 uT)          | +/- up to 4 digits (+/-4095)                   |
 | 10   | 1024       | CAL GYRO         | 3   | calibrated gyroscope data in dps                    | up to 8 hexadecimal digits (Q16)               |
-| 11   | 2048       | CAL ACC          | 3   | calibrated accelerometer data in g\'s               | up to 8 hexadecimal digits (Q16)               |
+| 11   | 2048       | CAL ACC          | 3   | calibrated accelerometer data in g's               | up to 8 hexadecimal digits (Q16)               |
 | 12   | 4096       | CAL COMP         | 3   | calibrated magnetic values in microtesla            | up to 8 hexadecimal digits (Q16)               |
 | 13   | 8192       | QUARTERNION      | 4   | 9 axis quarternion                                  | up to 8 hexadecimal digits (Q30)               |
 | 14   | 16384      | EULER ANGLES     | 4   | Euler angles in degrees                             | up to 8 hexadecimal digits (Q30)               |
 | 15   | 32768      | ROTATION MATRIX  | 9   | rotation matrix                                     | up to 8 hexadecimal digits (Q30)               |
 | 16   | 65536      | HEADING          | 1   | heading in degrees                                  | up to 8 hexadecimal digits (Q16)               |
-| 17   | 131072     | LINEAR ACC       | 3   | linear acceleration in m/s\^2                       | up to 8 hexadecimal digits (Float)             |
+| 17   | 131072     | LINEAR ACC       | 3   | linear acceleration in m/s^2                       | up to 8 hexadecimal digits (Float)             |
 | 18   | 262144     | IMU STATUS       | 2   | IMU status: temperature in milliC, time in milliSec | +/- up to 5 digits (+/99999)and (+/- 31 bits)  |
-| 19   | 524288     | PWM\_SIGNALS     | 4   | currently set PWM duty cycles (in uS and %)         | +/- up to 3 digits (+/-1000000 and +/-100)     |
-| 20   | 1048576    | MOTOR\_CURRENTS  | 2   | motor currents from the motor driver (in mA)        | up to 4 digits (0..9999)                       |
-| 21   | 2097152    | EVENT\_RATE      | 1   | event rate (events per second)                      | up to 7 digits (0..1000000)                    |
+| 19   | 524288     | PWM_SIGNALS     | 4   | currently set PWM duty cycles (in uS and %)         | +/- up to 3 digits (+/-1000000 and +/-100)     |
+| 20   | 1048576    | MOTOR_CURRENTS  | 2   | motor currents from the motor driver (in mA)        | up to 4 digits (0..9999)                       |
+| 21   | 2097152    | EVENT_RATE      | 1   | event rate (events per second)                      | up to 7 digits (0..1000000)                    |
 |      |            |                  |     |                                                     |                                                |
-| 28   | 268435456  | MOTOR\_SENSORS   | 2   | wheel tick counter (only present in PushBot)        | +/- up to 11 digits( +/- 31 bits)              |
+| 28   | 268435456  | MOTOR_SENSORS   | 2   | wheel tick counter (only present in PushBot)        | +/- up to 11 digits( +/- 31 bits)              |
 
 Custom application sensors should use bits 28 - 31; bits 22 - 27 are
 reserved for future applications.
@@ -464,10 +464,10 @@ Every timestamp has 1 us resolution.
 | Format                            | Data packet                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | !E0 will result in data packets   | 1yyyyyyy.pxxxxxxx                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| !E1 will result in data packets   | 1yyyyyyy.pxxxxxxx.1ttttttt <br/> (time stamp wrap-around after 2\^7 us = 128 us) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2\^14 us = 16 384 =\~ 16 ms) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2\^21 us = 2 097 152 us =\~ 2 sec) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2\^28 us = 268 435 456 us =\~ 4.5 min) <br/> |
-| !E2 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt <br/> (time stamp wrap-around after 2\^16 us = 65 535 us =\~ 65ms)                                                                                                                                                                                                                                                                                                                                                             |
-| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2\^24 = 16 777 216 us =\~ 16 sec)                                                                                                                                                                                                                                                                                                                                                 |
-| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2\^24 = 4 294 967 296 us =\~ 72 min)                                                                                                                                                                                                                                                                                                                                     |
+| !E1 will result in data packets   | 1yyyyyyy.pxxxxxxx.1ttttttt <br/> (time stamp wrap-around after 2^7 us = 128 us) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2^14 us = 16 384 =~ 16 ms) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2^21 us = 2 097 152 us =~ 2 sec) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2^28 us = 268 435 456 us =~ 4.5 min) <br/> |
+| !E2 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt <br/> (time stamp wrap-around after 2^16 us = 65 535 us =~ 65ms)                                                                                                                                                                                                                                                                                                                                                             |
+| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2^24 = 16 777 216 us =~ 16 sec)                                                                                                                                                                                                                                                                                                                                                 |
+| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2^24 = 4 294 967 296 us =~ 72 min)                                                                                                                                                                                                                                                                                                                                     |
 
 ### Recording
 
@@ -478,9 +478,9 @@ below):
 
 | Time           | Data packet                                           |
 | -------------- | ----------------------------------------------------- |
-| \< 128us:      | 1yyyyyyy.pxxxxxxx.1ttttttt                            |
-| \< 16384 us:   | 1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt                   |
-| \< 2097152 us: | 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt          |
+| < 128us:      | 1yyyyyyy.pxxxxxxx.1ttttttt                            |
+| < 16384 us:   | 1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt                   |
+| < 2097152 us: | 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt          |
 | else           | 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt |
 
 (a leading 1 in a time stamp byte indicates the final byte of
@@ -512,12 +512,12 @@ http://de.farnell.com/te-connectivity-amp/1483352-2/micromatch-8-pol-150mm/dp/10
 | Pin  | Primary Function  | Secondary Function(s) |
 | ---- | ----------------- | --------------------- |
 | 1    | Supply Voltage    |                       |
-| 2    | GPIO2\[5\]        | PWM Channel A 2       |
-| 3    | GPIO2\[6\]        | PWM Channel A 2       |
-| 4    | GPIO2\[2\]        | PWM Channel C 0       |
-| 5    | GPIO5\[12\]       | Timer2 Capture 2      |
-| 6    | GPIO5\[13\]       | Timer3 Capture 1      |
-| 7    | GPIO5\[14\]       | Timer0 Capture 2      |
+| 2    | GPIO2[5]        | PWM Channel A 2       |
+| 3    | GPIO2[6]        | PWM Channel A 2       |
+| 4    | GPIO2[2]        | PWM Channel C 0       |
+| 5    | GPIO5[12]       | Timer2 Capture 2      |
+| 6    | GPIO5[13]       | Timer3 Capture 1      |
+| 7    | GPIO5[14]       | Timer0 Capture 2      |
 | 8    | GND               |                       |
 
 ### ADC
@@ -539,12 +539,12 @@ http://de.farnell.com/te-connectivity-amp/1483352-2/micromatch-8-pol-150mm/dp/10
 | Pin  | Primary Function  | Secondary Function(s)  |            |
 | ---- | ----------------- | ---------------------- | ---------- |
 | 1    | Supply Voltage    |                        |            |
-| 2    | PWM Channel A 0   | TWI SDA                | GPIO5\[3\] |
-| 3    | PWM Channel A 1   | TWI SCK                | GPIO5\[4\] |
-| 4    | PWM Channel B 0   | GPIO5\[15\]            |            |
-| 5    | PWM Channel B 1   | GPIO5\[16\]            |            |
-| 6    | PWM Channel C 0   | GPIO5\[7\]             |            |
-| 7    | PWM Channel C 1   | GPIO1\[10\]            |            |
+| 2    | PWM Channel A 0   | TWI SDA                | GPIO5[3] |
+| 3    | PWM Channel A 1   | TWI SCK                | GPIO5[4] |
+| 4    | PWM Channel B 0   | GPIO5[15]            |            |
+| 5    | PWM Channel B 1   | GPIO5[16]            |            |
+| 6    | PWM Channel C 0   | GPIO5[7]             |            |
+| 7    | PWM Channel C 1   | GPIO1[10]            |            |
 | 8    | GND               |                        |            |
 
 ### SPI
@@ -552,10 +552,10 @@ http://de.farnell.com/te-connectivity-amp/1483352-2/micromatch-8-pol-150mm/dp/10
 |Pin  | Primary Function  | Secondary Function(s)  |
 | --- | ----------------- | ---------------------- |
 |1    | Supply Voltage    |                        |
-|2    | MOSI              | GPIO0\[9\]             |
-|3    | MISO              | GPIO0\[8\]             |
+|2    | MOSI              | GPIO0[9]             |
+|3    | MISO              | GPIO0[8]             |
 |4    | SCK               |                        |
-|5    | SSEL              | GPIO0\[4\]             |
+|5    | SSEL              | GPIO0[4]             |
 |6    | GND               |                        |
 
 ### UART0 (Slave)
@@ -563,11 +563,11 @@ http://de.farnell.com/te-connectivity-amp/1483352-2/micromatch-8-pol-150mm/dp/10
 |Pin  | Primary Function  | Secondary Function(s)  |
 | --- | ----------------- | ---------------------- |
 |1    | Supply Voltage    |                        |
-|2    | RXD               | GPIO5\[1\]             |
-|3    | TXD               | GPIO5\[0\]             |
+|2    | RXD               | GPIO5[1]             |
+|3    | TXD               | GPIO5[0]             |
 |4    | GND               |                        |
-|5    | CTS               | GPIO1\[8\]             |
-|6    | RTS               | GPIO0\[10\]            |
+|5    | CTS               | GPIO1[8]             |
+|6    | RTS               | GPIO0[10]            |
 
 UART is already set up in the default firmware. The UART0 port can be
 accessed from outside and it supports exactly the same command structure
@@ -580,11 +580,11 @@ easily.
 |Pin  | Primary Function  | Secondary Function(s)  |
 | --- | ----------------- | ---------------------- |
 |1    | Supply Voltage    |                        |
-|2    | TXD               | GPIO1\[14\]            |
-|3    | RXD               | GPIO1\[7\]             |
+|2    | TXD               | GPIO1[14]            |
+|3    | RXD               | GPIO1[7]             |
 |4    | GND               |                        |
-|5    | RTS               | GPIO2\[11\]            |
-|6    | CTS               | GPIO2\[133\]           |
+|5    | RTS               | GPIO2[11]            |
+|6    | CTS               | GPIO2[133]           |
 
 ## Optional: WLAN module
 
@@ -606,13 +606,13 @@ or connect to the currently configured WLAN (this will always be the
 case on newly purchased modules, which are configured with an 'iniLabs'
 SSID).
 
-### Connecting the wlan module to PC via USB-\>UART
+### Connecting the wlan module to PC via USB->UART
 
-To do the programming, you need a separate USB-\>UART programmer, as
+To do the programming, you need a separate USB->UART programmer, as
 well as a cross-over UART cable. Both are included when you purchase the
 WLAN module. Proceed as follows:
 
-1)  Connect the cross-over UART cable to the USB-\>UART programmer, and
+1)  Connect the cross-over UART cable to the USB->UART programmer, and
     to the WLAN module's left UART port.
 
 2)  Connect to it exactly as you would connect to an eDVS, please refer
@@ -620,14 +620,14 @@ WLAN module. Proceed as follows:
     manually](#accessing-the-device-manually)
 
 3)  Write ?? to get a list of all possible supported commands. Note that
-    in recent WLAN modules that code has been changed with a '\$\$\$'
-    followed by the sign '\>'. To get help on the command line type
+    in recent WLAN modules that code has been changed with a '$$$'
+    followed by the sign '>'. To get help on the command line type
     'help all', it will display a list of all available commands.
 
 4)  -S scans for all available networks in range and displays them.
 
-5)  You'll need to set at least SSID (-WS=\<xxx\>), encryption type
-    (-WE=\<0,1,2,3\>) and encryption key (-WK=\<xxx\>).
+5)  You'll need to set at least SSID (-WS=<xxx>), encryption type
+    (-WE=<0,1,2,3>) and encryption key (-WK=<xxx>).
 
 6)  Type -W! to save the settings.
 
@@ -650,58 +650,58 @@ example PuTTY.
 It is also possible to enter programming mode over the network, by
 sending the following character sequence to the module:
 
-> \<wait for 1s\> /// \<wait for 1s\>
+> <wait for 1s> /// <wait for 1s>
 
 Wait for one second, send three forward slashes, and again wait for one
 second.
 
 ### Configuring the WIFI network credentials on the module with putty (new ZentriOS wlan module)
 
-After connecting the module with the separate USB-\>UART programmer, as
+After connecting the module with the separate USB->UART programmer, as
 well as a cross-over UART cable. Both are included when you purchase the
 WLAN module. You will need to connect via putty as described in the
 section above.
 
-a) To enable configuration of the wlan module, quickly type \"\$\$\$\"
-in the putty console, then a \"\>\" character\
-will show up indicating that the device is in command mode\
-b) Type \"set wlan.ssid YOUR\_NETWORK\_NAME\" to set the network name\
-c) Type \"set wlan.passkey YOUR\_NETWORK\_PASSKEY\" to set the password
-of your network\
-e) Type \"set wlan.auto\_join.enabled true\" to enable auto joining the
-network\
-f) \#\#\#\#\# This step is very important \#\#\#\#\#\# Type \"set
-uart.baud 1 4000000 raw\" to set the baudrate to 4M, so the\
+a) To enable configuration of the wlan module, quickly type "$$$"
+in the putty console, then a ">" character
+will show up indicating that the device is in command mode
+b) Type "set wlan.ssid YOUR_NETWORK_NAME" to set the network name
+c) Type "set wlan.passkey YOUR_NETWORK_PASSKEY" to set the password
+of your network
+e) Type "set wlan.auto_join.enabled true" to enable auto joining the
+network
+f) ##### This step is very important ###### Type "set
+uart.baud 1 4000000 raw" to set the baudrate to 4M, so the
 next time you connect the module via serial, remember to set the
-baudrate to 4M instead of 12M\
-g) Type \"set bus.mode stream\" to enable the module to stream data from
-the pushbot\
-h) Type \"get wlan.mac\", and the mac address of the module will show
-up, please note it down because it might\
-be used in the later steps when we want to find it\'s allocated IP
-address\
-i) Type \"save\" to save the settings\
-j) Type \"reboot\" to reboot the module
+baudrate to 4M instead of 12M
+g) Type "set bus.mode stream" to enable the module to stream data from
+the pushbot
+h) Type "get wlan.mac", and the mac address of the module will show
+up, please note it down because it might
+be used in the later steps when we want to find it's allocated IP
+address
+i) Type "save" to save the settings
+j) Type "reboot" to reboot the module
 
 ### Configure the wlan module via tcp (the Telnet function on putty) after we get the mac address of the module in the previous section
 
 a) Connect the module to serial port again just like in section
-3 (remember to set the baudrate to 4M instead of\
+3 (remember to set the baudrate to 4M instead of
 12M because we have reset it in the previous section), it shall
-automatically connect to the previously set\
-network.\
-b) Quickly type \"\$\$\$\" in the putty console to enter command mode\
-c) Type \"get wlan.network.ip\" to get the IPv4 address of the module
-allocated by the network\
-d) Close the serial port, but keep the module powered on\
+automatically connect to the previously set
+network.
+b) Quickly type "$$$" in the putty console to enter command mode
+c) Type "get wlan.network.ip" to get the IPv4 address of the module
+allocated by the network
+d) Close the serial port, but keep the module powered on
 e) Now that we know the IP address, we can connect to the module via
-telnet\
-f) Open putty again and choose the Connection Type as \"Telnet\"\
+telnet
+f) Open putty again and choose the Connection Type as "Telnet"
 g) Enter the IP address of the module we just got, and the port number
-56001, then press \"Open\", and the PC\
-should be able to communicate to the module via tcp now\
-h) \#\#\#\#\# Alternatively, we can also fetch the IP address by using
-netscaning tools(e.g. \"arp-scan\" on linux\
+56001, then press "Open", and the PC
+should be able to communicate to the module via tcp now
+h) ##### Alternatively, we can also fetch the IP address by using
+netscaning tools(e.g. "arp-scan" on linux
 and MAC OS) and look for the respective mac address of the wlan module
 
 ### Communicating with the pushbot via wifi

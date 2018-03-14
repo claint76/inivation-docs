@@ -88,10 +88,10 @@ Matlab or jAER, filter SingleOrStereoCalibration). The cameras are
 calibrated in order: DAVIS2 referred to DAVIS1, DAVIS3 referred to
 DAVIS2, DAVIS4 referred to DAVIS3. In this way it is possible to define
 the transformation matrices between the different system
-T<sub>2-\>1</sub>, T<sub>3-\>2</sub>, T<sub>4-\>3</sub> and reference
+T<sub>2->1</sub>, T<sub>3->2</sub>, T<sub>4->3</sub> and reference
 everything to DAVIS1. To referred the Vicon to DAVIS1, it is possible to
 use different methods. Here we presented the *change of basis theorem*,
-that we used to find the transformation matrix T<sub>Vicon-\>1</sub>.
+that we used to find the transformation matrix T<sub>Vicon->1</sub>.
 
 Once the Vicon has been calibrated, with the specific Vicon
 [calibration
@@ -120,7 +120,7 @@ In the DAVIS1 space the basis vector can be defined as:
 
 <p align="center"><img src="media/vicon_basis_vector2.png" width="300"/></p>
 
-The transformation matrix T<sub>Vicon-\>1</sub> is so defined:
+The transformation matrix T<sub>Vicon->1</sub> is so defined:
 
 <p align="center"><img src="media/vicon_transformation_matrix.png" width="300"/></p>
 

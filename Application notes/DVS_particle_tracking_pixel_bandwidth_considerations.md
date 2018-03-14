@@ -3,7 +3,7 @@
 A common application of DVS sensors is for tracking moving particles.
 For a DVS to respond with temporal contrast events to these particles,
 the required pixel bandwidth were analyzed by David Borer in his PhD
-work \[1\] at the Inst. of Fluid Dynamic (IFD) at ETH Zurich. This
+work [1] at the Inst. of Fluid Dynamic (IFD) at ETH Zurich. This
 application note repeats his analysis with a practical example. It also
 supplies a Matlab script and a Google spreadsheet to allow computing
 specific scenarios.
@@ -146,17 +146,17 @@ to sensor*
 
 # DVS128 bandwidth
 
-The measured bandwidth of the DVS128 pixels is shown below \[2\]. The
+The measured bandwidth of the DVS128 pixels is shown below [2]. The
 bandwidth is roughly proportional to pixel illumination when the other
 pixel biases do not limit the bandwidth (“Fast biases” were used in this
 measurement.). Under high illumination, the DVS128 pixel bandwidth can
 reach 3 kHz.
 
 The conditions of this measurement used an LED with luminance of about
-300nit \[3\] using an f/1.2 lens. This luminance is similar to an LCD
+300nit [3] using an f/1.2 lens. This luminance is similar to an LCD
 computer monitor level. Using photometry, it is possible to estimate the
 equivalent scene illumination conditions corresponding to this
-luminance \[4\]. A luminance of 300nit corresponds to a perfect
+luminance [4]. A luminance of 300nit corresponds to a perfect
 Lambertian reflector illuminated by 1klux, which corresponds to bright
 indoor lighting. Any real scene will have much less reflectance. If we
 assume that the objects being tracked have Kodak gray card reflectance
@@ -226,9 +226,9 @@ D=.007; % size of particle in meters
 
 p=40e-6; % pixel pitch meters
 
-s=(D/f)\*Z; % size of particle in px
+s=(D/f)*Z; % size of particle in px
 
-u=(U\*f)/(Z\*p); % speed of particle in px/s on focal plane
+u=(U*f)/(Z*p); % speed of particle in px/s on focal plane
 ```
 
 Output of script above

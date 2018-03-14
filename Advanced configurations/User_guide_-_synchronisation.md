@@ -73,14 +73,14 @@ response to an external stimulus, such as a falling edge, happening on
 their input signal pin.
 
 The DAVISes have a stereo cable, so two in and two output signals, which
-means the \"clock\" signal and the \"event injection\" signal are always
+means the "clock" signal and the "event injection" signal are always
 separate and well-defined, so there is no ambiguity on what is a clock
 and what is an event injection signal. This also means we can reliably
 detect when a clock is fed into a device and automatically figure out if
-it\'s a slave or a master, as described above.
+it's a slave or a master, as described above.
 
 The DVS128 only have two pins total, so there are software
-switches to select if it\'s a master, meaning its OUT pin will generate
+switches to select if it's a master, meaning its OUT pin will generate
 a synchronisation clock and its IN pin will be used to inject special
 events, or a slave, meaning both the IN and OUT pins are dedicated to
 synchronisation, by respectively receiving and forwarding the clock.
@@ -107,7 +107,7 @@ crimps and a copper cable, as shown in this picture:
 
 <p align="center"><img src="media/synchronisation_DVS128_conn.png" width="600"/></p>
 
-For synchronisation, DVS128 cameras with a firmware version number \>=
+For synchronisation, DVS128 cameras with a firmware version number >=
 11 should be used, older firmware versions are not synchronized properly
 if the USB load is high.
 
@@ -120,11 +120,11 @@ cameras are connected to different computers, the ground pins should be
 connected, as shown in the picture above.
 
 Starting from firmware version 11, the timestamp master camera has to be
-selected in software. In the jAER software, use "File" -\> "New Viewer"
+selected in software. In the jAER software, use "File" -> "New Viewer"
 to get a second view window. Use each window to select one of the
 connected devices from the "Interface" menu. Then, For the timestamp
-master (where the OUT is connected) the checkbox \'Timestamp master /
-Enable sync event output\' in the DVS128-menu has to be checked, for the
+master (where the OUT is connected) the checkbox 'Timestamp master /
+Enable sync event output' in the DVS128-menu has to be checked, for the
 slave(s), it has to be unchecked.
 
 <p align="center"><img src="media/synchronisation_DVS128_timestamp.png" width="600"/></p>
@@ -132,7 +132,7 @@ slave(s), it has to be unchecked.
 The master camera keeps its bottom LED lit, while the slaves extinguish
 theirs.
 
-To synchronize the cameras after plugging them in, press \'0\' in the
+To synchronize the cameras after plugging them in, press '0' in the
 AEViewer window of the timestamp master to reset the timestamps of all
 the cameras.
 
@@ -149,11 +149,11 @@ The IN pin is not 5V tolerant. High must not exceed 3.3V.
 discussion.**
 
 To enable this mode, while the DVS128 is plugged in, use the DVS128 menu
-to enable the checkbox \'Timestamp master / Enable sync event output\',
+to enable the checkbox 'Timestamp master / Enable sync event output',
 as seen in the picture above.
 
 Falling edges of the IN pin should result in the logging of special
-events, which are denoted by having the SYNC\_EVENT\_BITMASK bit set in
+events, which are denoted by having the SYNC_EVENT_BITMASK bit set in
 their address (bit 15).
 
 ### DAVIS240 synchronisation
@@ -205,7 +205,7 @@ Signal 1 (pin 3, JinSIG above) is used for external event injection; it
 detects rising or falling edges or pulses of a certain polarity and
 minimal length, and generates an event in response to this that you can
 detect on the host, where this event has a unique address corresponding
-to DavisChip.EXTERNAL\_INPUT\_EVENT\_ADDR. The input is passed directly
+to DavisChip.EXTERNAL_INPUT_EVENT_ADDR. The input is passed directly
 to the output, so that multiple chained devices may react to the same
 external stimulus and inject an event in response to it. This can be
 useful if you want to have precise timing in your event stream coupled
@@ -239,11 +239,11 @@ A camera that detects the 10kHz clock on it's input pin will show text
 frame area. If this indication is not shown, then the clock has not been
 detected.
 
-Once you\'ve connected all devices, it\'s usually a good idea to tell
+Once you've connected all devices, it's usually a good idea to tell
 the master to issue a timestamp reset so all devices have a common
 starting point. To do this:
 
--   From jAER: press \"0\" (zero) in the jAER window which controls the master;
+-   From jAER: press "0" (zero) in the jAER window which controls the master;
 -   in cAER: toggle /1/DAVIS-FX2/multiplexer/TimestampReset.
 
 We did an experiment using 150m of untwisted 2-conductor cable to
