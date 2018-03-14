@@ -1,4 +1,4 @@
-# User Guide - eDVS4337 (embedded Dynamic Vision
+# User Guide - eDVS4337 (embedded Dynamic Vision Sensor)
 > *For more information, visit [iniVation support](https://inivation.com/support/)*
 ---
 
@@ -18,7 +18,7 @@ For support for older eDVS prototypes see here:
   - [Biasing the DVS](#biasing-the-dvs)
 - [Custom firmware development](#custom-firmware-development)
   - [Firmware reprogramming](#firmware-reprogramming)
-    - [Windows & MacOS X](#windows-macos-x)
+    - [Windows & MacOS X](#windows--macos-x)
       - [Step 1 - Communication](#step-1---communication)
       - [Step 2 - Erase](#step-2---erase)
       - [Step 3 - Hex File](#step-3---hex-file)
