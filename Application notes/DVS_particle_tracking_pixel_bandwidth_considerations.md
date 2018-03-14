@@ -127,7 +127,7 @@ the bandwidth, which is given by the spread of the spectrum. From the
 spectrum plot, it is clear that the pixel 3dB bandwidth needs to be
 above 1.5kHz to capture most of the power.
 
-<p align="center"><img src="media/example_spectrum_plot.png" width="600">
+<p align="center"><img src="media/example_spectrum_plot.png" width="600"/></p>
 
 *Plots of (1) in case of U=10; % speed in m/s of particle perpendicular
 to sensor*
