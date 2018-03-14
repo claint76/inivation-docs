@@ -70,7 +70,7 @@ The following table summarizes what software supports which formats:
 
 **X = Complete**
 
-**X\* = In progress**
+**X* = In progress**
 
 # Common Version Header
 
@@ -83,8 +83,8 @@ the file correctly.
 If it exists, it is the first content present in a file, and is made up
 of one or more header lines.
 
-A header line begins with a ‘\#’ character and ends with a CRLF (Windows
-line ending, ‘\\r\\n’).
+A header line begins with a ‘#’ character and ends with a CRLF (Windows
+line ending, ‘rn’).
 
 Header lines, unless specified otherwise, are always case sensitive.
 
@@ -94,7 +94,7 @@ version 1.0 is assumed.
 
 The exact format of the version line is as follows:
 
-> **\#\!AER-DATx.y\\r\\n**
+> **#!AER-DATx.yrn**
 
 where x and y are the two version number components.
 
@@ -109,15 +109,15 @@ unless specified as such below in one of the format versions explicitly.
 Version 1.0 of the AEDAT format was the first version to be implemented
 in jAER back in 2008. It simply consists of an optional
 [header](#common-version-header),
-followed by a series of \[address, timestamp\] pairs, each making up an
+followed by a series of [address, timestamp] pairs, each making up an
 event. The address is 16 bit wide and the timestamp 32 bit, for a total
 of 6 bytes per event. The timestamp is in microseconds, while the
 address has to be interpreted according to a specific jAER AEChip class’
 definition of that address. All integer data and fields are always
-signed and big-endian\!
+signed and big-endian!
 
 **This format is deprecated and should not be used for any new
-development or recording\! At most, support reading this format.**
+development or recording! At most, support reading this format.**
 
 ## Ordering
 
@@ -152,14 +152,14 @@ widens the address field to 32 bit. It also requires the header version
 line (see
 [above](#common-version-header)), to be
 able to disambiguate between formats. Then again an optional header,
-followed by a series of \[address, timestamp\] pairs, each making up an
+followed by a series of [address, timestamp] pairs, each making up an
 event. The address is 32 bit wide and the timestamp also 32 bit, for a
 total of 8 bytes per event. The timestamp is in microseconds, while the
 address has to be interpreted according to a specific jAER AEChip class’
 definition of that address. This could be the DVS128 class, same as
 [above](#dvs128), or the DAVIS family of
 classes (DAVIS240A,B,C; DAVIS346cBSI, DAVIS640, …). All integer data and
-fields are always signed and big-endian\!
+fields are always signed and big-endian!
 
 The jAER software, since 2014, also writes several informative header
 lines, these include the ***‘HardwareInterface’*** and the
@@ -168,34 +168,34 @@ device and the class interpreting its output. Here is an example of
 these informational lines:
 
 ```
-\# This is a raw AE data file - do not edit
+# This is a raw AE data file - do not edit
 
-\# Data format is int32 address, int32 timestamp (8 bytes total),
+# Data format is int32 address, int32 timestamp (8 bytes total),
 peated for each event
 
-\# Timestamps tick is 1 us
+# Timestamps tick is 1 us
 
-\# created Thu Dec 03 14:47:00 CET 2015
+# created Thu Dec 03 14:47:00 CET 2015
 
-\# HardwareInterface: DAVIS FX3 0002-INI
+# HardwareInterface: DAVIS FX3 0002-INI
 
-\# AEChip: eu.seebetter.ini.chips.davis.Davis640
+# AEChip: eu.seebetter.ini.chips.davis.Davis640
 ```
 
 Further, a full XML-like dump of all the preferences for the above
 AEChip class, which includes settings such as the APS exposure time or
 the biases, is generated, and kept either fully in the header as header
 lines, or, in the future, in a separate XML file, which is named
-‘***\<filename\>-prefs.xml***’, and is referenced in the header as one
+‘***<filename>-prefs.xml***’, and is referenced in the header as one
 header line as follows:
 
-> \# Prefs-File: *\<filename\>-prefs.xml*\\r\\n
+> # Prefs-File: *<filename>-prefs.xml*rn
 
 Entries looks like the following in XML (example is of an addressable
 bias):
 
-> \<entry key="DAVIS240C.AddressedIPotCF.ApsROSFBn.LowCurrent"
-value="false"/\>
+> <entry key="DAVIS240C.AddressedIPotCF.ApsROSFBn.LowCurrent"
+value="false"/>
 
 ## Ordering
 
@@ -278,7 +278,7 @@ process in 2014 and further refined and version 3.0 finalized in 2015.
 
 The different types of events our sensors produce nowadays, such as
 frames or IMU events, have very different storage requirements, and
-forcing them all into a \[32 bit address, 32 bit timestamp\] pair like
+forcing them all into a [32 bit address, 32 bit timestamp] pair like
 in [version 2.0](#aedat-2.0) is highly
 inefficient. Also having the interpretation of data depending on jAER’s
 AEChip class, such as for the polarity (luminosity change) events, or
@@ -318,9 +318,9 @@ all the initial device configuration with a timestamp of zero (to
 guarantee monotonicity), and then a series of typed event packets, which
 contain in turn all the various events.
 
-All integer data and fields are always signed and little-endian\! This
+All integer data and fields are always signed and little-endian! This
 is a departure from previous AEDAT formats, motivated by the fact all
-the systems we support, currently x86(\_64) and ARM, are in fact native
+the systems we support, currently x86(_64) and ARM, are in fact native
 little-endian systems, and doing so avoids unnecessary conversion
 operations.
 
@@ -329,11 +329,11 @@ operations.
 - Version header line (required): described
   [above](#common-version-header),
   always the first header line. Specifically, the line is:
-  ‘**\#\!AER-DAT3.1\\r\\n**’
+  ‘**#!AER-DAT3.1rn**’
 - Format header line (required): follows right after the version
   line, looking like this:
   
-  > **\#Format: \<FORMAT\>\\r\\n**.
+  > **#Format: <FORMAT>rn**.
 
   The [Format](#formats) header line describes how the event packets have to
   be interpreted later on, allowing for optimizations and extensions to be added as needed.
@@ -344,7 +344,7 @@ operations.
   mandatory part of the header. The corresponding header line shall
   look like this:
 
-  > **\#Source \<ID\>: \<DESCRIPTION\>\\r\\n**
+  > **#Source <ID>: <DESCRIPTION>rn**
 
   If multiple sources are present, they must be placed in increasing
   order by numerical ID (0, 1, 2, 3, …). The description part must be an
@@ -355,13 +355,13 @@ operations.
   have to be preserved always, by adding a ***‘-’ (minus)*** sign in
   front of them.
 
-  > Example: **\#-Source 0: DVS128\\r\\n**
+  > Example: **#-Source 0: DVS128rn**
 
 - Start Time header line (required): this header line encodes the
   time at which we started transmitting or logging data. The format
   is the following:
 
-  > **\#Start-Time: %Y-%m-%d %H:%M:%S (TZ%z)\\r\\n**
+  > **#Start-Time: %Y-%m-%d %H:%M:%S (TZ%z)rn**
 
 Time is encoded according to the C strftime() function, see
 ‘[man
@@ -370,7 +370,7 @@ strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)’.
 - End of header line (required): follows right after all the other
     header lines, looking like this:
 
-    > **\#\!END-HEADER\\r\\n**
+    > **#!END-HEADERrn**
     
     This allows to clearly determine where the file header ends and data
     starts.
@@ -381,7 +381,7 @@ Each event packet is made up of a common header, followed by its
 specific event data.
 
 This is not the same header as above, which is placed at the start of a
-file\!
+file!
 
 This header is specific to each and every event packet.
 
@@ -426,7 +426,7 @@ next packet with a greater first timestamp than whatever timestamp one
 is interested in, and is guaranteed to have seen all relevant packets
 with events up to that point.
 
-The **FRAME\_EVENT** packet type has four timestamps defined. Of these,
+The **FRAME_EVENT** packet type has four timestamps defined. Of these,
 “End of Frame” is considered the main timestamp for the purpose of
 ordering. More generically, the timestamp that is indicated by the
 **‘eventTSOffset’** header field is the one relevant for ordering.
@@ -434,7 +434,7 @@ ordering. More generically, the timestamp that is indicated by the
 If timestamp reset events occur during a recording (because of device
 synchronisation or manual reset), then packet timestamp order is no
 longer monotonic as subsequent timestamps start again from zero. A
-timestamp reset event of type **SPECIAL\_EVENT** will indicate such a
+timestamp reset event of type **SPECIAL_EVENT** will indicate such a
 reset clearly.
 
 ## Events
@@ -474,7 +474,7 @@ wrap-around problems, the packet-level 32 bit timestamp
 (***eventTSOverflow***) and the event-level 32 bit timestamp have to be
 composed as follows:
 
-> **fullTS = (packet.eventTSOverflow \<\< 31) | event.timestamp**
+> **fullTS = (packet.eventTSOverflow << 31) | event.timestamp**
 
 (The shift is of 31 bits rather than 32 because of the signed
 representation).
@@ -579,7 +579,7 @@ Frame event packet’s header to figure out the exact size of a Frame
 event for that particular packet, and thus where each Frame event
 begins.
 
-Within a Frame event, only pixels up to (‘X length’ \* ‘Y length’ \*
+Within a Frame event, only pixels up to (‘X length’ * ‘Y length’ *
 ‘Channel number’) can be accessed with the expectation of having valid
 values. There might be more pixels than that, determined by how much
 memory was allocated for the Frame event, but those will all be zero, if
@@ -595,7 +595,7 @@ Size frameSize(caerFrameEventGetLengthX(f),
 caerFrameEventGetLengthY(f));
 
 Mat frameMat(frameSize,
-CV\_16UC(caerFrameEventGetChannelNumber(f)),
+CV_16UC(caerFrameEventGetChannelNumber(f)),
 
 caerFrameEventGetPixelArrayUnsafe(f));
 ```
@@ -810,14 +810,14 @@ This section explains how version 3.0 differed from version 3.1.
 
 - The version header line reads as follows:
 
-    > ‘**\#\!AER-DAT3.0\\r\\n**’
+    > ‘**#!AER-DAT3.0rn**’
 
 - There is no end of header line required. The only way therefore to
   check where the header ends is to check that a line starts with
-  the ‘**\#**’ character and then read the line up to the new-line
+  the ‘**#**’ character and then read the line up to the new-line
   marker, but this can fail if the very first byte of the first
   event also happens to have a value of 35 (decimal), corresponding
-  to the ‘**\#**’ character.
+  to the ‘**#**’ character.
 
 ## Polarity Event
 
@@ -883,7 +883,7 @@ For message-based network communication, for example UDP, this header
 will be part of each message, at the front, to ensure it can be properly
 parsed always.
 
-All header fields/integers are little-endian\!
+All header fields/integers are little-endian!
 
 The 20 bytes network header format is the following:
 
@@ -902,7 +902,7 @@ as would be written in [Source
 ID](#header-lines) header
 lines:
 
-| Device Name    | Alternative names which devices may have been called in the past (not including different capitalisations), these are not to be used for Source ID headers, they are only here as a reference\!  |
+| Device Name    | Alternative names which devices may have been called in the past (not including different capitalisations), these are not to be used for Source ID headers, they are only here as a reference!  |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | File           |                                                                                                                                                                                                  |
 | Network        |                                                                                                                                                                                                  |

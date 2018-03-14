@@ -15,7 +15,7 @@ There are several ways to access data from the devices:
 -   The eDVS has a micro-controller on board so you can directly
     implement event-based visual processing algorithms; or you can
     stream the events to further hardware via UART.
--   The DVS128\_PAER has a parallel AER bus for
+-   The DVS128_PAER has a parallel AER bus for
     direct connection to other neuromorphic devices. You can also
     directly access the word-serial AER bus pins on the DAVIS240.
 -   The logic on all devices is open-source, so you have a basis for

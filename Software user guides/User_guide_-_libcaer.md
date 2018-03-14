@@ -47,13 +47,13 @@ Ubuntu, as well as for MacOS X via Homebrew.
 
 We provide a [COPR
 repository](https://copr.fedorainfracloud.org/coprs/llongi/inilabs/)
-for Fedora 25, 26, 27 and rawhide on the x86 and x86\_64 architectures.
+for Fedora 25, 26, 27 and rawhide on the x86 and x86_64 architectures.
 
 Please execute the following commands to use it and install libcaer:
 
-\$ sudo dnf copr enable llongi/inilabs
+$ sudo dnf copr enable llongi/inilabs
 
-\$ sudo dnf install libcaer
+$ sudo dnf install libcaer
 
 #### Gentoo Linux
 
@@ -65,15 +65,17 @@ Git. The package is 'dev-libs/libcaer'.
 
 We provide a [PPA repository](https://launchpad.net/~llongi/+archive/ubuntu/inilabs)
 for Ubuntu Trusty (14.04 LTS), Xenial (16.04 LTS), Zesty (17.04) and
-Artful (17.10) on the x86, x86\_64, arm and arm64 architectures.
+Artful (17.10) on the x86, x86_64, arm and arm64 architectures.
 
 Please execute the following commands to use it and install libcaer:
 
-\$ sudo add-apt-repository ppa:llongi/inilabs
+```bash
+$ sudo add-apt-repository ppa:llongi/inilabs
 
-\$ sudo apt-get update
+$ sudo apt-get update
 
-\$ sudo apt-get install libcaer
+$ sudo apt-get install libcaer
+```
 
 Windows, MacOS X and other Linux distribution users, please follow the
 '[Manual Installation](#manual-installation)' instructions
@@ -85,9 +87,9 @@ We provide a [Homebrew tap](https://github.com/inilabs/homebrew-inilabs/) for
 MacOS X. Install [Homebrew](https://brew.sh/) and then
 please execute the following commands to install libcaer:
 
-```
-\$ brew tap inilabs/inilabs
-\$ brew install libcaer \--with-libserialport \--with-opencv
+```bash
+$ brew tap inilabs/inilabs
+$ brew install libcaer --with-libserialport --with-opencv
 ```
 
 ### Manual Installation

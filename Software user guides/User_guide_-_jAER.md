@@ -194,7 +194,7 @@ annotation you want.
   - USB 2.0 hardware interface (if you want to capture or sequence
     events). (A USB 1.1 interface will also work with the tmpdiff128
     retina boards but not with the USB 2.0 monitor/sequencer boards
-    and will severely limit performance\!). USB3.0 is necessary to get
+    and will severely limit performance!). USB3.0 is necessary to get
     best performance from the new FX3 prototypes.
 
   - A compatible hardware device (e.g.
@@ -259,7 +259,7 @@ plain old
 
 The netbeans project is located at the root of the repository.
 
-You can open this project from the File-\>Open project menu.
+You can open this project from the File->Open project menu.
 
 <p align="center"><img src="media/jaer_netbin_project.png" width="800" /></p>
 
@@ -288,16 +288,16 @@ affect the Help/About... panel contents. The output should look
 something like the following:
 
 ```
-ant -f C:\\Users\\Greg\\Documents\\AER\\jAER\\trunk -Dnb.internal.action.name=rebuild clean jar
+ant -f C:UsersGregDocumentsAERjAERtrunk -Dnb.internal.action.name=rebuild clean jar
 init:
 deps-clean:
-Updating property file: C:\Users\Greg\Documents\AER\jAER\trunk\build\built-clean.properties
+Updating property file: C:UsersGregDocumentsAERjAERtrunkbuildbuilt-clean.properties
 jSpikeStack.init:
 jSpikeStack.deps-clean:
-Updating property file: C:\Users\Greg\Documents\AER\jAER\trunk\build\built-clean.properties
-Deleting directory C:\Users\Greg\Documents\AER\jAER\trunk\subprojects\JSpikeStack\build
+Updating property file: C:UsersGregDocumentsAERjAERtrunkbuildbuilt-clean.properties
+Deleting directory C:UsersGregDocumentsAERjAERtrunksubprojectsJSpikeStackbuild
 jSpikeStack.clean:
-Deleting directory C:\Users\Greg\Documents\AER\jAER\trunk\build
+Deleting directory C:UsersGregDocumentsAERjAERtrunkbuild
 
 
 ...
@@ -308,10 +308,10 @@ Building exe4j jAERViewer.exe 64-bit Windows launcher for 64-bit Java Virtual Ma
 jAERViewer.exe does not normally need to be rebuilt.
 exe4j version 5.1 (build 5121), built on 2016-02-19
 Unregistered evaluation version Please run the command line executable with the -L [license key] option or open the exe4j wizard to enter a license key.
-Failure for target 'jaer-exe4jx64' of: C:\Users\Greg\Documents\AER\jAER\trunk\build.xml
+Failure for target 'jaer-exe4jx64' of: C:UsersGregDocumentsAERjAERtrunkbuild.xml
 The following error occurred while executing this line:
-C:\Users\Greg\Documents\AER\jAER\trunk\build.xml:123: C:\Users\Greg\Documents\AER\utils\exe4j_x64\bin\exe4jc.exe failed with return code 1
-Copying 1 file to C:\Users\Greg\Documents\AER\jAER\trunk\build
+C:UsersGregDocumentsAERjAERtrunkbuild.xml:123: C:UsersGregDocumentsAERutilsexe4j_x64binexe4jc.exe failed with return code 1
+Copying 1 file to C:UsersGregDocumentsAERjAERtrunkbuild
 jnlp:
 jar:
 BUILD SUCCESSFUL (total time: 22 seconds)
@@ -366,17 +366,17 @@ First, check out the project from Git. On the console use:
 
 > $ git clone https://github.com/SensorsINI/jaer.git
 
-In the following text $JAER\_ROOT denotes the installation directory;
+In the following text $JAER_ROOT denotes the installation directory;
 there is no need to set it explicitly in a shell (e.g. /opt/jaer).
 
 In the Git repository there will be two files that represent the Eclipse
-project. Those are $JAER\_ROOT/.project and $JAER\_ROOT/.classpath.
+project. Those are $JAER_ROOT/.project and $JAER_ROOT/.classpath.
 
 #### Building
 
 After checking out from Git, import the project into Eclipse, by going
-to File-\>Import and selecting General \> Existing Projects into
-Workspace. Click on "Next" and select the $JAER\_ROOT directory as the
+to File->Import and selecting General > Existing Projects into
+Workspace. Click on "Next" and select the $JAER_ROOT directory as the
 root directory for the project. Don't change the project name and click
 on "Finish". The project will be built automatically now.
 
@@ -386,13 +386,13 @@ Eclipse project import source options (Windows)
 
 #### Running
 
-Go to Run-\>Run, choose "Java Application" and type "JAERViewer". Be
+Go to Run->Run, choose "Java Application" and type "JAERViewer". Be
 aware that you have to allow access to your USB ports
 ([see below](#main-menu)).
 
 #### Generate Javadoc
 
-Go to Project-\>Generate Javadoc, select the correct version of jAER and
+Go to Project->Generate Javadoc, select the correct version of jAER and
 a destination folder and click “Finish”.
 
 # Running the AEViewer application
@@ -406,15 +406,15 @@ Start the main window of jAERViewer by executing an appropriate
 launcher. Select the executable launcher based on your platform and java
 virtual machine architecture.
 
-  - jAERViewer1.5\_linux.sh is a linux bash script.
+  - jAERViewer1.5_linux.sh is a linux bash script.
 
-  - jAERViewer1.5\_win32.exe and jAERViewer1.5\_win64.exe are Windows
+  - jAERViewer1.5_win32.exe and jAERViewer1.5_win64.exe are Windows
     executable launchers that do not display the logging output.
     
-      - For windows with 64-bit java use the jAERViewer1.5\_win64.exe
+      - For windows with 64-bit java use the jAERViewer1.5_win64.exe
         launcher.
     
-      - For windows with 32-bit java use the jAERViewer1.5\_win32.exe
+      - For windows with 32-bit java use the jAERViewer1.5_win32.exe
         launcher.
 
 <p align="center"><img src="media/jaer_AEViewer_exe.png" width="300" /></p>
@@ -506,7 +506,7 @@ some time to remember.
 ## Extra viewer windows
 
 By default, jAER opens with one viewer window. However, you can open
-more windows by using File-\>New viewer. In general, you need one viewer
+more windows by using File->New viewer. In general, you need one viewer
 for each device that you want to use or file that you want to view
 simultaneously. See [How to calibrate a stereo
 setup](http://inilabs.com/support/application-notes/dvs-stereo-calibration/)
@@ -526,18 +526,18 @@ iniLabs:
 
 | Device                     | Class                                     |
 | -------------------------- | ----------------------------------------- |
-| DVS128, eDVS, DVS128\_PAER | ch.unizh.ini.jaer.chip.retina.DVS128      |
+| DVS128, eDVS, DVS128_PAER | ch.unizh.ini.jaer.chip.retina.DVS128      |
 | DAVIS240A                  | eu.seebetter.ini.chips.davis.DAVIS240A    |
 | DAVIS240B                  | eu.seebetter.ini.chips.davis.DAVIS240B    |
 | DAVIS240C                  | eu.seebetter.ini.chips.davis.DAVIS240C    |
-| DAVIS128, DAVIS128\_RGB    | eu.seebetter.ini.chips.davis.DAVIS128     |
-| DAVIS346, DAVIS346\_RGB    | eu.seebetter.ini.chips.davis.DAVIS346B    |
+| DAVIS128, DAVIS128_RGB    | eu.seebetter.ini.chips.davis.DAVIS128     |
+| DAVIS346, DAVIS346_RGB    | eu.seebetter.ini.chips.davis.DAVIS346B    |
 | DAVIS346B                  | eu.seebetter.ini.chips.davis.DAVIS346cBSI |
-| DAVIS640, DAVIS640\_RGB    | eu.seebetter.ini.chips.davis.DAVIS640     |
+| DAVIS640, DAVIS640_RGB    | eu.seebetter.ini.chips.davis.DAVIS640     |
 | CDAVIS640                  | eu.seebetter.ini.chips.davis.DAVISRGBW640 |
 
 If the class you need does not appear in this menu, use the
-AEChip-\>Customize AEChip Menu*…* to bring up the following dialogue:
+AEChip->Customize AEChip Menu*…* to bring up the following dialogue:
 
 <p align="center"><img src="media/jaer_AEViewer_class_chooser.png" width="800" /></p>
 
@@ -630,23 +630,23 @@ These options can be found under the View menu.
 
 Change the target frame rate with:
 
-View-\>Increase rendering frame rate (shortcut “right arrow key”)
+View->Increase rendering frame rate (shortcut “right arrow key”)
 
-View-\>Decrease rendering frame rate (shortcut “left arrow key”)
+View->Decrease rendering frame rate (shortcut “left arrow key”)
 
 Each change will either halve or double the current frame rate, down to
 a minimum of 1fps and up to a maximum of 1000fps. For example, if the
 current frame rate is 32fps, an increase will change it to 64fps, whilst
 a decrease will change it to 16fps.
 
-To pause the view, select View-\>Paused. To unpause the view, unselect
+To pause the view, select View->Paused. To unpause the view, unselect
 it. In both cases, the shortcut is “space”. to step through the frames,
-go to View-\>Single step (shortcut “period”). You can continuously step
+go to View->Single step (shortcut “period”). You can continuously step
 through the frames by repeating this action. Note that this also pauses
 the view, so to continue, simply unpause.
 
 Note: **This is NOT the frame rate for the APS frames of a DAVIS
-camera\!**
+camera!**
 
 This changes the rate at which jAER refreshes the screen buffer that is
 available to the operating system. Note that if jAER achieves a higher
@@ -655,7 +655,7 @@ presented on the screen, so some brief events may be missed.
 
 #### Graphics options
 
-Various graphics options are found under View-\>Graphics options.
+Various graphics options are found under View->Graphics options.
 
   - Active rendering enabled: Actively push the screen buffer to the
     operating system when it is ready. This delays the display until
@@ -673,7 +673,7 @@ Various graphics options are found under View-\>Graphics options.
 
 #### Color modes
 
-View-\>Cycle color rendering mode cycles through 5 different colour
+View->Cycle color rendering mode cycles through 5 different colour
 schemes for viewing events (shortcut ‘c’). The current color mode is
 displayed at the bottom of the viewer with its description after the
 mode has been changed. Note that the color modes can only be cycled when
@@ -690,7 +690,7 @@ method.
 
 #### Display methods
 
-View-\>Cycle display method cycles through 3 different display modes for
+View->Cycle display method cycles through 3 different display modes for
 viewing events (shortcut ‘3’). The java class corresponding to the
 current display method is displayed at the bottom of the viewer after
 the method has been
@@ -733,8 +733,8 @@ Use this dialogue to choose the right firmware file.
 
 **|point| JUST CHANGE IT!!!! MAYBE IS IMPORTANT!!!!
 For example, for the DAS1, the correct firmware file is:
-devices \\ firmware \\ CypressFX2 \\ firmware\_FX2LP\_Cochleaams1c \\
-firmwareFX2\_Cochleaams1c.bix**
+devices  firmware  CypressFX2  firmware_FX2LP_Cochleaams1c 
+firmwareFX2_Cochleaams1c.bix**
 
 Once you do this, unplug and replug the device and it should start.
 
@@ -743,7 +743,7 @@ Once you do this, unplug and replug the device and it should start.
 You can play either single data files (.aedat) or synchronized sets of
 files (.index). You can drag and drop either type of file onto a fresh
 jAERViewer window. Or you can select the file using menu item
-File-\>Open logged data file (shortcut "o"). Recently played files are
+File->Open logged data file (shortcut "o"). Recently played files are
 also displayed towards the bottom of the File menu.
 
 <p align="center"><img src="media/jaer_AEViewer_rec_data1.png" width="800" /></p>
@@ -779,7 +779,7 @@ Additionally, the following shortcuts are very useful for playback:
 play/pause the playback of log files and live viewing, different
 shortcuts are used to change the speed of playback from those used to
 change the live viewing frame rate. To close the file, go to
-File-\>Close (shortcut “Ctrl+w”).
+File->Close (shortcut “Ctrl+w”).
 
 See [Sample AER
 data](https://sourceforge.net/p/jaer/wiki/AER%20data) for some
@@ -787,7 +787,7 @@ data files.
 
 ## Logging data
 
-The File-\>Start logging data button lets you start logging data to a
+The File->Start logging data button lets you start logging data to a
 file. (shortcut “l”). Logging is stopped by clicking this option (or
 shortcut “l”) again, which pops up a dialog for you to enter the
 destination of the data file on your filesystem.
@@ -818,7 +818,7 @@ AEFileOutputStream.java to remove this writing out of the Preferences.
 # Configuring a live device
 
 To configure a live device, open the “Biases / Hardware Configuration”
-dialog, either by going to View-\>Biases/HW Configuration, clicking the
+dialog, either by going to View->Biases/HW Configuration, clicking the
 HW Configuration button at the bottom left corner of the viewer, or
 using the Ctrl + B keyboard shortcut.
 
@@ -962,10 +962,10 @@ You need to bitand and bitshift if you want to do this in matlab, or you
 can use the *EventExtractor* that goes with each chip class. Using the
 java class is faster but may fragment matlab memory.
 
-\* For matlab example, see the function
+* For matlab example, see the function
 https://github.com/SensorsINI/scripts/blob/master/matlab/retina/extractRetina128EventsFromAddr.m
 
-\* For java class usage, examine the following example
+* For java class usage, examine the following example
 
 ```java
 chip=ch.unizh.ini.caviar.chip.retina.Tmpdiff128;  
@@ -987,7 +987,7 @@ java to make it rightside up (Java puts the origin at UL corner and
 increases x rightwards and y downwards.)
 
 function raw=getraw(x,y,pol)  
-raw=(y)\*256+(127-x)\*2+pol;
+raw=(y)*256+(127-x)*2+pol;
 %extractor.getAddressFromCell(x,y,pol);
 
 ### Controlling biases from matlab
@@ -995,15 +995,15 @@ raw=(y)\*256+(127-x)\*2+pol;
 ### Using a UDP connection to a running AEViewer or to control the chip or system configuration (i.e. biases)
 
 This is the best way to control biases and the AEViewer now from an
-external process. See [\[Interfacing to
-jAER\]](https://sourceforge.net/p/jaer/wiki/Interfacing%20to%20jAER/).
+external process. See [[Interfacing to
+jAER]](https://sourceforge.net/p/jaer/wiki/Interfacing%20to%20jAER/).
 
 # Using filters
 
 ## Selecting and ordering filters
 
-From the “AEViewer” window, from the top menu, choose “View” -\> “Event
-Filtering” -\> “Filters”. The following window pops up:
+From the “AEViewer” window, from the top menu, choose “View” -> “Event
+Filtering” -> “Filters”. The following window pops up:
 
 <p align="center"><img src="media/jaer_AEViewer_filters.png" width="500" /></p>
 
@@ -1027,7 +1027,7 @@ used.
 
 As an example we will move two filters into the selected list. First,
 click on a filter in the left list to select it, then use the right
-arrow “\>” button to move it to the list to the right:
+arrow “>” button to move it to the list to the right:
 
 <p align="center"><img src="media/jaer_AEViewer_class_chooser_filters.png" width="800" /></p>
 
@@ -1134,10 +1134,10 @@ can develop your own event processing filter by following these steps:
 5.  Run the project to show the *AEViewer* window, and then add the
     filter to the processing chain as follows:
 
-6.  from the menu choose "View" -\> "Event filtering" -\> "Filters";
+6.  from the menu choose "View" -> "Event filtering" -> "Filters";
     this brings up the "Filters" window;
 
-7.  then choose "View" -\> "Select filters"; this brings up the "Class
+7.  then choose "View" -> "Select filters"; this brings up the "Class
     Chooser";
 
 8.  select your filter in the list to the left, and use "Add" to move
@@ -1170,7 +1170,7 @@ page (content to incorporate …)
 
 You can annotate the *ChipCanvas* window by implementing the
 *FrameAnnotator* interface and then filling in the
-\_annotate(GLDrawable)'' method if you want to draw something on top of
+_annotate(GLDrawable)'' method if you want to draw something on top of
 the rendered events. There are many examples in the existing code base,
 browse the [online javadoc for
 jAER](http://jaer.sourceforge.net/javadoc) or see for examples
@@ -1328,7 +1328,7 @@ o.copyFrom(i); // copy the BasicEvent fields from the input event
 ```
 
 Here the *outItr* is called to get a reference to the next output, and
-then the fields such as *timestamp*, x\_, *and \_y* from the event *i*
+then the fields such as *timestamp*, x_, *and _y* from the event *i*
 are copied to *o*.
 
 Finally, if you want to modify the output events, or annotate them, you
@@ -1342,7 +1342,7 @@ orientation or direction and speed.
 ## Parameter persistence
 
 You can add persistence of your filter properties using the
-[\[EventFilter2D.getPrefs()\]](http://sourceforge.net/p/jaer/wiki/EventFilter2D.getPrefs%28%29)
+[[EventFilter2D.getPrefs()]](http://sourceforge.net/p/jaer/wiki/EventFilter2D.getPrefs%28%29)
 method to obtain a Java Preferences key. In your property setter, use
 *getPrefs()* to put your property.
 
@@ -1659,7 +1659,7 @@ In netbeans, open the tab *Tools/Options/Editor/Macro* and create a new
 macro with the following macro string
 
 *select-word copy-to-clipboard caret-begin-line caret-down
-"{setPropertyTooltip(\\"" paste-from-clipboard "\\",\\"\\");}"
+"{setPropertyTooltip("" paste-from-clipboard "","");}"
 insert-break caret-up caret-end-line caret-backward caret-backward
 caret-backward caret-backward*
 
@@ -1677,11 +1677,11 @@ Preference values.
 
 ## Starting
 
-1.  Launch jAER\\jAERViewer1.5\_win64.exe (assuming 64-bit system)
+1.  Launch jAERjAERViewer1.5_win64.exe (assuming 64-bit system)
 2.  Go to AEChip, select camera hardware
 3.  Go to View → Biases/HW Configuration
 4.  In Biases dialog, go to File → Load settings…
-    1.  Go into jAER\\biasgen Settings and select desired settings
+    1.  Go into jAERbiasgen Settings and select desired settings
         file
         1. For DVS128: usually DVS128Fast
         

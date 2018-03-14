@@ -16,7 +16,7 @@ Directly runnable JARs can be found at:
 
 https://github.com/inilabs/caerctl-gui-javafx/releases/
 
-> \$ java -jar caerctl-gui-javafx-0.6.0-jar-with-dependencies.jar
+> $ java -jar caerctl-gui-javafx-0.6.0-jar-with-dependencies.jar
 
 Please make sure you use, Oracle Java 1.8 (Oracle JDK 8).
 

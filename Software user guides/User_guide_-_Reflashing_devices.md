@@ -69,7 +69,7 @@ easy deployment.
 
 **Note: You must be using Oracle Java 1.8.0 u40 at least (latest version
 is u131 as of 20.05.2017). Flashy will NOT work with prior JDK/JRE
-versions\!**
+versions!**
 
 Flashy will also not build clean in prior JDK versions.
 
@@ -116,7 +116,7 @@ On Linux or Mac Os X, open a shell prompt and enter:
 
 > java -jar Flashy-0.9.8-jar-with-dependencies.jar
 
-Note: Make sure that jAER or cAER are not running at the same time\!
+Note: Make sure that jAER or cAER are not running at the same time!
 
 ## Selecting a device
 
@@ -136,7 +136,7 @@ by creating, as root, the appropriate udev rules files:
 
 > /etc/udev/rules.d/65-inilabs.rules
 
-> /etc/udev/rules.d/66-inilabs\_dev.rules
+> /etc/udev/rules.d/66-inilabs_dev.rules
 
 You can find ready-to-use udev rules files in
 [our Git
@@ -153,7 +153,7 @@ or, for newer udev versions:
 
 > $ udevadm control --reload
 
-Now unplug and replug the camera into your computer. You’re done\!
+Now unplug and replug the camera into your computer. You’re done!
 
 ### Windows - Using Zadig to install WinUSB driver
 
@@ -178,7 +178,7 @@ website](http://zadig.akeo.ie/).
 
 Once you start Zadig, you should see a list of devices. If not, go to
 options and tick “List all devices”. Make sure you choose the correct
-device (not for instance your mouse\!).
+device (not for instance your mouse!).
 
 Then click *Install WCID Driver* to install the WinUSB driver:
 ([WCID
@@ -282,14 +282,14 @@ https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterL
 (BIX format)
 
 For DVS128 reprogramming, please also use the same DAVIS240 file as
-above at this step\!
+above at this step!
 
 <p align="center"><img src="media/flashy_upload_firmware2.png" width="500" /></p>
 
 This upload is usually completed very quickly, you may just see the
 progress bar window flash by. Don’t be alarmed by this, it’s expected.
 
-**Once done, close Flashy, but do \*NOT\* unplug the device\! Continue
+**Once done, close Flashy, but do *NOT* unplug the device! Continue
 with Section 3.**
 
 ## Section 3: uploading new firmware and new logic
@@ -340,14 +340,14 @@ As you can see, it’s divided into three parts:
 
     For DAVIS240 V4 boards (small USB 2.0 boards), use the following files:
 
-      - DAVIS240a chips -\>
-        [MachXO\_DAVIS/SystemLogic2\_MachXO\_DAVIS240a.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)
+      - DAVIS240a chips ->
+        [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)
 
-      - DAVIS240b chips -\>
-        [MachXO\_DAVIS/SystemLogic2\_MachXO\_DAVIS240b.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)
+      - DAVIS240b chips ->
+        [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)
 
-      - DAVIS240c chips -\>
-        [MachXO\_DAVIS/SystemLogic2\_MachXO\_DAVIS240c.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf)
+      - DAVIS240c chips ->
+        [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf)
 
     For DVS128 boards, uploading new logic is not usually required. If you
     still think it’s needed in your case, the following file is the right
@@ -373,7 +373,7 @@ As you can see, it’s divided into three parts:
 
     Once you’re done, close Flashy and unplug the device.
 
-    After plugging it in again, you’re ready to go\! Enjoy your up-to-date
+    After plugging it in again, you’re ready to go! Enjoy your up-to-date
     iniLabs camera.
 
 # DAVIS240 problem with early prototypes
