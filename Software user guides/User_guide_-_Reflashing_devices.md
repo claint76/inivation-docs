@@ -23,7 +23,7 @@ this guide:
   - [Launching Flashy](#launching-flashy)
   - [Selecting a device](#selecting-a-device)
     - [Linux](#linux)
-    - [Windows - Using Zadig to install WinUSB driver](#windows-using-zadig-to-install-winusb-driver)
+    - [Windows - Using Zadig to install WinUSB driver](#windows---using-zadig-to-install-winusb-driver)
       - [Troubleshooting zadig driver installation:](#troubleshooting-zadig-driver-installation)
         - [Windows 7 example:](#windows-7-example)
         - [Windows 10 example:](#windows-10-example)
