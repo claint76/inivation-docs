@@ -21,24 +21,24 @@ devices.
   - [Understanding the DVS pixel](#understanding-the-dvs-pixel)
   - [Pixel bandwidth vs chip bandwidth](#pixel-bandwidth-vs-chip-bandwidth)
   - [Biases common to DVS128 and DAVIS240](#biases-common-to-dvs128-and-davis240)
-    - [Pr / PrBp - Photoreceptor bias](#pr-prbp---photoreceptor-bias)
-    - [foll / PrSFBp - Source follower](#foll-prsfbp---source-follower)
-    - [diff / DiffBn - Differential](#diff-diffbn---differential)
-    - [diffOn/Off / OnBn/OffBn - Thresholds for On and Off events](#diffonoff-onbnoffbn---thresholds-for-on-and-off-events)
-    - [refr / RefrBp - Refractory period](#refr-refrbp---refractory-period)
+    - [Pr / PrBp - Photoreceptor bias](#pr-prbp-photoreceptor-bias)
+    - [foll / PrSFBp - Source follower](#foll-prsfbp-source-follower)
+    - [diff / DiffBn - Differential](#diff-diffbn-differential)
+    - [diffOn/Off / OnBn/OffBn - Thresholds for On and Off events](#diffonoff-onbnoffbn-thresholds-for-on-and-off-events)
+    - [refr / RefrBp - Refractory period](#refr-refrbp-refractory-period)
   - [Biases only for the DVS128](#biases-only-for-the-dvs128)
-      - [cas - first stage amplifier cascode](#cas---first-stage-amplifier-cascode)
-      - [injGnd - Injected Ground](#injgnd---injected-ground)
+      - [cas - first stage amplifier cascode](#cas-first-stage-amplifier-cascode)
+      - [injGnd - Injected Ground](#injgnd-injected-ground)
   - [Biases only for the DAVIS](#biases-only-for-the-davis)
       - [Terminology](#terminology)
-        - [ApsCasEpc - Separation between APS and DVS](#apscasepc---separation-between-aps-and-dvs)
-        - [ApsROSFBn - APS readout](#apsrosfbn---aps-readout)
-        - [apsOverflowLevel - APS overflow level](#apsoverflowlevel---aps-overflow-level)
+        - [ApsCasEpc - Separation between APS and DVS](#apscasepc-separation-between-aps-and-dvs)
+        - [ApsROSFBn - APS readout](#apsrosfbn-aps-readout)
+        - [apsOverflowLevel - APS overflow level](#apsoverflowlevel-aps-overflow-level)
         - [DiffCasBnc](#diffcasbnc)
   - ["Overclocking" biases](#overclocking-biases)
-    - [req / PixInvBn - Passive load for digital AER circuitry](#req-pixinvbn---passive-load-for-digital-aer-circuitry)
-    - [PuY/X / AEPuYBp/XBp and reqPd / AEPdBn - Common resets for requests](#puyx-aepuybpxbp-and-reqpd-aepdbn---common-resets-for-requests)
-    - [LcolTimeoutBn - Timeout after row event (DAVIS only)](#lcoltimeoutbn---timeout-after-row-event-davis-only)
+    - [req / PixInvBn - Passive load for digital AER circuitry](#req-pixinvbn-passive-load-for-digital-aer-circuitry)
+    - [PuY/X / AEPuYBp/XBp and reqPd / AEPdBn - Common resets for requests](#puyx-aepuybpxbp-and-reqpd-aepdbn-common-resets-for-requests)
+    - [LcolTimeoutBn - Timeout after row event (DAVIS only)](#lcoltimeoutbn-timeout-after-row-event-davis-only)
   - [One event or many, in response to a change in light?](#one-event-or-many-in-response-to-a-change-in-light)
   - [Sources of noise](#sources-of-noise)
     - [Electronic noise](#electronic-noise)
@@ -287,7 +287,6 @@ the DVS literature. It might relate to:
     the production of an event.
 
 ### Biases common to DVS128 and DAVIS240
-
 #### Pr / PrBp - Photoreceptor bias
 
 This bias controls the amplifier in the first stage, and limits the

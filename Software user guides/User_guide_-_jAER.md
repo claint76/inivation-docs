@@ -15,9 +15,9 @@ visualisation of event-based data and rapid application development.
   - [Developer setup](#developer-setup)
     - [Netbeans development environment and opening the project](#netbeans-development-environment-and-opening-the-project)
     - [Building](#building)
-    - [Developer setup - Linux](#developer-setup---linux)
-    - [Developer setup - Mac OS X](#developer-setup---mac-os-x)
-    - [Developer setup - using Eclipse](#developer-setup---using-eclipse)
+    - [Developer setup - Linux](#developer-setup-linux)
+    - [Developer setup - Mac OS X](#developer-setup-mac-os-x)
+    - [Developer setup - using Eclipse](#developer-setup-using-eclipse)
       - [Building](#building-1)
       - [Running](#running)
       - [Generate Javadoc](#generate-javadoc)
@@ -331,7 +331,7 @@ Linux is actively supported in jAER 1.5.
 
 Eclipse is the preferred and supported environment under Linux. As such,
 proceed as detailed in the [Eclipse
-instructions](#developer-setup---using-eclipse) described below
+instructions](#developer-setup-using-eclipse) described below
 to check out the project from Git.
 
 NetBeans is also supported under Linux, if you prefer it to Eclipse.
@@ -352,7 +352,7 @@ section of the DAVIS240 User Guide.
 Mac OS X support is still experimental. Eclipse is the preferred and
 supported environment under Mac OS X, as such, proceed as detailed in
 the [Eclipse
-instructions](#developer-setup---using-eclipse) to set it up.
+instructions](#developer-setup-using-eclipse) to set it up.
 
 On Mac OS X, the libusb based driver is the only way to interact with
 hardware, more information on it can be found near in the

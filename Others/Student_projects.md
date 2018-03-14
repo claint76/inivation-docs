@@ -56,7 +56,7 @@ also welcome. Please get in touch if you are interested.
 * [Perspective-n-Point](#perspective-n-point-problem)
 * [Optic flow](#optic-flow)
 * [Low contrast imaging](#low-contrast-imaging)
-* [True North - Winner Takes](#true-north---winner-takes-all)
+* [True North - Winner Takes](#true-north-winner-takes-all)
 * [Pest tracking](#pest-tracking)
 * [Vibrocam](#vibrocam)
 * [APIs to libcaer](#apis-to-libcaer)
