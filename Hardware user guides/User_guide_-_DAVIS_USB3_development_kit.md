@@ -69,12 +69,12 @@ Started guide here covers use in jAER.
 | --------------------- | --------------------------------------------- |
 | DAVIS240C             | eu.seebetter.ini.chips.davis.DAVIS240C        |
 | DAVIS346Mono          | eu.seebetter.ini.chips.davis.Davis346B        |
-| DAVIS346Color         | eu.seebetter.ini.chips.davis.Davis346BColor\* |
+| DAVIS346Color         | eu.seebetter.ini.chips.davis.Davis346BColor* |
 | DAVIS640Mono          | eu.seebetter.ini.chips.davis.Davis640         |
-| DAVIS640Color         | eu.seebetter.ini.chips.davis.Davis640Color\*  |
+| DAVIS640Color         | eu.seebetter.ini.chips.davis.Davis640Color*  |
 | Different chip?       |  Please ask us to fill in this information ...|
 
-\*Note that colour rendering in jAER is rather resource intensive (at
+*Note that colour rendering in jAER is rather resource intensive (at
 time of writing), limiting the frame rate which can effectively be
 rendered. An alternative is to use the chip class for the mono version
 of the chip, if you do not need to render colour.
@@ -105,15 +105,15 @@ Fedora, please use the udev rules files in the selinux/ sub-folder.
 
 To reload the udev system without rebooting type, as root:
 
-> \$ udevadm control \--reload-rules
+> $ udevadm control --reload-rules
 
 or, for newer udev versions:
 
-> \$ udevadm control \--reload
+> $ udevadm control --reload
 
 Sometimes, it may also help to run:
 
-> \$ udevadm control \--trigger
+> $ udevadm control --trigger
 
 Or otherwise reboot.
 

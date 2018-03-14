@@ -63,7 +63,7 @@ The eDVS has a microcontroller on board so you can directly implement
 event-based visual processing algorithms; or you can stream the events
 to further hardware via UART.
 
-The DVS128\_PAER has a parallel AER bus for direct
+The DVS128_PAER has a parallel AER bus for direct
 connection to other neuromorphic devices. You can also directly access
 the word-serial AER bus pins on the DAVIS240.
 

@@ -89,7 +89,7 @@ capture data, learning how to use dynamic vision sensors in the process.
 You will read and understand solutions to the perspective-n-point
 problem based on event-based data from dynamic vision sensors. You will
 implement these methods in the jAER software framework. Then you will
-come up with better methods\!
+come up with better methods!
 
 # Optic flow 
 
@@ -143,7 +143,7 @@ offer native, efficient APIs in a variety of languages, such as:
 
   - > C++, Python, Matlab
 
-  - > optionally: Java, C\#, Swift, R
+  - > optionally: Java, C#, Swift, R
 
 Most of these may be realized by using the SWIG wrapper generator,
 understanding it and its suitability for this particular purpose would

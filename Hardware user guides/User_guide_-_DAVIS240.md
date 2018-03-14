@@ -93,47 +93,48 @@ You can find ready-to-use udev rules files in [our Git
 repository](https://github.com/inilabs/devices-bin/tree/master/drivers/linux/udev-rules).
 Here they are:
 
-\# All DVS/DAVIS systems
+
 ```
-SUBSYSTEM==\"usb\", ATTR{idVendor}==\"152a\",
-ATTR{idProduct}==\"84\[0-1\]?\", MODE=\"0666\"
+# All DVS/DAVIS systems
+SUBSYSTEM=="usb", ATTR{idVendor}=="152a",
+ATTR{idProduct}=="84[0-1]?", MODE="0666"
 ```
 
-\# eDVS 4337
 ```
-SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0403\", ATTR{idProduct}==\"6014\",
-MODE=\"0666\"
+# eDVS 4337
+SUBSYSTEM=="usb", ATTR{idVendor}=="0403", ATTR{idProduct}=="6014",
+MODE="0666"
 ```
 
 If you're using a distribution that supports SELinux tags (i.e. Fedora
 since Fedora Core 2; Debian as of the etch release; Ubuntu as of 8.04
-Hardy Heron; openSUSE contains SELinux \"basic enablement\" as of
+Hardy Heron; openSUSE contains SELinux "basic enablement" as of
 version 11.1; SUSE Linux Enterprise 11 features SELinux as a
-\"technology preview\"), then please use the udev rules files in the
+"technology preview"), then please use the udev rules files in the
 selinux/ sub-folder. These are:
 
-\# All DVS/DAVIS systems
 ```
-SUBSYSTEM==\"usb\", ATTR{idVendor}==\"152a\",
-ATTR{idProduct}==\"84\[0-1\]?\", TAG+=\"uaccess\"
+# All DVS/DAVIS systems
+SUBSYSTEM=="usb", ATTR{idVendor}=="152a",
+ATTR{idProduct}=="84[0-1]?", TAG+="uaccess"
 ```
 
-\# eDVS 4337
 ```
-SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0403\", ATTR{idProduct}==\"6014\",
-TAG+=\"uaccess\"
+# eDVS 4337
+SUBSYSTEM=="usb", ATTR{idVendor}=="0403", ATTR{idProduct}=="6014",
+TAG+="uaccess"
 ```
 To reload the udev system without rebooting type, as root:
 
-> \$ udevadm control \--reload-rules
+> $ udevadm control --reload-rules
 
 or, for newer udev versions:
 
-> \$ udevadm control \--reload
+> $ udevadm control --reload
 
 Sometimes, it may also help to run:
 
-> \$ udevadm control \--trigger
+> $ udevadm control --trigger
 
 Or otherwise reboot.
 
@@ -180,13 +181,13 @@ the size W of the pixel array. It is computed from geometrical optics
 not accounting for any lens distortion.The angular FOV (AFOV) is given
 by:
 
-AFOV=2\*atan(W/2/L)
+AFOV=2*atan(W/2/L)
 
-Where *W* is the array width \[ (number of pixels minus 1 ) \* pixel
-pitch \] and *L* is the focal length. The linear FOV (LFOV) at a
+Where *W* is the array width [ (number of pixels minus 1 ) * pixel
+pitch ] and *L* is the focal length. The linear FOV (LFOV) at a
 distance *D* from the lens is given simply by similar triangles:
 
-LFOV=D\*W/L
+LFOV=D*W/L
 
 The pixel array measures:
 
@@ -209,7 +210,7 @@ lengths.
 | 6                        | 40.5                                      | 30.9                                  | 49.4                                  | 7.4         | 22.1        | 73.7         |
 | 12                       | 20.9                                      | 15.7                                  | 25.9                                  | 3.7         | 11.1        | 36.8         |
 
-\* Default length is 4.5mm lens
+* Default length is 4.5mm lens
 
 ## DAVIS240B array layout
 
@@ -230,7 +231,7 @@ image:
 
 When data is logged, a file of type ".aedat " is created. Here is a
 summary of the format. A ".aedat" file contains headers, where each
-header line starts with \'\#\' and ends with the hex characters 0x0D
+header line starts with '#' and ends with the hex characters 0x0D
 0x0A (CRLF, windows line ending). Then there are a series of 8-byte
 words, of the following format:
 
