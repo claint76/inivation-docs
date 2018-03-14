@@ -34,4 +34,12 @@ otherwise it does not work the automatic linking, when rendered
 ## Hint2
 when doing internal links, put "-" for each space present in the title, **NOT CONSIDERING** symbols, like /.
 For example, a title like "# hello / hello - hello" must be referenced as [ref](#hello--hello---hello)
+
+Create separation for test -------------------------------------------------
+
+Create separation for test -------------------------------------------------
+
+Create separation for test -------------------------------------------------
+
+Create separation for test -------------------------------------------------
 ### hello / hello - hello
