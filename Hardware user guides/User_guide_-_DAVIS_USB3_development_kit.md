@@ -24,7 +24,7 @@ DAVIS640Color/Mono.
 - [Optics](#optics)
 - [Recorded data format](#recorded-data-format)
 - [Firmware upgrades](#firmware-upgrades)
-- [DAVIS640Color example output](#davis640-example-output)
+- [DAVIS640Color example outputs](#davis640-example-outputs)
 
 ## Introduction
 
