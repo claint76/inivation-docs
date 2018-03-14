@@ -66,8 +66,8 @@ output signal that is read by the first slave camera as an input, pin
 10, Sync Clk in. The Sync Clk out pin of the first camera is linked the
 Sync Clk in of the second camera, the Sync Clk out of the second camera
 is linked to the “Sync Clk in” of the third camera, etc. In this way,
-The four camera DAVIS system is synchronized to the first DAVIS camera,
-triggered by the Vicon. In this way, the four camera DAVIS sys  tem is
+the four camera DAVIS system is synchronized to the first DAVIS camera,
+triggered by the Vicon. In this way, the four camera DAVIS system is
 synchronized to the first DAVIS camera, triggered by the Vicon.
 
 <br/>
