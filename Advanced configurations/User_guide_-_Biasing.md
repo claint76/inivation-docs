@@ -114,7 +114,7 @@ This can be seen from the *PuY* and *PuX* values above. The *PuY* slider
 is fully to the right, giving the maximum value (in this case 75.3 uA);
 the *PuX* slider is almost as far to the right, yet the value of the
 current is already about half of the maximum. The slider only allows a
-small number of the 2\^24 possible current values to be programmed;
+small number of the 2^24 possible current values to be programmed;
 however the numerical accuracy increases towards the low current values,
 where it is more useful. For example, the ratio of *diff* to *diffOff*
 is important for setting the spiking threshold (as will be explained
@@ -216,28 +216,28 @@ DVS128, despite name changes:
 | Name of bias on DVS128     | Name of bias on DAVIS240     | Brief description                                                                                              |
 | -------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | Pr                         | PrBp                         | First stage ("Photoreceptor")                                                                                  |
-| cas                        | \-                           | First stage cascode                                                                                            |
+| cas                        | -                           | First stage cascode                                                                                            |
 | foll                       | PrSFBp                       | Source follower separating first and second stages                                                             |
 | diff                       | DiffBn                       | Second stage ("Differential")                                                                                  |
 | diffOn                     | OnBn                         | Threshold for On events                                                                                        |
 | diffOff                    | OffBn                        | Threshold for Off events                                                                                       |
-| injGnd                     | \-                           | Injected ground                                                                                                |
+| injGnd                     | -                           | Injected ground                                                                                                |
 | req                        | PixInvBn                     | Pull down for passive load inverters in digital AER pixel circuitry                                            |
 | refr                       | RefrBp                       | Refractory period                                                                                              |
 | PuY                        | AEPuYBp                      | Pull up on request from Y arbiter                                                                              |
 | PuX                        | AEPuXBp                      | Pull up on request from X arbiter                                                                              |
 | reqPd                      | AEPdBn                       | Pull down on chip request                                                                                      |
-| \-                         | ApsCasEpc                    | Cascode separating APS and DVS parts of pixel                                                                  |
-| \-                         | DiffCasBnc                   | Cascodes in differential comparator                                                                            |
-| \-                         | ApsROSFBn                    | Source follower for column-parallel APS readout                                                                |
+| -                         | ApsCasEpc                    | Cascode separating APS and DVS parts of pixel                                                                  |
+| -                         | DiffCasBnc                   | Cascodes in differential comparator                                                                            |
+| -                         | ApsROSFBn                    | Source follower for column-parallel APS readout                                                                |
 |                            | LcolTimeoutBn                | Timeout after a row event                                                                                      |
-| \-                         | apsOverflowLevel             | APS overflow level                                                                                             |
-| \-                         | LocalBufBn                   | \*                                                                                                             |
-| \-                         | IFThrBn                      | \*                                                                                                             |
-| \-                         | IFRefrBn                     | \*                                                                                                             |
-| \-                         | PadFollBn                    | \*                                                                                                             |
-|                            |  biasBuffer                  | \*                                                                                                             |
-|                            |                              | \* These biases relate to fixed or experimental features, and are not explained here (just leave them alone).  |
+| -                         | apsOverflowLevel             | APS overflow level                                                                                             |
+| -                         | LocalBufBn                   | *                                                                                                             |
+| -                         | IFThrBn                      | *                                                                                                             |
+| -                         | IFRefrBn                     | *                                                                                                             |
+| -                         | PadFollBn                    | *                                                                                                             |
+|                            |  biasBuffer                  | *                                                                                                             |
+|                            |                              | * These biases relate to fixed or experimental features, and are not explained here (just leave them alone).  |
 
 In the following sections, the biases are explained in detail.
 
@@ -651,7 +651,7 @@ the image are due to the light being driven by an oscillating current:
 The power consumption of the DVS / DAVIS chip is usually dwarfed by the
 power consumption of the supporting circuitry (CPLD and USB protocol
 chips) - a typical power consumption for a DVS chip is order 10 mW,
-whereas the whole device may consume \>\> 100 mW. However, as embedded
+whereas the whole device may consume >> 100 mW. However, as embedded
 applications are explored, the need may arise to limit power consumption
 of the sensor itself.
 
@@ -664,7 +664,7 @@ the ON threshold.
 
 Some currents, however, run continuously. An example is *foll* / *PrSf*.
 If this is set to the maximum value - 25 uA - then across the chip there
-are 240 \* 180 = 43200 copies of a 25 uA current being consumed, i.e.
+are 240 * 180 = 43200 copies of a 25 uA current being consumed, i.e.
 approx 1A, at 1.8V = 1.8W! In some cases it is possible to overload the
 USB power supply by setting biases inappropriately, leading to the
 device being rejected by the host computer.
