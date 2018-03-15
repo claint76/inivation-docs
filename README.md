@@ -59,7 +59,7 @@ Create separation for test -------------------------------------------------
 ### hello / hello - hello
 
 ## Hint3
-If the symbols are in the word, for example "# hello.hello" just skip them. In this case, it will be "[ref](#hellohello)"
+If the symbols are in the word, for example "# hello.hello" just skip them. In this case, it will be ```[ref](#hellohello)```
 
 ## Hint4
 If html does not render properly from some point of the document to the end, probably there is a html tag wrong.
