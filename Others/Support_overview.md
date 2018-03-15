@@ -4,7 +4,7 @@ We support all of the products we sell in their intended usage as
 research prototypes. We also support the open-source event-based
 software platforms jAER and cAER and some related software.
 
-We
+We **TO CHANGE**
 [use](https://groups.google.com/d/forum/davis-users)
 [several](https://groups.google.com/d/forum/jaer-users)
 [Google](https://groups.google.com/d/forum/caer-users)
@@ -12,7 +12,7 @@ We
 for all public questions and discussions regarding inivation products.
 If your question involves confidential information, however, please use
 [support@inivation.com](mailto:support@inilabs.com).
-First you could try our [troubleshooting
+First you could try our **TO CHANGE** [troubleshooting
 guide](http://www.inilabs.com/support/faq).
 
 This document explains where to find help, with links to our user
@@ -36,11 +36,11 @@ correct user guide:
 
 | Image                                             | Name and brief description                                                                                                                                                                                                                                                    |  User guide                                   |
 |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |---------------------------------------------- |
-| <img src="media/DVS128.png" width="400"/>          | **DVS128** <br/><br/> A 128x128 DVS in a strong plastic case, with a USB 2.0 interface, CS-mount, tripod mount and  inter-camera synchronization pins.                                                                                                                        | [http://www.inivation.com/support/dvs128](http://www.inivation.com/support/dvs128)       |
-| <img src="media/DVS128_PAER.png" width="400"/>     | **DVS128_PAER** <br/><br/>  A CS-mount bare-board camera, with a 128x128 DVS and with parallel AER interface (Rome and CAVIAR standards).                                                                                                                                     | [http://www.inivation.com/support/dvs128paer](http://www.inivation.com/support/dvs128paer)   |
-| <img src="media/eDVS.png" width="400"/>            | **eDVS** <br/><br/> A credit-card-sized S-mount PCB with a 128x128 DVS embedded with a 4337 microcontroller, with UART connectors, on-board IMU and microSD, PWM outputs, and optional network adapter.                                                                       | [http://www.inivation.com/support/edvs](http://www.inivation.com/support/edvs)         |
-| <img src="media/Pushbot.png" width="400"/>         | **Pushbot** <br/><br/> A robotic platform; ideal for working with the eDVS to quickly prototype sensing behaving systems.                                                                                                                                                     | [http://www.inivation.com/support/edvs](http://www.inivation.com/support/edvs)         |
-| <img src="media/DAVIS240A_B_C.png" width="400"/>   | **DAVIS240A/B/C** <br/><br/> A CS-mount bare-board camera, with a 240x180 DAVIS (DVS plus simultaneous global-shutter intensity frames) and word-serial AER (10x higher data rates). It has a USB 2.0 interface (direct AER interface is also possible) and on-board IMU.     | [http://www.inivation.com/support/davis240](http://www.inivation.com/support/davis240)     |
+| <img src="media/DVS128.png" width="400"/>          | **DVS128** <br/><br/> A 128x128 DVS in a strong plastic case, with a USB 2.0 interface, CS-mount, tripod mount and  inter-camera synchronization pins.                                                                                                                        | **TO CHANGE?**[http://www.inivation.com/support/dvs128](http://www.inivation.com/support/dvs128)       |
+| <img src="media/DVS128_PAER.png" width="400"/>     | **DVS128_PAER** <br/><br/>  A CS-mount bare-board camera, with a 128x128 DVS and with parallel AER interface (Rome and CAVIAR standards).                                                                                                                                     | **TO CHANGE?**[http://www.inivation.com/support/dvs128paer](http://www.inivation.com/support/dvs128paer)   |
+| <img src="media/eDVS.png" width="400"/>            | **eDVS** <br/><br/> A credit-card-sized S-mount PCB with a 128x128 DVS embedded with a 4337 microcontroller, with UART connectors, on-board IMU and microSD, PWM outputs, and optional network adapter.                                                                       | **TO CHANGE?**[http://www.inivation.com/support/edvs](http://www.inivation.com/support/edvs)         |
+| <img src="media/Pushbot.png" width="400"/>         | **Pushbot** <br/><br/> A robotic platform; ideal for working with the eDVS to quickly prototype sensing behaving systems.                                                                                                                                                     | **TO CHANGE?**[http://www.inivation.com/support/edvs](http://www.inivation.com/support/edvs)         |
+| <img src="media/DAVIS240A_B_C.png" width="400"/>   | **DAVIS240A/B/C** <br/><br/> A CS-mount bare-board camera, with a 240x180 DAVIS (DVS plus simultaneous global-shutter intensity frames) and word-serial AER (10x higher data rates). It has a USB 2.0 interface (direct AER interface is also possible) and on-board IMU.     | **TO CHANGE?**[http://www.inivation.com/support/davis240](http://www.inivation.com/support/davis240)     |
 
 # Software for event processing
 
@@ -76,13 +76,13 @@ don’t support this.
 For real-time application, the easiest way to get started is with jAER,
 a java-based GUI for visualisation of data and rapid development of
 event-based algorithms and applications. Here is the
-[user guide](http://www.inilabs.com/support/jaer).
+**TO CHANGE** [user guide](http://www.inilabs.com/support/jaer).
 
 ## cAER
 
 You can use cAER for lightweight streaming or logging of data, or as a
 platform for your bespoke development. Here is the
-[user guide](http://www.inilabs.com/support/caer).
+**TO CHANGE**[user guide](http://www.inilabs.com/support/caer).
 
 ## MATLAB
 
@@ -116,6 +116,6 @@ directly for support.
 
 # Additional user guides
 
-  - [Biasing sensors](http://inilabs.com/support/biasing) - How to get the best performance from your sensors by controlling their on-board electronic biases.
-  - [Synchronisation](http://inilabs.com/support/synch) How to work with 2 or more sensors simultaneously; also covers stereo configurations.
-  - [Reflashing devices](http://inilabs.com/support/reflashing) - How to benefit from the latest upgrades to device firmware.
+  - **TO CHANGE** [Biasing sensors](http://inilabs.com/support/biasing) - How to get the best performance from your sensors by controlling their on-board electronic biases.
+  - **TO CHANGE** [Synchronisation](http://inilabs.com/support/synch) How to work with 2 or more sensors simultaneously; also covers stereo configurations.
+  - **TO CHANGE**[Reflashing devices](http://inilabs.com/support/reflashing) - How to benefit from the latest upgrades to device firmware.

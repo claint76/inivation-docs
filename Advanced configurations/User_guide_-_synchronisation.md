@@ -21,7 +21,7 @@ over USB:
 
 -   [DVS128](#dvs128-synchronisation)
 -   [DAVIS240](#davis240-synchronisation)
--   FX3 development board
+-   **TO CREATE**FX3 development board
 
 In order to utilize the timestamps from more than one device, either
 live or offline, in an application where precise timing of events is
@@ -98,12 +98,12 @@ This signal is 3.3V. DO NOT connect this with devices using a 5V signal!
 To connect cameras, you can use coax cables together with T-connectors
 and the Pomona Electronics 5069 coax breakout adaptor with 0.025" pin
 connectors (e.g.
+
 [http://www.digikey.com/product-search/en?x=-1075&y=-87&lang=en&site=us&KeyWords=pomona+5069](http://www.digikey.com/product-search/en?x=-1075&y=-87&lang=en&site=us&KeyWords=pomona+5069)
 
 or
 
-**BROKEN**
-[http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm.](http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm.)
+**BROKEN** [http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm.](http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm.)
 
 Minimally, however, you just need to use rectangular female header pin
 crimps and a copper cable, as shown in this picture:

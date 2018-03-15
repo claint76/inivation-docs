@@ -4,7 +4,7 @@ inivation supports the development of open-source software for real-time
 event-based processing, using neuromorphic / dynamic sensors as inputs.
 
 The software we support (cAER, libcaer, GUis, scripts, firmware&logic)
-is all hosted under the [GitHub inivation organization](https://github.com/inilabs/).
+is all hosted under the **TO CHANGE**  [GitHub inivation organization](https://github.com/inilabs/).
 
 jAER is now hosted under the [GitHub SensorsINI organization](https://github.com/SensorsINI/jaer/).
 
@@ -36,10 +36,10 @@ There are several ways to access data from the devices:
 
 ## Additional User Guides
 
--   [Reflashing devices](http://inivation.com/support/reflashing/) -
+-   **TO CHANGE?**  [Reflashing devices](http://inivation.com/support/reflashing/) -
     How to benefit from the latest upgrades to device firmware using
     our device update software called Flashy.
 
--   [File formats](http://inivation.com/support/fileformat/) -
+-   **TO CHANGE?** [File formats](http://inivation.com/support/fileformat/) -
     explaining the .aedat format we use to save event-based data from
     our devices.

@@ -55,14 +55,14 @@ version 1.8.0 u40. The sourcecode is available in the iniLabs GIT
 repository
 at:
 
-[https://github.com/inilabs/flashy](https://github.com/inilabs/flashy)
+**TO CHANGE** [https://github.com/inilabs/flashy](https://github.com/inilabs/flashy)
 
 It can be opened as a Maven project in both NetBeans and Eclipse.
 
 Directly runnable JARs can be found
 at:
 
-[https://github.com/inilabs/flashy/releases](https://github.com/inilabs/flashy/releases)
+**TO CHANGE** [https://github.com/inilabs/flashy/releases](https://github.com/inilabs/flashy/releases)
 
 The latest official version is 0.9.8. Use the -with-dependencies JAR for
 easy deployment.
@@ -141,7 +141,7 @@ by creating, as root, the appropriate udev rules files:
 ```
 
 You can find ready-to-use udev rules files in
-[our Git
+**TO CHANGE** [our Git
 repository](https://github.com/inilabs/devices-bin/tree/master/drivers/linux/udev-rules).
 
 If you’re using a distribution that supports SELinux tags, such as
@@ -284,7 +284,7 @@ can be found in our Git repository.
 For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
 file:
 
-[https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix)(BIX format)
+**TO CHANGE** [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix)(BIX format)
 
 For DVS128 reprogramming, please also use the same DAVIS240 file as
 above at this step!
@@ -322,13 +322,13 @@ As you can see, it’s divided into three parts:
     For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
     file:
 
-    [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)
+    **TO CHANGE** [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)
     (IIC format)
 
     For DVS128 boards, it’s a different
     file:
 
-    [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)
+    **TO CHANGE** [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)
     (IIC format)
 
 2. The second row is used to update the logic (bitstream) on the
@@ -341,24 +341,24 @@ As you can see, it’s divided into three parts:
     Git
     repository:
 
-    [https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/](https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/)
+    **TO CHANGE** [https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/](https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/)
 
     For DAVIS240 V4 boards (small USB 2.0 boards), use the following files:
 
       - DAVIS240a chips ->
-        [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)
+        **TO CHANGE** [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)
 
       - DAVIS240b chips ->
-        [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)
+        **TO CHANGE** [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)
 
       - DAVIS240c chips ->
-        [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf)
+        **TO CHANGE** [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf)
 
     For DVS128 boards, uploading new logic is not usually required. If you
     still think it’s needed in your case, the following file is the right
     one:
 
-    [https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
+    **TO CHANGE** [https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
 
     While flashing firmware or logic, you should see a progress dialog like
     this; if you don’t see this progress bar then there is some error, most
@@ -395,6 +395,8 @@ following image, please get in touch with us at
 <p align="center"><img src="media/flashy_early_prototypes2.png" width="800" /></p>
 
 # Which device? Which firmware? Which logic?
+
+**TO CHANGE ALL LINKS**
 
 | Camera model       | Firmware                                                                                                         | Logic                                                                                                                                                                     |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

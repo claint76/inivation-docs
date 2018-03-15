@@ -8,7 +8,7 @@ This page is about the eDVS4337, launched in 2014:
 
 For support for older eDVS prototypes see here:
 
-[https://wiki.lsr.ei.tum.de/nst/programming/edvsgettingstarted](https://wiki.lsr.ei.tum.de/nst/programming/edvsgettingstarted)
+**BROKEN** [https://wiki.lsr.ei.tum.de/nst/programming/edvsgettingstarted](https://wiki.lsr.ei.tum.de/nst/programming/edvsgettingstarted)
 
 ## Table of contents
 - [Specification](#specification)
@@ -56,7 +56,7 @@ A standalone dynamic vision sensor circuit board with microcontroller
 
 Specifications are compared to those of other DVS models here:
 
-[http://www.inilabs.com/products/dynamic-vision-sensors/specifications](http://www.inilabs.com/products/dynamic-vision-sensors/specifications)
+**TO CHANGE** [http://www.inilabs.com/products/dynamic-vision-sensors/specifications](http://www.inilabs.com/products/dynamic-vision-sensors/specifications)
 
 Application examples:
 -   Autonomous mobile robotics.
@@ -120,7 +120,7 @@ processing algorithms.
 
 The officially supported software to view and process events coming from
 the eDVS is jAER. For instructions on installation and usage, see the
-[jAER user guide](http://www.inilabs.com/support/jaer).
+**TO CHANGE** [jAER user guide](http://www.inilabs.com/support/jaer).
 
 Once installed, connect the eDVS via USB to your computer. The drivers
 for USB serial port emulation are already part of all modern operating
@@ -160,11 +160,11 @@ You should now be seeing DVS events on your screen.
 
 ### Biasing the DVS
 
-You need to load a set of biases. The [jAER user
+You need to load a set of biases. The **TO CHANGE** [jAER user
 guide](http://www.inilabs.com/support/jaer) explains how to
 do this, in the section on "biasing". In order to get the best
 performance out of your device for your application, in terms of speed,
-noise etc, you need to adjust the biases. The [biasing
+noise etc, you need to adjust the biases. The **TO CHANGE** [biasing
 guide](http://www.inilabs.com/support/biasing) explains how
 to do this.
 
@@ -201,7 +201,7 @@ boards, you might need to tailor the standard firmware to your own
 application's needs. The latest version of the firmware can be checked
 out with Git from:
 
-[https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337](https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337)
+**TO CHANGE** [https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337](https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337)
 
 Please follow the instructions within that directories README.txt file
 to install the LPCXpresso development environment.
@@ -213,7 +213,7 @@ HEX file for reprogramming through the UART0 port or the USB plug.
 
 You can find already compiled HEX files at
 
-[https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337/Releases](https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337/Releases)
+**TO CHANGE** [https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337/Releases](https://github.com/inilabs/devices-bin/tree/master/firmware/eDVS4337/Releases)
 
 The latest hex files are EDVSBoardOS-4mbps.hex; EDVSBoardOS-6mbps.hex
 and EDVSBoardOS-12mbps.hex. Choose the hex file denoted with the baud

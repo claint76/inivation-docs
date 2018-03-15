@@ -26,13 +26,13 @@ This user guide covers the DVS128 camera:
 
 Specifications for this and other DVS models can be seen here:
 
-[http://www.inilabs.com/products/dynamic-vision-sensors/specifications](http://www.inilabs.com/products/dynamic-vision-sensors/specifications)
+**TO CHANGE** [http://www.inilabs.com/products/dynamic-vision-sensors/specifications](http://www.inilabs.com/products/dynamic-vision-sensors/specifications)
 
 ## Getting started 
 
 1.  Unpack camera. You should have camera with lens, mini tripod, and a
     cs-c adapter ring.
-2.  Install jAER, following the instructions in the [jAER user guide](http://www.inilabs.com/support/jaer).
+2.  Install jAER, following the instructions in the **TO CHANGE** [jAER user guide](http://www.inilabs.com/support/jaer).
 3.  Plug in the DVS128 to your PC (or Mac) using a USB A-B cable.
 4.  Follow the instructions here to install drivers:
     [https://sourceforge.net/p/jaer/wiki/jAER%20USB%20Driver%20Install/](https://sourceforge.net/p/jaer/wiki/jAER%20USB%20Driver%20Install/)
@@ -84,17 +84,17 @@ lengths.
 
 ## Biasing
 
-You need to load a set of biases. The [jAER user
+You need to load a set of biases. The **TO CHANGE** [jAER user
 guide](http://www.inilabs.com/support/jaer) explains how to
 do this, in the section on "biasing". In order to get the best
 performance out of your device for your application, in terms of speed,
-noise etc, you need to adjust the biases. The [biasing
+noise etc, you need to adjust the biases. The **TO CHANGE** [biasing
 guide](http://www.inilabs.com/support/biasing) explains how
 to do this.
 
 For the DVS128, You can find the standard bias sets under:
 
-jAER/biasgenSettings/DVS128
+> jAER/biasgenSettings/DVS128
 
 The default biases DVS128Slow.xml or DVS128Fast.xml are suitable for
 many situations.
@@ -164,7 +164,7 @@ A close-up photo of the DVS128 sensor is shown below. On the back, the
 upper LED, is a blinking "heartbeat" LED, which shows that the camera's
 controller is running. The lower LED, is on as long as the DVS128 is
 time-stamp master; it turns off if the DVS128 is clocked externally -
-see the [synchronisation
+see the **TO CHANGE** [synchronisation
 guide](http://www.inilabs.com/support/synch).
 
 <p align="center"><img src="media/DVS128_conn.png" width="600" /></p>
@@ -206,21 +206,21 @@ another device.
 ### Specifications
 
 Specifications for this and other DVS models can be seen on the
-[specifications page](http://www.inilabs.com/products/dvs/specifications).
+**BROKEN** [specifications page](http://www.inilabs.com/products/dvs/specifications).
 
 ### How to use
 
 The DVS128_PAER board can be biased and monitored using JAER in just
 the same way as with the DVS128. Information about optics is also
-equivalent. Therefore, please refer to the [DVS128 user
+equivalent. Therefore, please refer to the **TO CHANGE** [DVS128 user
 guide](http://www.inilabs.com/support/dvs128) for optics,
-the [jAER user guide](http://www.inilabs.com/support/jaer)
-for software, and the [biasing
+the **TO CHANGE** [jAER user guide](http://www.inilabs.com/support/jaer)
+for software, and the **TO CHANGE** [biasing
 guide](http://www.inilabs.com/support/biasing) for how to
 bias the device in order to get the best performance out of your device
 for your application, in terms of speed, noise etc.
 
-[http://www.inilabs.com/support/dvs128](http://www.inilabs.com/support/dvs128)
+**TO CHANGE** [http://www.inilabs.com/support/dvs128](http://www.inilabs.com/support/dvs128)
 
 **Additional notes:**
 

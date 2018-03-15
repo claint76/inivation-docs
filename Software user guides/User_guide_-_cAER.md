@@ -12,17 +12,17 @@ sensor data from iniLabs sensors. It can run on hardware ranging from
 Raspberry Pi to ODroid to laptop or desktop PCs. It is licensed under
 the GNU Lesser General Public License (LGPL) v2.1.
 
-See [this iniLabs software
+See **TO CHANGE**  [this iniLabs software
 comparison](https://inivation.com/support/software/) for
 more information about different software frameworks and libraries that
 are available to interact with neuromorphic devices.
 
-cAER is described in [this technical
+cAER is described in **BROKEN**  [this technical
 report](https://github.com/inilabs/caer/blob/master/docs/caer.pdf)
-(an older version) and [these
+(an older version) and **BROKEN**  [these
 slides](https://github.com/inilabs/caer/blob/master/docs/cAER_pres_04.11.2015.pdf).
 
-cAER uses the [low-level libcaer library
+cAER uses the **TO CHANGE?** [low-level libcaer library
 API](http://inivation.com/support/libcaer/) to communicate
 with devices.
 

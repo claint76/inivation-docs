@@ -41,13 +41,13 @@ obtain the latest version of the jAER software and preferably use an
 integrated developer environment (IDE) (e.g. netbeans) to run the latest
 code base.
 
-For specifications see the [specifications
+For specifications see the **TO CHANGE** [specifications
 page](https://inilabs.com/products/dynamic-vision-sensors/specifications/).
 
 The DAVIS240 cameras are USB devices.
 
 The camera output can be processed by jAER or cAER or libcaer; see
-[inilabs software user
+**TO CHANGE** [inilabs software user
 guides](http://inilabs.com/support/software/). The Getting
 Started guide here covers use in jAER.
 
@@ -56,13 +56,13 @@ Started guide here covers use in jAER.
 1.  Unpack your camera. You should have a DAVIS camera with C-mount
     lens, C-CS adapter ring, mini tripod and USB A - microB cable.
 
-2.  Install jAER, following the instructions in the [jAER user guide](http://www.inilabs.com/support/jaer).
+2.  Install jAER, following the instructions in the **TO CHANGE** [jAER user guide](http://www.inilabs.com/support/jaer).
 
 3.  Install drivers - see the [install USB driver](#install-usb-driver) section below.
 
 4.  Run jAER, choose the correct chip class, choose the correct
     interface and load a standard set of biases, as described in the
-    [jAER user guide](http://www.inilabs.com/support/jaer):
+    **TO CHANGE** [jAER user guide](http://www.inilabs.com/support/jaer):
 
     a.  The correct chip class is
         eu.seebetter.ini.chips.davis.DAViS240(A/B/C). Choose the A, B
@@ -89,7 +89,7 @@ by creating, as root, an udev rule file such as:
 
 > /etc/udev/rules.d/65-inilabs.rules
 
-You can find ready-to-use udev rules files in [our Git
+You can find ready-to-use udev rules files in **TO CHANGE** [our Git
 repository](https://github.com/inilabs/devices-bin/tree/master/drivers/linux/udev-rules).
 Here they are:
 
@@ -156,7 +156,7 @@ successfully".
 
 If this doesn't work you will need to use the "zadig" tool to install
 the correct driver. In this case, please follow the instructions for
-zadig in the [reflashing guide](http://www.inilabs.com/support/reflashing).
+zadig in the **TO CHANGE** [reflashing guide](http://www.inilabs.com/support/reflashing).
 
 ## Serial number
 
@@ -371,7 +371,7 @@ shown in this c++ code example
 
 ## Firmware upgrades
 
-If we advise you to upgrade your firmware, please read the [reflashing guide](http://www.inilabs.com/support/reflashing).
+If we advise you to upgrade your firmware, please read the **TO CHANGE** [reflashing guide](http://www.inilabs.com/support/reflashing).
 
 ## Dimensions
 

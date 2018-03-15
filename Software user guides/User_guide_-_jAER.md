@@ -105,7 +105,7 @@ By “event-based data” we mean address-events from systems using
 Representation](#what-is-address-event-representation-aer) (AER)
 protocol which have been timestamped.
 
-See [this inilabs software
+See **TO CHANGE** [this inilabs software
 comparison](http://inilabs.com/support/software/) for more
 information about different software frameworks and libraries.
 
@@ -134,7 +134,7 @@ hardware.
 The architecture of jAER is described in [this
 paper](https://sourceforge.net/p/jaer/code/HEAD/tree/web/docs/delbruckEventBasedVision_GCOE_Symp_2008.pdf?format=raw),
 with a focus on processing output from the
-[dynamic vision
+**TO CHANGE** [dynamic vision
 sensor](http://www.inilabs.com/products/dynamic-vision-sensors)
 (DVS).
 
@@ -198,7 +198,7 @@ annotation you want.
     best performance from the new FX3 prototypes.
 
   - A compatible hardware device (e.g.
-    [DVS128, DAVIS240](http://www.inilabs.com/products/)), unless you intend
+    **TO CHANGE** [DVS128, DAVIS240](http://www.inilabs.com/products/)), unless you intend
     to work with recorded data.
 
   - A Java Runtime Environment installation, version 1.8 or newer, for
@@ -231,7 +231,7 @@ Get a full Git checkout as follows:
 
 2.  Check out the entire repository from GitHub:
 
-> $ git clone https://github.com/SensorsINI/jaer.git
+    > $ git clone https://github.com/SensorsINI/jaer.git
 
 If you plan to develop Java classes you will need a Java development
 environment and the Java development kit (JDK).
@@ -343,7 +343,7 @@ library, which means no special kernel drivers have to be compiled or
 installed. Usually no particular setup is required at all, other than
 ensuring the user running jAER has access to the device; which might
 involve installing udev rules. Please refer to the
-[Install USB driver -
+**TO CHANGE** [Install USB driver -
 Linux](http://inilabs.com/support/hardware/davis240/#h.eok9q1yrz7px)
 section of the DAVIS240 User Guide.
 
@@ -356,7 +356,7 @@ instructions](#developer-setup---using-eclipse) to set it up.
 
 On Mac OS X, the libusb based driver is the only way to interact with
 hardware, more information on it can be found near in the
-[Install USB driver - Mac OS
+**TO CHANGE** [Install USB driver - Mac OS
 X](http://inilabs.com/support/hardware/davis240/#h.7ohp3sio45xp)
 section of the DAVIS240 User Guide.
 
@@ -508,7 +508,7 @@ some time to remember.
 By default, jAER opens with one viewer window. However, you can open
 more windows by using File->New viewer. In general, you need one viewer
 for each device that you want to use or file that you want to view
-simultaneously. See [How to calibrate a stereo
+simultaneously. See **TO CHANGE** [How to calibrate a stereo
 setup](http://inilabs.com/support/application-notes/dvs-stereo-calibration/)
 for more information.
 
@@ -902,7 +902,7 @@ these sliders change the biases of the sensor.
 This document explains in detail how to bias dynamic
 sensors:
 
-[http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
+**TO CHANGE** [http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
 
 For DAVIS240, the “Bias Current Config” tab gives you complete control
 over the on-chip biases which parametrise the sensor.
@@ -930,7 +930,7 @@ The “Expert controls” tab looks something like this:
 This document explains in detail how to bias dynamic
 sensors:
 
-[http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
+**TO CHANGE** [http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
 
 # Data recording (logging)
 
@@ -941,7 +941,7 @@ ask you where you want to save the recording. It will create a file in
 version 2.0 format. See here to understand the details of the file
 format:
 
-[http://inilabs.com/support/software/fileformat/](http://inilabs.com/support/software/fileformat/)
+**TO CHANGE** [http://inilabs.com/support/software/fileformat/](http://inilabs.com/support/software/fileformat/)
 
 ## Working with .aedat data in matlab
 
@@ -967,17 +967,17 @@ java class is faster but may fragment matlab memory.
 
 * For java class usage, examine the following example
 
-```java
-chip=ch.unizh.ini.caviar.chip.retina.Tmpdiff128;  
-extractor=chip.getEventExtractor; % get the extractor object from this
-chip.  
-% now you can use the extractor to extract a packet of events or you can
-use the methods directly  
-x=extractor.getXFromAddress(raw); % raw is a raw AE
-address  
-y=extractor.getYFromAddress(raw)  
-type=extractor.getTypeFromAddress(raw)
-```
+    ```java
+    chip=ch.unizh.ini.caviar.chip.retina.Tmpdiff128;  
+    extractor=chip.getEventExtractor; % get the extractor object from this
+    chip.  
+    % now you can use the extractor to extract a packet of events or you can
+    use the methods directly  
+    x=extractor.getXFromAddress(raw); % raw is a raw AE
+    address  
+    y=extractor.getYFromAddress(raw)  
+    type=extractor.getTypeFromAddress(raw)
+    ```
 
 ### Translating x,y,type to raw address to filter specific cells in matlab
 
@@ -986,17 +986,19 @@ Note how the x address is flipped because that is how it is rendered in
 java to make it rightside up (Java puts the origin at UL corner and
 increases x rightwards and y downwards.)
 
+```
 function raw=getraw(x,y,pol)  
 raw=(y)*256+(127-x)*2+pol;
 %extractor.getAddressFromCell(x,y,pol);
+```
 
 ### Controlling biases from matlab
 
 ### Using a UDP connection to a running AEViewer or to control the chip or system configuration (i.e. biases)
 
 This is the best way to control biases and the AEViewer now from an
-external process. See [[Interfacing to
-jAER]](https://sourceforge.net/p/jaer/wiki/Interfacing%20to%20jAER/).
+external process. See [Interfacing to
+jAER](https://sourceforge.net/p/jaer/wiki/Interfacing%20to%20jAER/).
 
 # Using filters
 
@@ -1342,7 +1344,7 @@ orientation or direction and speed.
 ## Parameter persistence
 
 You can add persistence of your filter properties using the
-[[EventFilter2D.getPrefs()]](http://sourceforge.net/p/jaer/wiki/EventFilter2D.getPrefs%28%29)
+**BROKEN** [EventFilter2D.getPrefs()](http://sourceforge.net/p/jaer/wiki/EventFilter2D.getPrefs%28%29)
 method to obtain a Java Preferences key. In your property setter, use
 *getPrefs()* to put your property.
 
@@ -1446,7 +1448,7 @@ public class BackgroundActivityFilter extends EventFilter2D implements Observer 
 ## Example of a complete EventFilter
 
 Below is commented and simplified code for
-[BackgroundActivityFilter](https://jaer.svn.sourceforge.net/svnroot/jaer/trunk/host/java/src/ch/unizh/ini/caviar/eventprocessing/filter/BackgroundActivityFilter.java).
+**BROKEN** [BackgroundActivityFilter](https://jaer.svn.sourceforge.net/svnroot/jaer/trunk/host/java/src/ch/unizh/ini/caviar/eventprocessing/filter/BackgroundActivityFilter.java).
 This filter removes background activity from uncorrelated AEs. It only
 pass through events that have received some "support" from the
 spatio-temporal neighborhood.
