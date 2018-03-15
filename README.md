@@ -102,6 +102,7 @@ Is not rendered properly, while:
 | second row    | second row    |
 | third row     | third row     |
 ```
+Will be rendered properly
 
 # Notes on files
 ## \*\*BROKEN\*\*
