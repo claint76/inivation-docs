@@ -66,7 +66,7 @@ For the interested reader, the bias generator circuitry is explained in:
 * [Delbruck et al. 2006](https://www.ini.uzh.ch/~tobi/wiki/lib/exe/fetch.php?media=delbruckbiasgeniscas2006.pdf),
 * [Delbruck et al. 2010](https://www.ini.uzh.ch/~tobi/wiki/lib/exe/fetch.php?media=delbruckfullyconfigbiasgeniscas2010.pdf),
 * [Yang et al. 2012](https://www.ini.uzh.ch/~tobi/wiki/lib/exe/fetch.php?media=yangcfbiasgeniscas2012_-_final.pdf)
-* **BROKEN** [Bias generator design kits in jAER project on SourceForge](http://jaer.wiki.sourceforge.net/biasgen),
+* [Bias generator design kits in jAER project on SourceForge](http://jaer.wiki.sourceforge.net/biasgen)<!--BROKEN-->,
 
 Having the bias generator on the chip allows us to eliminate the effects
 of process, voltage and temperature (PVT) variation between chips. Two
@@ -87,7 +87,7 @@ order to alter their behaviour.
 
 We recommend using jAER for working with biases - this allows biases to
 be changed and the effects to be observed in real time. For how to load,
-save and control the biases using jAER, please refer to the **TO CHANGE** [jAER user
+save and control the biases using jAER, please refer to the <!--TO CHANGE-->[jAER user
 guide](http://www.inilabs.com/support/jaer).
 
 The *Expert controls* (DVS128) or *Bias Current Control* (DAVIS240) tab
@@ -602,7 +602,7 @@ can be 100s of Hz.
 There is no way to eliminate these events, although their frequency can
 be reduced by setting high thresholds. It's quite common to eliminate
 both electronic noise and background events in software by applying the
-BackgroundActivity filter, as described in the **TO CHANGE***[jAER user
+BackgroundActivity filter, as described in the <!--TO CHANGE-->[jAER user
 guide](http://www.inilabs.com/support/jaer).
 
 The drift in the second stage that leads to background events also

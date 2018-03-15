@@ -105,7 +105,7 @@ Is not rendered properly, while:
 Will be rendered properly
 
 # Notes on files
-## \*\*BROKEN\*\*
+## ```<!--BROKEN-->```
 Links that do not work. Present in:
 * User Guide - Biasing Dynamic Sensors
 * User Guide - Synchronisation of dynamic sensor prototypes and stereo configurations
@@ -113,10 +113,10 @@ Links that do not work. Present in:
 * User guide - DVS128 Dynamic Vision Sensor
 * User guide - jAER
 * User guide - cAER
-## \*\*TO CHANGE\*\*
+## ```<!--TO CHANGE-->```
 Links that refers to iniLabs or to not updated websites. Present in all but for "Application Notes" files and
 AEDAT file formats.
 
-## \*\*TO CREATE\*\* 
+## ```<!--TO CREATE-->```
 Links that are clearly not created, or there is no section at the moment. Present in:
 * User Guide - Synchronisation of dynamic sensor prototypes and stereo configurations

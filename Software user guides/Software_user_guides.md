@@ -4,7 +4,7 @@ inivation supports the development of open-source software for real-time
 event-based processing, using neuromorphic / dynamic sensors as inputs.
 
 The software we support (cAER, libcaer, GUis, scripts, firmware&logic)
-is all hosted under the **TO CHANGE**  [GitHub inivation organization](https://github.com/inilabs/).
+is all hosted under the <!--TO CHANGE-->  [GitHub inivation organization](https://github.com/inilabs/).
 
 jAER is now hosted under the [GitHub SensorsINI organization](https://github.com/SensorsINI/jaer/).
 

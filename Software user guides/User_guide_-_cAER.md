@@ -12,7 +12,7 @@ sensor data from iniLabs sensors. It can run on hardware ranging from
 Raspberry Pi to ODroid to laptop or desktop PCs. It is licensed under
 the GNU Lesser General Public License (LGPL) v2.1.
 
-See **TO CHANGE**  [this iniLabs software
+See <!--TO CHANGE-->  [this iniLabs software
 comparison](https://inivation.com/support/software/) for
 more information about different software frameworks and libraries that
 are available to interact with neuromorphic devices.

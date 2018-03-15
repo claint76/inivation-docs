@@ -14,7 +14,8 @@
 
 Directly runnable JARs can be found at:
 
-**TO CHANGE** [https://github.com/inilabs/caerctl-gui-javafx/releases/](https://github.com/inilabs/caerctl-gui-javafx/releases/)
+<!--TO CHANGE-->
+[https://github.com/inilabs/caerctl-gui-javafx/releases/](https://github.com/inilabs/caerctl-gui-javafx/releases/)
 
 ```bash
     $ java -jar caerctl-gui-javafx-0.6.0-jar-with-dependencies.jar
@@ -29,7 +30,8 @@ technologies such as JavaFX. Please make sure to install at least Java
 version 1.8.0 u40. The sourcecode is available in the iniLabs GIT
 repository at:
 
-**TO CHANGE**  [https://github.com/inilabs/caerctl-gui-javafx/](https://github.com/inilabs/caerctl-gui-javafx/)
+<!--TO CHANGE-->
+[https://github.com/inilabs/caerctl-gui-javafx/](https://github.com/inilabs/caerctl-gui-javafx/)
 
 It can be opened as a Maven project in both NetBeans and Eclipse.
 

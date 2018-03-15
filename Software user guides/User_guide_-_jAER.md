@@ -105,7 +105,7 @@ By “event-based data” we mean address-events from systems using
 Representation](#what-is-address-event-representation-aer) (AER)
 protocol which have been timestamped.
 
-See **TO CHANGE** [this inilabs software
+See <!--TO CHANGE--> [this inilabs software
 comparison](http://inilabs.com/support/software/) for more
 information about different software frameworks and libraries.
 
@@ -133,8 +133,7 @@ hardware.
 
 The architecture of jAER is described in [this
 paper](https://sourceforge.net/p/jaer/code/HEAD/tree/web/docs/delbruckEventBasedVision_GCOE_Symp_2008.pdf?format=raw),
-with a focus on processing output from the
-**TO CHANGE** [dynamic vision
+with a focus on processing output from the <!--TO CHANGE--> [dynamic vision
 sensor](http://www.inilabs.com/products/dynamic-vision-sensors)
 (DVS).
 
@@ -197,8 +196,7 @@ annotation you want.
     and will severely limit performance!). USB3.0 is necessary to get
     best performance from the new FX3 prototypes.
 
-  - A compatible hardware device (e.g.
-    **TO CHANGE** [DVS128, DAVIS240](http://www.inilabs.com/products/)), unless you intend
+  - A compatible hardware device (e.g. <!--TO CHANGE--> [DVS128, DAVIS240](http://www.inilabs.com/products/)), unless you intend
     to work with recorded data.
 
   - A Java Runtime Environment installation, version 1.8 or newer, for
@@ -342,8 +340,7 @@ On Linux, interaction with devices is realized through the libusb
 library, which means no special kernel drivers have to be compiled or
 installed. Usually no particular setup is required at all, other than
 ensuring the user running jAER has access to the device; which might
-involve installing udev rules. Please refer to the
-**TO CHANGE** [Install USB driver -
+involve installing udev rules. Please refer to the <!--TO CHANGE--> [Install USB driver -
 Linux](http://inilabs.com/support/hardware/davis240/#h.eok9q1yrz7px)
 section of the DAVIS240 User Guide.
 
@@ -355,8 +352,7 @@ the [Eclipse
 instructions](#developer-setup---using-eclipse) to set it up.
 
 On Mac OS X, the libusb based driver is the only way to interact with
-hardware, more information on it can be found near in the
-**TO CHANGE** [Install USB driver - Mac OS
+hardware, more information on it can be found near in the <!--TO CHANGE--> [Install USB driver - Mac OS
 X](http://inilabs.com/support/hardware/davis240/#h.7ohp3sio45xp)
 section of the DAVIS240 User Guide.
 
@@ -508,7 +504,7 @@ some time to remember.
 By default, jAER opens with one viewer window. However, you can open
 more windows by using File->New viewer. In general, you need one viewer
 for each device that you want to use or file that you want to view
-simultaneously. See **TO CHANGE** [How to calibrate a stereo
+simultaneously. See <!--TO CHANGE--> [How to calibrate a stereo
 setup](http://inilabs.com/support/application-notes/dvs-stereo-calibration/)
 for more information.
 
@@ -902,7 +898,8 @@ these sliders change the biases of the sensor.
 This document explains in detail how to bias dynamic
 sensors:
 
-**TO CHANGE** [http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
+<!--TO CHANGE-->
+[http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
 
 For DAVIS240, the “Bias Current Config” tab gives you complete control
 over the on-chip biases which parametrise the sensor.
@@ -930,7 +927,8 @@ The “Expert controls” tab looks something like this:
 This document explains in detail how to bias dynamic
 sensors:
 
-**TO CHANGE** [http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
+<!--TO CHANGE-->
+[http://inilabs.com/support/hardware/biasing/](http://inilabs.com/support/hardware/biasing/)
 
 # Data recording (logging)
 
@@ -941,7 +939,8 @@ ask you where you want to save the recording. It will create a file in
 version 2.0 format. See here to understand the details of the file
 format:
 
-**TO CHANGE** [http://inilabs.com/support/software/fileformat/](http://inilabs.com/support/software/fileformat/)
+<!--TO CHANGE-->
+[http://inilabs.com/support/software/fileformat/](http://inilabs.com/support/software/fileformat/)
 
 ## Working with .aedat data in matlab
 

@@ -11,8 +11,7 @@ of neuro-biological systems.
 IniLabs takes top-level students in computer science, physics, or
 electrical engineering for thesis projects or internships. Projects for
 course credit are registered with the student's home university (for
-local students, the University of Zurich or the ETH Zurich).
-**TO CHANGE** [Contact
+local students, the University of Zurich or the ETH Zurich). <!--TO CHANGE--> [Contact
 us](http://inilabs.com/company/contact) if you are a student
 interested in one of the projects listed below, or if you would like to
 discuss a related project. In general, any of the projects listed below

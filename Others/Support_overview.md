@@ -4,7 +4,7 @@ We support all of the products we sell in their intended usage as
 research prototypes. We also support the open-source event-based
 software platforms jAER and cAER and some related software.
 
-We **TO CHANGE**
+We <!--TO CHANGE-->
 [use](https://groups.google.com/d/forum/davis-users)
 [several](https://groups.google.com/d/forum/jaer-users)
 [Google](https://groups.google.com/d/forum/caer-users)
@@ -12,7 +12,7 @@ We **TO CHANGE**
 for all public questions and discussions regarding inivation products.
 If your question involves confidential information, however, please use
 [support@inivation.com](mailto:support@inilabs.com).
-First you could try our **TO CHANGE** [troubleshooting
+First you could try our <!--TO CHANGE--> [troubleshooting
 guide](http://www.inilabs.com/support/faq).
 
 This document explains where to find help, with links to our user
@@ -75,14 +75,12 @@ don’t support this.
 
 For real-time application, the easiest way to get started is with jAER,
 a java-based GUI for visualisation of data and rapid development of
-event-based algorithms and applications. Here is the
-**TO CHANGE** [user guide](http://www.inilabs.com/support/jaer).
+event-based algorithms and applications. Here is the <!--TO CHANGE--> [user guide](http://www.inilabs.com/support/jaer).
 
 ## cAER
 
 You can use cAER for lightweight streaming or logging of data, or as a
-platform for your bespoke development. Here is the
-**TO CHANGE**[user guide](http://www.inilabs.com/support/caer).
+platform for your bespoke development. Here is the <!--TO CHANGE-->[user guide](http://www.inilabs.com/support/caer).
 
 ## MATLAB
 
@@ -116,6 +114,9 @@ directly for support.
 
 # Additional user guides
 
-  - **TO CHANGE** [Biasing sensors](http://inilabs.com/support/biasing) - How to get the best performance from your sensors by controlling their on-board electronic biases.
-  - **TO CHANGE** [Synchronisation](http://inilabs.com/support/synch) How to work with 2 or more sensors simultaneously; also covers stereo configurations.
-  - **TO CHANGE**[Reflashing devices](http://inilabs.com/support/reflashing) - How to benefit from the latest upgrades to device firmware.
+  - <!--TO CHANGE-->
+    [Biasing sensors](http://inilabs.com/support/biasing) - How to get the best performance from your sensors by controlling their on-board electronic biases.
+  - <!--TO CHANGE-->
+    [Synchronisation](http://inilabs.com/support/synch) How to work with 2 or more sensors simultaneously; also covers stereo configurations.
+  - <!--TO CHANGE-->
+    [Reflashing devices](http://inilabs.com/support/reflashing) - How to benefit from the latest upgrades to device firmware.

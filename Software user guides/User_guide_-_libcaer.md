@@ -25,7 +25,7 @@ defining event formats and a few functions for device control.
 
 It is intended to be used for integration into existing frameworks and
 code, also thanks to its open BSD license. If you don't have any
-existing code you need to work with, we recommend using the **TO CHANGE** [cAER
+existing code you need to work with, we recommend using the <!--TO CHANGE--> [cAER
 framework](https://inilabs.com/support/software/caer/),
 which adds a lot of useful functionality on top, such as configuration
 management, logging, modularity and provides ready-to-use modules for
@@ -45,7 +45,7 @@ Ubuntu, as well as for MacOS X via Homebrew.
 
 #### Fedora Linux
 
-We provide a **TO CHANGE** [COPR
+We provide a <!--TO CHANGE--> [COPR
 repository](https://copr.fedorainfracloud.org/coprs/llongi/inilabs/)
 for Fedora 25, 26, 27 and rawhide on the x86 and x86_64 architectures.
 
@@ -59,13 +59,12 @@ Please execute the following commands to use it and install libcaer:
 
 #### Gentoo Linux
 
-A valid Gentoo ebuild repository is available
-**TO CHANGE** [here](https://github.com/inilabs/gentoo-inilabs/) over
+A valid Gentoo ebuild repository is available <!--TO CHANGE--> [here](https://github.com/inilabs/gentoo-inilabs/) over
 Git. The package is 'dev-libs/libcaer'.
 
 #### Ubuntu Linux
 
-We provide a **TO CHANGE** [PPA repository](https://launchpad.net/~llongi/+archive/ubuntu/inilabs)
+We provide a <!--TO CHANGE--> [PPA repository](https://launchpad.net/~llongi/+archive/ubuntu/inilabs)
 for Ubuntu Trusty (14.04 LTS), Xenial (16.04 LTS), Zesty (17.04) and
 Artful (17.10) on the x86, x86_64, arm and arm64 architectures.
 
@@ -85,7 +84,7 @@ below.
 
 #### MacOS X
 
-We provide a **TO CHANGE** [Homebrew tap](https://github.com/inilabs/homebrew-inilabs/) for
+We provide a <!--TO CHANGE--> [Homebrew tap](https://github.com/inilabs/homebrew-inilabs/) for
 MacOS X. Install [Homebrew](https://brew.sh/) and then
 please execute the following commands to install libcaer:
 
@@ -96,27 +95,21 @@ $ brew install libcaer --with-libserialport --with-opencv
 
 ### Manual Installation
 
-Please read the main
-**TO CHANGE** [README](https://github.com/inilabs/libcaer/blob/master/README)
+Please read the main <!--TO CHANGE--> [README](https://github.com/inilabs/libcaer/blob/master/README)
 file carefully, it explains all steps for manual installation on Linux
-and MacOS X systems. For Windows users, the additional file
-**TO CHANGE** [README.Windows](https://github.com/inilabs/libcaer/blob/master/README.Windows)
+and MacOS X systems. For Windows users, the additional file <!--TO CHANGE--> [README.Windows](https://github.com/inilabs/libcaer/blob/master/README.Windows)
 explains all the steps needed to get libcaer installed there.
 
 Building libcaer requires some dependencies to be installed, see the
-*REQUIREMENTS* section in the
-**TO CHANGE** [README](https://github.com/inilabs/libcaer/blob/master/README)
+*REQUIREMENTS* section in the <!--TO CHANGE--> [README](https://github.com/inilabs/libcaer/blob/master/README)
 file. You will need to find and install those using your system's
 package manager, some examples are provided for Fedora Linux, Ubuntu
 Linux and MacOS X (using Homebrew).
 
 ### Usage
 
-A full API documentation can be found
-**TO CHANGE** [here](https://inilabs.github.io/libcaer/) as HTML (or
-**TO CHANGE**[here](https://github.com/inilabs/libcaer/raw/master/docs/libcaer_api_manual.pdf)
+A full API documentation can be found <!--TO CHANGE--> [here](https://inilabs.github.io/libcaer/) as HTML (or <!--TO CHANGE-->[here](https://github.com/inilabs/libcaer/raw/master/docs/libcaer_api_manual.pdf)
 in PDF format).
 
-Also be sure to take a look at the
-**TO CHANGE** [README](https://github.com/inilabs/libcaer/blob/master/README)
+Also be sure to take a look at the <!--TO CHANGE--> [README](https://github.com/inilabs/libcaer/blob/master/README)
 file and the examples/ directory.
