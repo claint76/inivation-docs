@@ -58,9 +58,10 @@ Create separation for test -------------------------------------------------
 
 ### hello / hello - hello
 
+## Hint3
 If the symbols are in the word, for example "# hello.hello" just skip them. In this case, it will be "[ref](#hellohello)"
 
-## Hint3
+## Hint4
 If html does not render properly from some point of the document to the end, probably there is a html tag wrong.
 
 For example you can have created erroneously a not recognised tag, like:
@@ -80,7 +81,7 @@ In the second case i closed the image tag, but still not the ```<p align="center
 
 The third one is properly written
 
-## Hint4
+## Hint5
 Leave a space between a title and a table, for example:
 ```markdown
 # My title
