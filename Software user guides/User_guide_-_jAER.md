@@ -29,7 +29,7 @@ visualisation of event-based data and rapid application development.
     - [Interface](#interface)
     - [USB](#usb)
     - [MonSeq](#monseq)
-    - [...](#section)
+    - [... menu](#-menu)
     - [Help](#help)
   - [Tooltips](#tooltips)
   - [Shortcuts](#shortcuts)
@@ -58,13 +58,13 @@ visualisation of event-based data and rapid application development.
     - [Dynamic Vision Sensor (DVS)](#dynamic-vision-sensor-dvs)
   - [Controlling the biases](#controlling-the-biases)
 - [Data recording (logging)](#data-recording-logging)
-  - [Working with .aedat data in matlab](#working-with-.aedat-data-in-matlab)
+  - [Working with .aedat data in matlab](#working-with-aedat-data-in-matlab)
     - [Reading raw events into matlab](#reading-raw-events-into-matlab)
-    - [Writing a .dat file from matlab that can be sequenced or viewed](#writing-a-.dat-file-from-matlab-that-can-be-sequenced-or-viewed)
+    - [Writing a .dat file from matlab that can be sequenced or viewed](#writing-a-dat-file-from-matlab-that-can-be-sequenced-or-viewed)
     - [Extracting raw events to x,y,type](#extracting-raw-events-to-xytype)
     - [Translating x,y,type to raw address to filter specific cells in matlab](#translating-xytype-to-raw-address-to-filter-specific-cells-in-matlab)
     - [Controlling biases from matlab](#controlling-biases-from-matlab)
-    - [Using a UDP connection to a running AEViewer or to control the chip or system configuration (i.e. biases)](#using-a-udp-connection-to-a-running-aeviewer-or-to-control-the-chip-or-system-configuration-i.e.-biases)
+    - [Using a UDP connection to a running AEViewer or to control the chip or system configuration (i.e. biases)](#using-a-udp-connection-to-a-running-aeviewer-or-to-control-the-chip-or-system-configuration-ie-biases)
 - [Using filters](#using-filters)
   - [Selecting and ordering filters](#selecting-and-ordering-filters)
   - [Finding filters](#finding-filters)
@@ -478,7 +478,7 @@ allocated and also has options regarding firmware updates.
 The MonSeq menu is only for use with monitor and sequencer boards such
 as AERUSBMini2.
 
-### ...
+### ... menu
 
 To the right of the MonSeq menu there is a menu with options specific to
 the hardware device chosen.
@@ -626,7 +626,7 @@ This is only present for recorded data...
 
 These options can be found under the View menu.
 
-#### Rendering frame rate
+### Rendering frame rate
 
 Change the target frame rate with:
 

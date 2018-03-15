@@ -32,9 +32,16 @@ Documentation for iniVation products.
 don't use raw links, as: https://github.com/inivation/inivation-docs; use instead ```[https://github.com/inivation/inivation-docs](https://github.com/inivation/inivation-docs)```
 otherwise it does not work the automatic linking, when rendered
 ## Hint2
-when doing internal links, put "-" for each space present in the title, **NOT CONSIDERING** symbols, like /.
+when doing internal links, put "-" for each space present in the title, **NOT CONSIDERING** symbols, like "/" or "."
+
 For example, a title like "# hello / hello - hello" must be referenced as [ref](#hello--hello---hello)
 
+Pay attention that this can also not work with offline markdown visualisers, but with GitHub works!
+
+Create separation for test -------------------------------------------------
+
+Create separation for test -------------------------------------------------
+
 Create separation for test -------------------------------------------------
 
 Create separation for test -------------------------------------------------
@@ -42,7 +49,16 @@ Create separation for test -------------------------------------------------
 Create separation for test -------------------------------------------------
 
 Create separation for test -------------------------------------------------
+
+Create separation for test -------------------------------------------------
+
+Create separation for test -------------------------------------------------
+
+Create separation for test -------------------------------------------------
+
 ### hello / hello - hello
+
+If the symbols are in the word, for example "# hello.hello" just skip them. In this case, it will be "[ref](#hellohello)"
 
 ## Hint3
 If html does not render properly from some point of the document to the end, probably there is a html tag wrong.

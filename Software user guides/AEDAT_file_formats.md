@@ -84,7 +84,7 @@ If it exists, it is the first content present in a file, and is made up
 of one or more header lines.
 
 A header line begins with a ‘#’ character and ends with a CRLF (Windows
-line ending, ‘rn’).
+line ending, ‘\r\n’).
 
 Header lines, unless specified otherwise, are always case sensitive.
 
@@ -94,7 +94,7 @@ version 1.0 is assumed.
 
 The exact format of the version line is as follows:
 
-> **#!AER-DATx.yrn**
+> **#!AER-DATx.y\r\n**
 
 where x and y are the two version number components.
 
@@ -342,11 +342,15 @@ operations.
 - Version header line (required): described
   [above](#common-version-header),
   always the first header line. Specifically, the line is:
-  ‘**#!AER-DAT3.1rn**’
+
+  ```markdown
+    #!AER-DAT3.1\r\n
+  ```
+
 - Format header line (required): follows right after the version
   line, looking like this:
   
-  ```
+  ```markdown
     #Format: <FORMAT>\r\n.
   ```
 
@@ -360,7 +364,7 @@ operations.
   look like this:
 
   ```markdown
-    #Source <ID>: <DESCRIPTION>rn**
+    #Source <ID>: <DESCRIPTION>\r\n
   ```
 
   If multiple sources are present, they must be placed in increasing
@@ -373,7 +377,7 @@ operations.
   front of them.
 
   ```markdown
-    Example: **#-Source 0: DVS128rn**
+    Example: #-Source 0: DVS128\r\n
   ```
 
 - Start Time header line (required): this header line encodes the
@@ -381,7 +385,7 @@ operations.
   is the following:
 
   ```markdown
-    #Start-Time: %Y-%m-%d %H:%M:%S (TZ%z)rn**
+    #Start-Time: %Y-%m-%d %H:%M:%S (TZ%z)\r\n
   ```
 
 Time is encoded according to the C strftime() function, see
@@ -392,7 +396,7 @@ strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)’.
   header lines, looking like this:
 
   ```markdown
-    #!END-HEADERrn**
+    #!END-HEADER\r\n
   ```
   
   This allows to clearly determine where the file header ends and data
@@ -497,7 +501,9 @@ wrap-around problems, the packet-level 32 bit timestamp
 (***eventTSOverflow***) and the event-level 32 bit timestamp have to be
 composed as follows:
 
-> **fullTS = (packet.eventTSOverflow << 31) | event.timestamp**
+```c
+    fullTS = (packet.eventTSOverflow << 31) | event.timestamp
+```
 
 (The shift is of 31 bits rather than 32 because of the signed
 representation).
@@ -833,9 +839,9 @@ This section explains how version 3.0 differed from version 3.1.
 
 - The version header line reads as follows:
 
-    ```markdown
-        #!AER-DAT3.0\r\n
-    ```
+  ```markdown
+      #!AER-DAT3.0\r\n
+  ```
 
 - There is no end of header line required. The only way therefore to
   check where the header ends is to check that a line starts with

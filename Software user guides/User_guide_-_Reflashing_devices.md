@@ -134,9 +134,11 @@ file and reload udev.
 You must grant your user access to the USB device. This can be achieved
 by creating, as root, the appropriate udev rules files:
 
-> /etc/udev/rules.d/65-inilabs.rules
+```bash
+    /etc/udev/rules.d/65-inilabs.rules
 
-> /etc/udev/rules.d/66-inilabs_dev.rules
+    /etc/udev/rules.d/66-inilabs_dev.rules
+```
 
 You can find ready-to-use udev rules files in
 [our Git
@@ -147,11 +149,15 @@ Fedora, please use the udev rules files in the selinux/ sub-folder.
 
 To reload the udev system without rebooting type, as root:
 
-> $ udevadm control --reload-rules
+```bash
+    $ udevadm control --reload-rules
+```
 
 or, for newer udev versions:
 
-> $ udevadm control --reload
+```bash
+    $ udevadm control --reload
+```
 
 Now unplug and replug the camera into your computer. You’re done!
 
@@ -278,9 +284,7 @@ can be found in our Git repository.
 For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
 file:
 
-[https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix)
-
-(BIX format)
+[https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix)(BIX format)
 
 For DVS128 reprogramming, please also use the same DAVIS240 file as
 above at this step!
