@@ -102,3 +102,4 @@ Is not rendered properly, while:
 | second row    | second row    |
 | third row     | third row     |
 ```
+will be properly rendered
