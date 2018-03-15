@@ -66,7 +66,6 @@ For the interested reader, the bias generator circuitry is explained in:
 * [Delbruck et al. 2006](https://www.ini.uzh.ch/~tobi/wiki/lib/exe/fetch.php?media=delbruckbiasgeniscas2006.pdf),
 * [Delbruck et al. 2010](https://www.ini.uzh.ch/~tobi/wiki/lib/exe/fetch.php?media=delbruckfullyconfigbiasgeniscas2010.pdf),
 * [Yang et al. 2012](https://www.ini.uzh.ch/~tobi/wiki/lib/exe/fetch.php?media=yangcfbiasgeniscas2012_-_final.pdf)
-* [Bias generator design kits in jAER project on SourceForge](http://jaer.wiki.sourceforge.net/biasgen)<!--BROKEN-->,
 
 Having the bias generator on the chip allows us to eliminate the effects
 of process, voltage and temperature (PVT) variation between chips. Two

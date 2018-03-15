@@ -1340,10 +1340,13 @@ o.x=o.x-10; // this will shift the events 10 pixels to the left
 Here is where you also annotate the events with new information, e.g.
 orientation or direction and speed.
 
+<!--
+FUNCTION NOT FOUND IN THE JAER CODE
+
 ## Parameter persistence
 
 You can add persistence of your filter properties using the
-**BROKEN** [EventFilter2D.getPrefs()](http://sourceforge.net/p/jaer/wiki/EventFilter2D.getPrefs%28%29)
+**BROKEN** [EventFilter2D.getPrefs()](https://github.com/SensorsINI/jaer/blob/master/src/net/sf/jaer/eventprocessing/EventFilter2D.java)
 method to obtain a Java Preferences key. In your property setter, use
 *getPrefs()* to put your property.
 
@@ -1354,6 +1357,7 @@ prepend the class name to the key.
 
 These methods are available for the data types: 'long', 'int', 'float',
 'double', 'byteArray', 'floatArray', 'boolean', 'String'.
+-->
 
 ## Updating your GUI property values automatically
 
@@ -1447,7 +1451,7 @@ public class BackgroundActivityFilter extends EventFilter2D implements Observer 
 ## Example of a complete EventFilter
 
 Below is commented and simplified code for
-**BROKEN** [BackgroundActivityFilter](https://jaer.svn.sourceforge.net/svnroot/jaer/trunk/host/java/src/ch/unizh/ini/caviar/eventprocessing/filter/BackgroundActivityFilter.java).
+[BackgroundActivityFilter](https://github.com/SensorsINI/jaer/blob/master/src/net/sf/jaer/eventprocessing/filter/BackgroundActivityFilter.java).
 This filter removes background activity from uncorrelated AEs. It only
 pass through events that have received some "support" from the
 spatio-temporal neighborhood.

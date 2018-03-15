@@ -17,9 +17,9 @@ comparison](https://inivation.com/support/software/) for
 more information about different software frameworks and libraries that
 are available to interact with neuromorphic devices.
 
-cAER is described in **BROKEN**  [this technical
+cAER is described in <!--BROKEN--> [this technical
 report](https://github.com/inilabs/caer/blob/master/docs/caer.pdf)
-(an older version) and **BROKEN**  [these
+(an older version) and <!--BROKEN-->  [these
 slides](https://github.com/inilabs/caer/blob/master/docs/cAER_pres_04.11.2015.pdf).
 
 cAER uses the <!--TO CHANGE--> [low-level libcaer library

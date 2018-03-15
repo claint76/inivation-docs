@@ -101,10 +101,6 @@ connectors (e.g.
 
 [http://www.digikey.com/product-search/en?x=-1075&y=-87&lang=en&site=us&KeyWords=pomona+5069](http://www.digikey.com/product-search/en?x=-1075&y=-87&lang=en&site=us&KeyWords=pomona+5069)
 
-or
-
-**BROKEN** [http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm.](http://www.testpath.com/Items/Breakout-BNC-Female-to-0025-in-Square-Pin-Sockets-113-531.htm.)
-
 Minimally, however, you just need to use rectangular female header pin
 crimps and a copper cable, as shown in this picture:
 

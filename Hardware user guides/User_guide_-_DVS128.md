@@ -206,8 +206,7 @@ another device.
 
 ### Specifications
 
-Specifications for this and other DVS models can be seen on the
-**BROKEN** [specifications page](http://www.inilabs.com/products/dvs/specifications).
+Specifications for this and other DVS models can be seen on the [specifications document](https://inivation.com/wp-content/uploads/2018/01/DVS-Specifications.pdf).
 
 ### How to use
 
