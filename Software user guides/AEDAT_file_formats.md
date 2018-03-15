@@ -186,14 +186,16 @@ Further, a full XML-like dump of all the preferences for the above
 AEChip class, which includes settings such as the APS exposure time or
 the biases, is generated, and kept either fully in the header as header
 lines, or, in the future, in a separate XML file, which is named
+
 ```html
-<filename>-prefs.xml***```
+<filename>-prefs.xml
 ```
+
 and is referenced in the header as one
 header line as follows:
 
 ```markdown
-# Prefs-File: *<filename>-prefs.xml\r\n
+# Prefs-File: <filename>-prefs.xml\r\n
 ```
 
 Entries looks like the following in XML (example is of an addressable bias):
@@ -221,6 +223,7 @@ The DAVIS camera family stores polarity (luminosity change) events, IMU
 reset and signal read) according to the following scheme:
 
 ### Bit 31
+
 | Bits     | Meaning        | Description                                                                                       |
 | -------- | -------------- | ------------------------------------------------------------------------------------------------- |
 | 31       | Type           | Defines the type of address stored here. ‘0’ means DVS, ‘1’ means APS or IMU (see bits 11-10).    |
@@ -228,12 +231,14 @@ reset and signal read) according to the following scheme:
 ---
 ### Bit 30-12
 #### IMU:
+
 | Bits     | Meaning         | Description                                                                                                                                          |
 | -------- | --------------  | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 30-28    | IMU sample type | Type of IMU sample: <br> 0 -> Accel X <br> 1 -> Accel Y <br> 2 -> Accel Z <br> 3 -> Temperature <br> 4 -> Gyro X <br> 5 -> Gyro Y  <br> 6 -> Gyro Z  |
 | 27-12    | IMU sample      | For IMU events, 7 words are sent in series, these being: <br> - 3 axes for accel, <br> - Temperature, <br> - 3 axes for gyro.                        |
 
 #### DVS or APS:
+
 | Bits     | Meaning         | Description                                                                      |
 | -------- | --------------- | -------------------------------------------------------------------------------- |
 | 30-22    | Y address       | Y event address. (0, 0) in lower left corner of screen.                          |
@@ -242,17 +247,20 @@ reset and signal read) according to the following scheme:
 ---
 ### Bit 11-10
 #### APS:
+
 | Bits     | Meaning         | Description                                                                             |
 | -------- | --------------- | --------------------------------------------------------------------------------------- |
 | 11-10    | sub-Type        | 00 -> APS Reset Read <br> 01 -> APS Signal Read <br> 10 -> Unused <br> 11 -> IMU Sample |
 
 #### DVS:
+
 | Bits     | Meaning         | Description                                                                                                                     |
 | -------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | 11-10    | sub-Type        | 00 -> DVS Polarity OFF <br> 01 -> External Event (same as 11) <br> 10 -> DVS Polarity ON <br> 11 -> External Event (Same as 01) |
 
 ---
 ### Bit 9-0
+
 | Bits     | Meaning        | Description                                                                      |
 | -------- | -------------- | -------------------------------------------------------------------------------- |
 | 9-0      | ADC sample     | 10-bit ADC sample representing pixel intensity. Only for Type=APS, else zero.    |
