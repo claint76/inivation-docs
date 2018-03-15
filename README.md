@@ -63,3 +63,25 @@ In the first case, i didn't close the image tag and the ```<p align="center"``` 
 In the second case i closed the image tag, but still not the ```<p align="center"``` one.
 
 The third one is properly written
+
+## Hint4
+Leave a space between a title and a table, for example:
+```markdown
+# My title
+| First col     | Second col    | 
+| ------------- | ------------- |
+| first row     | first row     |
+| second row    | second row    |
+| third row     | third row     |
+```
+
+Is not rendered properly, while:
+```markdown
+# My title
+
+| First col     | Second col    | 
+| ------------- | ------------- |
+| first row     | first row     |
+| second row    | second row    |
+| third row     | third row     |
+```
