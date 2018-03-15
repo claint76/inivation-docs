@@ -31,7 +31,7 @@ which adds a lot of useful functionality on top, such as configuration
 management, logging, modularity and provides ready-to-use modules for
 data processing and data visualization.
 
-See [this inivation **TO CHANGE?** [software
+See [this inivation <!--TO CHANGE--> [software
 comparison](https://inivation.com/support/software/) for
 more information about different software frameworks and libraries that
 are available to interact with neuromorphic devices.
@@ -59,7 +59,7 @@ Please execute the following commands to use it and install libcaer:
 
 #### Gentoo Linux
 
-A valid Gentoo ebuild repository is available <!--TO CHANGE--> [here](https://github.com/inilabs/gentoo-inilabs/) over
+A valid Gentoo ebuild repository is available at <!--TO CHANGE--> [gentoo inilabs](https://github.com/inilabs/gentoo-inilabs/) over
 Git. The package is 'dev-libs/libcaer'.
 
 #### Ubuntu Linux
@@ -108,7 +108,7 @@ Linux and MacOS X (using Homebrew).
 
 ### Usage
 
-A full API documentation can be found <!--TO CHANGE--> [here](https://inilabs.github.io/libcaer/) as HTML (or <!--TO CHANGE-->[here](https://github.com/inilabs/libcaer/raw/master/docs/libcaer_api_manual.pdf)
+A full API documentation can be found at <!--TO CHANGE--> [libcaer API html](https://inilabs.github.io/libcaer/) as HTML (or <!--TO CHANGE-->[libcaer API pdf](https://github.com/inilabs/libcaer/raw/master/docs/libcaer_api_manual.pdf)
 in PDF format).
 
 Also be sure to take a look at the <!--TO CHANGE--> [README](https://github.com/inilabs/libcaer/blob/master/README)

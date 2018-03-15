@@ -22,7 +22,7 @@ report](https://github.com/inilabs/caer/blob/master/docs/caer.pdf)
 (an older version) and **BROKEN**  [these
 slides](https://github.com/inilabs/caer/blob/master/docs/cAER_pres_04.11.2015.pdf).
 
-cAER uses the **TO CHANGE?** [low-level libcaer library
+cAER uses the <!--TO CHANGE--> [low-level libcaer library
 API](http://inivation.com/support/libcaer/) to communicate
 with devices.
 
