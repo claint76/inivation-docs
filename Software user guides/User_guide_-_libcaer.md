@@ -51,9 +51,11 @@ for Fedora 25, 26, 27 and rawhide on the x86 and x86_64 architectures.
 
 Please execute the following commands to use it and install libcaer:
 
-$ sudo dnf copr enable llongi/inilabs
+```bash
+    $ sudo dnf copr enable llongi/inilabs
 
-$ sudo dnf install libcaer
+    $ sudo dnf install libcaer
+```
 
 #### Gentoo Linux
 
