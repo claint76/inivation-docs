@@ -186,16 +186,21 @@ Further, a full XML-like dump of all the preferences for the above
 AEChip class, which includes settings such as the APS exposure time or
 the biases, is generated, and kept either fully in the header as header
 lines, or, in the future, in a separate XML file, which is named
-‘***<filename>-prefs.xml***’, and is referenced in the header as one
+```html
+<filename>-prefs.xml***```
+```
+and is referenced in the header as one
 header line as follows:
 
-> # Prefs-File: *<filename>-prefs.xml*rn
+```markdown
+# Prefs-File: *<filename>-prefs.xml\r\n
+```
 
-Entries looks like the following in XML (example is of an addressable
-bias):
+Entries looks like the following in XML (example is of an addressable bias):
 
-> <entry key="DAVIS240C.AddressedIPotCF.ApsROSFBn.LowCurrent"
-value="false"/>
+```html
+<entry key="DAVIS240C.AddressedIPotCF.ApsROSFBn.LowCurrent" value="false"/>
+```
 
 ## Ordering
 
@@ -333,7 +338,9 @@ operations.
 - Format header line (required): follows right after the version
   line, looking like this:
   
-  > **#Format: <FORMAT>rn**.
+  ```
+    #Format: <FORMAT>\r\n.
+  ```
 
   The [Format](#formats) header line describes how the event packets have to
   be interpreted later on, allowing for optimizations and extensions to be added as needed.
@@ -344,7 +351,9 @@ operations.
   mandatory part of the header. The corresponding header line shall
   look like this:
 
-  > **#Source <ID>: <DESCRIPTION>rn**
+  ```markdown
+    #Source <ID>: <DESCRIPTION>rn**
+  ```
 
   If multiple sources are present, they must be placed in increasing
   order by numerical ID (0, 1, 2, 3, …). The description part must be an
@@ -355,25 +364,31 @@ operations.
   have to be preserved always, by adding a ***‘-’ (minus)*** sign in
   front of them.
 
-  > Example: **#-Source 0: DVS128rn**
+  ```markdown
+    Example: **#-Source 0: DVS128rn**
+  ```
 
 - Start Time header line (required): this header line encodes the
   time at which we started transmitting or logging data. The format
   is the following:
 
-  > **#Start-Time: %Y-%m-%d %H:%M:%S (TZ%z)rn**
+  ```markdown
+    #Start-Time: %Y-%m-%d %H:%M:%S (TZ%z)rn**
+  ```
 
 Time is encoded according to the C strftime() function, see
 ‘[man
 strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)’.
 
 - End of header line (required): follows right after all the other
-    header lines, looking like this:
+  header lines, looking like this:
 
-    > **#!END-HEADERrn**
-    
-    This allows to clearly determine where the file header ends and data
-    starts.
+  ```markdown
+    #!END-HEADERrn**
+  ```
+  
+  This allows to clearly determine where the file header ends and data
+  starts.
 
 ## Event Packets
 
@@ -810,7 +825,9 @@ This section explains how version 3.0 differed from version 3.1.
 
 - The version header line reads as follows:
 
-    > ‘**#!AER-DAT3.0rn**’
+    ```markdown
+        #!AER-DAT3.0\r\n
+    ```
 
 - There is no end of header line required. The only way therefore to
   check where the header ends is to check that a line starts with

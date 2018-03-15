@@ -21,27 +21,27 @@ some exceptions).
 
 Projects can offer:
 
-  - > Work with dynamic vision sensors or other neuromorphic prototypes
+  - Work with dynamic vision sensors or other neuromorphic prototypes
 
-  - > Work with event-based processing
+  - Work with event-based processing
 
-  - > Develop hardware
+  - Develop hardware
 
 The general requirements for these projects (although the requirements
 may vary from project to project) are:
 
-  - > Mathematical background.
+  - Mathematical background.
 
-  - > Basic programming skills; proficiency in Java or C is especially
-    > important for real-time event-based algorithms; as well as Python
-    > or Matlab for offline data analysis.
+  - Basic programming skills; proficiency in Java or C is especially
+    important for real-time event-based algorithms; as well as Python
+    or Matlab for offline data analysis.
 
-  - > Advantageous: Familiarity with analog/digital micro-electronics.
+  - Advantageous: Familiarity with analog/digital micro-electronics.
 
-  - > Optional: background in machine vision or machine learning
+  - Optional: background in machine vision or machine learning
 
-  - > For some projects: Familiarity with laboratory equipment
-    > oscilloscopes, multimeters, basic electronic devices
+  - For some projects: Familiarity with laboratory equipment
+    oscilloscopes, multimeters, basic electronic devices
 
 Successful completion of projects may result in the publication of a
 peer-reviewed scientific paper, or in some cases a patent.
