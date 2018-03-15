@@ -675,10 +675,9 @@ c) Type "set wlan.passkey YOUR_NETWORK_PASSKEY" to set the password
 of your network
 e) Type "set wlan.auto_join.enabled true" to enable auto joining the
 network
-f) ##### This step is very important ###### Type "set
-uart.baud 1 4000000 raw" to set the baudrate to 4M, so the
+f) **This step is very important Type "setuart.baud 1 4000000 raw" to set the baudrate to 4M, so the
 next time you connect the module via serial, remember to set the
-baudrate to 4M instead of 12M
+baudrate to 4M instead of 12M**
 g) Type "set bus.mode stream" to enable the module to stream data from
 the pushbot
 h) Type "get wlan.mac", and the mac address of the module will show
