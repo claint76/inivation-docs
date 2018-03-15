@@ -43,3 +43,23 @@ Create separation for test -------------------------------------------------
 
 Create separation for test -------------------------------------------------
 ### hello / hello - hello
+
+## Hint3
+If html does not render properly from some point of the document to the end, probably there is a html tag wrong.
+
+For example you can have created erroneously a not recognised tag, like:
+```html
+    <hello>
+```
+
+Another possibility is that you have not closed an open html tag, like:
+```html
+    1. <p align="center"><img src="media/eDVS_force_program.png" width="600">
+    2. <p align="center"><img src="media/eDVS_force_program.png" width="600"/>
+    3. <p align="center"><img src="media/eDVS_force_program.png" width="600"/></p>
+```
+In the first case, i didn't close the image tag and the ```<p align="center"``` one.
+
+In the second case i closed the image tag, but still not the ```<p align="center"``` one.
+
+The third one is properly written

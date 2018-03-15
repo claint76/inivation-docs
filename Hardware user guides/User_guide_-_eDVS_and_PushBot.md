@@ -134,7 +134,7 @@ Note for Linux users: you may need to ensure you have the correct
 permissions for accessing /dev/ttyUSBn (where n = 0,1,2, etc). For
 example, running the following command as root:
 
-> # chmod 666 /dev/ttyUSB0
+> chmod 666 /dev/ttyUSB0
 
 Will give you access to device ttyUSB0.
 
@@ -351,8 +351,7 @@ device. The list of commands is available in the next section.
 
 ### UART Protocol (PC->Board) 
 
-Supported Commands (all commands need to be terminated by 'n'; i.e.
-<return>):
+Supported Commands (all commands need to be terminated by 'n'; i.e. return):
 
 ```
 E+/-                  - enable/disable event sending
