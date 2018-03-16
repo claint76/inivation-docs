@@ -104,6 +104,15 @@ Is not rendered properly, while:
 ```
 Will be rendered properly
 
+## Hint6
+Don't put the alignment of images when you want to place them inside a table:
+
+```html
+<p align="center"><img ... /></p>
+```
+
+It would render also the html command!
+
 # Notes on files
 The comments in markdown files must be done in the following way:
 ```html
