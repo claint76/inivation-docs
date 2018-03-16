@@ -22,11 +22,12 @@ guides.
 - [Overview of devices and user guides](#overview-of-devices-and-user-guides)
 - [Software for event processing](#software-for-event-processing)
 - [What are the different ways I can work with event data from my device?](#what-are-the-different-ways-i-can-work-with-event-data-from-my-device)
-- [jAER](#jaer)
-- [cAER](#caer)
-- [MATLAB](#matlab)
-- [eDVS codebase](#edvs-codebase)
-- [Unsupported software](#unsupported-software)
+  - [jAER](#jaer)
+  - [cAER](#caer)
+  - [MATLAB](#matlab)
+  - [eDVS codebase](#edvs-codebase)
+  - [Python](#python)
+  - [Unsupported software](#unsupported-software)
 - [Additional user guides](#additional-user-guides)
 
 # Overview of devices and user guides
@@ -71,18 +72,18 @@ The logic on all devices is open-source, so you have a basis for
 repurposing devices to directly perform front-end visual processing - we
 don’t support this.
 
-## jAER
+### jAER
 
 For real-time application, the easiest way to get started is with jAER,
 a java-based GUI for visualisation of data and rapid development of
 event-based algorithms and applications. Here is the <!--TO CHANGE--> [user guide](http://www.inilabs.com/support/jaer).
 
-## cAER
+### cAER
 
 You can use cAER for lightweight streaming or logging of data, or as a
 platform for your bespoke development. Here is the <!--TO CHANGE-->[user guide](http://www.inilabs.com/support/caer).
 
-## MATLAB
+### MATLAB
 
 You can use jAER (or cAER, or the SD card logging function of the eDVS)
 to save event data, and then work with it offline. We provide scripts
@@ -90,19 +91,19 @@ that import data from our .aedat format into MATLAB, for offline use.
 Some users report using MATLAB for real-time processing of events - we
 don’t support this.
 
-## Python
+### Python
 
 The jAER repository also contains scripts for importing saved data into
 Python. Furthermore, there are scripts for receiving live events from
 cAER.
 
-## eDVS codebase
+### eDVS codebase
 
 The default software for the eDVS is open source, and you can use this
 as a basis for reprogramming the device to perform the necessary
 processing for your application.
 
-## Unsupported software
+### Unsupported software
 
 ROS - Some of our users bridge from cAER to ROS. Although we don’t
 support this, we can put you in touch with those users as they are

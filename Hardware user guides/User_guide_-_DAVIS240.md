@@ -10,10 +10,10 @@ DAVIS240C):
 ## Table of contents
 - [Introduction](#introduction)
 - [Getting started](#getting-started)
-- [Install USB driver](#install-usb-driver)
-  - [Linux](#linux)
-  - [Mac Os X](#mac-os-x)
-  - [Windows (win10, win8, win7)](#windows-win10-win8-win7)
+  - [Install USB driver](#install-usb-driver)
+    - [Linux](#linux)
+    - [Mac Os X](#mac-os-x)
+    - [Windows (win10, win8, win7)](#windows-win10-win8-win7)
 - [Serial number](#serial-number)
 - [Optics](#optics)
   - [Computations of Field of View](#computations-of-field-of-view)
@@ -73,11 +73,11 @@ Started guide here covers use in jAER.
         jAER/biasgenSettings/Davis240a/bc depending on the device you
         have.
 
-## Install USB driver
+### Install USB driver
 
 Begin by plugging in the DAVIS240 camera into your computer.
 
-### Linux 
+#### Linux 
 
 Access to DAVIS devices under Linux is provided by the standard kernel
 USB drivers and the libusb library. The library is already part of the
@@ -140,14 +140,14 @@ Or otherwise reboot.
 Now unplug and replug the DAVIS240 camera into your computer. You're
 done!
 
-### Mac Os X
+#### Mac Os X
 
 Access to DAVIS devices under Mac OS X is provided by the standard
 kernel USB drivers and the libusb library. The library is already part
 of the libusb4java packages and requires no further installation. Users
 should automatically be able to access USB devices.
 
-### Windows (win10, win8, win7)
+#### Windows (win10, win8, win7)
 
 Installation should proceed automatically and after several seconds you
 should see a message in the control panel say "Device driver installed

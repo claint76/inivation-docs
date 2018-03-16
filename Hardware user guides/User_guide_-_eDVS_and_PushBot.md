@@ -23,13 +23,13 @@ This page is about the eDVS4337, launched in 2014:
       - [Step 6 - Waiting](#step-6---waiting)
       - [Step 7 - Executing](#step-7---executing)
     - [Linux](#linux)
-    - [Recovering from faulty firmware](#recovering-from-faulty-firmware)
+   - [Recovering from faulty firmware](#recovering-from-faulty-firmware)
 - [Accessing the device manually](#accessing-the-device-manually)
-  - [UART Protocol (PC->Board)](#uart-protocol-pc-board)
+- [UART Protocol (PC->Board)](#uart-protocol-pc-board)
   - [Enabling / Disabling Data Streaming](#enabling-disabling-data-streaming)
-- [Event recording formats](#event-recording-formats)
-  - [Streaming](#streaming)
-  - [Recording](#recording)
+  - [Event recording formats](#event-recording-formats)
+    - [Streaming](#streaming)
+    - [Recording](#recording)
 - [Connectors](#connectors)
   - [GPIO](#gpio)
   - [ADC](#adc)
@@ -46,6 +46,8 @@ This page is about the eDVS4337, launched in 2014:
   - [Communicating with the pushbot via wifi](#communicating-with-the-pushbot-via-wifi)
 - [Optional: PushBot](#optional-pushbot)
 - [Older eDVS prototypes](#older-eDVS-prototypes)
+  - [Custom baudrate on Linux](#custom-baudrate-on-linux)
+  - [PushBot Documentation](#pushbot-documentation)
 
 ## Specification
 
@@ -291,7 +293,7 @@ Flash magic is not available for Linux; an open-source alternative is:
 
 Further instructions on request (the process is similar to the above).
 
-### Recovering from faulty firmware
+## Recovering from faulty firmware
 
 It is possible to create faulty firmware that isn't able to correctly
 boot on the microprocessor of the eDVS. If this firmware gets flashed to
@@ -350,7 +352,7 @@ CR* in every *LF*, as well as set to *Force off* both *Local echo* and
 After pressing the Open button, you'll be able to send commands to the
 device. The list of commands is available in the next section.
 
-### UART Protocol (PC->Board) 
+## UART Protocol (PC->Board) 
 
 Supported Commands (all commands need to be terminated by 'n'; i.e. return):
 
@@ -445,9 +447,9 @@ List of available sensory data:
 Custom application sensors should use bits 28 - 31; bits 22 - 27 are
 reserved for future applications.
 
-## Event recording formats
+### Event recording formats
 
-### Streaming
+#### Streaming
 
 You can specify the following formats for data streaming:
 
@@ -471,7 +473,7 @@ Every timestamp has 1 us resolution.
 | !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2^24 = 16 777 216 us =~ 16 sec)                                                                                                                                                                                                                                                                                                                                                 |
 | !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2^24 = 4 294 967 296 us =~ 72 min)                                                                                                                                                                                                                                                                                                                                     |
 
-### Recording
+#### Recording
 
 For event recording on SD-card, the format is always as !E1 above, i.e.
 1yyyyyyy.pxxxxxxx (p = polarity), followed by 1-4 bytes delta-timestamp

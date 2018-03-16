@@ -40,7 +40,7 @@ visualisation of event-based data and rapid application development.
     - [Viewer](#viewer)
     - [Data slider](#data-slider)
     - [Rendering and display options](#rendering-and-display-options)
-    - [Rendering frame rate](#rendering-frame-rate)
+      - [Rendering frame rate](#rendering-frame-rate)
       - [Graphics options](#graphics-options)
       - [Color modes](#color-modes)
       - [Display methods](#display-methods)
@@ -622,7 +622,7 @@ This is only present for recorded data...
 
 These options can be found under the View menu.
 
-### Rendering frame rate
+#### Rendering frame rate
 
 Change the target frame rate with:
 
