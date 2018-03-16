@@ -684,7 +684,7 @@ The following settings are recognized:
     Default value:
     false
 
-clearpage
+
 
 ### UDP network client
 
@@ -1147,16 +1147,15 @@ authentication of requests.
 The following requests can be made to the configuration
 server:
 
-to Action & Code & Type & Node & Key & Value  
-NODE_EXISTS & 0 & 0 (unused) & absolute path & no & no  
-ATTR_EXISTS & 1 & any & absolute path & key string & no  
-GET & 2 & any & absolute path & key string & no  
-PUT & 3 & any & absolute path & key string & value string  
-GET_CHILDREN & 5 & 0 (unused) & absolute path & no & no  
-GET_ATTRIBUTES & 6 & 0 (unused) & absolute path & no & no  
-GET_TYPES & 7 & 0 (unused) & absolute path & key string & no  
-
-clearpage
+| Action            | Code  | Type          | Node          | Key           | Value         |
+| ----------------- | ----- | ------------- | ------------- | ------------- | ------------- |
+| NODE_EXISTS       | 0     | 0 (unused)    | absolute path | no            | no            |
+| ATTR_EXISTS       | 1     | any           | absolute path | key string    | no            |
+| GET               | 2     | any           | absolute path | key string    | no            |
+| PUT               | 3     | any           | absolute path | key string    | value string  |
+| GET_CHILDREN      | 5     | 0 (unused)    | absolute path | no            | no            |
+| GET_ATTRIBUTES    | 6     | 0 (unused)    | absolute path | no            | no            |
+| GET_TYPES         | 7     | 0 (unused)    | absolute path | key string    | no            |
 
 The response from the server follows a simplified version of the request
 protocol:
@@ -1179,15 +1178,16 @@ following table explains the response message format for the various
 actions that could have been submitted during the request
 phase:
 
-to Action & Code & Type & Message  
-ERROR & 4 & string & error string  
-NODE_EXISTS & 0 & bool & true/false  
-ATTR_EXISTS & 1 & bool & true/false  
-GET & 2 & same as request & result string  
-PUT & 3 & bool & true  
-GET_CHILDREN & 5 & string & concatenation of string child names  
-GET_ATTRIBUTES & 6 & string & concatenation of string attribute keys  
-GET_TYPES & 7 & string & concatenation of string type names for a key  
+| Action            | Code  | Type              | Message                                       |
+| ----------------- | ----- | ----------------- | --------------------------------------------- |
+| ERROR             | 4     | string            | error string                                  |
+| NODE_EXISTS       | 0     | bool              | true/false                                    |
+| ATTR_EXISTS       | 1     | bool              | true/false                                    |
+| GET               | 2     | same as request   | result string                                 |
+| PUT               | 3     | bool              | true                                          |
+| GET_CHILDREN      | 5     | string            | concatenation of string child names           |
+| GET_ATTRIBUTES    | 6     | string            | concatenation of string attribute keys        |
+| GET_TYPES         | 7     | string            | concatenation of string type names for a key  |
 
 Thanks to this scheme, it is easily possible to implement an automatic
 discovery of the topology of the configuration back-end structure with
@@ -1209,15 +1209,16 @@ efficient filtering of unimportant and undesired messages. The following
 log levels are
 recognized:
 
-to Log level & Code  
-LOG_EMERGENCY & 0  
-LOG_ALERT & 1  
-LOG_CRITICAL & 2  
-LOG_ERROR & 3  
-LOG_WARNING & 4  
-LOG_NOTICE & 5  
-LOG_INFO & 6  
-LOG_DEBUG & 7  
+| Log level     | Code  |
+| ------------- | ----- |   
+| LOG_EMERGENCY | 0     |
+| LOG_ALERT     | 1     |
+| LOG_CRITICAL  | 2     |
+| LOG_ERROR     | 3     |
+| LOG_WARNING   | 4     |
+| LOG_NOTICE    | 5     |
+| LOG_INFO      | 6     |
+| LOG_DEBUG     | 7     |
 
 All messages are written out to a log file, to ensure their persistence,
 for later analysis. For more immediate visual feedback, messages are
@@ -1274,7 +1275,7 @@ machine, as is called on every Mainloop cycle:
     // 'moduleStatus' contains the current module status.
     // 'running' specifies the wanted status: running or not.
     
-    if (moduleStatus == RUNNING && running == YES) {
+    if (moduleStatus == RUNNING || running == YES) {
         if (configuration was updated) {
             if (moduleFunctions->moduleConfig is defined) {
                 moduleFunctions->moduleConfig(moduleData);
@@ -1283,7 +1284,7 @@ machine, as is called on every Mainloop cycle:
     
         moduleFunctions->moduleRun(moduleData, argsNumber, args);
     }
-    else if (moduleStatus == STOPPED && running == YES) {
+    else if (moduleStatus == STOPPED || running == YES) {
         if (moduleFunctions->moduleInit is defined) {
             if (!moduleFunctions->moduleInit(moduleData)) {
                 return;
@@ -1292,7 +1293,7 @@ machine, as is called on every Mainloop cycle:
     
         moduleStatus = RUNNING;
     }
-    else if (moduleStatus == RUNNING && running == NO) {
+    else if (moduleStatus == RUNNING || running == NO) {
         moduleStatus = STOPPED;
     
         if (moduleFunctions->moduleExit is defined) {
