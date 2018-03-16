@@ -6,10 +6,6 @@ This page is about the eDVS4337, launched in 2014:
 
 <p align="center"><img src="media/eDVS.png" width="600"/></p>
 
-For support for older eDVS prototypes see here:
-
-**BROKEN** [https://wiki.lsr.ei.tum.de/nst/programming/edvsgettingstarted](https://wiki.lsr.ei.tum.de/nst/programming/edvsgettingstarted)
-
 ## Table of contents
 - [Specification](#specification)
 - [Board layout](#board-layout)
@@ -49,6 +45,7 @@ For support for older eDVS prototypes see here:
     the module in the previous section](#configure-the-wlan-module-via-tcp-the-telnet-function-on-putty-after-we-get-the-mac-address-of-the-module-in-the-previous-section)
   - [Communicating with the pushbot via wifi](#communicating-with-the-pushbot-via-wifi)
 - [Optional: PushBot](#optional-pushbot)
+- [Older eDVS prototypes](#older-eDVS-prototypes)
 
 ## Specification
 
@@ -743,3 +740,128 @@ connect to a network first!
 <p align="center"><img src="media/eDVS_wlan.png" width="300"/></p>
 
 <p align="center"><img src="media/eDVS_wlan_pos.png" width="600"/></p>
+
+# Older eDVS prototypes
+## Custom baudrate on Linux
+The new eDVS-4337 boards have a FTDI232H chip which is able to support data rates up to 12MBaud.
+You can use a simple serial server software which gets packets from the serial line (coming from eDVS) and sends them over TCP/IP.
+If you choose to use your own software to acquire the data from the sensor you might have to configure the serial port access as shown here:
+
+```c
+/* simple application to set a custom baudrate to a serial port in Linux */
+
+#include <termio.h>
+#include <fcntl.h>
+#include <err.h>
+#include <linux/serial.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+
+#define PORT "/dev/ttyUSB0"     // check the correct port identifier, run in the command line: dmesg | tail and look for /dev/ttyUSBxx 
+#define RATE 12000000             // desired baudrate
+
+/* open serial port in raw mode, with custom baudrate */
+int serial_port_init(const char *port, int baudrate)
+{
+    struct termios options;
+    struct serial_struct ser;
+    int temp, flags;
+    int fd;
+    
+    if((fd = open(port, O_RDWR))==-1){    // open port
+        printf("ERROR - Unable to open \"%s\"\n",port);
+        return -1;
+    }
+    
+    ioctl(fd, TIOCGSERIAL, &ser);                        // get the current port options
+    printf("Baud_base = %d\n",ser.baud_base);            // check the base baud rate provided by system
+    ser.flags |= ASYNC_SPD_CUST;                         // activate custom speed option
+    ser.flags |= ASYNC_LOW_LATENCY;                      // activate low latency option
+    ser.custom_divisor = ser.baud_base / baudrate;       // compute the divisor to apply to base baudrate
+    printf("custom_divisor = %d\n",ser.custom_divisor);
+    printf("closest baud rate = %d\n",ser.baud_base/ser.custom_divisor);
+    ioctl(fd, TIOCSSERIAL, &ser);                        // set the options
+  
+    
+    flags = B38400;                                      // default flags
+    tcgetattr(fd,&options);                              //get current options from port
+    cfsetispeed(&options, flags);                        //set input speed
+    cfsetospeed(&options, flags);                        //set output speed
+    options.c_cflag = (options.c_cflag & ~CSIZE) | CS8;  //transmission size to 8bit
+    options.c_cflag |= (CLOCAL | CREAD);                 //enable receiver and set local mode
+    options.c_cflag |= CRTSCTS;                          //use hardware handshaking (RTS/CTS)
+    options.c_iflag = IGNBRK;                            //clear input options: Send a SIGINT when a break condition is detected
+    options.c_lflag = 0;                                 //clear local options
+    options.c_oflag = 0;                                 //clear output options
+    options.c_cc[VMIN] = 1;                              //set minimum character count to receive to 1 
+    options.c_cc[VTIME] = 5;                             //set inter character timeout to 500 ms
+    tcsetattr(fd,TCSANOW,&options);                      //set new options to port
+    tcflush(fd,TCIFLUSH);                                //flush input buffer
+  return fd;
+}
+
+int main(int argc, char*argv){
+	int fd, wnbytes, rnbytes;
+	char buffer[2200];
+        char *bufptr;
+        
+	// open and configure port
+	if((fd=serial_port_init(PORT, RATE))<0){
+		printf("Cannot open port and set port attributes\n");
+	}
+
+	// test port by sending "??" and wait for the reply - eDVS CLI menu
+	printf("--------------------------------\n");
+	printf("WRITE: \n ??\n");
+	wnbytes = write(fd, "??\n", 3);
+	if (wnbytes < 0)
+	  printf("write() failed!\n");
+
+	 // read characters into our string buffer
+    	bufptr = buffer;
+    	while ((rnbytes = read(fd, bufptr, buffer + sizeof(buffer) - bufptr - 1)) > 0){
+	      bufptr += rnbytes;
+       }
+       
+       // nul terminate the string and print it
+      *bufptr = '\0';
+       printf("--------------------------------\n");
+       printf("READ: \n %s\n", buffer);
+       
+      return EXIT_SUCCESS;
+}
+```
+
+Just copy the code in a file named custom-edvs-iface.c and run from command line:
+
+```bash
+$ gcc -o custom-edvs-iface custom-edvs-iface.c
+```
+
+## PushBot Documentation
+
+<p align="center"><img src="media/eDVS_push_bot2.png" width="400"/></p>
+
+LEDs blinking at 1Hz with 50% duty cycle
+
+```bash
+!PC=1000000
+!PC0=%50
+!PC1=%50
+```
+
+Laser Pointer blinking at 1KHz with 50% duty cycle
+
+```bash
+!PA=1000
+!PA0=%50
+```
+
+Buzzer buzzing at 2500KHz with 50% duty cycle
+
+```bash
+!PB=400
+!PB0=%50
+```

@@ -1340,13 +1340,10 @@ o.x=o.x-10; // this will shift the events 10 pixels to the left
 Here is where you also annotate the events with new information, e.g.
 orientation or direction and speed.
 
-<!--
-FUNCTION NOT FOUND IN THE JAER CODE
-
 ## Parameter persistence
 
 You can add persistence of your filter properties using the
-**BROKEN** [EventFilter2D.getPrefs()](https://github.com/SensorsINI/jaer/blob/master/src/net/sf/jaer/eventprocessing/EventFilter2D.java)
+[EventFilter.getPrefs()](https://github.com/SensorsINI/jaer/blob/master/src/net/sf/jaer/eventprocessing/EventFilter.java)
 method to obtain a Java Preferences key. In your property setter, use
 *getPrefs()* to put your property.
 
@@ -1357,7 +1354,6 @@ prepend the class name to the key.
 
 These methods are available for the data types: 'long', 'int', 'float',
 'double', 'byteArray', 'floatArray', 'boolean', 'String'.
--->
 
 ## Updating your GUI property values automatically
 
