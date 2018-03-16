@@ -117,7 +117,7 @@ Gentoo and Ubuntu.
 
 We provide a [COPR
 repository](https://copr.fedorainfracloud.org/coprs/llongi/inilabs/) for
-Fedora 25, 26 and 27(rawhide) on the x86 and x86\_64 architectures.
+Fedora 25, 26 and 27(rawhide) on the x86 and x86_64 architectures.
 
 The following commands install cAER:
 
@@ -137,7 +137,7 @@ The package is called ‘dev-cpp/caer’.
 We provide a [PPA
 repository](https://launchpad.net/~llongi/+archive/ubuntu/inilabs/) for
 Ubuntu Trusty (14.04 LTS), Xenial (16.04 LTS), Zesty (17.04) and Artful
-(17.10) on the x86, x86\_64, arm and arm64 architectures.
+(17.10) on the x86, x86_64, arm and arm64 architectures.
 
 The following commands install cAER:
 
@@ -161,18 +161,18 @@ base of the cAER framework:
     [LLVM/Clang](https://clang.llvm.org/) 3.6 and newer satisfy that
     requirement.
 
-  - [cmake](https://cmake.org/) \>= 2.6 for easy build management and
+  - [cmake](https://cmake.org/) >= 2.6 for easy build management and
     cross-platform compilation support.
 
-  - [boost](http://www.boost.org/) \>= 1.50 (with system, filesystem and
-    program\_options modules) for cross-platform file-access and
+  - [boost](http://www.boost.org/) >= 1.50 (with system, filesystem and
+    program_options modules) for cross-platform file-access and
     networking support, as well as advanced C++ algorithms.
 
   - <!--TO CHANGE-->
-    [libcaer](https://github.com/inilabs/libcaer) \>= 2.4.0 for event
+    [libcaer](https://github.com/inilabs/libcaer) >= 2.4.0 for event
     definitions and USB/serial device access.
 
-  - Optional: [tcmalloc](https://github.com/gperftools/gperftools) \>=
+  - Optional: [tcmalloc](https://github.com/gperftools/gperftools) >=
     2.2 for faster memory allocation.
 
 All the dependencies are usually available through your operating
@@ -248,7 +248,7 @@ Low memory consumption is achieved by correctly sizing each data type
 and compressing multiple pieces of data into integers; when the
 particular data type would not use all 32 bits available to it, but can
 make do with just a fraction of those. For example, with a quantity with
-range \[0,15\] just four bits are enough, and other data can be squeezed
+range [0,15] just four bits are enough, and other data can be squeezed
 into the remaining 28 bits. A 32 bit integer is taken as the base size,
 since accessing it is efficient on all supported architectures,
 regardless of the use of 32 or 64 bit processors.
@@ -331,7 +331,7 @@ The first line specifies that this file conforms to the SSHS format
 specification (from section [5](#sshs)), version 1.0. After that,
 the tree-like hierarchical structure is clearly visible, with the root
 node (line 2) holding all Mainloops (line 3), which in turn hold all the
-modules (line 4). The *\<attr\>* tags contain the configuration values
+modules (line 4). The *<attr>* tags contain the configuration values
 themselves, the *key* attribute identifies and names the value, the
 *type* attribute specifies its SSHS type, and the tag’s value itself
 represents the effective configuration value.
@@ -409,7 +409,7 @@ else has to be running and making that data available. The input modules
 have a secondary part, which is executing inside a separate thread, and
 is responsible for getting the bare data from connected devices, network
 streams or files, and signaling its availability to the Mainloop (the
-data\_is\_available variable in the pseudo-code above).
+data_is_available variable in the pseudo-code above).
 
 The input threads themselves employ techniques, such as blocking I/O, or
 asynchronous USB transfers, that also limit activity to only when data
@@ -438,7 +438,9 @@ their values to set and override previous configuration settings. The
 command-line override takes the following format and can be repeated
 multiple times to override multiple options: 
 
-> *-o \<node string\> \<key string\> \<key type string\> \<value string\>*
+```html
+ -o <node string> <key string> <key type string> <value string>
+```
 
 The configuration file-name parameter can be either an absolute path to
 a file or a single file-name, which is treated as residing inside the
@@ -505,9 +507,9 @@ customization:
     Type: int, Default value: 64
 
   - polarityPacketMaxInterval  
-    the maximum time interval in \(\mu\)s between the first and the last
+    the maximum time interval in (mu)s between the first and the last
     event in a polarity event packet, after which it is transferred to
-    the Mainloop. Type: int, Default value: 5’000 \(\mu\)s
+    the Mainloop. Type: int, Default value: 5’000 (mu)s
 
   - polarityPacketMaxSize  
     the maximum number of events in a polarity event packet, after which
@@ -517,9 +519,9 @@ customization:
     enables or disables this module. Type: bool, Default value: false
 
   - specialPacketMaxInterval  
-    the maximum time interval in \(\mu\)s between the first and the last
+    the maximum time interval in (mu)s between the first and the last
     event in a special event packet, after which it is transferred to
-    the Mainloop. Type: int, Default value: 1’000 \(\mu\)s
+    the Mainloop. Type: int, Default value: 1’000 (mu)s
 
   - specialPacketMaxSize  
     the maximum number of events in a special event packet, after which
@@ -566,10 +568,10 @@ camera and helps in clearing up its output. The following settings are
 recognized:
 
   - deltaT  
-    maximum time-difference in \(\mu\)s between the current event and
+    maximum time-difference in (mu)s between the current event and
     the last supported activity by one of its neighbors, after which
     events are declared invalid. Type: int, Default value: 30’000
-    \(\mu\)s
+    (mu)s
 
   - shutdown  
     enables or disables this module. Type: bool, Default value: false
@@ -611,7 +613,7 @@ Statistics module, use a high
 The file output module writes event packets directly to a file. The
 following scheme is utilized to generate the file-name:  
 
-> *\<directory\>/\<prefix\>-YEAR-MONTH-DAY\_HOUR:MINUTE:SECOND.aer2*  
+> *<directory>/<prefix>-YEAR-MONTH-DAY_HOUR:MINUTE:SECOND.aer2*  
 
 The user controls the directory and prefix parts, and a suffix
 containing the current time is appended, so as to always supply
@@ -630,10 +632,10 @@ separated from the invalid ones. The following settings are recognized:
 
   - directory  
     the directory where data files will be saved to. Type: string,
-    Default value: \<user home directory\>
+    Default value: <user home directory>
 
   - prefix  
-    the file-name prefix part. Type: string, Default value: caer\_out
+    the file-name prefix part. Type: string, Default value: caer_out
 
   - shutdown  
     enables or disables this module. Type: bool, Default value: false
@@ -680,7 +682,7 @@ The following settings are recognized:
     Default value:
     false
 
-\clearpage
+clearpage
 
 ### UDP network client
 
@@ -849,22 +851,22 @@ If no arguments are specified, the default IP:port values of
 with the remote configuration server, the following commands are
 available for the user to type in and submit:
 
-  - node\_exists:  
-    checks whether a node exists or not. Usage: node\_exists \<node
-    string\>
+  - node_exists:  
+    checks whether a node exists or not. Usage: node_exists <node
+    string>
 
-  - attr\_exists:  
-    checks whether a node’s attribute exists or not. Usage: attr\_exists
-    \<node string\> \<key string\> \<key type string\>
+  - attr_exists:  
+    checks whether a node’s attribute exists or not. Usage: attr_exists
+    <node string> <key string> <key type string>
 
   - get:  
     queries the current value of the specified attribute. Usage: get
-    \<node string\> \<key string\> \<key type string\>
+    <node string> <key string> <key type string>
 
   - put:  
     sets the value of the specified attribute to the supplied one.
-    Usage: put \<node string\> \<key string\> \<key type string\>
-    \<value string\>
+    Usage: put <node string> <key string> <key type string>
+    <value string>
 
   - quit or exit:  
     disconnects from the configuration server and closes the program.
@@ -872,7 +874,7 @@ available for the user to type in and submit:
 
 To simplify interaction with the user and not require him to remember
 all the configuration paths, automatic command-completion has been
-implemented, by using the GET\_CHILDREN, GET\_ATTRIBUTES and GET\_TYPES
+implemented, by using the GET_CHILDREN, GET_ATTRIBUTES and GET_TYPES
 actions from section [6](#remote-configuration). By pressing the
 TAB key, the user will be presented with a list of possible completions
 to select from. Further completions are cycled by pressing TAB again,
@@ -881,7 +883,7 @@ are selected automatically; in case of multiple choices, the SPACE key
 confirms the current choice. Command history is also provided, one can
 navigate to previous commands and back with the UP and DOWN arrow keys,
 and the commands entered during previous *caerctl* sessions are saved to
-a file named *.caerctl\_history* in the user’s home directory, and made
+a file named *.caerctl_history* in the user’s home directory, and made
 available again on the next session.
 
 The implementation of such functionality requires support from an
@@ -968,12 +970,12 @@ It gets the relevant settings from the configuration sub-system’s
 
   - logFile  
     the file where log messages are stored. Type: string, Default value:
-    \<current working directory\>/caer.log
+    <current working directory>/caer.log
 
   - logLevel  
     the cut-off level for log messages. Messages of lesser importance
     are ignored. Type: byte, Default value: 5 (corresponds to
-    LOG\_NOTICE as shown in section [7](#logging))
+    LOG_NOTICE as shown in section [7](#logging))
 
 The configuration server stores its own settings in the */server/* node:
 
@@ -1082,7 +1084,7 @@ Listeners can be added to nodes to react to changes to both the node’s
 children and to its attributes.
 
 Listeners must refer the same memory and function when being added and
-removed\!
+removed!
 
 FLAGS
 
@@ -1129,15 +1131,15 @@ The following requests can be made to the configuration
 server:
 
 to Action & Code & Type & Node & Key & Value  
-NODE\_EXISTS & 0 & 0 (unused) & absolute path & no & no  
-ATTR\_EXISTS & 1 & any & absolute path & key string & no  
+NODE_EXISTS & 0 & 0 (unused) & absolute path & no & no  
+ATTR_EXISTS & 1 & any & absolute path & key string & no  
 GET & 2 & any & absolute path & key string & no  
 PUT & 3 & any & absolute path & key string & value string  
-GET\_CHILDREN & 5 & 0 (unused) & absolute path & no & no  
-GET\_ATTRIBUTES & 6 & 0 (unused) & absolute path & no & no  
-GET\_TYPES & 7 & 0 (unused) & absolute path & key string & no  
+GET_CHILDREN & 5 & 0 (unused) & absolute path & no & no  
+GET_ATTRIBUTES & 6 & 0 (unused) & absolute path & no & no  
+GET_TYPES & 7 & 0 (unused) & absolute path & key string & no  
 
-\clearpage
+clearpage
 
 The response from the server follows a simplified version of the request
 protocol:
@@ -1162,19 +1164,19 @@ phase:
 
 to Action & Code & Type & Message  
 ERROR & 4 & string & error string  
-NODE\_EXISTS & 0 & bool & true/false  
-ATTR\_EXISTS & 1 & bool & true/false  
+NODE_EXISTS & 0 & bool & true/false  
+ATTR_EXISTS & 1 & bool & true/false  
 GET & 2 & same as request & result string  
 PUT & 3 & bool & true  
-GET\_CHILDREN & 5 & string & concatenation of string child names  
-GET\_ATTRIBUTES & 6 & string & concatenation of string attribute keys  
-GET\_TYPES & 7 & string & concatenation of string type names for a key  
+GET_CHILDREN & 5 & string & concatenation of string child names  
+GET_ATTRIBUTES & 6 & string & concatenation of string attribute keys  
+GET_TYPES & 7 & string & concatenation of string type names for a key  
 
 Thanks to this scheme, it is easily possible to implement an automatic
 discovery of the topology of the configuration back-end structure with
-the GET\_CHILDREN, GET\_ATTRIBUTES and GET\_TYPES actions, in addition
+the GET_CHILDREN, GET_ATTRIBUTES and GET_TYPES actions, in addition
 to standard check, get and set functionality, thanks to the
-NODE\_EXISTS, ATTR\_EXISTS, GET and PUT actions.
+NODE_EXISTS, ATTR_EXISTS, GET and PUT actions.
 
 ## Logging
 
@@ -1191,14 +1193,14 @@ log levels are
 recognized:
 
 to Log level & Code  
-LOG\_EMERGENCY & 0  
-LOG\_ALERT & 1  
-LOG\_CRITICAL & 2  
-LOG\_ERROR & 3  
-LOG\_WARNING & 4  
-LOG\_NOTICE & 5  
-LOG\_INFO & 6  
-LOG\_DEBUG & 7  
+LOG_EMERGENCY & 0  
+LOG_ALERT & 1  
+LOG_CRITICAL & 2  
+LOG_ERROR & 3  
+LOG_WARNING & 4  
+LOG_NOTICE & 5  
+LOG_INFO & 6  
+LOG_DEBUG & 7  
 
 All messages are written out to a log file, to ensure their persistence,
 for later analysis. For more immediate visual feedback, messages are
