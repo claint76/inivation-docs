@@ -2,8 +2,16 @@
 > *For more information, visit [iniVation support](https://inivation.com/support/)*
 ---
 
-- [cAER repository tex documentation (last modification 19/10/2017)](#cAER-repository-tex-documentation-last-modification-19102017)
-- [cAER "The modules system" txt file documentation](#cAER-the-modules-system-txt-file-documentation)
+## This guide is still work in progress!
+Things to do:
+
+- merge the two files present in the GitHub repository. They are already present in this file (below are the two internal link)
+- decide which "installation" guide mantain, the one in cAER README (i vote for it) or this one in this guide
+- check if documentation is up to date, remove what unuseful or old or chapters never completed
+
+[cAER repository tex documentation (last modification 19/10/2017)](#cAER-repository-tex-documentation-last-modification-19102017)
+
+[cAER "The modules system" txt file documentation](#cAER-the-modules-system-txt-file-documentation)
 
 # cAER repository tex documentation (last modification 19/10/2017)
 
