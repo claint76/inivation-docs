@@ -481,7 +481,7 @@ the hardware device chosen.
 
 ### Help
 
-## **Tooltips**
+## Tooltips
 
 If you hover your mouse over most controls on the GUI, you will see a
 tooltip pop up, which will help you to understand the control. A tooltip
