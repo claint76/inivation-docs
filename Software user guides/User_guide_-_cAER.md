@@ -168,7 +168,8 @@ base of the cAER framework:
     program\_options modules) for cross-platform file-access and
     networking support, as well as advanced C++ algorithms.
 
-  - [libcaer](https://github.com/inilabs/libcaer) \>= 2.4.0 for event
+  - <!--TO CHANGE-->
+    [libcaer](https://github.com/inilabs/libcaer) \>= 2.4.0 for event
     definitions and USB/serial device access.
 
   - Optional: [tcmalloc](https://github.com/gperftools/gperftools) \>=
@@ -179,12 +180,12 @@ system’s package manager. On MacOS X, we recommend using
 [Homebrew](https://brew.sh/). On Windows, [MSYS2](http://www.msys2.org/)
 provides a good package management software.
 
-For detailed installation instructions on libcaer, please visit [this
+For detailed installation instructions on libcaer, please visit <!--TO CHANGE--> [this
 website](https://inilabs.com/support/software/libcaer/).
 
-For more details on the installation procedure, please refer to the main
-[README](https://raw.githubusercontent.com/inilabs/caer/master/README.md)
+For more details on the installation procedure, please refer to the main <!--TO CHANGE--> [README](https://raw.githubusercontent.com/inilabs/caer/master/README.md)
 file. Windows users must also look at
+<!--TO CHANGE-->
 [README.Windows](https://raw.githubusercontent.com/inilabs/caer/master/README.Windows)
 for detailed installation instructions.
 
@@ -287,7 +288,7 @@ for example.
 
 The full definition of each supported event type, as well as how those
 events are treated in the context of files and network streams, can be
-found in the [AEDAT File
+found in the <!--TO CHANGE--> [AEDAT File
 Format](https://inilabs.com/support/software/fileformat/#h.oqxw4mby5yg2)
 document. cAER internally uses the event formats defined in libcaer,
 which in turn follows the *AEDAT 3.1* specification.
@@ -311,19 +312,19 @@ program shuts down. The following listing shows an excerpt from the
 configuration file in question:
 
 ``` html
- 1:<sshs version="1.0">
- 2:  <node name="" path="/">
- 3:    <node name="1" path="/1/">
- 4:      <node name="2-FileOutput" path="/1/2-FileOutput/">
- 5:        <attr key="directory" type="string">/home/caer</attr>
- 6:        <attr key="prefix" type="string">caer_out</attr>
- 7:        <attr key="validEventsOnly" type="bool">true</attr>
- 8:      </node>
- 9:      ...
-10:    </node>
-11:    ...
-12:  </node>
-13:</sshs>
+<sshs version="1.0">
+  <node name="" path="/">
+    <node name="1" path="/1/">
+      <node name="2-FileOutput" path="/1/2-FileOutput/">
+        <attr key="directory" type="string">/home/caer</attr>
+        <attr key="prefix" type="string">caer_out</attr>
+        <attr key="validEventsOnly" type="bool">true</attr>
+      </node>
+      ...
+    </node>
+    ...
+  </node>
+</sshs>
 ```
 
 The first line specifies that this file conforms to the SSHS format
@@ -449,7 +450,9 @@ NULL as a value instead of a
 
 ### DVS128
 
+```c
     void caerInputDVS128(uint16_t moduleID, caerPolarityEventPacket *polarity, caerSpecialEventPacket *special);
+```
 
 This input module allows a DVS128 camera to be connected and events to
 be captured from it. As can be seen from its function signature above,
@@ -548,7 +551,9 @@ queried by other modules:
 
 ### Background Activity Filter
 
+```c
     void caerBackgroundActivityFilter(uint16_t moduleID, caerPolarityEventPacket polarity);
+```
 
 The Background Activity Filter takes polarity event packets and
 invalidates any polarity event that is not supported by other polarity
@@ -604,7 +609,9 @@ Statistics module, use a high
 
 The file output module writes event packets directly to a file. The
 following scheme is utilized to generate the file-name:  
-*\<directory\>/\<prefix\>-YEAR-MONTH-DAY\_HOUR:MINUTE:SECOND.aer2*  
+
+> *\<directory\>/\<prefix\>-YEAR-MONTH-DAY\_HOUR:MINUTE:SECOND.aer2*  
+
 The user controls the directory and prefix parts, and a suffix
 containing the current time is appended, so as to always supply
 start-of-recording temporal information automatically. The AER2 file
