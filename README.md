@@ -105,13 +105,20 @@ Is not rendered properly, while:
 Will be rendered properly
 
 # Notes on files
+The comments in markdown files must be done in the following way:
+```html
+MULTIPLE LINE
+<!--
+    comments on more lines
+-->
+
+INLINE
+<!--comments inline-->
+```
+Other ways does not work on GitHub and will be rendered.
+
 ## ```<!--BROKEN-->```
 Links that do not work. Present in:
-* User Guide - Biasing Dynamic Sensors
-* User Guide - Synchronisation of dynamic sensor prototypes and stereo configurations
-* User Guide - eDVS4337 (embedded Dynamic Vision Sensor)
-* User guide - DVS128 Dynamic Vision Sensor
-* User guide - jAER
 * User guide - cAER
 ## ```<!--TO CHANGE-->```
 Links that refers to iniLabs or to not updated websites. Present in all but for "Application Notes" files and
