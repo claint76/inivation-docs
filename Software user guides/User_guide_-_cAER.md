@@ -2,6 +2,13 @@
 > *For more information, visit [iniVation support](https://inivation.com/support/)*
 ---
 
+- [cAER repository tex documentation (last modification 19/10/2017)](#cAER-repository-tex-documentation-last-modification-19102017)
+- [cAER "The modules system" txt file documentation](#cAER-the-modules-system-txt-file-documentation)
+
+# cAER repository tex documentation (last modification 19/10/2017)
+
+This guide gives information about cAER software, a software framework for event processing.
+
 ## Table of contents
 
 -   [Introduction](#introduction)
@@ -204,14 +211,10 @@ To this end it was decided to implement cAER as a collection of basic
 framework functionality and loadable modules, which could easily be
 plugged and extended by the user.
 
-A broad overview of the resulting architecture is shown in Figure
-[\[fig:caer\_architecture\]](#fig:caer_architecture). The various
+A broad overview of the resulting architecture is shown in the figure below. The various
 components will be explained in detail in the following sections.
 
-![cAER architecture
-overview](caer_architecture)
-
-<span id="fig:caer_architecture" label="fig:caer_architecture">\[fig:caer\_architecture\]</span>
+<p align="center"><img src="media/caer_architecture.png" width="800" /></p>
 
 ## Threads
 
@@ -307,7 +310,7 @@ by editing the XML configuration file that is written each time the
 program shuts down. The following listing shows an excerpt from the
 configuration file in question:
 
-``` 
+``` html
  1:<sshs version="1.0">
  2:  <node name="" path="/">
  3:    <node name="1" path="/1/">
@@ -387,6 +390,7 @@ actual operations the user wants to repeatedly see happen on the data.
 The thread-function that runs a Mainloop looks like this (in
 pseudo-code):
 
+```c
     while (run_system) {
         if (data_is_available) {
             execute_mainloop_definition();
@@ -395,6 +399,7 @@ pseudo-code):
             sleep(1 ms);
         }
     }
+```
 
 ### Asynchronous inputs
 
@@ -593,7 +598,9 @@ Statistics module, use a high
 
 ### File
 
+```c
     void caerOutputFile(uint16_t moduleID, size_t outputTypesNumber, ...);
+```
 
 The file output module writes event packets directly to a file. The
 following scheme is utilized to generate the file-name:  
@@ -630,7 +637,9 @@ separated from the invalid ones. The following settings are recognized:
 
 ### Unix socket client
 
+```c
     void caerOutputUnixS(uint16_t moduleID, size_t outputTypesNumber, ...);
+```
 
 The Unix socket client output module writes event packets directly to a
 local Unix socket and is the preferred way to send data to another
@@ -667,7 +676,9 @@ The following settings are recognized:
 
 ### UDP network client
 
+```c
     void caerOutputNetUDP(uint16_t moduleID, size_t outputTypesNumber, ...);
+```
 
 The UDP network client output module sends event packets directly over
 an UDP connection to a remote host. The UDP protocol guarantees neither
@@ -711,7 +722,9 @@ The following settings are recognized:
 
 ### TCP network client
 
+```c
     void caerOutputNetTCP(uint16_t moduleID, size_t outputTypesNumber, ...);
+```
 
 The TCP network client output module sends event packets directly over a
 TCP connection to a remote host. TCP is a reliable, in-order,
@@ -748,7 +761,9 @@ The following settings are recognized:
 
 ### TCP network server
 
+```c
     void caerOutputNetTCPServer(uint16_t moduleID, size_t outputTypesNumber, ...);
+```
 
 The TCP network server output module starts a TCP server on the local
 host and waits for connections from other systems. Once a remote system
@@ -1105,8 +1120,6 @@ authentication of requests.
 The following requests can be made to the configuration
 server:
 
-<span id="tab:configuration_server_requests" label="tab:configuration_server_requests">\[tab:configuration\_server\_requests\]</span>
-
 to Action & Code & Type & Node & Key & Value  
 NODE\_EXISTS & 0 & 0 (unused) & absolute path & no & no  
 ATTR\_EXISTS & 1 & any & absolute path & key string & no  
@@ -1139,8 +1152,6 @@ following table explains the response message format for the various
 actions that could have been submitted during the request
 phase:
 
-<span id="tab:configuration_server_responses" label="tab:configuration_server_responses">\[tab:configuration\_server\_responses\]</span>
-
 to Action & Code & Type & Message  
 ERROR & 4 & string & error string  
 NODE\_EXISTS & 0 & bool & true/false  
@@ -1170,8 +1181,6 @@ happens to be more important than a user-set threshold, allowing
 efficient filtering of unimportant and undesired messages. The following
 log levels are
 recognized:
-
-<span id="tab:log_levels" label="tab:log_levels">\[tab:log\_levels\]</span>
 
 to Log level & Code  
 LOG\_EMERGENCY & 0  
@@ -1234,6 +1243,7 @@ implement it.
 The following pseudo-code illustrates the working of the module state
 machine, as is called on every Mainloop cycle:
 
+```c
     // 'moduleStatus' contains the current module status.
     // 'running' specifies the wanted status: running or not.
     
@@ -1262,6 +1272,7 @@ machine, as is called on every Mainloop cycle:
             moduleFunctions->moduleExit(moduleData);
         }
     }
+```
 
 ### Modules API
 
@@ -1297,27 +1308,197 @@ to set custom size.
 This guide describes cAER installation and how to stream event data via
 network. We assume you have a Linux or MacOS X system.
 
-## What is cAER?
+# cAER "The modules system" txt file documentation
 
-cAER is an efficient embedded C framework for processing event-based
-sensor data from iniLabs sensors. It can run on hardware ranging from
-Raspberry Pi to ODroid to laptop or desktop PCs. It is licensed under
-the GNU Lesser General Public License (LGPL) v2.1.
+The aim of the new modules system was to get away from the human-controlled connectivity
+of modules and data by editing main.c manually every time, as well as reduce interdepen-
+cies between modules, and the hassle of recompiling every time and hope you did it right.
+The new system truly separates modules out into shared libraries, which define what kind
+of inputs they can take and what kind of outputs they may generate. The main application
+provides a platform to load/unload those modules, connect them according to dynamic con-
+figuration using the usual hierarchical storage, and then run the modules as usual.
+Doing it this way, with the system building up the connectivity map, also means that it's
+now possible to query the system about such details; Where does the data I consume come
+from? How many modules are using this data? and so forth, without actually having to wait
+for the data to be produced and get there. So modules can now wait inside Init() for the
+data producers they need to be running, and then get information on sizes or devices right
+away, without having to (ab)use the Run() function for that.
+The main points to follow when coding a new module are explained in 'README.porting', so
+here we'll only touch on how some of those things influence module connectivity.
+To start with, there now is only one main loop of execution, whose configuration is loaded
+from the XML configuration file at startup, and that can be edited as usual via the config
+server at run-time, using caer-ctl or GUI tools. This means all modules and their configu-
+ration now live directly in the root path /.
 
-See <!--TO CHANGE-->  [this iniLabs software
-comparison](https://inivation.com/support/software/) for
-more information about different software frameworks and libraries that
-are available to interact with neuromorphic devices.
+```html
+  <sshs version="1.0">
+      <node name="" path="/">
+          <node name="bafilter" path="/bafilter/">
+              ....
+          </node>
+      </node>
+  </sshs>
+```
 
-cAER is described in <!--BROKEN--> [this technical
-report](https://github.com/inilabs/caer/blob/master/docs/caer.pdf)
-(an older version) and <!--BROKEN-->  [these
-slides](https://github.com/inilabs/caer/blob/master/docs/cAER_pres_04.11.2015.pdf).
+Each module is uniquely identified by a short name now, that the user can freely decide on.
+There is only one reserved name: 'caer', which is used for system settings.
+Each module, in addition to its own configuration parameters, always contains the following
+two parameters:
 
-cAER uses the <!--TO CHANGE--> [low-level libcaer library
-API](http://inivation.com/support/libcaer/) to communicate
-with devices.
+```html
+  <attr key="moduleId" type="short">2</attr>
+  <attr key="moduleLibrary" type="string">caer_bafilter</attr>
+```
 
-This guide is still under development, please refer to the README files
-included with the cAER software. For Windows installations, see
-README.Windows.
+The 'moduleId' short integer is a unique ID that is used internally and in the configuration
+to reference modules, inputs and outputs to each-other. The ID is automatically chosed when
+adding/removing modules through the appropriate configuration interfaces, and should usually
+not be edited by hand; though it is possible to do so: just remember an ID has to be unique,
+and to update all the other references to it inside the configuration, if you do so.
+The 'moduleLibrary' string is the name of the shared library that is to be loaded for that
+module to run. At startup the given modules search path (which can be configured in
+'/caer/modules/:moduleSearchPath') is recursively searched for any file with the right
+extension for a shared library (.so on Linux, .dll on Windows, .dylib on MacOS X), and those
+are added to a list of possible modules. When loading a module, the string in 'moduleLibrary'
+is searched for inside this list, and if found, that file is then loaded and processed.
+At load time, the module is queried for information on itself by calling its caerModuleGetInfo()
+function, which returns a pointer to a 'caerModuleInfo' structure. This structure contains all
+the required information to setup the module and then run it; it especially contains information
+about what event streams the module can take as input, and what event streams it can generate
+as output. An event stream is a sequence of event packets, coming from the same source and
+with the same type. Let's take a look at the structure to better understand it:
+
+```c
+  static const struct caer_module_info BAFilterInfo = {
+      .version = 1,
+      .name = "BAFilter",
+      .type = CAER_MODULE_PROCESSOR,
+      .memSize = sizeof(struct BAFilter_state),
+      .functions = &BAFilterFunctions,
+      .inputStreams = BAFilterInputs,
+      .inputStreamsSize = CAER_EVENT_STREAM_IN_SIZE(BAFilterInputs),
+      .outputStreams = NULL,
+      .outputStreamsSize = 0
+  };
+```
+
+The 'version' field simply contains an informative version of the module, and the 'name' field
+contains the module's name. The 'type' field is important, as it indicates what kind of module
+this is, and what operations it is allowed to do on data; there are three types:
+
+- CAER_MODULE_INPUT: an input module, it generates data and puts it into the cAER processing
+  system; such a module can only have output streams defined and no input streams.
+- CAER_MODULE_OUTPUT: an output module, it takes data and gets it out of cAER, for example by
+  visualizing it or writing it to a file. It can only have input streams, and no output streams.
+- CAER_MODULE_PROCESSOR: a processor modules, it takes data in and transforms it or uses it to
+  generate new data. Most modules that implement useful algorithms will be PROCESSORs.
+
+The 'memSize' field indicates how much memory has to be allocated for the module's state, and
+the 'functions' field specifies where to find the 'Init', 'Exit', 'Run', 'Config' and 'Reset'
+functions that make up the meat of a module.
+
+The next fields are critical to the new module system: the 'inputStreams' field specifies what
+inputs this module accepts, it is an array of 'inputStreamSize' size, made up of structures of
+type 'caer_event_stream_in':
+
+```c
+  struct caer_event_stream_in {
+      int16_t type; // Use -1 for any type.
+      int16_t number; // Use -1 for any number of.
+      bool readOnly; // True if input is never modified.
+  };
+```
+
+'type' specifies the type that can be taken as input, 'number' tells how many of those, and
+'readOnly' indicates whether their content is modified (readOnly=false) or not (readOnly=true).
+For special cases, it is possible to specify -1 as type, which means any type can be taken as
+input, this is useful for modules like Statistics. In this case, number may be either -1 or 1,
+to take any number, or exactly 1, such input of any type. When the type=-1 notation is used,
+that is the only element allowed in the array.
+Else you can have one element per type in the array, ordered by ascending type ID, with number
+set to either -1 (for any number of that type), or >0 (for exactly that many of that type).
+It is currently not possible to apply 'readOnly' with finer granularity, it will apply to all
+inputs of a type, so even if you accept 3 inputs of type A, one of which you do not modify,
+you still have to declare the whole group readOnly=false, as you do modify the other two.
+Only OUTPUT and PROCESSOR type modules can have inputs specified, in fact they all must have
+at least one input element present. All OUTPUT type modules must also declare all their inputs
+to be readOnly=true, because moving the data somewhere else or showing it should never change it.
+
+The 'outputStreams' and 'outputStreamsSize' of the main module info structure work analogously,
+they define an array of 'caer_event_stream_out' elements that define which new data a module
+generates. Only INPUT and PROCESSOR modules can have outputs, where INPUT modules must have at
+least one, while PROCESSOR modules can have no new data outputs IFF they have at least one
+input that is not marked with readOnly=true, meaning they do modify that event stream at least.
+The output elements are simpler than the input ones:
+
+```c
+  struct caer_event_stream_out {
+      int16_t type; // Use -1 for undefined output (determined at runtime from configuration).
+  };
+```
+
+In fact they only have a type, since each module can only ever output exactly one event stream
+per type. This follows from the fact that event packets only have their type ID and source ID
+to differentiate them, since all the data being generated by a module must have the source ID
+set to that module's ID, only the type ID remains as a distinction, and there can only be
+one per type, as with more, you'd have packets that can't be identified correctly.
+Type can also be set to -1, in which case what types this module outputs are determined at
+run-time from the configuration, this is useful for modules such as File or Network inputs,
+where they can produce any type, but we don't have any information about which types will
+actually be produced when setting up module connectivity (this is before any module configuration
+or initialization takes place, so we have no idea what File or IP:Port to connect to to even
+try and get that information), so this choice is left to the user. In this case, this is the
+only element of the output streams array, and the configuration parameter of type string with
+name 'moduleOutput' will instead determine the types. That parameter will have the type IDs
+separated by a comma, like this (duplicates are not allowed):
+
+```html
+  <attr key="moduleOutput" type="string">0,1,3</attr>
+```
+
+Every (source ID, type ID) output combination is an event stream, which can then be used
+as input by other modules, to read or modify data (provided the types agree).
+
+Now that you've seen that for undefined type outputs (type=-1) a configuration parameter
+determines the actual values, you may be wondering if the same is true for the input side
+of things when type is set to -1 (any) there; in fact all modules that accept input must
+always have a string configuration parameter called 'moduleInput'. This specifies all the
+inputs that are actually connected to a module at run-time, whereas the above 'inputStreams'
+array just indicates the possibilities that this run-time configuration will then be checked
+against. The 'moduleInput' parameter will look like this:
+
+```html
+  <attr key="moduleInput" type="string">1[0,1a2] 2[2,3a4]</attr>
+```
+
+Each token is made up of a source module ID, the number outside the brackets, and inside you'll
+find a comma-separated list of type IDs to take from that source ID. Each (source ID, type ID)
+combination defines an event stream to connect as input, so in the above example:
+(Source: 1, Type: 0), (Source: 1, Type: 1), (Source: 2, Type: 2) and (Source: 2, Type: 3).
+You'll notice that some type IDs have the character 'a' followed by a number in them, this is
+the mechanism used to encode dependencies: multiple modules may use an event stream, and some
+of them (PROCESSOR type modules) may modify the event stream's content, changing events or
+invalidating them. Modules thus need a mechanism to specify at which point they want to tap
+the event stream to get their input; the 'a' here stands for 'afterModuleID', so the number
+after the character 'a' encodes which module must run before that event stream is used by this
+one. No 'a' character means the original event stream, as it comes out of the source, is to
+be used. So the above example conveys the following information about the inputs of a module:
+- use event stream from Source 1, Type 0, as it comes out originally
+- use event stream from Source 1, Type 1, after the module with ID 2 has processed it
+- use event stream from Source 2, Type 2, as it comes out originally
+- use event stream from Source 2, Type 3, after the module with ID 4 has processed it
+Each source ID token can only appear once, and the types inside one bracket pair also can only
+appear once. Tokens are separated by a white-space character.
+
+With the above information, you should now be able to understand the example XML configuration
+file found in 'docs/davis-config.xml' fully, and possibly edit to include other modules or
+change the connectivity, though it is heavily preferred to do so using the graphical tools.
+
+All the modules related configuration is elaborated when the main execution loop starts, so it
+is possible to change it while the system is running, and then simply stop and start the main
+loop to load the new configuration. The configuration is heavily checked against all possible
+manners of errors, such as duplicate IDs, missing libraries, or dependency cycles in event
+streams. Once everything has been checked, a dependency graph is built and a final order of
+execution for the modules is generated that respects all dependencies and tries to minimize
+the times data needs to be copied around (which happens when two different modules declare
+they need the same input and both modify it).
