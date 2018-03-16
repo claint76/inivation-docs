@@ -148,7 +148,7 @@ The following commands install cAER:
 ```
 
 Windows, MacOS X and other Linux distribution users, please follow the
-’Manual Installation’ [2](#sec:manual_installation) instructions.
+’Manual Installation’ [2](#manual-installation) instructions.
 
 ## Manual Installation
 
@@ -298,7 +298,7 @@ which in turn follows the *AEDAT 3.1* specification.
 An external XML file holds all the configuration that gets applied to
 cAER at start-up and loaded into memory. At shut-down, the file is
 updated with any changes made to the configuration. While the , the
-Super Simple Hierarchical Storage (SSHS, [5](#subsec:sshs)) library was
+Super Simple Hierarchical Storage (SSHS, [5](#sshs)) library was
 written and then employed. A configuration file from which to load the
 initial settings is also part of this system.
 
@@ -306,7 +306,7 @@ On the first execution of the *caer* program, all configuration will be
 initialized to its default values.
 
 Manipulating configuration values is possible either by using the
-*caerctl* utility (see section [4.1](#subsec:caerctl)) at run-time, or
+*caerctl* utility (see section [4.1](#caerctl)) at run-time, or
 by editing the XML configuration file that is written each time the
 program shuts down. The following listing shows an excerpt from the
 configuration file in question:
@@ -328,7 +328,7 @@ configuration file in question:
 ```
 
 The first line specifies that this file conforms to the SSHS format
-specification (from section [5](#subsec:sshs)), version 1.0. After that,
+specification (from section [5](#sshs)), version 1.0. After that,
 the tree-like hierarchical structure is clearly visible, with the root
 node (line 2) holding all Mainloops (line 3), which in turn hold all the
 modules (line 4). The *\<attr\>* tags contain the configuration values
@@ -342,10 +342,10 @@ boolean type, and can assume values of *true* or *false*.
 To allow for consistent configuration updates inside the modules,
 changes to the configuration are only applied once per Mainloop cycle,
 by the module state machine, right before the actual data processing
-code is executed (see *moduleConfig* in section [8](#sec:modules)).
+code is executed (see *moduleConfig* in section [8](#modules)).
 Since changes to the configuration can happen at any time, due to the
 configuration server thread (see section
-[6](#subsec:remote_configuration)), a mechanism had to be developed to
+[6](#remote-configuration)), a mechanism had to be developed to
 notify the running modules that a configuration refresh was desired on
 their next execution. A single, atomic variable in each module is used
 for the purpose of asynchronously signaling configuration changes,
@@ -358,7 +358,7 @@ above atomic variable appropriately when changes occur.
 
 ## Mainloop
 
-As mentioned at the start of chapter [](#chap:architecture), the core of
+As mentioned at the start of chapter [architecture](#architecture), the core of
 any kind of data processing architecture is represented by the following
 three steps:
 
@@ -416,7 +416,7 @@ asynchronous USB transfers, that also limit activity to only when data
 is available at the device or network level, to avoid unnecessary
 overhead. At this point, minimal processing is performed to interpret
 the data and format it according to the event packet definitions from
-section [3](#sec:events), and then the data is made available to the
+section [3](#events), and then the data is made available to the
 Mainloop. The actual exchange of data between the two threads happens by
 means of a special lock-free variant of a ring-buffer, a
 high-performance, array-based data structure.
@@ -436,8 +436,9 @@ removing this particular concern from the user.
 It also tries to interpret any given command-line parameters and uses
 their values to set and override previous configuration settings. The
 command-line override takes the following format and can be repeated
-multiple times to override multiple options:  
-*-o \<node string\> \<key string\> \<key type string\> \<value string\>*
+multiple times to override multiple options: 
+
+> *-o \<node string\> \<key string\> \<key type string\> \<value string\>*
 
 The configuration file-name parameter can be either an absolute path to
 a file or a single file-name, which is treated as residing inside the
@@ -464,10 +465,10 @@ produced events are much more scarce than others. To indicate that one
 is not interested at all in an event packet of a certain type, NULL can
 be passed to the function instead of a pointer.
 
-As explained in section [5.1](#sec:asynchronous_inputs), this module
+As explained in section [5.1](#asynchronous-inputs), this module
 starts a separate thread, the Data Acquisition Thread, that reads the
 events from the hardware device and transforms them into suitable event
-packets, as defined in section [3](#sec:events), and then passes them on
+packets, as defined in section [3](#events), and then passes them on
 for further processing to the Mainloop. This module uses the libusb
 library for accessing the DVS128 camera, which is connected to its host
 via a USB 2.0 interface. For higher performance, asynchronous USB
@@ -616,7 +617,7 @@ The user controls the directory and prefix parts, and a suffix
 containing the current time is appended, so as to always supply
 start-of-recording temporal information automatically. The AER2 file
 extension signals that a new file format is being used, based on the
-event packets as defined in section [3](#sec:events).
+event packets as defined in section [3](#events).
 
 It can take an arbitrary number of event packets and types, and will
 output them in the order they are given. The total number of output
@@ -872,7 +873,7 @@ available for the user to type in and submit:
 To simplify interaction with the user and not require him to remember
 all the configuration paths, automatic command-completion has been
 implemented, by using the GET\_CHILDREN, GET\_ATTRIBUTES and GET\_TYPES
-actions from section [6](#subsec:remote_configuration). By pressing the
+actions from section [6](#remote-configuration). By pressing the
 TAB key, the user will be presented with a list of possible completions
 to select from. Further completions are cycled by pressing TAB again,
 until returning to the original starting point. Unambiguous completions
@@ -919,7 +920,7 @@ packets will then be printed to the console.
 The *tcpststat* utility takes exactly two arguments: an IP address and a
 port, to which a connection attempt will be made. At this address, a
 *caer* instance with a reachable TCP network server output module
-(described in section [3.18](#subsec:tcp_network_server)) should be
+(described in section [3.18](#tcp_network_server)) should be
 running. If no arguments are specified, the default IP:port values of
 *127.0.0.1:7777* are used. A continuous stream of information on the
 incoming data packets will then be printed to the console.
@@ -937,13 +938,13 @@ allow for a clean separation of concerns.
 
 The main.c source-code file connects all the parts into a working
 program, as detailed in section
-[\[sec:application\_definition\]](#sec:application_definition).
+[appplication definition](#application-definition).
 
 The base/ directory contains all the framework functionality, explained
-in section [1](#sec:framework) and onwards.
+in section [1](#framework) and onwards.
 
 The events/ directory houses all the definitions of the events and their
-packets, according to the format discussed in section [3](#sec:events).
+packets, according to the format discussed in section [3](#events).
 All event definitions, as well as the common packet header definition,
 are implemented as stand-alone, reusable header files, to promote and
 simplify integration with other projects, which will easily be able to
@@ -951,16 +952,16 @@ interpret data coming from cAER by including these files.
 
 ext/ contains external libraries that are used throughout the program,
 as well as internal ones such as SSHS that were developed specifically
-for this project (see section [5](#subsec:sshs)).
+for this project (see section [5](#sshs)).
 
 The modules/ folder contains all the input (section
-[2](#sec:input_modules)), processing (section
-[3](#sec:processing_modules)) and output (section
-[4](#sec:output_modules)) modules, that a user may employ for his
+[2](#input-modules)), processing (section
+[3](#processing-modules)) and output (section
+[4](#output-modules)) modules, that a user may employ for his
 application.
 
 Finally, the utilities/ folder contains small helper programs, detailed
-in section [\[sec:utilities\]](#sec:utilities).
+in section [utilities](#utilities).
 
 It gets the relevant settings from the configuration sub-system’s
 */logger/* node; those are:
@@ -972,7 +973,7 @@ It gets the relevant settings from the configuration sub-system’s
   - logLevel  
     the cut-off level for log messages. Messages of lesser importance
     are ignored. Type: byte, Default value: 5 (corresponds to
-    LOG\_NOTICE as shown in section [7](#sec:logging))
+    LOG\_NOTICE as shown in section [7](#logging))
 
 The configuration server stores its own settings in the */server/* node:
 
@@ -1091,7 +1092,7 @@ Put() or updateRO() after Create().
 
 ## Remote configuration
 
-SSHS (see section [5](#subsec:sshs)) provides the actual mechanism to
+SSHS (see section [5](#sshs)) provides the actual mechanism to
 store, notify, and, together with the modules, apply configuration
 changes. Given the nature of cAER, which might run as a background
 process, an external interface was required for the user to actually
@@ -1202,7 +1203,7 @@ LOG\_DEBUG & 7
 All messages are written out to a log file, to ensure their persistence,
 for later analysis. For more immediate visual feedback, messages are
 also written out to the console, if cAER is not in daemon mode (see
-section [\[subsec:daemon\_mode\]](#subsec:daemon_mode)), which would
+section [daemon mode](#daemon-mode)), which would
 render this impossible.
 
 ## Modules
