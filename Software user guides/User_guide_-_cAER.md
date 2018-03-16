@@ -250,7 +250,7 @@ the tree-like hierarchical structure is clearly visible, with the root
 node (line 2) holding all Mainloops (line 3), which in turn hold all the
 modules (line 4). The *\<attr\>* tags contain the configuration values
 themselves, the *key* attribute identifies and names the value, the
-*type* attribute specifies its SSHS type, and the tag’s value itself
+*type* attribute specifies its SSHS type, and the tagâ€™s value itself
 represents the effective configuration value.
 
 In the above example, the *validEventsOnly* configuration value is of
@@ -270,7 +270,7 @@ allowing the module to quickly determine on each run if it needs to
 update its configuration and react to eventual changes. This provides an
 efficient inter-thread communication solution, instead of relying on
 expensive locks to synchronize some additional state variable. SSHS
-listeners are added to each module’s configuration nodes, to set the
+listeners are added to each moduleâ€™s configuration nodes, to set the
 above atomic variable appropriately when changes occur.
 
 ## Mainloop
