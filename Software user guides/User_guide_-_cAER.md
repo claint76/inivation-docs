@@ -331,7 +331,7 @@ The first line specifies that this file conforms to the SSHS format
 specification (from section [5](#sshs)), version 1.0. After that,
 the tree-like hierarchical structure is clearly visible, with the root
 node (line 2) holding all Mainloops (line 3), which in turn hold all the
-modules (line 4). The *<attr>* tags contain the configuration values
+modules (line 4). The ```<attr>``` tags contain the configuration values
 themselves, the *key* attribute identifies and names the value, the
 *type* attribute specifies its SSHS type, and the tag’s value itself
 represents the effective configuration value.
@@ -613,7 +613,9 @@ Statistics module, use a high
 The file output module writes event packets directly to a file. The
 following scheme is utilized to generate the file-name:  
 
-> *<directory>/<prefix>-YEAR-MONTH-DAY_HOUR:MINUTE:SECOND.aer2*  
+```html
+<directory>/<prefix>-YEAR-MONTH-DAY_HOUR:MINUTE:SECOND.aer2*  
+```
 
 The user controls the directory and prefix parts, and a suffix
 containing the current time is appended, so as to always supply
@@ -632,7 +634,7 @@ separated from the invalid ones. The following settings are recognized:
 
   - directory  
     the directory where data files will be saved to. Type: string,
-    Default value: <user home directory>
+    Default value: ```<user home directory>```
 
   - prefix  
     the file-name prefix part. Type: string, Default value: caer_out
@@ -852,25 +854,39 @@ with the remote configuration server, the following commands are
 available for the user to type in and submit:
 
   - node_exists:  
-    checks whether a node exists or not. Usage: node_exists <node
-    string>
+    checks whether a node exists or not. Usage:
+    
+    ```html
+    node_exists <node string>
+    ```
 
   - attr_exists:  
-    checks whether a node’s attribute exists or not. Usage: attr_exists
-    <node string> <key string> <key type string>
+    checks whether a node’s attribute exists or not. Usage:
+    
+    ```html
+    attr_exists <node string> <key string> <key type string>
+    ```
 
   - get:  
-    queries the current value of the specified attribute. Usage: get
-    <node string> <key string> <key type string>
+    queries the current value of the specified attribute. Usage: 
+    
+    ```html
+    get <node string> <key string> <key type string>
+    ```
 
   - put:  
     sets the value of the specified attribute to the supplied one.
-    Usage: put <node string> <key string> <key type string>
-    <value string>
+    Usage:
+    
+    ```html
+    put <node string> <key string> <key type string><value string>
+    ```
 
   - quit or exit:  
     disconnects from the configuration server and closes the program.
-    Usage: quit / exit
+    Usage: 
+
+    ```quit / exit```
 
 To simplify interaction with the user and not require him to remember
 all the configuration paths, automatic command-completion has been
@@ -970,7 +986,8 @@ It gets the relevant settings from the configuration sub-system’s
 
   - logFile  
     the file where log messages are stored. Type: string, Default value:
-    <current working directory>/caer.log
+
+    ```<current working directory>/caer.log```
 
   - logLevel  
     the cut-off level for log messages. Messages of lesser importance
