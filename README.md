@@ -12,7 +12,7 @@ Documentation for iniVation products.
 ## Hardware user guides
 - [User_guide_-_DAVIS240](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_DAVIS240)
 - [User_guide_-_DAVIS_USB3_development_kit](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_DAVIS_USB3_development_kit)
-- [User_guide_-_DVS128.md](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_DVS128)
+- [User_guide_-_DVS128](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_DVS128)
 - [User_guide_-_eDVS_and_PushBot](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_eDVS_and_PushBot)
 ## Others
 - [FAQ_and_troubleshooting](https://inivation.github.io/inivation-docs/Others/FAQ_and_troubleshooting)
