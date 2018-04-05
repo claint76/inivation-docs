@@ -24,7 +24,8 @@ DAVIS640Color/Mono.
 - [Optics](#optics)
 - [Recorded data format](#recorded-data-format)
 - [Firmware upgrades](#firmware-upgrades)
-- [DAVIS640Color example outputs](#davis640-example-outputs)
+- [DAVIS640 Mono example outputs](#davis640-mono-example-outputs)
+- [DAVIS640 Color example outputs](#davis640-color-example-outputs)
 
 ## Introduction
 
@@ -236,19 +237,23 @@ documentation](http://inilabs.com/support/software/fileformat).
 If we advise you to upgrade your firmware, please read the <!--TO CHANGE--> [reflashing
 guide](http://www.inilabs.com/support/reflashing).
 
-## DAVIS640 Example outputs
+## DAVIS640 Mono Example outputs
 
-[YouTube video](https://www.youtube.com/watch?v=_ihy0iOavfM) of output data:
+Examples of DAVIS640 mono camera outputs are reported below:
 
-With default cAER bias settings
+- With default cAER bias settings
 
 <p align="center"><img src="media/DAVIS_usb3_dev_kit_example1.png" width="700"/></p>
 
-jAER output [with biases:](https://github.com/SensorsINI/jaer/blob/master/biasgenSettings/Davis640/DAVIS640_TestExp.xml)
+- jAER output using the [following biases:](https://github.com/SensorsINI/jaer/blob/master/biasgenSettings/Davis640/DAVIS640_TestExp.xml)
 
 <p align="center"><img src="media/DAVIS_usb3_dev_kit_example2.png" width="700"/></p>
 
-DAVIS640Color example output
+A recording of DAVIS640 output can be seen at the following [YouTube video](https://www.youtube.com/watch?v=_ihy0iOavfM)
+
+## DAVIS640 Color Example outputs
+
+An example of DAVIS640 color camera output is reported below:
 
 Input:
 
@@ -257,3 +262,5 @@ Input:
 Output, in presence of gradient of illumination:
 
 <p align="center"><img src="media/DAVIS_usb3_dev_kit_color_output.png" width="700"/></p> 
+
+

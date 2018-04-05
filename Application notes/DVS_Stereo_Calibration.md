@@ -11,7 +11,7 @@ following steps:
 
 1.  Prepare the cameras set up and the checkboard calibration pattern.
 
-<p align="center"><img src="media/camera_setup1.png" width="300"> <img src="media/camera_setup2.png" width="300"/></p>
+    <p align="center"><img src="media/camera_setup1.png" width="300"> <img src="media/camera_setup2.png" width="300"/></p>
 
 2.  Open two viewers with jAER software. Save images of the checkboard
     patterns in different position, at the same time, from the two

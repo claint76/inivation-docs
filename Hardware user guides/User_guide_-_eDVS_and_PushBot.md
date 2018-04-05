@@ -227,7 +227,7 @@ To enter reprogramming mode, use the programming command from a serial
 console (see section "[Accessing the device
 manually](#accessing-the-device-manually)", below):
 
-> Pn
+> P\n
 
 Ensure you do not hit any other keys or send further characters after
 entering reprogramming mode. Just close the terminal window.
@@ -354,7 +354,7 @@ device. The list of commands is available in the next section.
 
 ## UART Protocol (PC->Board) 
 
-Supported Commands (all commands need to be terminated by 'n'; i.e. return):
+Supported Commands (all commands need to be terminated by '\n'; i.e. return):
 
 ```
 E+/-                  - enable/disable event sending
@@ -411,8 +411,8 @@ will stream the ADC channel 0 and channel 2 (10=0b1010) readings at
 upcoming (example) reply:
 
 ```
--S1 1000n
--S3 0250n
+-S1 1000\n
+-S3 0250\n
 ```
 
 List of available sensory data:
@@ -467,11 +467,11 @@ Every timestamp has 1 us resolution.
 
 | Format                            | Data packet                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| !E0 will result in data packets   | 1yyyyyyy.pxxxxxxx                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| !E1 will result in data packets   | 1yyyyyyy.pxxxxxxx.1ttttttt <br/> (time stamp wrap-around after 2^7 us = 128 us) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2^14 us = 16 384 =~ 16 ms) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2^21 us = 2 097 152 us =~ 2 sec) <br/> 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt <br/> (time stamp wrap-around after 2^28 us = 268 435 456 us =~ 4.5 min) <br/> |
-| !E2 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt <br/> (time stamp wrap-around after 2^16 us = 65 535 us =~ 65ms)                                                                                                                                                                                                                                                                                                                                                             |
-| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2^24 = 16 777 216 us =~ 16 sec)                                                                                                                                                                                                                                                                                                                                                 |
-| !E3 will result in data packets:  | 1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt.tttttttt <br/> (time stamp wrap-around after 2^24 = 4 294 967 296 us =~ 72 min)                                                                                                                                                                                                                                                                                                                                     |
+| !E0 will result in data packets   | ```1yyyyyyy.pxxxxxxx```                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| !E1 will result in data packets   | ```1yyyyyyy.pxxxxxxx.1ttttttt``` <br/> (time stamp wrap-around after 2^7 us = 128 us) <br/> ```1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt``` <br/> (time stamp wrap-around after 2^14 us = 16 384 =~ 16 ms) <br/> ```1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt``` <br/> (time stamp wrap-around after 2^21 us = 2 097 152 us =~ 2 sec) <br/> ```1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt``` <br/> (time stamp wrap-around after 2^28 us = 268 435 456 us =~ 4.5 min) <br/> |
+| !E2 will result in data packets:  | ```1yyyyyyy.pxxxxxxx.tttttttt.tttttttt``` <br/> (time stamp wrap-around after 2^16 us = 65 535 us =~ 65ms)                                                                                                                                                                                                                                                                                                                                                             |
+| !E3 will result in data packets:  | ```1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt``` <br/> (time stamp wrap-around after 2^24 = 16 777 216 us =~ 16 sec)                                                                                                                                                                                                                                                                                                                                                 |
+| !E3 will result in data packets:  | ```1yyyyyyy.pxxxxxxx.tttttttt.tttttttt.tttttttt.tttttttt``` <br/> (time stamp wrap-around after 2^24 = 4 294 967 296 us =~ 72 min)                                                                                                                                                                                                                                                                                                                                     |
 
 #### Recording
 
@@ -480,12 +480,12 @@ For event recording on SD-card, the format is always as !E1 above, i.e.
 (7 bits each); this size depends on how much time has passed (see table
 below):
 
-| Time           | Data packet                                           |
-| -------------- | ----------------------------------------------------- |
-| < 128us:      | 1yyyyyyy.pxxxxxxx.1ttttttt                            |
-| < 16384 us:   | 1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt                   |
-| < 2097152 us: | 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt          |
-| else           | 1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt |
+| Time           | Data packet                                                       |
+| -------------- | ----------------------------------------------------------------- |
+| < 128us:       | ```1yyyyyyy.pxxxxxxx.1ttttttt```                               |
+| < 16384 us:    | ```1yyyyyyy.pxxxxxxx.0ttttttt.1ttttttt```                     |
+| < 2097152 us:  | ```1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.1ttttttt```           |
+| else           | ```1yyyyyyy.pxxxxxxx.0ttttttt.0ttttttt.0ttttttt.1ttttttt``` |
 
 (a leading 1 in a time stamp byte indicates the final byte of
 time-stamp)
@@ -669,21 +669,29 @@ section above.
 a) To enable configuration of the wlan module, quickly type "$$$"
 in the putty console, then a ">" character
 will show up indicating that the device is in command mode
+
 b) Type "set wlan.ssid YOUR_NETWORK_NAME" to set the network name
+
 c) Type "set wlan.passkey YOUR_NETWORK_PASSKEY" to set the password
 of your network
+
 e) Type "set wlan.auto_join.enabled true" to enable auto joining the
 network
+
 f) **This step is very important Type "setuart.baud 1 4000000 raw" to set the baudrate to 4M, so the
 next time you connect the module via serial, remember to set the
 baudrate to 4M instead of 12M**
+
 g) Type "set bus.mode stream" to enable the module to stream data from
 the pushbot
+
 h) Type "get wlan.mac", and the mac address of the module will show
 up, please note it down because it might
 be used in the later steps when we want to find it's allocated IP
 address
+
 i) Type "save" to save the settings
+
 j) Type "reboot" to reboot the module
 
 ### Configure the wlan module via tcp (the Telnet function on putty) after we get the mac address of the module in the previous section
@@ -693,16 +701,23 @@ a) Connect the module to serial port again just like in section
 12M because we have reset it in the previous section), it shall
 automatically connect to the previously set
 network.
+
 b) Quickly type "$$$" in the putty console to enter command mode
+
 c) Type "get wlan.network.ip" to get the IPv4 address of the module
 allocated by the network
+
 d) Close the serial port, but keep the module powered on
+
 e) Now that we know the IP address, we can connect to the module via
 telnet
+
 f) Open putty again and choose the Connection Type as "Telnet"
+
 g) Enter the IP address of the module we just got, and the port number
 56001, then press "Open", and the PC
 should be able to communicate to the module via tcp now
+
 h) ##### Alternatively, we can also fetch the IP address by using
 netscaning tools(e.g. "arp-scan" on linux
 and MAC OS) and look for the respective mac address of the wlan module

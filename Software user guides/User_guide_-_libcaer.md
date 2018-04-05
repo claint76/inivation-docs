@@ -5,12 +5,12 @@
 ## Table of contents
 - [What is libcaer?](#what-is-libcaer)
 - [Installation](#installation)
-- [Automated Installation](#automated-installation)
-- [Fedora Linux](#fedora-linux)
-- [Gentoo Linux](#gentoo-linux)
-- [Ubuntu Linux](#ubuntu-linux)
-- [MacOS X](#macos-x)
-- [Manual Installation](#manual-installation)
+  - [Automated Installation](#automated-installation)
+    - [Fedora Linux](#fedora-linux)
+    - [Gentoo Linux](#gentoo-linux)
+    - [Ubuntu Linux](#ubuntu-linux)
+    - [MacOS X](#macos-x)
+  - [Manual Installation](#manual-installation)
 - [Usage](#usage)
 
 ## What is libcaer?
@@ -106,7 +106,7 @@ file. You will need to find and install those using your system's
 package manager, some examples are provided for Fedora Linux, Ubuntu
 Linux and MacOS X (using Homebrew).
 
-### Usage
+## Usage
 
 A full API documentation can be found at <!--TO CHANGE--> [libcaer API html](https://inilabs.github.io/libcaer/) as HTML (or <!--TO CHANGE-->[libcaer API pdf](https://github.com/inilabs/libcaer/raw/master/docs/libcaer_api_manual.pdf)
 in PDF format).

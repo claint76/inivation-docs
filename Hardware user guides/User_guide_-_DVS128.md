@@ -22,6 +22,7 @@ This user guide covers the DVS128 camera:
   - [How to use](#how-to-use)
     - [DVS128_PAER LEDs andJumpers](#dvs128_paer-leds-and-jumpers)
   - [Additional documentation](#additional-documentation)
+
 ## Specifications
 
 Specifications for this and other DVS models can be seen here:
@@ -70,9 +71,8 @@ lengths.
 
 ### Computations of DVS128 field of view
 
-| DAVIS240                 |                                   |                      |                                          |   
-| ------------------------ | --------------------------------- | -------------------- | ---------------------------------------- |
 | Lens focal length (mm)   | AFOV horizontal or vertical (deg) | AFOV diagonal (deg)  | LFOV (cm)                                |
+| ------------------------ | --------------------------------- | -------------------- | ---------------------------------------- |
 |                          |                                   |                      | dist. 10 cm | dist. 30 cm | dist. 100 cm |
 | 2.6                      | 89.1                              | 108.6                | 19.7        | 59.1        | 196.9        |
 | 3.6                      | 70.8                              | 90.3                 | 14.2        | 42.7        | 142.2        |

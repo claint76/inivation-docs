@@ -21,7 +21,7 @@ over USB:
 
 -   [DVS128](#dvs128-synchronisation)
 -   [DAVIS240](#davis240-synchronisation)
--   <!--TO CREATE-->FX3 development board
+-   <!--TO CREATE-->DAVIS USB3 Dev Kit
 
 In order to utilize the timestamps from more than one device, either
 live or offline, in an application where precise timing of events is

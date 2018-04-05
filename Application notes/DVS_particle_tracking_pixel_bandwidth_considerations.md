@@ -49,7 +49,7 @@ because the 2D [Gaussian integral](https://en.wikipedia.org/wiki/Gaussian_integr
 
 Therefore for a 1 pixel diameter disk, r=0.5 and
 
-> <img src="media/gaussian_variance2.png" width="120"/>
+> <img src="media/gaussian_variance2.png" width="100"/>
 
 If the particle has an image velocity of *u* pixels per second, then the
 particle movement causes a Gaussian change of intensity over time at
@@ -129,6 +129,8 @@ above 1.5kHz to capture most of the power.
 
 <p align="center"><img src="media/example_spectrum_plot.png" width="600"/></p>
 
+<p align="center">
+
 *Plots of (1) in case of U=10; % speed in m/s of particle perpendicular
 to sensor*
 
@@ -139,6 +141,8 @@ to sensor*
 *D=.007; % size (diameter) of particle in meters*
 
 *p=40e-6; % pixel pitch meters*
+
+</p>
 
 <p align="center"><img src="media/example_gaussian_intensity.png" width="500"/></p>
 
@@ -176,6 +180,8 @@ illumination level.
 
 <p align="center"><img src="media/DVS128_pixel_bandwith.png" width="600"/></p>
 
+<p align="center">
+
 *DVS128 pixel bandwidth, from Lichtsteiner et al. 2008. The plots show
 the number of recorded events per cycle of sinusoidal illumination
 variation; curves are labeled with decade attenuation from bare LED with
@@ -184,6 +190,8 @@ Data were collected from a single pixel over the duration of 10 s; then
 the number of events was divided by the stimulation frequency times the
 collection duration, leading to an average number of events per
 stimulation cycle. The inset shows programmed bias pixel bias currents.*
+
+</p>
 
 # Effect of refractory period
 
