@@ -63,6 +63,7 @@ Started guide here covers use in jAER.
 
 ## Chip classes
 
+<p align="center">
 
 | Chip                  | Class                                         |
 | --------------------- | --------------------------------------------- |
@@ -72,6 +73,8 @@ Started guide here covers use in jAER.
 | DAVIS640Mono          | eu.seebetter.ini.chips.davis.Davis640         |
 | DAVIS640Color         | eu.seebetter.ini.chips.davis.Davis640Color*  |
 | Different chip?       |  Please ask us to fill in this information ...|
+
+</p> 
 
 *Note that colour rendering in jAER is rather resource intensive (at
 time of writing), limiting the frame rate which can effectively be
