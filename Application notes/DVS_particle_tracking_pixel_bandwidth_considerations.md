@@ -130,6 +130,7 @@ above 1.5kHz to capture most of the power.
 <p align="center"><img src="media/example_spectrum_plot.png" width="600"/></p>
 
 <p align="center">
+
     *Plots of (1) in case of U=10; % speed in m/s of particle perpendicular
     to sensor*
 
@@ -140,12 +141,15 @@ above 1.5kHz to capture most of the power.
     *D=.007; % size (diameter) of particle in meters*
 
     *p=40e-6; % pixel pitch meters*
+
 </p>
 
 <p align="center"><img src="media/example_gaussian_intensity.png" width="500"/></p>
 
 <p align="center">
+
     *Gaussian intensity profile for above example*
+
 </p>
 
 # DVS128 bandwidth
