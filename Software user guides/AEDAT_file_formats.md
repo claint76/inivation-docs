@@ -12,6 +12,7 @@
 - [AEDAT 2.0](#aedat-20)
   - [Ordering](#ordering-1)
   - [DAVIS](#davis)
+  - [DAS1](#das1)
 - [AEDAT 3](#aedat-3)
 - [AEDAT 3.1](#aedat-31)
   - [Header Lines](#header-lines)
@@ -25,11 +26,13 @@
     - [IMU 6-axes Event](#imu-6-axes-event)
     - [IMU 9-axes Event](#imu-9-axes-event)
     - [ADC Sample Event](#adc-sample-event)
+    - [Ear (Cochlea) Event](#ear-cochlea-event)
     - [Configuration Event](#configuration-event)
     - [Point1D Event](#point1d-event)
     - [Point2D Event](#point2d-event)
     - [Point3D Event](#point3d-event)
     - [Point4D Event](#point4d-event)
+    - [Spike (Dynap-se) Event](#spike-dynap-se-event)
   - [Formats](#formats)
     - [RAW (ID=0x00)](#raw-id0x00)
     - [SerializedTS (ID=0x01)](#serializedts-id0x01)
@@ -283,6 +286,33 @@ the timestamp of the pixel readouts closest to those moments:
   first reset read pixel for RollingShutter mode.
 - End of Exposure: first signal read pixel.
 - End of Frame: last signal read pixel.
+
+## DAS1
+
+The DAS1 (Dynamic Audio Sensor, CochleaAMS1c AEChip class) stores its
+data according to the following format:
+
+### Bit 13-10
+
+| Bits     | Meaning                    | Description                                                                                                                                                                   |
+| -------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 13       | Type (ADC or AER)          | Defines the type of address stored here. ‘0’ means AER from Cochlea chip, ‘1’ means sample from external ADC.                                                                 |
+| 12       | ADC scanner sync           | Signals if the current ADC sample is newly synchronized with the Scanner. If ‘1’, it is, so we can clear and reset buffers. If ‘0’, just get the ADC data.                    |
+| 11-10    | ADC channel                | Defines which of the four possible ADC channels this sample belongs to.                                                                                                       |
+| 9-0      | ADC sample or AER address  | If Type=ADC, then this contains the 10-bit ADC sample ; If Type=AER, then this is the 10-bit AER address from the Cochlea chip. The 10 bits are to be interpreted this way:   |
+
+Bits from 9 to 0 are divided in the following way:
+
+| Bits     | Description                                                                                       |
+| -------- | ------------------------------------------------------------------------------------------------- |
+| 9-8      | Neuron number (0 to 3).                                                                           |
+| 7-2      | Channel number (from 0 to 63, where 0 is highest frequency, 63 lowest frequency).                 |
+| 1        | Left/Right ear (‘0’ is left, ‘1’ is right).                                                       |
+| 0        | Neuron bank (‘0’ if from BPF, ‘1’ if from SOS).                                                   |
+
+Note that although the DAS1 has synchronisation ports, the insertion of
+external trigger events into the event stream via a synchronisation
+pulse has never been implemented in the firmware.
 
 # AEDAT 3
 
@@ -705,6 +735,24 @@ Bytes 0-3 are divided in the following way:
 | 1-7      | ADC sample type, to distinguish between multiple ADC samples and their sources (up to 128).    |
 | 8-31     | ADC sample value (up to 24 bits). Higher values mean a higher voltage, 0 is ground.            |
 
+### Ear (Cochlea) Event
+
+| Bytes    | Meaning         | Description                                  |
+| -------- | --------------- | -----------------------------------------    |
+| 0-3      | 32 bit data     | Holds information on the ear (Cochlea) event.|
+| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.           |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                                                                    |
+| -------- | ---------------------------------------------------------------------------------------------- |
+| 0        | Validity mark                                                                                  |
+| 1-4      | Ear position (up to 16, 0/1 L/R front, 2/3 L/R back).                                          |
+| 5-15     | Channel number (up to 2048, 0 highest frequency).                                              |
+| 16-23    | Neuron number (up to 256).                                                                     |
+| 24-30    | Filter number/type (up to 128).                                                                |
+| 31       | Polarity (1 - ON, 0 - OFF).                                                                    |
+
 ### Configuration Event
 
 | Bytes    | Meaning           | Description                                                                                                                                                                                                                                                                            |
@@ -806,6 +854,22 @@ Bytes 0-3 are divided in the following way:
 
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
+
+### Spike (Dynap-se) Event
+
+| Bytes    | Meaning         | Description                                                    |
+| -------- | --------------- | -------------------------------------------------------------- |
+| 0-3      | 32 bit data     | Holds information on the spike event from the Dynap-se device. |
+| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.                             |
+
+Bytes 0-3 are divided in the following way:
+
+| Bits     | Description                                                                                         |
+| -------- | --------------------------------------------------------------------------------------------------- |
+| 0        | Validity mark                                                                                       |
+| 1-5      | Core id, this is the virtual_core_id programmed in the SRAM cell of the Dynap-se (bits <28:29>)     |
+| 6-11     | Chip id, this is the destination_core_id programmed in the SRAM cell of the Dynap-se (bits <18:21>) |                                             |
+| 12-31    | Neuron id, the source neuron address                                                                |
 
 ## Formats
 
