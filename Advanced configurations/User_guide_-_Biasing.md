@@ -183,17 +183,11 @@ detail.
 
 ### Voltage biases
 
-The DAS1 also makes extensive use of voltage biases, which are supplied
-from an external DAC. Here is the panel which controls these:
+The DAVIS346 makes some use of voltage biases. Here is the panel which controls these:
 
-<p align="center"><img src="media/bias_control_tab_DAS1.png" width="800"/></p>
+<p align="center"><img src="media/bias_control_tab_DAVIS346.png" width="800"/></p>
 
-In this case, the slider linearly encodes a value from 0 to 5V. The DACs
-are 12 bit, and since there are not 4096 pixels across the screen, the
-slider can only touch an evenly sampled subset of these possible values.
-The *NORMAL* parameter has no meaning, whereas the *P* or *N* values are
-informational, indicating which type of transistor the resulting bias
-voltage then gates.
+In this case, the slider linearly encodes a value from 0 to 3.3V.
 
 ## Which actual values should I use?
 
