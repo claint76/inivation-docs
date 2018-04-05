@@ -53,35 +53,35 @@ Therefore for a 1 pixel diameter disk, r=0.5 and
 
 If the particle has an image velocity of *u* pixels per second, then the
 particle movement causes a Gaussian change of intensity over time at
-each DVS pixel. The following equation (1) (3.6 in Borer) provides the
+each DVS pixel. The following equation (3.6 in Borer) provides the
 intensity as a function of time and the resulting Fourier frequency
 spectrum.
 
-><img src="media/intensity_spectrum_fourier.png" width="700"/> (1)
+><img src="media/intensity_spectrum_fourier.png" width="700"/>
 
 Here *I*<sub>max</sub> is the maximum intensity, and *f* is the
 frequency in Hertz.
 
 The key equations are the following. The temporal bandwidth (frequency
 range) of the moving particle is given by the standard deviation of the
-Fourier transform, which is given by (2):
+Fourier transform, which is given by:
 
 
-> <img src="media/sd_fourier_transform.png" width="100"/> (2)
+> <img src="media/sd_fourier_transform.png" width="100"/>
 
 Here the particle has an image velocity of *u* pixels per second and a
 Gaussian spread of σ pixels.
 
-The intuition for (2) is that the particle passes the pixel in a time
+The intuition for the previous equation is that the particle passes the pixel in a time
 σ/u. The 1/2π converts from radians to Hz.
 
 The DVS pixel bandwidth must be several times *σ*<sub>f</sub> to avoid
 reduction of contrast caused by low pass filtering of this spectrum.
 
 The speed *u* is the speed of the particle in the image plane in
-pixels/second (px/s). It is given by (3):
+pixels/second (px/s). It is given by:
 
-> <img src="media/speed_particle.png" width="100"/> (3)
+> <img src="media/speed_particle.png" width="100"/>
 
 with speed *U* in the scene (perpendicular to the camera), distance to
 camera *Z*, focal length *f*<sub>c</sub> and pixel pitch ∆<sub>p</sub>,
@@ -130,23 +130,23 @@ above 1.5kHz to capture most of the power.
 <p align="center"><img src="media/example_spectrum_plot.png" width="600"/></p>
 
 <p align="center">
+    *Plots of (1) in case of U=10; % speed in m/s of particle perpendicular
+    to sensor*
 
-*Plots of (1) in case of U=10; % speed in m/s of particle perpendicular
-to sensor*
+    *fc=6/1000; % focal length in meters*
 
-*fc=6/1000; % focal length in meters*
+    *Z=1; % distance to particle in meters*
 
-*Z=1; % distance to particle in meters*
+    *D=.007; % size (diameter) of particle in meters*
 
-*D=.007; % size (diameter) of particle in meters*
-
-*p=40e-6; % pixel pitch meters*
-
+    *p=40e-6; % pixel pitch meters*
 </p>
 
 <p align="center"><img src="media/example_gaussian_intensity.png" width="500"/></p>
 
-*Gaussian intensity profile for above example*
+<p align="center">
+    *Gaussian intensity profile for above example*
+</p>
 
 # DVS128 bandwidth
 
@@ -181,16 +181,14 @@ illumination level.
 <p align="center"><img src="media/DVS128_pixel_bandwith.png" width="600"/></p>
 
 <p align="center">
-
-*DVS128 pixel bandwidth, from Lichtsteiner et al. 2008. The plots show
-the number of recorded events per cycle of sinusoidal illumination
-variation; curves are labeled with decade attenuation from bare LED with
-an un-attenuated luminance of about 300 nit using a 6 mm f/1.2 lens.
-Data were collected from a single pixel over the duration of 10 s; then
-the number of events was divided by the stimulation frequency times the
-collection duration, leading to an average number of events per
-stimulation cycle. The inset shows programmed bias pixel bias currents.*
-
+    *DVS128 pixel bandwidth, from Lichtsteiner et al. 2008. The plots show
+    the number of recorded events per cycle of sinusoidal illumination
+    variation; curves are labeled with decade attenuation from bare LED with
+    an un-attenuated luminance of about 300 nit using a 6 mm f/1.2 lens.
+    Data were collected from a single pixel over the duration of 10 s; then
+    the number of events was divided by the stimulation frequency times the
+    collection duration, leading to an average number of events per
+    stimulation cycle. The inset shows programmed bias pixel bias currents.*
 </p>
 
 # Effect of refractory period
