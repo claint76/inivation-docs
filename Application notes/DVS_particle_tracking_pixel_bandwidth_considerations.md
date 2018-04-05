@@ -49,7 +49,7 @@ because the 2D [Gaussian integral](https://en.wikipedia.org/wiki/Gaussian_integr
 
 Therefore for a 1 pixel diameter disk, r=0.5 and
 
-> <img src="media/gaussian_variance3.png" width="150"/>
+> <img src="media/gaussian_variance2.png" width="150"/>
 
 If the particle has an image velocity of *u* pixels per second, then the
 particle movement causes a Gaussian change of intensity over time at
