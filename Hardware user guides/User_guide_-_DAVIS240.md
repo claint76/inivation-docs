@@ -5,7 +5,7 @@
 This user guide covers DAVIS240 prototypes (DAVIS240A, DAVIS240B, and
 DAVIS240C):
 
-<p align="center"><img src="media/DAVIS240.png" width="600"/></p> 
+<!-- <p align="center"><img src="media/DAVIS240.png" width="600"/></p>  -->
 ![](media/DAVIS240.png "")
 
 ## Table of contents
