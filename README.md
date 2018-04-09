@@ -10,6 +10,7 @@ Documentation for iniVation products.
 - [DVS_Stereo_Calibration](https://inivation.github.io/inivation-docs/Application%20notes/DVS_Stereo_Calibration)
 - [DVS_particle_tracking_pixel_bandwidth_considerations](https://inivation.github.io/inivation-docs/Application%20notes/DVS_particle_tracking_pixel_bandwidth_considerations)
 ## Hardware user guides
+- TODO: need main page like for Software user guides.
 - [User_guide_-_DAVIS240](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_DAVIS240)
 - [User_guide_-_DAVIS_USB3_development_kit](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_DAVIS_USB3_development_kit)
 - [User_guide_-_DVS128](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_DVS128)
@@ -24,7 +25,6 @@ Documentation for iniVation products.
 - [User_guide_-_Reflashing_devices](https://inivation.github.io/inivation-docs/Software%20user%20guides/User_guide_-_Reflashing_devices)
 - [User_guide_-_cAER](https://inivation.github.io/inivation-docs/Software%20user%20guides/User_guide_-_cAER)
 - [User_guide_-_caerctl-gui-javafx_GUI](https://inivation.github.io/inivation-docs/Software%20user%20guides/User_guide_-_caerctl-gui-javafx_GUI)
-- [User_guide_-_jAER](https://inivation.github.io/inivation-docs/Software%20user%20guides/User_guide_-_jAER)
 - [User_guide_-_libcaer](https://inivation.github.io/inivation-docs/Software%20user%20guides/User_guide_-_libcaer)
 
 # Hints on to write .md to have good html rendering
