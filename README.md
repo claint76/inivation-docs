@@ -15,6 +15,7 @@ Documentation for iniVation products.
 - [User_guide_-_DAVIS_USB3_development_kit](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_DAVIS_USB3_development_kit)
 - [User_guide_-_DVS128](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_DVS128)
 - [User_guide_-_eDVS_and_PushBot](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_eDVS_and_PushBot)
+- [User Guide - mini eDVS](https://inivation.github.io/inivation-docs/Hardware%20user%20guides/User_guide_-_mini_eDVS)
 ## Others
 - [FAQ_and_troubleshooting](https://inivation.github.io/inivation-docs/Others/FAQ_and_troubleshooting)
 - [Student_projects](https://inivation.github.io/inivation-docs/Others/Student_projects)
