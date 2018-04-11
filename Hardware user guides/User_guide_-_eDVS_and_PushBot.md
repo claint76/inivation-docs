@@ -119,16 +119,15 @@ processing algorithms.
 ### Viewing and processing events
 
 The officially supported software to view and process events coming from
-the eDVS is jAER. For instructions on installation and usage, see the
-<!--TO CHANGE-->
+the eDVS is jAER. For instructions on installation and usage, see the <!--TO CHANGE-->
 [jAER user guide](http://www.inilabs.com/support/jaer).
 
 Once installed, connect the eDVS via USB to your computer. The drivers
 for USB serial port emulation are already part of all modern operating
 systems, so no special installation is required at this point. The
 recently connected devices should show up on your system as a serial
-communication device, for example as a COM:<x> port on Windows or
-/dev/ttyUSB<x> on Linux. If your OS does not find drivers, download
+communication device, for example as a COM:```<x>``` port on Windows or
+```/dev/ttyUSB<x>``` on Linux. If your OS does not find drivers, download
 FTDI's latest [VCP drivers for FT232HL](http://www.ftdichip.com/Drivers/VCP.htm)
 
 Note for Linux users: you may need to ensure you have the correct
