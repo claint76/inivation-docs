@@ -293,7 +293,7 @@ data between the sender and the receiver asynchronously using a
 four-phase handshake. (This is also called a bundled asynchronous
 protocol). The ACK and REQ lines are active-low.
 
-here is explained the protocol from the receiver's perspective,
+This is how the protocol looks from the receiver's perspective,
 where REQ is to be considered an input and ACK an output:
 
 1.  The receiver waits for the REQ line to be asserted by the sender
@@ -315,8 +315,6 @@ input using a double-flip-flop synchronizer. Data itself should also
 synchronized in this way, or by connecting it directly to a register
 with an Enable signal and enabling it only during phase (2).
 
-The format of the data depends on the sensor type and size.
-
 All current iniLabs DAVIS sensors employ a serial data
 format, meaning that the X and Y addresses are not output concurrently,
 but separately one after the other.
@@ -328,6 +326,12 @@ Current sensors employ a row-wise readout scheme, so a Y (row) address
 will always be followed by a series of one or more X (column) addresses.
 The column address will also contain the Polarity information bit.
 
+Further, we recommend inserting a delay of ~50ns between REQ and getting the
+data (phases 1 and 2), because the current sensors violate the assumption
+that all data lines are always valid and stable before REQ is asserted.
+The XSelect bit can be considered valid right away, but for Y addresses
+this delay should be observed. X addresses can also be used right away.
+
 NOTE: DAVIS240 A/B/C sensors may produce glitches known as "row-only
 events", where a Y (row) address is followed immediately by another Y
 (row) address. In this case, just discard the earlier address.
@@ -337,7 +341,7 @@ The format for DAVIS240 is documented in detail below:
 ```
 AER bus width: 10 (9 downto 0)
 
-XSelect is: 9
+XSelect is bit: 9
 
 if XSelect = '1' then
 
@@ -364,7 +368,7 @@ window:
 <p align="center"><img src="media/DAVIS240_receive_ev_from_chip.png" width="600"/></p>
 
 Alternatively, you can enable AER external control using libcaer as
-shown in this c++ code example
+shown in this C++ code example
 [here](https://github.com/inilabs/libcaer/blob/master/examples/davis_enable_aer.cpp).
 
 ## Firmware upgrades
