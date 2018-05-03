@@ -22,11 +22,8 @@ This page is about the mini-eDVS, launched in 2016:
 A small (18x18mm PCB) dynamic vision sensor with on-board
 microcontroller for real-time event-streaming over UART port.
 
-Specifications are compared to those of other DVS models
-here:
-
-<!--TO CHANGE-->
-[http://www.inilabs.com/products/dynamic-vision-sensors/specifications](http://www.inilabs.com/products/dynamic-vision-sensors/specifications)
+For specifications see the [specifications
+page](https://inivation.com/wp-content/uploads/2018/01/DVS-Specifications.pdf).
 
 **Application examples:**
 
@@ -71,8 +68,8 @@ top).
 ### Viewing and processing events
 
 The officially supported software to view and process events coming from
-the meDVS is jAER. For instructions on installation and usage, see the <!--TO CHANGE-->
-[jAER user guide](http://www.inilabs.com/support/jaer).
+the meDVS is jAER. For instructions on installation and usage, see the
+[jAER user guide](https://inivation.com/support/software/jaer/).
 
 Once installed, connect the meDVS via supplied USB adapter board to your
 computer. The drivers for USB serial port emulation are already part of
@@ -111,10 +108,10 @@ You should now be seeing DVS events on your screen.
 
 ### Biasing the DVS
 
-You need to load a set of biases. The <!--TO CHANGE--> [jAER user guide](http://www.inilabs.com/support/jaer) explains how to do
+You need to load a set of biases. The [jAER user guide](https://inivation.com/support/software/jaer/) explains how to do
 this, in the section on “biasing”. In order to get the best performance
 out of your device for your application, in terms of speed, noise etc,
-you need to adjust the biases. The <!--TO CHANGE--> [biasing guide](http://www.inilabs.com/support/biasing) explains how to do
+you need to adjust the biases. The [biasing guide](https://inivation.com/support/hardware/biasing/) explains how to do
 this.
 
 For the eDVS, you should use the standard bias sets for the DVS128. You

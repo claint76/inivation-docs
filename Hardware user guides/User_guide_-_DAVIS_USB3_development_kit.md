@@ -38,8 +38,8 @@ results out of your prototype, obtain the latest version of the jAER
 software and preferably use an integrated developer environment (IDE)
 (e.g. netbeans) to run the latest code base.
 
-The camera output can be processed by jAER or cAER or libcaer; see <!--TO CHANGE--> [inilabs software user
-guides](http://inilabs.com/support/software/). The Getting
+The camera output can be processed by jAER or cAER or libcaer; see [inilabs software user
+guides](https://inivation.com/support/software/). The Getting
 Started guide here covers use in jAER.
 
 ## Getting started
@@ -49,16 +49,16 @@ Started guide here covers use in jAER.
     USB3 A - microB cable.
 2.  **Make sure that the configuration of the device (switches; jumpers)
     is correct.** [See below](#switches-and-jumpers).
-3.  Install jAER, following the instructions in the <!--TO CHANGE--> [jAER user
-    guide](http://www.inilabs.com/support/jaer).
+3.  Install jAER, following the instructions in the [jAER user
+    guide](https://inivation.com/support/software/jaer/).
 4.  Install drivers - see the [install USB
     driver](#install-usb-driver) section below.
 5.  Run jAER.
 6.  Choose the correct chip class ([see
     below](#chip-classes))
 7.  Choose the correct interface, which is *DAVIS FX3 xxxxxxxx*
-8.  Load a standard set of biases, as described in the <!--TO CHANGE--> [jAER user
-    guide](http://www.inilabs.com/support/jaer); the
+8.  Load a standard set of biases, as described in the [jAER user
+    guide](https://inivation.com/support/software/jaer/); the
     correct biases are found in: jAER/biasgenSettings/ and then the
     appropriate subfolder, depending on the device you have.
 
@@ -134,8 +134,8 @@ successfully".
 
 If this doesn't work you will need to use the "zadig" tool to install
 the correct driver. In this case, please follow the instructions for
-zadig in the <!--TO CHANGE--> [reflashing
-guide](http://www.inilabs.com/support/reflashing).
+zadig in the [reflashing
+guide](https://inivation.com/support/software/reflashing/).
 
 ## Serial number
 
@@ -229,13 +229,13 @@ moves the lens further from the chip.
 
 ## Recorded data format
 
-Please have a look at the <!--TO CHANGE--> [AEDAT format
-documentation](http://inilabs.com/support/software/fileformat).
+Please have a look at the [AEDAT format
+documentation](https://inivation.com/support/software/fileformat/).
 
 ## Firmware upgrades
 
-If we advise you to upgrade your firmware, please read the <!--TO CHANGE--> [reflashing
-guide](http://www.inilabs.com/support/reflashing).
+If we advise you to upgrade your firmware, please read the [reflashing
+guide](https://inivation.com/support/software/reflashing/).
 
 ## DAVIS640 Mono Example outputs
 

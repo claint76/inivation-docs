@@ -41,14 +41,13 @@ obtain the latest version of the jAER software and preferably use an
 integrated developer environment (IDE) (e.g. netbeans) to run the latest
 code base.
 
-For specifications see the <!--TO CHANGE--> [specifications
-page](https://inilabs.com/products/dynamic-vision-sensors/specifications/).
+For specifications see the [specifications
+page](https://inivation.com/wp-content/uploads/2018/01/DVS-Specifications.pdf).
 
 The DAVIS240 cameras are USB devices.
 
 The camera output can be processed by jAER or cAER or libcaer; see
-<!--TO CHANGE-->
-[inilabs software user guides](http://inilabs.com/support/software/). The Getting
+[inilabs software user guides](https://inivation.com/support/software/). The Getting
 Started guide here covers use in jAER.
 
 ## Getting started
@@ -56,12 +55,12 @@ Started guide here covers use in jAER.
 1.  Unpack your camera. You should have a DAVIS camera with C-mount
     lens, C-CS adapter ring, mini tripod and USB A - microB cable.
 
-2.  Install jAER, following the instructions in the <!--TO CHANGE--> [jAER user guide](http://www.inilabs.com/support/jaer).
+2.  Install jAER, following the instructions in the [jAER user guide](https://inivation.com/support/software/jaer/).
 
 3.  Install drivers - see the [install USB driver](#install-usb-driver) section below.
 
 4.  Run jAER, choose the correct chip class, choose the correct
-    interface and load a standard set of biases, as described in the <!--TO CHANGE-->[jAER user guide](http://www.inilabs.com/support/jaer):
+    interface and load a standard set of biases, as described in the [jAER user guide](https://inivation.com/support/software/jaer/):
 
     a.  The correct chip class is
         eu.seebetter.ini.chips.davis.DAViS240(A/B/C). Choose the A, B
@@ -155,7 +154,7 @@ successfully".
 
 If this doesn't work you will need to use the "zadig" tool to install
 the correct driver. In this case, please follow the instructions for
-zadig in the <!--TO CHANGE--> [reflashing guide](http://www.inilabs.com/support/reflashing).
+zadig in the [reflashing guide](https://inivation.com/support/software/reflashing/).
 
 ## Serial number
 
@@ -373,7 +372,7 @@ shown in this C++ code example
 
 ## Firmware upgrades
 
-If we advise you to upgrade your firmware, please read the <!--TO CHANGE--> [reflashing guide](http://www.inilabs.com/support/reflashing).
+If we advise you to upgrade your firmware, please read the [reflashing guide](https://inivation.com/support/software/reflashing/).
 
 ## Dimensions
 
