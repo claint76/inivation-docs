@@ -86,8 +86,8 @@ order to alter their behaviour.
 
 We recommend using jAER for working with biases - this allows biases to
 be changed and the effects to be observed in real time. For how to load,
-save and control the biases using jAER, please refer to the <!--TO CHANGE-->[jAER user
-guide](http://www.inilabs.com/support/jaer).
+save and control the biases using jAER, please refer to the [jAER user
+guide](https://inivation.com/support/software/jaer/).
 
 The *Expert controls* (DVS128) or *Bias Current Control* (DAVIS240) tab
 of the *Biases / HW Configuration* tab shows how the biases are
@@ -595,8 +595,8 @@ can be 100s of Hz.
 There is no way to eliminate these events, although their frequency can
 be reduced by setting high thresholds. It's quite common to eliminate
 both electronic noise and background events in software by applying the
-BackgroundActivity filter, as described in the <!--TO CHANGE-->[jAER user
-guide](http://www.inilabs.com/support/jaer).
+BackgroundActivity filter, as described in the [jAER user
+guide](https://inivation.com/support/software/jaer/).
 
 The drift in the second stage that leads to background events also
 creates a bias towards ON events. The more infrequently events are
