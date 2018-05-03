@@ -297,7 +297,7 @@ for example.
 The full definition of each supported event type, as well as how those
 events are treated in the context of files and network streams, can be
 found in the <!--TO CHANGE--> [AEDAT File
-Format](https://inilabs.com/support/software/fileformat/#h.oqxw4mby5yg2)
+Format](https://inivation.com/support/software/fileformat/)
 document. cAER internally uses the event formats defined in libcaer,
 which in turn follows the *AEDAT 3.1* specification.
 

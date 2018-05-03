@@ -36,12 +36,10 @@ There are several ways to access data from the devices:
 
 ## Additional User Guides
 
--   <!--TO CHANGE-->
-    [Reflashing devices](http://inivation.com/support/reflashing/) -
+-   [Reflashing devices](https://inivation.com/support/software/reflashing/) -
     How to benefit from the latest upgrades to device firmware using
     our device update software called Flashy.
 
--   <!--TO CHANGE-->
-    [File formats](http://inivation.com/support/fileformat/) -
+-   [File formats](https://inivation.com/support/software/fileformat/) -
     explaining the .aedat format we use to save event-based data from
     our devices.

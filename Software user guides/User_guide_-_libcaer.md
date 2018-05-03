@@ -31,7 +31,7 @@ which adds a lot of useful functionality on top, such as configuration
 management, logging, modularity and provides ready-to-use modules for
 data processing and data visualization.
 
-See [this inivation <!--TO CHANGE--> [software
+See [this inivation [software
 comparison](https://inivation.com/support/software/) for
 more information about different software frameworks and libraries that
 are available to interact with neuromorphic devices.
