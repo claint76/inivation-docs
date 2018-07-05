@@ -38,7 +38,7 @@ results out of your prototype, obtain the latest version of the jAER
 software and preferably use an integrated developer environment (IDE)
 (e.g. netbeans) to run the latest code base.
 
-The camera output can be processed by jAER or cAER or libcaer; see [inilabs software user
+The camera output can be processed by jAER or cAER or libcaer; see [inivation software user
 guides](https://inivation.com/support/software/). The Getting
 Started guide here covers use in jAER.
 
@@ -94,10 +94,10 @@ libusb4java packages and requires no further installation.
 You must grant your user access to the USB device. This can be achieved
 by creating, as root, an udev rule file such as:
 
-> /etc/udev/rules.d/65-inilabs.rules
+> /etc/udev/rules.d/65-inivation.rules
 
 You can find ready-to-use udev rules files in <!--TO CHANGE--> [our Git
-repository](https://github.com/inilabs/devices/tree/master/drivers/linux/udev-rules).
+repository](https://github.com/inivation/devices/tree/master/drivers/linux/udev-rules).
 
 If you're using a distribution that supports SELinux tags, such as
 Fedora, please use the udev rules files in the selinux/ sub-folder.

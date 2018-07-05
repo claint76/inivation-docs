@@ -131,7 +131,7 @@ Other ways does not work on GitHub and will be rendered.
 Links that do not work. Present in:
 * User guide - cAER
 ## ```<!--TO CHANGE-->```
-Links that refers to iniLabs or to not updated websites. Present in all but for "Application Notes" files and
+Links that refers to iniVation or to not updated websites. Present in all but for "Application Notes" files and
 AEDAT file formats.
 
 ## ```<!--TO CREATE-->```

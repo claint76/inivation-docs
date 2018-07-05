@@ -26,7 +26,7 @@ defining event formats and a few functions for device control.
 It is intended to be used for integration into existing frameworks and
 code, also thanks to its open BSD license. If you don't have any
 existing code you need to work with, we recommend using the <!--TO CHANGE--> [cAER
-framework](https://inilabs.com/support/software/caer/),
+framework](https://inivation.com/support/software/caer/),
 which adds a lot of useful functionality on top, such as configuration
 management, logging, modularity and provides ready-to-use modules for
 data processing and data visualization.
@@ -46,32 +46,32 @@ Ubuntu, as well as for MacOS X via Homebrew.
 #### Fedora Linux
 
 We provide a <!--TO CHANGE--> [COPR
-repository](https://copr.fedorainfracloud.org/coprs/llongi/inilabs/)
+repository](https://copr.fedorainfracloud.org/coprs/llongi/inivation/)
 for Fedora 25, 26, 27 and rawhide on the x86 and x86_64 architectures.
 
 Please execute the following commands to use it and install libcaer:
 
 ```bash
-    $ sudo dnf copr enable llongi/inilabs
+    $ sudo dnf copr enable llongi/inivation
 
     $ sudo dnf install libcaer
 ```
 
 #### Gentoo Linux
 
-A valid Gentoo ebuild repository is available at <!--TO CHANGE--> [gentoo inilabs](https://github.com/inilabs/gentoo-inilabs/) over
+A valid Gentoo ebuild repository is available at <!--TO CHANGE--> [gentoo inivation](https://github.com/inivation/gentoo-inivation/) over
 Git. The package is 'dev-libs/libcaer'.
 
 #### Ubuntu Linux
 
-We provide a <!--TO CHANGE--> [PPA repository](https://launchpad.net/~llongi/+archive/ubuntu/inilabs)
+We provide a <!--TO CHANGE--> [PPA repository](https://launchpad.net/~llongi/+archive/ubuntu/inivation)
 for Ubuntu Trusty (14.04 LTS), Xenial (16.04 LTS), Zesty (17.04) and
 Artful (17.10) on the x86, x86_64, arm and arm64 architectures.
 
 Please execute the following commands to use it and install libcaer:
 
 ```bash
-$ sudo add-apt-repository ppa:llongi/inilabs
+$ sudo add-apt-repository ppa:llongi/inivation
 
 $ sudo apt-get update
 
@@ -84,32 +84,32 @@ below.
 
 #### MacOS X
 
-We provide a <!--TO CHANGE--> [Homebrew tap](https://github.com/inilabs/homebrew-inilabs/) for
+We provide a <!--TO CHANGE--> [Homebrew tap](https://github.com/inivation/homebrew-inivation/) for
 MacOS X. Install [Homebrew](https://brew.sh/) and then
 please execute the following commands to install libcaer:
 
 ```bash
-$ brew tap inilabs/inilabs
+$ brew tap inivation/inivation
 $ brew install libcaer --with-libserialport --with-opencv
 ```
 
 ### Manual Installation
 
-Please read the main <!--TO CHANGE--> [README](https://github.com/inilabs/libcaer/blob/master/README)
+Please read the main <!--TO CHANGE--> [README](https://github.com/inivation/libcaer/blob/master/README)
 file carefully, it explains all steps for manual installation on Linux
-and MacOS X systems. For Windows users, the additional file <!--TO CHANGE--> [README.Windows](https://github.com/inilabs/libcaer/blob/master/README.Windows)
+and MacOS X systems. For Windows users, the additional file <!--TO CHANGE--> [README.Windows](https://github.com/inivation/libcaer/blob/master/README.Windows)
 explains all the steps needed to get libcaer installed there.
 
 Building libcaer requires some dependencies to be installed, see the
-*REQUIREMENTS* section in the <!--TO CHANGE--> [README](https://github.com/inilabs/libcaer/blob/master/README)
+*REQUIREMENTS* section in the <!--TO CHANGE--> [README](https://github.com/inivation/libcaer/blob/master/README)
 file. You will need to find and install those using your system's
 package manager, some examples are provided for Fedora Linux, Ubuntu
 Linux and MacOS X (using Homebrew).
 
 ## Usage
 
-A full API documentation can be found at <!--TO CHANGE--> [libcaer API html](https://inilabs.github.io/libcaer/) as HTML (or <!--TO CHANGE-->[libcaer API pdf](https://github.com/inilabs/libcaer/raw/master/docs/libcaer_api_manual.pdf)
+A full API documentation can be found at <!--TO CHANGE--> [libcaer API html](https://inivation.github.io/libcaer/) as HTML (or <!--TO CHANGE-->[libcaer API pdf](https://github.com/inivation/libcaer/raw/master/docs/libcaer_api_manual.pdf)
 in PDF format).
 
-Also be sure to take a look at the <!--TO CHANGE--> [README](https://github.com/inilabs/libcaer/blob/master/README)
+Also be sure to take a look at the <!--TO CHANGE--> [README](https://github.com/inivation/libcaer/blob/master/README)
 file and the examples/ directory.

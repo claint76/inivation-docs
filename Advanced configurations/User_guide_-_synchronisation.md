@@ -261,7 +261,7 @@ video.
 
 ## Synchronising devices of different types
 
-All iniLabs devices use a [compatible
+All iniVation devices use a [compatible
 protocol](#synchronisation-protocol-and-event-injection)
 for synchronization. The only difference between devices is the voltage
 of the involved signals.

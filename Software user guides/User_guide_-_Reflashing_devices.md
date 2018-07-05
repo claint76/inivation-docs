@@ -3,7 +3,7 @@
 ---
 
 This guide explains how to use our “Flashy” tool to benefit from
-firmware and logic upgrades. It also documents USB drivers for inilabs
+firmware and logic upgrades. It also documents USB drivers for inivation
 devices.
 
 Our DVS128, DAVIS240 and FX3 prototypes have a programmable logic
@@ -51,12 +51,12 @@ tool, named Flashy.
 
 It requires Oracle Java 1.8 (Oracle JDK 8) to run, since it uses new
 technologies such as JavaFX. Please make sure to install at least Java
-version 1.8.0 u40. The sourcecode is available in the iniLabs GIT
+version 1.8.0 u40. The sourcecode is available in the iniVation GIT
 repository
 at:
 
 <!--TO CHANGE-->
-[https://github.com/inilabs/flashy](https://github.com/inilabs/flashy)
+[https://github.com/inivation/flashy](https://github.com/inivation/flashy)
 
 It can be opened as a Maven project in both NetBeans and Eclipse.
 
@@ -64,7 +64,7 @@ Directly runnable JARs can be found
 at:
 
 <!--TO CHANGE-->
-[https://github.com/inilabs/flashy/releases](https://github.com/inilabs/flashy/releases)
+[https://github.com/inivation/flashy/releases](https://github.com/inivation/flashy/releases)
 
 The latest official version is 0.9.8. Use the -with-dependencies JAR for
 easy deployment.
@@ -137,13 +137,13 @@ You must grant your user access to the USB device. This can be achieved
 by creating, as root, the appropriate udev rules files:
 
 ```bash
-    /etc/udev/rules.d/65-inilabs.rules
+    /etc/udev/rules.d/65-inivation.rules
 
-    /etc/udev/rules.d/66-inilabs_dev.rules
+    /etc/udev/rules.d/66-inivation_dev.rules
 ```
 
 You can find ready-to-use udev rules files in <!--TO CHANGE--> [our Git
-repository](https://github.com/inilabs/devices-bin/tree/master/drivers/linux/udev-rules).
+repository](https://github.com/inivation/devices-bin/tree/master/drivers/linux/udev-rules).
 
 If you’re using a distribution that supports SELinux tags, such as
 Fedora, please use the udev rules files in the selinux/ sub-folder.
@@ -238,7 +238,7 @@ Device Manager as shown below:
 
 <p align="center"><img src="media/flashy_zadig_driver_install_win10.png" width="700" /></p>
 
-Note that because iniLabs uses a vendor/product identification (VID/PID)
+Note that because iniVation uses a vendor/product identification (VID/PID)
 range purchased from Thesycon, Windows will identify the driver as shown
 below; this is OK.
 
@@ -286,7 +286,7 @@ For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
 file:
 
 <!--TO CHANGE-->
-[https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix)(BIX format)
+[https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix](https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.bix)(BIX format)
 
 For DVS128 reprogramming, please also use the same DAVIS240 file as
 above at this step!
@@ -325,13 +325,13 @@ As you can see, it’s divided into three parts:
     file:
 
     <!--TO CHANGE-->
-    [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)(IIC format)
+    [https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic](https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)(IIC format)
 
     For DVS128 boards, it’s a different
     file:
 
     <!--TO CHANGE-->
-    [https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)(IIC format)
+    [https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic](https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)(IIC format)
 
 2. The second row is used to update the logic (bitstream) on the
     CPLD/FPGA.
@@ -344,22 +344,22 @@ As you can see, it’s divided into three parts:
     repository:
 
     <!--TO CHANGE-->
-    [https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/](https://github.com/inilabs/devices-bin/tree/master/logic/SystemLogic2/)
+    [https://github.com/inivation/devices-bin/tree/master/logic/SystemLogic2/](https://github.com/inivation/devices-bin/tree/master/logic/SystemLogic2/)
 
     For DAVIS240 V4 boards (small USB 2.0 boards), use the following files:
 
-      - DAVIS240a chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)
+      - DAVIS240a chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)
 
-      - DAVIS240b chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)
+      - DAVIS240b chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)
 
-      - DAVIS240c chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf)
+      - DAVIS240c chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf)
 
     For DVS128 boards, uploading new logic is not usually required. If you
     still think it’s needed in your case, the following file is the right
     one:
 
     <!--TO CHANGE-->
-    [https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
+    [https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
 
     While flashing firmware or logic, you should see a progress dialog like
     this; if you don’t see this progress bar then there is some error, most
@@ -380,7 +380,7 @@ As you can see, it’s divided into three parts:
     Once you’re done, close Flashy and unplug the device.
 
     After plugging it in again, you’re ready to go! Enjoy your up-to-date
-    iniLabs camera.
+    iniVation camera.
 
 # DAVIS240 problem with early prototypes
 
@@ -391,7 +391,7 @@ side and make sure your device looks as follows:
 
 If your device shows two rows of resistors instead of one as in the
 following image, please get in touch with us at
-[support@inilabs.com](mailto:support@inilabs.com)
+[support@inivation.com](mailto:support@inivation.com)
 
 <p align="center"><img src="media/flashy_early_prototypes2.png" width="800" /></p>
 
@@ -401,11 +401,11 @@ following image, please get in touch with us at
                                                                                                                                                         
 | Camera model       | Firmware                                                                                                                            | Logic                                                                                                                                                                                                  |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------                    | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| DVS128             | [firmwareFX2_RetinaCPLD.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)      | [DVS128_logic.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)                                                                                            |
-| DAVIS240C          | [SeeBetterLogic_DAVIS.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)          | [SystemLogic2_MachXO_DAVIS240c.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf )                                            |
-| DAVIS240B          | [SeeBetterLogic_DAVIS.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)          | [SystemLogic2_MachXO_DAVIS240b.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)                                             |
-| DAVIS240A          | [SeeBetterLogic_DAVIS.iic](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)          | [SystemLogic2_MachXO_DAVIS240a.xsvf](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)                                             |
-| DAVIS346           | [DAVIS346_80MHz_16bit_v4.img](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS346_80MHz_16bit_v4.img)    | [SystemLogic2_MachXO3_DAVIS346.bit](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS/SystemLogic2_MachXO3_DAVIS346.bit )                                             |
-| DevKit FX3 USB 3.0 | [DAVIS_FX3_80MHz_16bit_v4.img](https://github.com/inilabs/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_80MHz_16bit_v4.img ) | Daughter Board - Chip V10 - DAVIS640 -> [SystemLogic2_ECP3_DAVIS640.bit](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit)               |
-|                    |                                                                                                                                     | Daughter Board - Chip V9 - DAVIS346B -> [SystemLogic2_ECP3_DAVIS346b.bit](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit)             |
-|                    |                                                                                                                                     | Daughter Board - Chip V8 - DAVIS346Cbsi -> [SystemLogic2_ECP3_DAVIS346cBSI.bit](https://github.com/inilabs/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit)    | 
+| DVS128             | [firmwareFX2_RetinaCPLD.iic](https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/firmwareFX2_RetinaCPLD.iic)      | [DVS128_logic.xsvf](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)                                                                                            |
+| DAVIS240C          | [SeeBetterLogic_DAVIS.iic](https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)          | [SystemLogic2_MachXO_DAVIS240c.xsvf](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf )                                            |
+| DAVIS240B          | [SeeBetterLogic_DAVIS.iic](https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)          | [SystemLogic2_MachXO_DAVIS240b.xsvf](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf)                                             |
+| DAVIS240A          | [SeeBetterLogic_DAVIS.iic](https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)          | [SystemLogic2_MachXO_DAVIS240a.xsvf](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf)                                             |
+| DAVIS346           | [DAVIS346_80MHz_16bit_v4.img](https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX3/DAVIS346_80MHz_16bit_v4.img)    | [SystemLogic2_MachXO3_DAVIS346.bit](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS/SystemLogic2_MachXO3_DAVIS346.bit )                                             |
+| DevKit FX3 USB 3.0 | [DAVIS_FX3_80MHz_16bit_v4.img](https://github.com/inivation/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_80MHz_16bit_v4.img ) | Daughter Board - Chip V10 - DAVIS640 -> [SystemLogic2_ECP3_DAVIS640.bit](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit)               |
+|                    |                                                                                                                                     | Daughter Board - Chip V9 - DAVIS346B -> [SystemLogic2_ECP3_DAVIS346b.bit](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit)             |
+|                    |                                                                                                                                     | Daughter Board - Chip V8 - DAVIS346Cbsi -> [SystemLogic2_ECP3_DAVIS346cBSI.bit](https://github.com/inivation/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit)    | 

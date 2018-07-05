@@ -11,7 +11,7 @@ We use different Google groups for all public questions and discussions regardin
 - [DYNAPse Users](https://groups.google.com/d/forum/dynapse-users)
 
 If your question involves confidential information, however, please use
-[support@inivation.com](mailto:support@inilabs.com).
+[support@inivation.com](mailto:support@inivation.com).
 First you could try our [troubleshooting
 guide](https://inivation.com/support/faq/).
 

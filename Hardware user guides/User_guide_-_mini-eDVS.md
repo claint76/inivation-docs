@@ -234,4 +234,4 @@ to it exactly like you did via USB.
 The WLAN module itself needs to be programmed, to set the various WLAN
 parameters like SSID, encryption and so on.
 
-Ask iniLabs for a quote.
+Ask iniVation for a quote.

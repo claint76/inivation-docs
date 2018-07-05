@@ -8,7 +8,7 @@ cores and autonomous robots. It is a field in rapid expansion in which
 physical architectures are realized in order to mimic the intelligence
 of neuro-biological systems.
 
-IniLabs takes top-level students in computer science, physics, or
+iniVation takes top-level students in computer science, physics, or
 electrical engineering for thesis projects or internships. Projects for
 course credit are registered with the student's home university (for
 local students, the University of Zurich or the ETH Zurich). [Contact
@@ -132,7 +132,7 @@ industrial machinery.
 # APIs to libcaer
 
 libcaer is a small C library that offers a minimal API to access
-iniLabs’ neuromorphic devices. It would be useful to be able to access
+iniVation’ neuromorphic devices. It would be useful to be able to access
 those devices natively also in other programming languages that are
 popular with scientific and industrial data processing applications,
 such as Python or C++.
@@ -205,7 +205,7 @@ developed by the Sensors group led by Prof. Dr. Tobi Delbruck. The aim
 of the project is the software implementation of an event­-based Deep
 Neural Network architecture capable of achieving detection of humans.
 
-The student will work in collaboration with IniLabs scientists and they
+The student will work in collaboration with iniVation scientists and they
 will help in collecting a labeled database of DVS recordings. After
 that, the student should develop a spiking Deep Neural Network
 architecture for human recognition. Currently most applications of DNNs

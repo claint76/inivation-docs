@@ -1,4 +1,4 @@
-# DVS particle tracking pixel bandwidth considerations (iniLabs AppNote)
+# DVS particle tracking pixel bandwidth considerations (iniVation AppNote)
 
 A common application of DVS sensors is for tracking moving particles.
 For a DVS to respond with temporal contrast events to these particles,
@@ -98,7 +98,7 @@ between pixels.
 
 # Example
 
-In the case of inilabs sensors, the pixel pitch ∆<sub>p</sub> is 40um
+In the case of inivation sensors, the pixel pitch ∆<sub>p</sub> is 40um
 for DVS128, and 18.5um for DAVIS240.
 
 We will assume the use of a DVS128 and that the particles have a
@@ -178,7 +178,7 @@ conditions (-1 dec curve).
 If higher bandwidth is desired, it is possible to modify the master bias
 current by replacement of the controlling resistor, but this change
 would also require readjustment of many other bias values. Please
-inquire with inilabs regarding engineering for these scenarios. Note
+inquire with inivation regarding engineering for these scenarios. Note
 that the primary requirement for high pixel bandwidth is high
 illumination level.
 
@@ -222,7 +222,7 @@ copied below, along with a sample output.
 
 %
 
-% inilabs.com
+% inivation.com
 
 % T. Delbruck 2015, based on Borer 2014
 

@@ -124,33 +124,33 @@ Gentoo and Ubuntu.
 ### Fedora Linux
 
 We provide a [COPR
-repository](https://copr.fedorainfracloud.org/coprs/llongi/inilabs/) for
+repository](https://copr.fedorainfracloud.org/coprs/llongi/inivation/) for
 Fedora 25, 26 and 27(rawhide) on the x86 and x86_64 architectures.
 
 The following commands install cAER:
 
 ```bash
-    $ sudo dnf copr enable llongi/inilabs
+    $ sudo dnf copr enable llongi/inivation
     $ sudo dnf install caer
 ```
 
 ### Gentoo Linux
 
 A valid Gentoo ebuild repository is available
-[here](https://github.com/inilabs/caer/tree/master/packaging/gentoo-ebuild-repository/).
+[here](https://github.com/inivation/caer/tree/master/packaging/gentoo-ebuild-repository/).
 The package is called ‘dev-cpp/caer’.
 
 ### Ubuntu Linux
 
 We provide a [PPA
-repository](https://launchpad.net/~llongi/+archive/ubuntu/inilabs/) for
+repository](https://launchpad.net/~llongi/+archive/ubuntu/inivation/) for
 Ubuntu Trusty (14.04 LTS), Xenial (16.04 LTS), Zesty (17.04) and Artful
 (17.10) on the x86, x86_64, arm and arm64 architectures.
 
 The following commands install cAER:
 
 ```bash
-    $ sudo add-apt-repository ppa:llongi/inilabs
+    $ sudo add-apt-repository ppa:llongi/inivation
     $ sudo apt-get update
     $ sudo apt-get install caer
 ```
@@ -177,7 +177,7 @@ base of the cAER framework:
     networking support, as well as advanced C++ algorithms.
 
   - <!--TO CHANGE-->
-    [libcaer](https://github.com/inilabs/libcaer) >= 2.4.0 for event
+    [libcaer](https://github.com/inivation/libcaer) >= 2.4.0 for event
     definitions and USB/serial device access.
 
   - Optional: [tcmalloc](https://github.com/gperftools/gperftools) >=
@@ -189,12 +189,12 @@ system’s package manager. On MacOS X, we recommend using
 provides a good package management software.
 
 For detailed installation instructions on libcaer, please visit <!--TO CHANGE--> [this
-website](https://inilabs.com/support/software/libcaer/).
+website](https://inivation.com/support/software/libcaer/).
 
-For more details on the installation procedure, please refer to the main <!--TO CHANGE--> [README](https://raw.githubusercontent.com/inilabs/caer/master/README.md)
+For more details on the installation procedure, please refer to the main <!--TO CHANGE--> [README](https://raw.githubusercontent.com/inivation/caer/master/README.md)
 file. Windows users must also look at
 <!--TO CHANGE-->
-[README.Windows](https://raw.githubusercontent.com/inilabs/caer/master/README.Windows)
+[README.Windows](https://raw.githubusercontent.com/inivation/caer/master/README.Windows)
 for detailed installation instructions.
 
 # Architecture
