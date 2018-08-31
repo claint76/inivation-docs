@@ -246,12 +246,11 @@ There are these connectors to the sides of the front face of the device:
 
 <p align="center"><img src="media/DAVIS240_conn.png" width="600"/></p>
 
-These shows what these connectors are connected to:
+These shows what these connectors are connected to for the DAVIS240A/B:
 
 <p align="center"><img src="media/DAVIS240_conn1_pinout.png" width="600"/></p>
 
-(Note that in a previous version of this documentation, AERMonAdd6 and
-AERMonAdd7 were accidentally swapped)
+NOTE: the DAVIS240C is identical, but for the AERMonAdd6 and 7 pins being inverted!
 
 <p align="center"><img src="media/DAVIS240_conn2_pinout.png" width="600"/></p> 
 
@@ -263,7 +262,7 @@ connector to a full CAVIAR compatible connector:
 <p align="center"><img src="media/DAVIS240_CAVIAR_adapter.png" width="600"/></p>
 
 If you prefer to design your own adapter, a perfect match for the 40
-pins connector on the DAVIS is a SAMTEC FLE-120-01-G-DV
+pins connector on the DAVIS is a SAMTEC FLE-120-01-G-DV.
 
 ### DAVIS AER cables
 
