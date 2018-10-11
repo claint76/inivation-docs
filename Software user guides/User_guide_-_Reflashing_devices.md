@@ -218,7 +218,7 @@ Then unplug and re-plug your device to complete the upgrade, you're done!
 ## Manual Upgrade
 
 Please note this is not recommended for standard use-cases.
-To do simple upgrades, please follow the [Guided Upgrade](#guided-upgrade) instructions.
+To do simple upgrades, please follow the [Automatic Upgrade](#automatic-upgrade) instructions.
 
 If you have an older device which still contains old firmware and logic,
 you will first need to erase its EEPROM. Flashy automatically detects
