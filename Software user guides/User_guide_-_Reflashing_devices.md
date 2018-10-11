@@ -1,24 +1,25 @@
 # User Guide - Reflashing Devices
-> *For more information, visit [iniVation support](https://inivation.com/support/)*
 ---
 
 This guide explains how to use our “Flashy” tool to benefit from
-firmware and logic upgrades. It also documents USB drivers for inivation
-devices.
+firmware and logic upgrades. It also documents USB drivers installation
+for iniVation devices.
 
-Our DVS128, DAVIS240 and FX3 prototypes have a programmable logic
-device (CPLD or FPGA) for directly interfacing with the sensor chip, and
-another chip for communication via USB (usually a Cypress FX2/3). In
-this guide:
-
-  - “firmware” refers to the programming of the communication chip;  
+All our devices have a programmable logic device (CPLD or FPGA) for directly
+interfacing with the sensor chip, and another chip for communication via USB
+(usually a Cypress FX2 or FX3 chip). In this guide:
+  - “firmware” refers to the programming of the USB communication chip;
   - “logic” refers to the programmable logic.
+
+PLEASE NOTE:
+- THE LATEST FLASHY VERSION IS 1.1.0.
+- THE LATEST FIRMWARE VERSION IS 4.
+- THE LATEST LOGIC VERSION IS 16 (after 9912 we have reset the numbering scheme!).
+
 
 ## Table of contents
 - [What is Flashy?](#what-is-flashy)
-- [How to install Flashy](#how-to-install-flashy)
-  - [Getting Flashy](#getting-flashy)
-  - [Building Flashy](#building-flashy)
+- [Getting Flashy](#getting-flashy)
 - [How to use Flashy](#how-to-use-flashy)
   - [Launching Flashy](#launching-flashy)
   - [Selecting a device](#selecting-a-device)
@@ -27,6 +28,8 @@ this guide:
       - [Troubleshooting zadig driver installation:](#troubleshooting-zadig-driver-installation)
         - [Windows 7 example:](#windows-7-example)
         - [Windows 10 example:](#windows-10-example)
+  - [Automatic Upgrade](#automatic-upgrade)
+  - [Manual Upgrade](#manual-upgrade)
     - [Section 1: erasing the EEPROM](#section-1-erasing-the-eeprom)
     - [Section 2: uploading firmware for the first time](#section-2-uploading-firmware-for-the-first-time)
     - [Section 3: uploading new firmware and new logic](#section-3-uploading-new-firmware-and-new-logic)
@@ -35,8 +38,8 @@ this guide:
 
 # What is Flashy?
 
-With the transition from using the Thesycon USB driver to using libusb
-based USB device support for some of our devices (e.g. DAVIS cameras),
+With the transition in 2014 from using the Thesycon USB driver to using libusb
+based USB device support for all our devices (DVS, DAVIS cameras),
 it was decided to remove advanced device flashing capabilities from
 jAER, which was the standard end-user tool for firmware updates.
 
@@ -45,96 +48,51 @@ information access, the ability to send arbitrary USB vendor requests,
 and perform data stream tests, has instead been outsourced to its own
 tool, named Flashy.
 
-# How to install Flashy
-
-## Getting Flashy
+# Getting Flashy
 
 It requires Oracle Java 1.8 (Oracle JDK 8) to run, since it uses new
 technologies such as JavaFX. Please make sure to install at least Java
-version 1.8.0 u40. The sourcecode is available in the iniVation GIT
-repository
-at:
+version 1.8.0 u40. The version requirement is verified at startup.
+A directly runnable JAR can be found at:
 
-<!--TO CHANGE-->
-[https://github.com/inivation/flashy](https://github.com/inivation/flashy)
-
-It can be opened as a Maven project in both NetBeans and Eclipse.
-
-Directly runnable JARs can be found
-at:
-
-<!--TO CHANGE-->
 [https://github.com/inivation/flashy/releases](https://github.com/inivation/flashy/releases)
 
-The latest official version is 0.9.8. Use the -with-dependencies JAR for
-easy deployment.
-
-**Note: You must be using Oracle Java 1.8.0 u40 at least (latest version
-is u131 as of 20.05.2017). Flashy will NOT work with prior JDK/JRE
-versions!**
-
-Flashy will also not build clean in prior JDK versions.
-
-This version requirement is checked automatically when you start Flashy.
-
-## Building Flashy
-
-You can build Flashy yourself; just check it out and open the project in
-NetBeans or Eclipse. Note that building will fail if the JDK is not
-recent enough; see note above. Also please note that you do NOT need to
-build it to use it. Make sure you choose the “release-profile” to build
-and run:
-
-<p align="center"><img src="media/flashy_building.png" width="500" /></p>
+The latest official version is 1.1.0.
+Download the -with-dependencies JAR file for easy deployment.
 
 # How to use Flashy
 
-If you have an older device which still contains old firmware and logic,
-you will first need to erase its EEPROM. Flashy automatically detects
-when this is the case and offers you the option. Take a look at
-[Section
-1](#section-1-erasing-the-eeprom) for detailed instructions.
-
-If you have a device with an empty EEPROM, the first thing to do then is
-to upload a temporary firmware, which is then used to write the new,
-final firmware to EEPROM and upload the new logic. Please see
-[Section
-2](#section-2-uploading-firmware-for-the-first-time) for details
-on this.
-
-Once you have a running, new firmware, you can just update the firmware
-or logic with a new revision at the click of a button. See
-[Section
-3](#section-3-uploading-new-firmware-and-new-logic) for details.
-
 ## Launching Flashy
 
-Flashy is launched by executing the jar file:
+Flashy is launched by executing the JAR file:
 
-> Flashy-0.9.8-jar-with-dependencies.jar
+> Flashy-1.1.0-jar-with-dependencies.jar
 
-To execute this JAR, on Windows it should work to just double-click it.
-On Linux or Mac Os X, open a shell prompt and enter:
+To execute this JAR, on Windows just double-click it.
+On Linux or Mac OS X, open a shell prompt and enter:
 
-> java -jar Flashy-0.9.8-jar-with-dependencies.jar
+> java -jar Flashy-1.1.0-jar-with-dependencies.jar
 
-Note: Make sure that jAER or cAER are not running at the same time!
+Note: ensure that jAER or cAER are not running at the same time!
 
 ## Selecting a device
 
 Any operation in Flashy requires the user to select the appropriate
-device in the upper-left drop-down menu. If the desired device is not
-present as expected in later steps, this may be for the following
-reasons:
+device in the upper-left drop-down menu.
+If only one device is found, it is automatically selected.
+If the desired device is not present as expected in later steps, this
+may be for the following reasons:
 
 ### Linux
 
 The permissions aren’t configured correctly for that user to access the
-device. To fix this problem in Linux, you just need to add an udev rules
-file and reload udev.
-
-You must grant your user access to the USB device. This can be achieved
-by creating, as root, the appropriate udev rules files:
+device. You must grant your user access to the USB device.
+The appropriate udev files have to be installed first.
+Our libcaer packages for Fedora, Ubuntu and Gentoo already provide these
+files automatically, and libcaer compiled from source will also try to
+install them into the appropriate location.
+If you're not using libcaer, or want to add the files manually,
+this can be achieved by creating, as root, the appropriate udev rules files:
 
 ```bash
     /etc/udev/rules.d/65-inivation.rules
@@ -142,11 +100,11 @@ by creating, as root, the appropriate udev rules files:
     /etc/udev/rules.d/66-inivation_dev.rules
 ```
 
-You can find ready-to-use udev rules files in <!--TO CHANGE--> [our Git
+You can find ready-to-use udev rules files in [our Git
 repository](https://github.com/inivation/devices-bin/tree/master/drivers/linux/udev-rules).
 
 If you’re using a distribution that supports SELinux tags, such as
-Fedora, please use the udev rules files in the selinux/ sub-folder.
+Fedora or Ubuntu, please use the udev rules files in the selinux/ sub-folder.
 
 To reload the udev system without rebooting type, as root:
 
@@ -167,29 +125,28 @@ Now unplug and replug the camera into your computer. You’re done!
 If the desired device is not present it may be that the right driver
 isn’t installed on Windows (WinUSB driver).
 
-You may see for example, the message: “Impossible to open device …”. In
-this case, even if your device shows up as a WinUsb device in the device
+You may see for example, the message: “Impossible to open device ...”. In
+this case, even if your device shows up as a WinUSB device in the device
 manager you will need to use zadig to update the driver. You may have an
 older WinUSB driver or even an experimental libusb driver that can work
-sometimes but cause problems, for example in Windows 10 x64 with jAER
-1.5, frames from Davis cameras can stop being transferred using some of
+sometimes but cause problems, for example in Windows 10 with jAER,
+frames from DAVIS cameras can stop being transferred using some of
 these experimental drivers.
 
-If you were previously using our old firmware, you probably have the
+If you were previously using our old firmware (pre-2014, almost only
+early DVS128 users), you probably have the
 Thesycon UsbIO driver installed for your camera device. This must be
 substituted with the WinUSB driver (standard USB driver from Microsoft).
 Fortunately, doing so is easy with the Zadig tool.
 
-Zadig is available from [its official
-website](http://zadig.akeo.ie/).
+Zadig is available from [its official website](http://zadig.akeo.ie/).
 
 Once you start Zadig, you should see a list of devices. If not, go to
 options and tick “List all devices”. Make sure you choose the correct
 device (not for instance your mouse!).
 
 Then click *Install WCID Driver* to install the WinUSB driver:
-([WCID
-devices](https://github.com/pbatard/libwdi/wiki/WCID-Devices) are
+([WCID devices](https://github.com/pbatard/libwdi/wiki/WCID-Devices) are
 installed automatically for new instances of devices plugged into the
 computer).
 
@@ -205,7 +162,7 @@ You will be notified once done.
 <p align="center"><img src="media/flashy_zadig_driver_installed.png" width="500" /></p>
 
 You should now see the correct driver (WinUSB Generic Device) in the
-Device Manager. The llibUSB and libUSBK drivers should NOT be installed;
+Device Manager. The libUSB and libUSBK drivers should NOT be installed;
 they are intended for development of applications using the libusb-win32
 or libusbK APIs.
 
@@ -213,7 +170,7 @@ or libusbK APIs.
 
 1.  We have seen that in some cases, after taking these steps, you
     need to restart your computer in order for Flashy to not give the
-    “Impossible to open device....” message.
+    “Impossible to open device ...” message.
 2.  We have also seen that Zadig does not list the device even when it
     is shown as “Unknown Device” in the Device Manager. In this case,
     you may need to extract the WinUSB driver manually. In Zadig,
@@ -244,13 +201,47 @@ below; this is OK.
 
 <p align="center"><img src="media/flashy_zadig_driver_install_identification.png" width="500" /></p>
 
+## Automatic Upgrade
+
+This is the standard, recommended way of using Flashy.
+As soon as Flashy starts up, it will present you with the 'Basic' tab:
+
+<p align="center"><img src="media/flashy_basic_view.png" width="700" /></p>
+
+The first line of text summarizes information about your device.
+If your firmware or logic versions are obsolete, you will see an appropriate
+message, as well as a button to 'Upgrade Firmware' or 'Upgrade Logic'.
+Press the button to start the upgrade process and wait until it is completed.
+Then unplug and re-plug your device to complete the upgrade, you're done!
+
+
+## Manual Upgrade
+
+Please note this is not recommended for standard use-cases.
+To do simple upgrades, please follow the [Guided Upgrade](#guided-upgrade) instructions.
+
+If you have an older device which still contains old firmware and logic,
+you will first need to erase its EEPROM. Flashy automatically detects
+when this is the case and offers you the option. Take a look at
+[Section 1](#section-1-erasing-the-eeprom) for detailed instructions.
+
+If you have a device with an empty EEPROM, the first thing to do then is
+to upload a temporary firmware, which is then used to write the new,
+final firmware to EEPROM and upload the new logic. Please see
+[Section 2](#section-2-uploading-firmware-for-the-first-time) for details
+on this.
+
+Once you have a running, new firmware, you can just update the firmware
+or logic with a new revision at the click of a button. See
+[Section 3](#section-3-uploading-new-firmware-and-new-logic) for details.
+
 ## Section 1: erasing the EEPROM
 
 Connect your device and launch Flashy, then select your device from the
 drop-down menu at the top left. Devices that still run the older
 firmware will usually appear as “INI SeeBetter null”.
 
-Navigate then to the “Device Specific” tab on the right.
+Navigate then to the “Advanced” tab on the right.
 
 <p align="center"><img src="media/flashy_erase_eeprom.png" width="500" /></p>
 
@@ -274,7 +265,7 @@ Connect your device and launch Flashy, then select your device from the
 drop-down menu at the top left. Devices without firmware will usually
 appear as “null null null”.
 
-Navigate then to the “Device Specific” tab on the right.
+Navigate then to the “Advanced” tab on the right.
 
 <p align="center"><img src="media/flashy_upload_firmware.png" width="500" /></p>
 
@@ -305,7 +296,7 @@ Connect your device and launch Flashy, then select your device from the
 drop-down menu at the top left. Devices will usually appear as “INI
 DAVIS FX2”, followed by their serial number.
 
-Navigate then to the “Device Specific” tab on the right.
+Navigate then to the “Advanced” tab on the right.
 
 <p align="center"><img src="media/flashy_upload_firmware_logic.png" width="500" /></p>
 
