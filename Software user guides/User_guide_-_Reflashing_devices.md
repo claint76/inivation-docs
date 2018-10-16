@@ -109,13 +109,13 @@ Fedora or Ubuntu, please use the udev rules files in the selinux/ sub-folder.
 To reload the udev system without rebooting type, as root:
 
 ```bash
-    $ udevadm control --reload-rules
+udevadm control --reload-rules
 ```
 
 or, for newer udev versions:
 
 ```bash
-    $ udevadm control --reload
+udevadm control --reload
 ```
 
 Now unplug and replug the camera into your computer. You’re done!

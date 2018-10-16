@@ -124,15 +124,21 @@ TAG+="uaccess"
 ```
 To reload the udev system without rebooting type, as root:
 
-> $ udevadm control --reload-rules
+```bash
+udevadm control --reload-rules
+```
 
 or, for newer udev versions:
 
-> $ udevadm control --reload
+```bash
+udevadm control --reload
+```
 
 Sometimes, it may also help to run:
 
-> $ udevadm control --trigger
+```bash
+$ udevadm control --trigger
+```
 
 Or otherwise reboot.
 
