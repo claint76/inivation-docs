@@ -1,6 +1,4 @@
 # User Guide - libcaer
-> *For more information, visit [iniVation support](https://inivation.com/support/)*
----
 
 ## Table of contents
 - [What is libcaer?](#what-is-libcaer)
@@ -25,14 +23,13 @@ defining event formats and a few functions for device control.
 
 It is intended to be used for integration into existing frameworks and
 code, also thanks to its open BSD license. If you don't have any
-existing code you need to work with, we recommend using the <!--TO CHANGE--> [cAER
+existing code you need to work with, we recommend using the [cAER
 framework](https://inivation.com/support/software/caer/),
 which adds a lot of useful functionality on top, such as configuration
 management, logging, modularity and provides ready-to-use modules for
 data processing and data visualization.
 
-See [this inivation [software
-comparison](https://inivation.com/support/software/) for
+See this [software comparison](https://inivation.com/support/software/) for
 more information about different software frameworks and libraries that
 are available to interact with neuromorphic devices.
 
@@ -45,28 +42,27 @@ Ubuntu, as well as for MacOS X via Homebrew.
 
 #### Fedora Linux
 
-We provide a <!--TO CHANGE--> [COPR
-repository](https://copr.fedorainfracloud.org/coprs/llongi/inivation/)
-for Fedora 25, 26, 27 and rawhide on the x86 and x86_64 architectures.
+We provide a [COPR repository](https://copr.fedorainfracloud.org/coprs/llongi/inivation/)
+for Fedora 27, 28 and rawhide on the x86 and x86_64 architectures.
 
 Please execute the following commands to use it and install libcaer:
 
 ```bash
-    $ sudo dnf copr enable llongi/inivation
+$ sudo dnf copr enable llongi/inivation
 
-    $ sudo dnf install libcaer
+$ sudo dnf install libcaer-devel
 ```
 
 #### Gentoo Linux
 
-A valid Gentoo ebuild repository is available at <!--TO CHANGE--> [gentoo inivation](https://github.com/inivation/gentoo-inivation/) over
-Git. The package is 'dev-libs/libcaer'.
+A valid Gentoo ebuild repository is available [here](https://gitlab.com/inivation/gentoo-inivation/)
+over Git. The package is 'dev-libs/libcaer'.
 
 #### Ubuntu Linux
 
-We provide a <!--TO CHANGE--> [PPA repository](https://launchpad.net/~llongi/+archive/ubuntu/inivation)
-for Ubuntu Trusty (14.04 LTS), Xenial (16.04 LTS), Zesty (17.04) and
-Artful (17.10) on the x86, x86_64, arm and arm64 architectures.
+We provide a [PPA repository](https://launchpad.net/~llongi/+archive/ubuntu/inivation)
+for Ubuntu Trusty (14.04 LTS), Xenial (16.04 LTS), Bionic (18.04 LTS) and Cosmic (18.10)
+on the x86, x86_64, arm and arm64 architectures.
 
 Please execute the following commands to use it and install libcaer:
 
@@ -75,41 +71,41 @@ $ sudo add-apt-repository ppa:llongi/inivation
 
 $ sudo apt-get update
 
-$ sudo apt-get install libcaer
+$ sudo apt-get install libcaer-dev
 ```
 
-Windows, MacOS X and other Linux distribution users, please follow the
-'[Manual Installation](#manual-installation)' instructions
-below.
+For other Linux distributions, please follow the
+[Manual Installation](#manual-installation) instructions below.
 
 #### MacOS X
 
-We provide a <!--TO CHANGE--> [Homebrew tap](https://github.com/inivation/homebrew-inivation/) for
+We provide a [Homebrew tap](https://gitlab.com/inivation/homebrew-inivation/) for
 MacOS X. Install [Homebrew](https://brew.sh/) and then
 please execute the following commands to install libcaer:
 
 ```bash
 $ brew tap inivation/inivation
+
 $ brew install libcaer --with-libserialport --with-opencv
 ```
 
 ### Manual Installation
 
-Please read the main <!--TO CHANGE--> [README](https://github.com/inivation/libcaer/blob/master/README)
+Please read the main [README](https://gitlab.com/inivation/libcaer/blob/master/README)
 file carefully, it explains all steps for manual installation on Linux
-and MacOS X systems. For Windows users, the additional file <!--TO CHANGE--> [README.Windows](https://github.com/inivation/libcaer/blob/master/README.Windows)
+and MacOS X systems. For Windows users, the additional file [README.Windows](https://gitlab.com/inivation/libcaer/blob/master/README.Windows)
 explains all the steps needed to get libcaer installed there.
 
 Building libcaer requires some dependencies to be installed, see the
-*REQUIREMENTS* section in the <!--TO CHANGE--> [README](https://github.com/inivation/libcaer/blob/master/README)
+*REQUIREMENTS* section in the [README](https://gitlab.com/inivation/libcaer/blob/master/README)
 file. You will need to find and install those using your system's
 package manager, some examples are provided for Fedora Linux, Ubuntu
 Linux and MacOS X (using Homebrew).
 
 ## Usage
 
-A full API documentation can be found at <!--TO CHANGE--> [libcaer API html](https://inivation.github.io/libcaer/) as HTML (or <!--TO CHANGE-->[libcaer API pdf](https://github.com/inivation/libcaer/raw/master/docs/libcaer_api_manual.pdf)
-in PDF format).
+A full API documentation can be found [in HTML format](https://inivation.github.io/libcaer/) or
+[in PDF format](https://gitlab.com/inivation/libcaer/raw/master/docs/libcaer_api_manual.pdf).
 
-Also be sure to take a look at the <!--TO CHANGE--> [README](https://github.com/inivation/libcaer/blob/master/README)
+Also be sure to take a look at the [README](https://gitlab.com/inivation/libcaer/blob/master/README)
 file and the examples/ directory.
