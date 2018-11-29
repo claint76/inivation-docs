@@ -12,9 +12,9 @@ interfacing with the sensor chip, and another chip for communication via USB
   - “logic” refers to the programmable logic.
 
 **PLEASE NOTE:**
-**- THE LATEST FLASHY VERSION IS 1.3.0.**
-**- THE LATEST FIRMWARE VERSION IS 5 FOR FX3 DEVICES (DAVIS346), 4 FOR FX2 DEVICES (DAVIS240).**
-**- THE LATEST LOGIC VERSION IS 18 (after 9912 we have reset the numbering scheme!).**
+- **THE LATEST FLASHY VERSION IS 1.3.0.**
+- **THE LATEST FIRMWARE VERSION IS 5 FOR FX3 DEVICES (DAVIS346), 4 FOR FX2 DEVICES (DAVIS240).**
+- **THE LATEST LOGIC VERSION IS 18 (after 9912 we have reset the numbering scheme!).**
 
 
 ## Table of contents
