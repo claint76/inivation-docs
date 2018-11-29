@@ -11,10 +11,10 @@ interfacing with the sensor chip, and another chip for communication via USB
   - “firmware” refers to the programming of the USB communication chip;
   - “logic” refers to the programmable logic.
 
-PLEASE NOTE:
-- THE LATEST FLASHY VERSION IS 1.2.0.
-- THE LATEST FIRMWARE VERSION IS 4.
-- THE LATEST LOGIC VERSION IS 16 (after 9912 we have reset the numbering scheme!).
+**PLEASE NOTE:**
+**- THE LATEST FLASHY VERSION IS 1.3.0.**
+**- THE LATEST FIRMWARE VERSION IS 5 FOR FX3 DEVICES (DAVIS346), 4 FOR FX2 DEVICES (DAVIS240).**
+**- THE LATEST LOGIC VERSION IS 18 (after 9912 we have reset the numbering scheme!).**
 
 
 ## Table of contents
@@ -55,9 +55,9 @@ technologies such as JavaFX. Please make sure to install at least Java
 version 1.8.0 u40. The version requirement is verified at startup.
 A directly runnable JAR can be found at:
 
-[https://gitlab.com/inivation/flashy/tags/1.2.0](https://gitlab.com/inivation/flashy/tags/1.2.0)
+[https://gitlab.com/inivation/flashy/tags/1.3.0](https://gitlab.com/inivation/flashy/tags/1.3.0)
 
-The latest official version is 1.2.0.
+The latest official version is 1.3.0.
 Download the -with-dependencies JAR file for easy deployment.
 
 # How to use Flashy
@@ -66,12 +66,12 @@ Download the -with-dependencies JAR file for easy deployment.
 
 Flashy is launched by executing the JAR file:
 
-> Flashy-1.2.0-jar-with-dependencies.jar
+> Flashy-1.3.0-jar-with-dependencies.jar
 
 To execute this JAR, on Windows just double-click it.
 On Linux or Mac OS X, open a shell prompt and enter:
 
-> java -jar Flashy-1.2.0-jar-with-dependencies.jar
+> java -jar Flashy-1.3.0-jar-with-dependencies.jar
 
 Note: ensure that jAER or cAER are not running at the same time!
 
@@ -213,7 +213,6 @@ If your firmware or logic versions are obsolete, you will see an appropriate
 message, as well as a button to 'Upgrade Firmware' or 'Upgrade Logic'.
 Press the button to start the upgrade process and wait until it is completed.
 Then unplug and re-plug your device to complete the upgrade, you're done!
-
 
 ## Manual Upgrade
 
@@ -396,8 +395,8 @@ following image, please get in touch with us at
 | DAVIS240C          | [SeeBetterLogic_DAVIS.iic](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)                       | [SystemLogic2_MachXO_DAVIS240c.xsvf](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c.xsvf) |
 | DAVIS240B          | [SeeBetterLogic_DAVIS.iic](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)                       | [SystemLogic2_MachXO_DAVIS240b.xsvf](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b.xsvf) |
 | DAVIS240A          | [SeeBetterLogic_DAVIS.iic](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS.iic)                       | [SystemLogic2_MachXO_DAVIS240a.xsvf](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a.xsvf) |
-| DAVIS346 Blue      | [DAVIS_Blue_346_80MHz_16bit_v4.img](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX3/DAVIS_Blue_346_80MHz_16bit_v4.img)     | [SystemLogic2_MachXO3_Blue_DAVIS346.bit](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS_Blue/SystemLogic2_MachXO3_Blue_DAVIS346.bit) |
-| DAVIS346 Red       | [DAVIS_Red_346_80MHz_16bit_v4.img](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX3/DAVIS_Red_346_80MHz_16bit_v4.img)     | [SystemLogic2_MachXO3_Red_DAVIS346.bit](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS_Red/SystemLogic2_MachXO3_Red_DAVIS346.bit) |
-| DevKit FX3 USB 3.0 | [DAVIS_FX3_DevKit_80MHz_16bit_v4.img](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX3/DAVIS_FX3_DevKit_80MHz_16bit_v4.img) | Daughter Board - Chip V10 - DAVIS640 -> [SystemLogic2_ECP3_DAVIS640.bit](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit) |
+| DAVIS346 Blue      | [DAVIS_Blue_346_80MHz_16bit_v5.img](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX3/DAVIS_Blue_346_80MHz_16bit_v5.img)     | [SystemLogic2_MachXO3_Blue_DAVIS346.bit](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS_Blue/SystemLogic2_MachXO3_Blue_DAVIS346.bit) |
+| DAVIS346 Red       | [DAVIS_Red_346_80MHz_16bit_v5.img](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX3/DAVIS_Red_346_80MHz_16bit_v5.img)       | [SystemLogic2_MachXO3_Red_DAVIS346.bit](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO3_DAVIS_Red/SystemLogic2_MachXO3_Red_DAVIS346.bit) |
+| DevKit FX3 USB 3.0 | [DAVIS_DevKit_80MHz_16bit_v5.img](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX3/DAVIS_DevKit_80MHz_16bit_v5.img)         | Daughter Board - Chip V10 - DAVIS640 -> [SystemLogic2_ECP3_DAVIS640.bit](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS640.bit) |
 |                    |                                                                                                                                                    | Daughter Board - Chip V9 - DAVIS346B -> [SystemLogic2_ECP3_DAVIS346b.bit](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346b.bit) |
 |                    |                                                                                                                                                    | Daughter Board - Chip V8 - DAVIS346Cbsi -> [SystemLogic2_ECP3_DAVIS346cBSI.bit](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/ECP3_DAVIS/SystemLogic2_ECP3_DAVIS346cBSI.bit) |
