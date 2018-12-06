@@ -12,7 +12,7 @@ interfacing with the sensor chip, and another chip for communication via USB
   - “logic” refers to the programmable logic.
 
 **PLEASE NOTE:**
-- **THE LATEST FLASHY VERSION IS 1.3.0.**
+- **THE LATEST FLASHY VERSION IS 1.3.1.**
 - **THE LATEST FIRMWARE VERSION IS 5 FOR FX3 DEVICES (DAVIS346), 4 FOR FX2 DEVICES (DAVIS240).**
 - **THE LATEST LOGIC VERSION IS 18 (after 9912 we have reset the numbering scheme!).**
 
@@ -55,9 +55,9 @@ technologies such as JavaFX. Please make sure to install at least Java
 version 1.8.0 u40. The version requirement is verified at startup.
 A directly runnable JAR can be found at:
 
-[https://gitlab.com/inivation/flashy/tags/1.3.0](https://gitlab.com/inivation/flashy/tags/1.3.0)
+[https://gitlab.com/inivation/flashy/tags/1.3.1](https://gitlab.com/inivation/flashy/tags/1.3.1)
 
-The latest official version is 1.3.0.
+The latest official version is 1.3.1.
 Download the -with-dependencies JAR file for easy deployment.
 
 # How to use Flashy
@@ -66,12 +66,12 @@ Download the -with-dependencies JAR file for easy deployment.
 
 Flashy is launched by executing the JAR file:
 
-> Flashy-1.3.0-jar-with-dependencies.jar
+> Flashy-1.3.1-jar-with-dependencies.jar
 
 To execute this JAR, on Windows just double-click it.
 On Linux or Mac OS X, open a shell prompt and enter:
 
-> java -jar Flashy-1.3.0-jar-with-dependencies.jar
+> java -jar Flashy-1.3.1-jar-with-dependencies.jar
 
 Note: ensure that jAER or cAER are not running at the same time!
 
