@@ -17,11 +17,13 @@ interfacing with the sensor chip, and another chip for communication via USB
 - **THE LATEST LOGIC VERSION IS 18 (after 9912 we have reset the numbering scheme!).**
 
 **Software Compatibility Table**
+
 | libcaer version | jAER version | firmware version | logic version |
-|-----------------|--------------|------------------|---------------|
+| --------------- | ------------ | ---------------- | ------------- |
 | 3.1.0           | 1.7.2        | 5 (FX3), 4 (FX2) | 18            |
 | 3.0.0           | 1.7.1, 1.7.0 | 4                | 16            |
 | 2.5.X, 2.4.X    | 1.6.X        | 4                | 9912          |
+
 
 ## Table of contents
 - [What is Flashy?](#what-is-flashy)
