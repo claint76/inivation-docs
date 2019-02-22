@@ -122,7 +122,7 @@ and its size at various distances for different common focal lengths.
 
 All connectors on the DAVIS346 RED are located on the back.
 
-<p align="center"><img src="media/davis346/davis346_red_back_connectors.png" width="400"/></p>
+<p align="center"><img src="media/davis346/davis346_red_back_connectors2.png" width="400"/></p>
 
 A USB 3 microB connector with screws provides robust data connectivity.
 
@@ -136,6 +136,9 @@ Cables can be ordered from various suppliers, we recommend:
 [Raymo Connectors](https://www.alibaba.com/product-detail/HR10A-male-and-female-4P-cable_60631952696.html)
 
 Please note that to keep full electrical isolation between different cameras, the cable should not be shielded, or if it is, the shield should not connect one end of the cable to the other.
+
+Synchronization connectors pinout is shown in the image below. Please note that all the pins in the SYNC IN ports are isolated from the SYNC OUT ports.
+<p align="center"><img src="media/davis346/davis346_red_sync_connectors_pinout.png" width="800"/></p>
 
 ## Dimensions
 
