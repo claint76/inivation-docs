@@ -43,7 +43,7 @@ Ubuntu, as well as for MacOS X via Homebrew.
 #### Fedora Linux
 
 We provide a [COPR repository](https://copr.fedorainfracloud.org/coprs/llongi/inivation/)
-for Fedora 27, 28 and rawhide on the x86 and x86_64 architectures.
+for Fedora 28, 29, 30 and rawhide on the x86 and x86_64 architectures.
 
 Please execute the following commands to use it and install libcaer:
 
@@ -61,8 +61,8 @@ over Git. The package is 'dev-libs/libcaer'.
 #### Ubuntu Linux
 
 We provide a [PPA repository](https://launchpad.net/~llongi/+archive/ubuntu/inivation)
-for Ubuntu Trusty (14.04 LTS), Xenial (16.04 LTS), Bionic (18.04 LTS) and Cosmic (18.10)
-on the x86, x86_64, arm and arm64 architectures.
+for Ubuntu Xenial (16.04 LTS), Bionic (18.04 LTS) and Disco (19.04)
+on the x86, x86_64, armhf and arm64 architectures (armhf/arm64 only supported on Disco).
 
 Please execute the following commands to use it and install libcaer:
 
@@ -104,8 +104,7 @@ Linux and MacOS X (using Homebrew).
 
 ## Usage
 
-A full API documentation can be found [in HTML format](https://inivation.github.io/libcaer/) or
-[in PDF format](https://gitlab.com/inivation/libcaer/raw/master/docs/libcaer_api_manual.pdf).
+A full API documentation can be found [here](https://inivation.gitlab.io/libcaer/) (HTML format).
 
 Also be sure to take a look at the [README](https://gitlab.com/inivation/libcaer/blob/master/README)
 file and the examples/ directory.
