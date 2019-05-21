@@ -64,7 +64,7 @@ to download the appropriate ZIP for your platform.
 
 [Linux 64bit build](https://gitlab.com/inivation/flashy/-/jobs/artifacts/1.4.0/download?job=build_linux)
 
-[MacOS X 64bit build](https://gitlab.com/inivation/flashy/-/jobs/artifacts/1.4.0/download?job=build_mac)
+[MacOS X 64bit build](https://gitlab.com/inivation/flashy/-/jobs/artifacts/1.4.0/download?job=build_macos)
 
 [Windows 64bit build](https://gitlab.com/inivation/flashy/-/jobs/artifacts/1.4.0/download?job=build_windows)
 
@@ -75,11 +75,11 @@ to download the appropriate ZIP for your platform.
 Flashy is launched by executing the 'flashy' binary.
 Unzip the archive you downloaded in the previous step and run:
 
-On Linux - execute flashy-linux/bin/flashy
+On Linux - execute flashy-linux-1.4.0/bin/flashy
 
-On MacOS X - execute flashy-macos/bin/flashy
+On MacOS X - execute flashy-macos-1.4.0/bin/flashy
 
-On Windows - execute flashy-windows/bin/flashy.bat
+On Windows - execute flashy-windows-1.4.0/bin/flashy.bat
 
 Note: ensure that jAER or cAER are not running at the same time!
 
