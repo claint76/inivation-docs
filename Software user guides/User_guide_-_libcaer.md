@@ -42,13 +42,13 @@ Ubuntu, as well as for MacOS X via Homebrew.
 
 #### Fedora Linux
 
-We provide a [COPR repository](https://copr.fedorainfracloud.org/coprs/llongi/inivation/)
+We provide a [COPR repository](https://copr.fedorainfracloud.org/coprs/inivation/inivation/)
 for Fedora 28, 29, 30 and rawhide on the x86 and x86_64 architectures.
 
 Please execute the following commands to use it and install libcaer:
 
 ```bash
-$ sudo dnf copr enable llongi/inivation
+$ sudo dnf copr enable inivation/inivation
 
 $ sudo dnf install libcaer-devel
 ```
@@ -60,14 +60,14 @@ over Git. The package is 'dev-libs/libcaer'.
 
 #### Ubuntu Linux
 
-We provide a [PPA repository](https://launchpad.net/~llongi/+archive/ubuntu/inivation)
+We provide a [PPA repository](https://launchpad.net/~inivation/+archive/ubuntu/inivation)
 for Ubuntu Xenial (16.04 LTS), Bionic (18.04 LTS) and Disco (19.04)
 on the x86, x86_64, armhf and arm64 architectures (armhf/arm64 only supported on Disco).
 
 Please execute the following commands to use it and install libcaer:
 
 ```bash
-$ sudo add-apt-repository ppa:llongi/inivation
+$ sudo add-apt-repository ppa:inivation/inivation
 
 $ sudo apt-get update
 
