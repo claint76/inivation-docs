@@ -67,7 +67,7 @@ on the x86, x86_64, armhf and arm64 architectures (armhf/arm64 only supported on
 Please execute the following commands to use it and install libcaer:
 
 ```bash
-$ sudo add-apt-repository ppa:inivation/inivation
+$ sudo add-apt-repository ppa:inivation-ppa/inivation
 
 $ sudo apt-get update
 
