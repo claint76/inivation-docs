@@ -137,6 +137,8 @@ Cables can be ordered from various suppliers, we recommend:
 
 Please note that to keep full electrical isolation between different cameras, the cable should not be shielded, or if it is, the shield should not connect one end of the cable to the other.
 
+Input signals can be 3.3V or 5V, depending on the VDD_IN supplied externally, output signals are 3.3V, as is VDD_OUT. If you chain cameras together for synchronization, the clock and VDD will be 3.3V, for example.
+
 Synchronization connectors pinout is shown in the image below. Please note that all the pins in the SYNC IN ports are isolated from the SYNC OUT ports.
 <p align="center"><img src="media/davis346/davis346_red_sync_connectors_pinout.png" width="800"/></p>
 

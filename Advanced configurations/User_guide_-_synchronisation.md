@@ -12,6 +12,7 @@ dynamic vision and audio sensors when using them together.
   - [DAVIS240 synchronisation](#davis240-synchronisation)
     - [External input events](#external-input-events)
     - [Timestamp synchronization](#timestamp-synchronization)
+  - [DAVIS346 synchronisation](#davis346-synchronisation)
 - [Synchronising devices of different types](#synchronising-devices-of-different-types)
 
 ## Device synchronisation overview
@@ -19,9 +20,10 @@ dynamic vision and audio sensors when using them together.
 The following prototypes deliver packets of timestamped address-events
 over USB:
 
--   [DVS128](#dvs128-synchronisation)
--   [DAVIS240](#davis240-synchronisation)
--   <!--TO CREATE-->DAVIS USB3 Dev Kit
+- [DVS128](#dvs128-synchronisation)
+- [DAVIS240](#davis240-synchronisation)
+- [DAVIS346](#davis346-synchronisation)
+- DAVIS USB3 Dev Kit
 
 In order to utilize the timestamps from more than one device, either
 live or offline, in an application where precise timing of events is
@@ -243,7 +245,7 @@ the master to issue a timestamp reset so all devices have a common
 starting point. To do this:
 
 -   From jAER: press "0" (zero) in the jAER window which controls the master;
--   in cAER: toggle /1/DAVIS-FX2/multiplexer/TimestampReset.
+-   in dv-gui: go to the camera module configuration and search for 'TimestampReset'.
 
 We did an experiment using 150m of untwisted 2-conductor cable to
 synchronize two DAVIS240C cameras. The cable was soldered to a
@@ -253,11 +255,14 @@ blinking LED bike light and was bouncing a tennis ball.
 
 <p align="center"><img src="media/synchronisation_DAVIS240_ex1.png" width="600"/></p>
 
-See [this video of the synchronized
-playback](https://youtu.be/E7TQBlZ8rJ0) of the recorded
+See [this video of the synchronized playback](https://youtu.be/E7TQBlZ8rJ0) of the recorded
 video.
 
 <p align="center"><img src="media/synchronisation_DAVIS240_ex2.png" width="600"/></p>
+
+### DAVIS346 synchronisation
+
+Please see our DAVIS346 guide, section Connectors.
 
 ## Synchronising devices of different types
 
@@ -266,10 +271,10 @@ protocol](#synchronisation-protocol-and-event-injection)
 for synchronization. The only difference between devices is the voltage
 of the involved signals.
 
--   DVS128 use 3.3V.
--   DAVIS240 uses 5V.
--   The FX3 development boards can use both 3.3V and 5V, selectable via
-    a jumper.
+- DVS128 use 3.3V.
+- DAVIS240 uses 5V.
+- The FX3 development boards can use both 3.3V and 5V, selectable via a jumper.
+- The DAVIS346 can take both 3.3V and 5V as input, and only outputs 3.3V.
 
 Given the different signal voltages, a DAVIS240 cannot be connected
 directly to a DVS128. While having it act as a slave and receive
