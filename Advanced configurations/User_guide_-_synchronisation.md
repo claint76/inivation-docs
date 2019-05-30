@@ -274,7 +274,7 @@ of the involved signals.
 - DVS128 use 3.3V.
 - DAVIS240 uses 5V.
 - The FX3 development boards can use both 3.3V and 5V, selectable via a jumper.
-- The DAVIS346 can take both 3.3V and 5V as input, and only outputs 3.3V.
+- The DAVIS346 can take both 3.3V and 5V as input, and only outputs 5V.
 
 Given the different signal voltages, a DAVIS240 cannot be connected
 directly to a DVS128. While having it act as a slave and receive
