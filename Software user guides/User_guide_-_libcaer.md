@@ -23,8 +23,8 @@ defining event formats and a few functions for device control.
 
 It is intended to be used for integration into existing frameworks and
 code, also thanks to its open BSD license. If you don't have any
-existing code you need to work with, we recommend using the [cAER
-framework](https://inivation.com/support/software/caer/),
+existing code you need to work with, we recommend using the [Dynamic Vision
+(DV) framework](https://inivation.gitlab.io/dv-docs/),
 which adds a lot of useful functionality on top, such as configuration
 management, logging, modularity and provides ready-to-use modules for
 data processing and data visualization.

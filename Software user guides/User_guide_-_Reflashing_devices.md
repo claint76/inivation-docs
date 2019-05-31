@@ -81,7 +81,7 @@ On MacOS X - execute flashy-macos-1.4.0/bin/flashy
 
 On Windows - execute flashy-windows-1.4.0/bin/flashy.bat
 
-Note: ensure that jAER or cAER are not running at the same time!
+Note: ensure that jAER or dv-runtime/dv-gui are not running at the same time!
 
 ## Selecting a device
 
