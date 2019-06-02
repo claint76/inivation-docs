@@ -4,6 +4,7 @@
 - [What is libcaer?](#what-is-libcaer)
 - [Installation](#installation)
   - [Automated Installation](#automated-installation)
+    - [Arch Linux](#arch-linux)
     - [Fedora Linux](#fedora-linux)
     - [Gentoo Linux](#gentoo-linux)
     - [Ubuntu Linux](#ubuntu-linux)
