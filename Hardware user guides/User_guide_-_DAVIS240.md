@@ -46,7 +46,7 @@ page](https://inivation.com/wp-content/uploads/2018/01/DVS-Specifications.pdf).
 
 The DAVIS240 cameras are USB devices.
 
-The camera output can be processed by jAER or cAER or libcaer; see
+The camera output can be processed by DV, jAER or libcaer; see
 [inivation software user guides](https://inivation.com/support/software/). The Getting
 Started guide here covers use in jAER.
 
@@ -373,7 +373,7 @@ window:
 
 Alternatively, you can enable AER external control using libcaer as
 shown in this C++ code example
-[here](https://github.com/inivation/libcaer/blob/master/examples/davis_enable_aer.cpp).
+[here](https://gitlab.com/inivation/libcaer/blob/master/examples/davis_enable_aer.cpp).
 
 ## Firmware upgrades
 

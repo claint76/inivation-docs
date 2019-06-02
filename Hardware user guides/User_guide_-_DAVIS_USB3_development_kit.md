@@ -38,7 +38,7 @@ results out of your prototype, obtain the latest version of the jAER
 software and preferably use an integrated developer environment (IDE)
 (e.g. netbeans) to run the latest code base.
 
-The camera output can be processed by jAER or cAER or libcaer; see [inivation software user
+The camera output can be processed by DV, jAER or libcaer; see [inivation software user
 guides](https://inivation.com/support/software/). The Getting
 Started guide here covers use in jAER.
 
@@ -241,7 +241,7 @@ guide](https://inivation.com/support/software/reflashing/).
 
 Examples of DAVIS640 mono camera outputs are reported below:
 
-- With default cAER bias settings
+- With default bias settings
 
 <p align="center"><img src="media/DAVIS_usb3_dev_kit_example1.png" width="700"/></p>
 
