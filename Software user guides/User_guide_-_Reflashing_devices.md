@@ -96,9 +96,9 @@ may be for the following reasons:
 The permissions aren’t configured correctly for that user to access the
 device. You must grant your user access to the USB device.
 The appropriate udev files have to be installed first.
-Our libcaer packages for Fedora, Ubuntu and Gentoo already provide these
+Our libcaer packages for Fedora, Ubuntu, Arch and Gentoo already provide these
 files automatically, and libcaer compiled from source will also try to
-install them into the appropriate location.
+install them into the appropriate location at /lib/udev/rules.d/.
 If you're not using libcaer, or want to add the files manually,
 this can be achieved by creating, as root, the appropriate udev rules files:
 

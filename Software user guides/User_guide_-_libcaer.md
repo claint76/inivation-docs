@@ -37,8 +37,12 @@ are available to interact with neuromorphic devices.
 
 ### Automated Installation
 
-We provide packages for the Linux distributions Fedora, Gentoo and
-Ubuntu, as well as for MacOS X via Homebrew.
+We provide full development packages for the Linux distributions Arch, Fedora, Gentoo and Ubuntu, as well as for MacOS X via Homebrew.
+
+#### Arch Linux
+
+You can find libcaer in the AUR repository.
+We also offer a libcaer-git package that builds from the latest Git master automatically.
 
 #### Fedora Linux
 
@@ -57,10 +61,11 @@ $ sudo dnf install libcaer-devel
 
 A valid Gentoo ebuild repository is available [here](https://gitlab.com/inivation/gentoo-inivation/)
 over Git. The package is 'dev-libs/libcaer'.
+We also offer a libcaer-9999 Git ebuild that builds from the latest Git master automatically.
 
 #### Ubuntu Linux
 
-We provide a [PPA repository](https://launchpad.net/~inivation/+archive/ubuntu/inivation)
+We provide a [PPA repository](https://launchpad.net/~inivation-ppa/+archive/ubuntu/inivation)
 for Ubuntu Xenial (16.04 LTS), Bionic (18.04 LTS) and Disco (19.04)
 on the x86, x86_64, armhf and arm64 architectures (armhf/arm64 only supported on Disco).
 
@@ -88,6 +93,8 @@ $ brew tap inivation/inivation
 
 $ brew install libcaer --with-libserialport --with-opencv
 ```
+
+Please note you can also pass --HEAD to build from the latest Git master automatically.
 
 ### Manual Installation
 

@@ -18,9 +18,9 @@ USB drivers and the libusb library.
 Permissions for the user running our software have to be configured
 correctly to access the device. You must grant the user access to the USB device.
 The appropriate udev files must be installed.
-Our libcaer packages for Fedora, Ubuntu and Gentoo already provide these
+Our libcaer packages for Arch, Fedora, Ubuntu and Gentoo already provide these
 files automatically, and libcaer compiled from source will also try to
-install them into the appropriate location.
+install them into the appropriate location at /lib/udev/rules.d/.
 If you're not using libcaer, or want to add the files manually,
 this can be achieved by creating, as root, the appropriate udev rules files:
 
