@@ -88,7 +88,7 @@ by creating, as root, an udev rule file such as:
 > /etc/udev/rules.d/65-inivation.rules
 
 You can find ready-to-use udev rules files in <!--TO CHANGE--> [our Git
-repository](https://github.com/inivation/devices-bin/tree/master/drivers/linux/udev-rules).
+repository](https://gitlab.com/inivation/devices-bin/tree/master/drivers/linux/udev-rules).
 Here they are:
 
 
