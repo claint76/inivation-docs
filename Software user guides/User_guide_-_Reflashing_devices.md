@@ -12,7 +12,7 @@ interfacing with the sensor chip, and another chip for communication via USB
   - “logic” refers to the programmable logic.
 
 **PLEASE NOTE:**
-- **THE LATEST FLASHY VERSION IS 1.4.0.**
+- **THE LATEST FLASHY VERSION IS 1.4.2.**
 - **THE LATEST FIRMWARE VERSION IS 6 FOR FX3 DEVICES (DAVIS346), 4 FOR FX2 DEVICES (DAVIS240).**
 - **THE LATEST LOGIC VERSION IS 18.1 (after 9912 we have reset the numbering scheme!).**
 
@@ -58,15 +58,15 @@ tool, named Flashy.
 
 # Getting Flashy
 
-The latest official version is 1.4.0. With the transition to Java 11,
+The latest official version is 1.4.2. With the transition to Java 11,
 we now bundle the Java Runtime with the software, so you'll only have
 to download the appropriate ZIP for your platform.
 
-[Linux 64bit build](https://gitlab.com/inivation/flashy/-/jobs/artifacts/1.4.0/download?job=build_linux)
+[Linux 64bit build](http://release.inivation.com/flashy/flashy-linux-1.4.2.tar.gz)
 
-[MacOS X 64bit build](https://gitlab.com/inivation/flashy/-/jobs/artifacts/1.4.0/download?job=build_macos)
+[MacOS X 64bit build](http://release.inivation.com/flashy/flashy-mac-1.4.2.zip)
 
-[Windows 64bit build](https://gitlab.com/inivation/flashy/-/jobs/artifacts/1.4.0/download?job=build_windows)
+[Windows 64bit build](http://release.inivation.com/flashy/flashy-win-1.4.2.zip)
 
 # How to use Flashy
 
@@ -75,11 +75,11 @@ to download the appropriate ZIP for your platform.
 Flashy is launched by executing the 'flashy' binary.
 Unzip the archive you downloaded in the previous step and run:
 
-On Linux - execute flashy-linux-1.4.0/bin/flashy
+On Linux - execute flashy-1.4.2/bin/flashy
 
-On MacOS X - execute flashy-macos-1.4.0/bin/flashy
+On MacOS X - execute flashy-mac-1.4.2/bin/flashy
 
-On Windows - execute flashy-windows-1.4.0/bin/flashy.bat
+On Windows - execute flashy-win-1.4.2/bin/flashy.bat
 
 Note: ensure that jAER or dv-runtime/dv-gui are not running at the same time!
 
