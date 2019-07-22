@@ -80,14 +80,14 @@ The following table summarizes what software supports which formats:
 AEDAT files have a common, human-readable header format.
 
 A header was initially optional, but with the introduction of new format
-revisions, it is now considered required, else it’s impossible to parse
+revisions, it is now considered required, else it's impossible to parse
 the file correctly.
 
 If it exists, it is the first content present in a file, and is made up
 of one or more header lines.
 
-A header line begins with a ‘#’ character and ends with a CRLF (Windows
-line ending, ‘\r\n’).
+A header line begins with a '#' character and ends with a CRLF (Windows
+line ending, '\r\n').
 
 Header lines, unless specified otherwise, are always case sensitive.
 
@@ -115,7 +115,7 @@ in jAER back in 2008. It simply consists of an optional
 followed by a series of [address, timestamp] pairs, each making up an
 event. The address is 16 bit wide and the timestamp 32 bit, for a total
 of 6 bytes per event. The timestamp is in microseconds, while the
-address has to be interpreted according to a specific jAER AEChip class’
+address has to be interpreted according to a specific jAER AEChip class'
 definition of that address. All integer data and fields are always
 signed and big-endian!
 
@@ -146,7 +146,7 @@ device:
 | 15       | External event | External event detected on the IN pin (TS-Master mode).                          |
 | 14-8     | Y address      | Y event address. (0, 0) in lower left corner of screen.                          |
 | 7-1      | X address      | X event address. (0, 0) in lower left corner of screen.                          |
-| 0        | Polarity       | Polarity (luminosity change): ‘1’ means increase (ON), ‘0’ means decrease (OFF). |
+| 0        | Polarity       | Polarity (luminosity change): '1' means increase (ON), '0' means decrease (OFF). |
 
 # AEDAT 2.0
 
@@ -158,15 +158,15 @@ able to disambiguate between formats. Then again an optional header,
 followed by a series of [address, timestamp] pairs, each making up an
 event. The address is 32 bit wide and the timestamp also 32 bit, for a
 total of 8 bytes per event. The timestamp is in microseconds, while the
-address has to be interpreted according to a specific jAER AEChip class’
+address has to be interpreted according to a specific jAER AEChip class'
 definition of that address. This could be the DVS128 class, same as
 [above](#dvs128), or the DAVIS family of
 classes (DAVIS240A,B,C; DAVIS346cBSI, DAVIS640, …). All integer data and
 fields are always signed and big-endian!
 
 The jAER software, since 2014, also writes several informative header
-lines, these include the ***‘HardwareInterface’*** and the
-***‘AEChip’*** header line, which contain information on the current
+lines, these include the ***'HardwareInterface'*** and the
+***'AEChip'*** header line, which contain information on the current
 device and the class interpreting its output. Here is an example of
 these informational lines:
 
@@ -215,7 +215,7 @@ always have an equal or greater timestamp.
 
 It is possible to find older files where this was not guaranteed, due to
 older hardware and its logic sometimes not ensuring that timestamp
-increase events be always delivered. When this is the case, the jAER
+increase events be always delivered. When this is the case, the
 software will detect this, warn the user and continue working by
 “jumping back” to the new, but older, timestamp value.
 
@@ -229,7 +229,7 @@ reset and signal read) according to the following scheme:
 
 | Bits     | Meaning        | Description                                                                                       |
 | -------- | -------------- | ------------------------------------------------------------------------------------------------- |
-| 31       | Type           | Defines the type of address stored here. ‘0’ means DVS, ‘1’ means APS or IMU (see bits 11-10).    |
+| 31       | Type           | Defines the type of address stored here. '0' means DVS, '1' means APS or IMU (see bits 11-10).    |
 
 ---
 ### Bit 30-12
@@ -296,8 +296,8 @@ data according to the following format:
 
 | Bits     | Meaning                    | Description                                                                                                                                                                   |
 | -------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 13       | Type (ADC or AER)          | Defines the type of address stored here. ‘0’ means AER from Cochlea chip, ‘1’ means sample from external ADC.                                                                 |
-| 12       | ADC scanner sync           | Signals if the current ADC sample is newly synchronized with the Scanner. If ‘1’, it is, so we can clear and reset buffers. If ‘0’, just get the ADC data.                    |
+| 13       | Type (ADC or AER)          | Defines the type of address stored here. '0' means AER from Cochlea chip, '1' means sample from external ADC.                                                                 |
+| 12       | ADC scanner sync           | Signals if the current ADC sample is newly synchronized with the Scanner. If '1', it is, so we can clear and reset buffers. If '0', just get the ADC data.                    |
 | 11-10    | ADC channel                | Defines which of the four possible ADC channels this sample belongs to.                                                                                                       |
 | 9-0      | ADC sample or AER address  | If Type=ADC, then this contains the 10-bit ADC sample ; If Type=AER, then this is the 10-bit AER address from the Cochlea chip. The 10 bits are to be interpreted this way:   |
 
@@ -307,8 +307,8 @@ Bits from 9 to 0 are divided in the following way:
 | -------- | ------------------------------------------------------------------------------------------------- |
 | 9-8      | Neuron number (0 to 3).                                                                           |
 | 7-2      | Channel number (from 0 to 63, where 0 is highest frequency, 63 lowest frequency).                 |
-| 1        | Left/Right ear (‘0’ is left, ‘1’ is right).                                                       |
-| 0        | Neuron bank (‘0’ if from BPF, ‘1’ if from SOS).                                                   |
+| 1        | Left/Right ear ('0' is left, '1' is right).                                                       |
+| 0        | Neuron bank ('0' if from BPF, '1' if from SOS).                                                   |
 
 Note that although the DAS1 has synchronisation ports, the insertion of
 external trigger events into the event stream via a synchronisation
@@ -323,7 +323,7 @@ The different types of events our sensors produce nowadays, such as
 frames or IMU events, have very different storage requirements, and
 forcing them all into a [32 bit address, 32 bit timestamp] pair like
 in [version 2.0](#aedat-2.0) is highly
-inefficient. Also having the interpretation of data depending on jAER’s
+inefficient. Also having the interpretation of data depending on jAER's
 AEChip class, such as for the polarity (luminosity change) events, or
 depending on external header data, such as for the IMU (Inertial
 Measurement Unit) event data ranges, is very complex and error-prone.
@@ -345,6 +345,7 @@ wider use with the cAER framework and several projects. This contains
 mainly additions to the basic 3.0 format. The fullest and most recent
 format is described here below. Then follows a section about earlier
 versions of the format:
+
 [3.0](#aedat-3.0).
 
 # AEDAT 3.1
@@ -354,8 +355,7 @@ The file starts with several required header lines, as specified
 is always the first one, followed by the 3.1 format header line,
 followed by any others.
 
-After this is an optional
-[header](#common-version-header),
+After this is an optional [header](#common-version-header),
 followed by one initial, optional configuration event packet, that holds
 all the initial device configuration with a timestamp of zero (to
 guarantee monotonicity), and then a series of typed event packets, which
@@ -403,7 +403,7 @@ operations.
   devices](#supported-devices). When re-logging or
   re-transmitting data, new source headers have to be created
   representing the new file or network source. The old source headers
-  have to be preserved always, by adding a ***‘-’ (minus)*** sign in
+  have to be preserved always, by adding a ***'-' (minus)*** sign in
   front of them.
 
   ```markdown
@@ -419,8 +419,8 @@ operations.
   ```
 
 Time is encoded according to the C strftime() function, see
-‘[man
-strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)’.
+'[man
+strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)'.
 
 - End of header line (required): follows right after all the other
   header lines, looking like this:
@@ -449,7 +449,7 @@ format:
 
 | Bytes    | Meaning         | Description                                                                                                                                                      |
 | -------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0-1      | eventType       | Numerical type ID, unique to each event type (see ‘Event Types’ table).                                                                                          |
+| 0-1      | eventType       | Numerical type ID, unique to each event type (see 'Event Types' table).                                                                                          |
 | 2-3      | eventSource     | Numerical source ID, identifies who generated the events inside a system.                                                                                        |
 | 4-7      | eventSize       | Size of one event in bytes.                                                                                                                                      | 
 | 8-11     | eventTSOffset   | Offset from the start of an event, in bytes, at which the main 32 bit time-stamp can be found.                                                                   |
@@ -486,7 +486,7 @@ with events up to that point.
 The **FRAME_EVENT** packet type has four timestamps defined. Of these,
 “End of Frame” is considered the main timestamp for the purpose of
 ordering. More generically, the timestamp that is indicated by the
-**‘eventTSOffset’** header field is the one relevant for ordering.
+**'eventTSOffset'** header field is the one relevant for ordering.
 
 If timestamp reset events occur during a recording (because of device
 synchronisation or manual reset), then packet timestamp order is no
@@ -521,12 +521,12 @@ The following event types are supported by default:
 Further, the first bit (bit 0) of the first byte of any event is
 reserved to be a validity bit. This bit is used to mark whether an event
 is still valid or not, and can be used to efficiently filter out events
-from a packet. ‘0’ in the 0th bit of the first byte means invalid, ‘1’
+from a packet. '0' in the 0th bit of the first byte means invalid, '1'
 means valid. This way zeroing-out an event packet sets all its events to
 invalid. Care must be taken to put the field containing the validity
 mark always as the first member of an event.
 
-Also, to generate the full 64 bit timestamp, which doesn’t suffer from
+Also, to generate the full 64 bit timestamp, which doesn't suffer from
 wrap-around problems, the packet-level 32 bit timestamp
 (***eventTSOverflow***) and the event-level 32 bit timestamp have to be
 composed as follows:
@@ -560,24 +560,24 @@ Currently, the following special event types are defined:
 
 | Type ID   | Type                              | Description                                                                                                                                                                                                                                                               |
 | --------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0         | TIMESTAMP_WRAP                    | A 32 bit timestamp wrap occurred. No ‘optional data’ present.                                                                                                                                                                                                             |
-| 1         | TIMESTAMP_RESET                   | A timestamp reset occurred. No ‘optional data’ present. **Note:** Timestamp reset will have the highest possible timestamp value, to ensure it is always the last event of an event stream, and acts thus as a separator between the old and the new event time stream.   |
-| 2         | EXTERNAL_INPUT_RISING_EDGE        | A rising edge was detected (External Input module on device). No ‘optional data’ present.                                                                                                                                                                                 |
-| 3         | EXTERNAL_INPUT_FALLING_EDGE       | A falling edge was detected (External Input module on device). No ‘optional data’ present.                                                                                                                                                                                |
-| 4         | EXTERNAL_INPUT_PULSE              | A pulse was detected (External Input module on device). No ‘optional data’ present.                                                                                                                                                                                       |
-| 5         | DVS_ROW_ONLY                      | A DVS row-only event was detected (a row address without any following column addresses). ‘Optional data’ is present, encoding the address of the row that generated this DVS row-only event.                                                                             |
-| 6         | EXTERNAL_INPUT1_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.                                                                                                                                                            |
-| 7         | EXTERNAL_INPUT1_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.                                                                                                                                                           |
-| 8         | EXTERNAL_INPUT1_PULSE             | A pulse was detected (External Input module on device, optional Detector 1). No ‘optional data’ present.                                                                                                                                                                  |
-| 9         | EXTERNAL_INPUT2_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.                                                                                                                                                            |
-| 10        | EXTERNAL_INPUT2_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.                                                                                                                                                           |
-| 11        | EXTERNAL_INPUT2_PULSE             | A pulse was detected (External Input module on device, optional Detector 2). No ‘optional data’ present.                                                                                                                                                                  |
-| 12        | EXTERNAL_GENERATOR_RISING_EDGE    | A rising edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.                                                                                                                                  |
-| 13        | EXTERNAL_GENERATOR_FALLING_EDGE   | A falling edge was generated (External Input Generator module on device), and an event injected to show this. No ‘optional data’ present.                                                                                                                                 |
-| 14        | APS_FRAME_START                   | An APS frame capture has started (Frame Event will follow). No ‘optional data’ present.                                                                                                                                                                                   |
-| 15        | APS_FRAME_END                     | An APS frame capture has completed (Frame Event is alongside). No ‘optional data’ present.                                                                                                                                                                                |
-| 16        | APS_EXPOSURE_START                | An APS frame exposure has started (Frame Event will follow). No ‘optional data’ present.                                                                                                                                                                                  |
-| 17        | APS_EXPOSURE_END                  | An APS frame exposure has completed (Frame Event will follow). No ‘optional data’ present.                                                                                                                                                                                |
+| 0         | TIMESTAMP_WRAP                    | A 32 bit timestamp wrap occurred. No 'optional data' present.                                                                                                                                                                                                             |
+| 1         | TIMESTAMP_RESET                   | A timestamp reset occurred. No 'optional data' present. **Note:** Timestamp reset will have the highest possible timestamp value, to ensure it is always the last event of an event stream, and acts thus as a separator between the old and the new event time stream.   |
+| 2         | EXTERNAL_INPUT_RISING_EDGE        | A rising edge was detected (External Input module on device). No 'optional data' present.                                                                                                                                                                                 |
+| 3         | EXTERNAL_INPUT_FALLING_EDGE       | A falling edge was detected (External Input module on device). No 'optional data' present.                                                                                                                                                                                |
+| 4         | EXTERNAL_INPUT_PULSE              | A pulse was detected (External Input module on device). No 'optional data' present.                                                                                                                                                                                       |
+| 5         | DVS_ROW_ONLY                      | A DVS row-only event was detected (a row address without any following column addresses). 'Optional data' is present, encoding the address of the row that generated this DVS row-only event.                                                                             |
+| 6         | EXTERNAL_INPUT1_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 1). No 'optional data' present.                                                                                                                                                            |
+| 7         | EXTERNAL_INPUT1_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 1). No 'optional data' present.                                                                                                                                                           |
+| 8         | EXTERNAL_INPUT1_PULSE             | A pulse was detected (External Input module on device, optional Detector 1). No 'optional data' present.                                                                                                                                                                  |
+| 9         | EXTERNAL_INPUT2_RISING_EDGE       | A rising edge was detected (External Input module on device, optional Detector 2). No 'optional data' present.                                                                                                                                                            |
+| 10        | EXTERNAL_INPUT2_FALLING_EDGE      | A falling edge was detected (External Input module on device, optional Detector 2). No 'optional data' present.                                                                                                                                                           |
+| 11        | EXTERNAL_INPUT2_PULSE             | A pulse was detected (External Input module on device, optional Detector 2). No 'optional data' present.                                                                                                                                                                  |
+| 12        | EXTERNAL_GENERATOR_RISING_EDGE    | A rising edge was generated (External Input Generator module on device), and an event injected to show this. No 'optional data' present.                                                                                                                                  |
+| 13        | EXTERNAL_GENERATOR_FALLING_EDGE   | A falling edge was generated (External Input Generator module on device), and an event injected to show this. No 'optional data' present.                                                                                                                                 |
+| 14        | APS_FRAME_START                   | An APS frame capture has started (Frame Event will follow). No 'optional data' present.                                                                                                                                                                                   |
+| 15        | APS_FRAME_END                     | An APS frame capture has completed (Frame Event is alongside). No 'optional data' present.                                                                                                                                                                                |
+| 16        | APS_EXPOSURE_START                | An APS frame exposure has started (Frame Event will follow). No 'optional data' present.                                                                                                                                                                                  |
+| 17        | APS_EXPOSURE_END                  | An APS frame exposure has completed (Frame Event will follow). No 'optional data' present.                                                                                                                                                                                |
 
 ### Polarity Event
 
@@ -591,7 +591,7 @@ Bytes 0-3 are divided in the following way:
 | Bits     | Description                                                                      |
 | -------- | -------------------------------------------------------------------------------- |
 | 0        | Validity mark                                                                    |
-| 1        | Polarity (luminosity change): ‘1’ means increase (ON), ‘0’ means decrease (OFF). |
+| 1        | Polarity (luminosity change): '1' means increase (ON), '0' means decrease (OFF). |
 | 2-16     | Y event address, up to 15 bits. (0, 0) in upper left corner of screen.           |
 | 17-31    | X event address, up to 15 bits. (0, 0) in upper left corner of screen.           |
 
@@ -608,7 +608,7 @@ Bytes 0-3 are divided in the following way:
 | 24-27             | Y length                                   | Y axis length in pixels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | 28-31             | X position                                 | X axis position (upper left offset) in pixels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | 32-35             | Y position                                 | Y axis position (upper left offset) in pixels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| 36-End of Event   | Pixels                                     | Pixel array, 16 bit unsigned integers, normalized to 16 bit depth. Values represent intensity at that pixel and are ready for direct display. First pixel (0, 0) is in upper left corner of screen. Pixels are laid out row by row (increasing X axis), going from top to bottom (increasing Y axis). While the pixel array goes on until the end of the Frame event, only the pixels up to (‘X length’ * ‘Y length’ * ‘Channel number’) are actually valid and contain relevant data. The rest have a value of zero and should not be accessed.     |
+| 36-End of Event   | Pixels                                     | Pixel array, 16 bit unsigned integers, normalized to 16 bit depth. Values represent intensity at that pixel and are ready for direct display. First pixel (0, 0) is in upper left corner of screen. Pixels are laid out row by row (increasing X axis), going from top to bottom (increasing Y axis). While the pixel array goes on until the end of the Frame event, only the pixels up to ('X length' * 'Y length' * 'Channel number') are actually valid and contain relevant data. The rest have a value of zero and should not be accessed.     |
 
 Bytes 0-3 are divided in the following way:
 
@@ -625,7 +625,7 @@ may contain 1 or more frame events. Multiplying **eventSize** by
 **eventCapacity** still gives the length of the data portion of the
 packet in bytes.
 
-The Frame event is slightly different in that it doesn’t have a
+The Frame event is slightly different in that it doesn't have a
 constant, fixed size across all events, due to the pixel data which may
 vary due to ROI readouts or different resolutions.
 
@@ -633,20 +633,20 @@ Within a Frame event packet, all Frame events do have the same, constant
 size, as given by the **eventSize** field in the event packet header.
 This is as expected and follows the usual scheme.
 
-As such, it’s a simple matter to look at the ***eventSize*** field of a
-Frame event packet’s header to figure out the exact size of a Frame
+As such, it's a simple matter to look at the ***eventSize*** field of a
+Frame event packet's header to figure out the exact size of a Frame
 event for that particular packet, and thus where each Frame event
 begins.
 
-Within a Frame event, only pixels up to (‘X length’ * ‘Y length’ *
-‘Channel number’) can be accessed with the expectation of having valid
+Within a Frame event, only pixels up to ('X length' * 'Y length' *
+'Channel number') can be accessed with the expectation of having valid
 values. There might be more pixels than that, determined by how much
 memory was allocated for the Frame event, but those will all be zero, if
 they do exist.
 
 Frame Events can directly be used with standard libraries such as
 OpenCV. For example the following code can be used to generate an OpenCV
-Mat ‘**frameMat**’ from a Frame Event ‘**f**’, sharing the same pixel
+Mat '**frameMat**' from a Frame Event '**f**', sharing the same pixel
 array memory:
 
 ```
@@ -909,10 +909,10 @@ This section explains how version 3.0 differed from version 3.1.
 
 - There is no end of header line required. The only way therefore to
   check where the header ends is to check that a line starts with
-  the ‘**#**’ character and then read the line up to the new-line
+  the '**#**' character and then read the line up to the new-line
   marker, but this can fail if the very first byte of the first
   event also happens to have a value of 35 (decimal), corresponding
-  to the ‘**#**’ character.
+  to the '**#**' character.
 
 ## Polarity Event
 
