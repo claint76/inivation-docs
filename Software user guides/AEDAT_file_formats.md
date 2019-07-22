@@ -789,6 +789,35 @@ The following event types were not implemented in version 3.0:
 
 **Spike**
 
+# AEDAT 4.0
+
+The latest release of the AEDAT format is 4.0, introduced in July 2019
+with the Dynamic Vision (DV) software platform.
+It uses [Google Flatbuffers](https://google.github.io/flatbuffers/) to
+serialize data in a convenient and efficient format, with an easy path
+to extend existing data structures and introduce new ones.
+Flatbuffers also allow quick and easy support for other languages,
+such as Python or Java, to be added, by auto-generating the appropriate
+support files for them.
+
+## Header
+
+- The version header line reads as follows:
+
+  ```markdown
+      #!AER-DAT4.0\r\n
+  ```
+
+- A size-prefixed Flatbuffer follows, the IOHeader ([FB Schema](https://gitlab.com/inivation/dv-runtime/blob/master/modules/output/IOHeader.fbs)). The first four
+  bytes represent a little-endian 32 bit integer encoding the size
+  of the actual Flatbuffer content following it.
+  The IOHeader currently contains the following information:
+
+| Field name | Field type | Description |
+| compression | enumeration | Compression algorithm applied to all data streams in the file. Currently supported are: NONE, LZ4, LZ4_HIGH, ZSTD and ZSTD_HIGH. |
+| dataTablePosition | int64 | Offset in bytes of the FileDataTable, containing all the information required to quickly interpret and jump around inside the file. '-1' means no table present. |
+| infoNode | string | Dump of the XML node describing all the data streams and their information (sizes, sources, ...). |
+
 # Network Streaming
 
 Streaming data over the network, instead of to a file, is done with
@@ -813,7 +842,7 @@ For message-based network communication, for example UDP, this header
 will be part of each message, at the front, to ensure it can be properly
 parsed always.
 
-All header fields/integers are little-endian!
+All header fields/integers are little-endian.
 
 The 20 bytes network header format is the following:
 
