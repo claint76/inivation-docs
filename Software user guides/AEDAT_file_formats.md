@@ -3,6 +3,11 @@
 ---
 
 ## Table of contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
 - [Introduction](#introduction)
 - [Software Support](#software-support)
 - [Common Version Header](#common-version-header)
@@ -12,7 +17,16 @@
 - [AEDAT 2.0](#aedat-20)
   - [Ordering](#ordering-1)
   - [DAVIS](#davis)
+    - [Bit 31](#bit-31)
+    - [Bit 30-12](#bit-30-12)
+      - [IMU:](#imu)
+      - [DVS or APS:](#dvs-or-aps)
+    - [Bit 11-10](#bit-11-10)
+      - [APS:](#aps)
+      - [DVS:](#dvs)
+    - [Bit 9-0](#bit-9-0)
   - [DAS1](#das1)
+    - [Bit 13-10](#bit-13-10)
 - [AEDAT 3](#aedat-3)
 - [AEDAT 3.1](#aedat-31)
   - [Header Lines](#header-lines)
@@ -25,25 +39,22 @@
     - [Frame Event](#frame-event)
     - [IMU 6-axes Event](#imu-6-axes-event)
     - [IMU 9-axes Event](#imu-9-axes-event)
-    - [ADC Sample Event](#adc-sample-event)
-    - [Ear (Cochlea) Event](#ear-cochlea-event)
-    - [Configuration Event](#configuration-event)
-    - [Point1D Event](#point1d-event)
-    - [Point2D Event](#point2d-event)
-    - [Point3D Event](#point3d-event)
-    - [Point4D Event](#point4d-event)
-    - [Spike (Dynap-se) Event](#spike-dynap-se-event)
+    - [Spike (Dynap-SE) Event](#spike-dynap-se-event)
   - [Formats](#formats)
     - [RAW (ID=0x00)](#raw-id0x00)
-    - [SerializedTS (ID=0x01)](#serializedts-id0x01)
-    - [PNGFrames (ID=0x02)](#pngframes-id0x02)
 - [AEDAT 3.0](#aedat-30)
   - [Header Lines](#header-lines-1)
   - [Polarity Event](#polarity-event-1)
   - [Frame Event](#frame-event-1)
   - [New Event Types](#new-event-types)
+- [AEDAT 4.0](#aedat-40)
+  - [Header](#header-1)
+  - [Data](#data)
+  - [FileDataTable](#filedatatable)
 - [Network Streaming](#network-streaming)
 - [Supported Devices](#supported-devices)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Introduction
 
