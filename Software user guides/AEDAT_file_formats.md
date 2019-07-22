@@ -132,7 +132,7 @@ It is possible to find older files where this was not guaranteed, due to
 older hardware and its logic sometimes not ensuring that timestamp
 increase events be always delivered. When this is the case, the jAER
 software will detect this, warn the user and continue working by
-“jumping back” to the new, but older, timestamp value.
+"jumping back" to the new, but older, timestamp value.
 
 ## DVS128
 
@@ -217,7 +217,7 @@ It is possible to find older files where this was not guaranteed, due to
 older hardware and its logic sometimes not ensuring that timestamp
 increase events be always delivered. When this is the case, the
 software will detect this, warn the user and continue working by
-“jumping back” to the new, but older, timestamp value.
+"jumping back" to the new, but older, timestamp value.
 
 ## DAVIS
 
@@ -326,7 +326,7 @@ in [version 2.0](#aedat-2.0) is highly
 inefficient. Also having the interpretation of data depending on jAER's
 AEChip class, such as for the polarity (luminosity change) events, or
 depending on external header data, such as for the IMU (Inertial
-Measurement Unit) event data ranges, is very complex and error-prone.
+Measurement Unit) data ranges, is very complex and error-prone.
 
 The new format version 3 developed in response addresses these problems,
 by choosing very efficient representations for each event type,
@@ -353,15 +353,12 @@ versions of the format:
 The file starts with several required header lines, as specified
 [here](#header-lines). The [version header line](#common-version-header)
 is always the first one, followed by the 3.1 format header line,
-followed by any others.
+followed by any others and last the header end line.
 
-After this is an optional [header](#common-version-header),
-followed by one initial, optional configuration event packet, that holds
-all the initial device configuration with a timestamp of zero (to
-guarantee monotonicity), and then a series of typed event packets, which
-contain in turn all the various events.
+After the header, a series of typed event packets, which
+contain in turn all the various events, are written out.
 
-All integer data and fields are always signed and little-endian! This
+All integer data and fields are always signed and little-endian. This
 is a departure from previous AEDAT formats, motivated by the fact all
 the systems we support, currently x86(_64) and ARM, are in fact native
 little-endian systems, and doing so avoids unnecessary conversion
@@ -379,15 +376,15 @@ operations.
 
 - Format header line (required): follows right after the version
   line, looking like this:
-  
+
   ```markdown
     #Format: <FORMAT>\r\n.
   ```
 
   The [Format](#formats) header line describes how the event packets have to
   be interpreted later on, allowing for optimizations and extensions to be added as needed.
-  Possible formats are: *[**RAW**](#raw-id0x00) (default)*, [***SerializedTS***](#serializedts-id0x01),
-  [***PNGFrames***](#pngframes-id0x02).
+  Possible formats are: *[**RAW**](#raw-id0x00) (default)*.
+
 - Source Identifier header line (required): human-readable
   identifiers for all event source IDs present in the file are a
   mandatory part of the header. The corresponding header line shall
@@ -399,10 +396,9 @@ operations.
 
   If multiple sources are present, they must be placed in increasing
   order by numerical ID (0, 1, 2, 3, …). The description part must be an
-  element from the [list of supported
-  devices](#supported-devices). When re-logging or
-  re-transmitting data, new source headers have to be created
-  representing the new file or network source. The old source headers
+  element from the [list of supported devices](#supported-devices).
+  When re-logging or re-transmitting data, new source headers have to be
+  created representing the new file or network source. The old source headers
   have to be preserved always, by adding a ***'-' (minus)*** sign in
   front of them.
 
@@ -419,8 +415,7 @@ operations.
   ```
 
 Time is encoded according to the C strftime() function, see
-'[man
-strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)'.
+'[man strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)'.
 
 - End of header line (required): follows right after all the other
   header lines, looking like this:
@@ -428,7 +423,7 @@ strftime](http://man7.org/linux/man-pages/man3/strftime.3.html)'.
   ```markdown
     #!END-HEADER\r\n
   ```
-  
+
   This allows to clearly determine where the file header ends and data
   starts.
 
@@ -451,7 +446,7 @@ format:
 | -------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0-1      | eventType       | Numerical type ID, unique to each event type (see 'Event Types' table).                                                                                          |
 | 2-3      | eventSource     | Numerical source ID, identifies who generated the events inside a system.                                                                                        |
-| 4-7      | eventSize       | Size of one event in bytes.                                                                                                                                      | 
+| 4-7      | eventSize       | Size of one event in bytes.                                                                                                                                      |
 | 8-11     | eventTSOffset   | Offset from the start of an event, in bytes, at which the main 32 bit time-stamp can be found.                                                                   |
 | 12-15    | eventTSOverflow | Overflow counter for the standard 32bit event time-stamp. Used to generate the 64 bit time-stamp.                                                                |
 | 16-19    | eventCapacity   | Maximum number of events this packet can store. **This always equals eventNumber in files and streams, it can only have a different value for in-memory packets. |
@@ -484,7 +479,7 @@ is interested in, and is guaranteed to have seen all relevant packets
 with events up to that point.
 
 The **FRAME_EVENT** packet type has four timestamps defined. Of these,
-“End of Frame” is considered the main timestamp for the purpose of
+"End of Frame" is considered the main timestamp for the purpose of
 ordering. More generically, the timestamp that is indicated by the
 **'eventTSOffset'** header field is the one relevant for ordering.
 
@@ -509,13 +504,6 @@ The following event types are supported by default:
 | 2         | FRAME_EVENT       | Encodes intensity frames, like you would get from a normal APS camera. It supports multiple channels for color, as well as multiple Regions of Interest (ROI). The (0, 0) pixel is in the upper left corner (standard computer graphics format).                                                                                                                                                                                                                                                                                                                                  |
 | 3         | IMU6_EVENT        | Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | 4         | IMU9_EVENT        | Contains data coming from the Inertial Measurement Unit chip, with the 3-axes accelerometer and 3-axes gyroscope. Temperature is also included. Further, 3-axes from the magnetometer are included, which can be used to get a compass-like heading.                                                                                                                                                                                                                                                                                                                              |
-| 5         | SAMPLE_EVENT      | Represents different types of ADC readings, up to 24 bits of resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| 6         | EAR_EVENT         | Encodes events from a silicon cochlea chip, containing information about which ear (microphone) generated the event, as well as which channel was involved and additional information on filters and neurons.                                                                                                                                                                                                                                                                                                                                                                     |
-| 7         | CONFIG_EVENT      | Contains information about the current configuration of the device. By having configuration as a standardized event format, it becomes host-software agnostic, and it also becomes part of the event stream, enabling easy tracking of changes through time, by putting them into the event stream at the moment they happen. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.  |
-| 8         | POINT1D           | Contains one dimensional data points as floats, together with support for distinguishing type and scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| 9         | POINT2D           | Contains two dimensional data points as floats, together with support for distinguishing type and scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| 10        | POINT3D           | Contains three dimensional data points as floats, together with support for distinguishing type and scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| 11        | POINT4D           | Contains four dimensional data points as floats, together with support for distinguishing type and scale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | 12        | SPIKE_EVENT       | Encodes events from a Dynap-se chip. This event contains information about which chipid generated the event, as well as which core id and which neuron. These addresses are available if the user configure the SRAM of the Dynap-se to route out spikes. Therefore the user can mask or route devices depending on the routing scheme that he decides to use.                                                                                                                                                                                                                    |
 
 Further, the first bit (bit 0) of the first byte of any event is
@@ -620,7 +608,7 @@ Bytes 0-3 are divided in the following way:
 | 8-14     | ROI (Region of Interest) identifier (up to 128).                                                                                                                                                                       |
 | 15-31    | Reserved for future expansion.                                                                                                                                                                                         |
 
-A frame is considered to be one event - a “frame event”. A frame packet
+A frame is considered to be one event - a "frame event". A frame packet
 may contain 1 or more frame events. Multiplying **eventSize** by
 **eventCapacity** still gives the length of the data portion of the
 packet in bytes.
@@ -720,142 +708,7 @@ Bytes 0-3 are divided in the following way:
 All floating point values are in IEEE 754-2008 binary32 format, little
 endian.
 
-### ADC Sample Event
-
-| Bytes    | Meaning         | Description                               |
-| -------- | --------------- | ----------------------------------------- |
-| 0-3      | 32 bit data     | Holds information on the ADC sample event.|
-| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.        |
-
-Bytes 0-3 are divided in the following way:
-
-| Bits     | Description                                                                                    |
-| -------- | ---------------------------------------------------------------------------------------------- |
-| 0        | Validity mark                                                                                  |
-| 1-7      | ADC sample type, to distinguish between multiple ADC samples and their sources (up to 128).    |
-| 8-31     | ADC sample value (up to 24 bits). Higher values mean a higher voltage, 0 is ground.            |
-
-### Ear (Cochlea) Event
-
-| Bytes    | Meaning         | Description                                  |
-| -------- | --------------- | -----------------------------------------    |
-| 0-3      | 32 bit data     | Holds information on the ear (Cochlea) event.|
-| 4-7      | 32 bit timestamp| Event-level microsecond timestamp.           |
-
-Bytes 0-3 are divided in the following way:
-
-| Bits     | Description                                                                                    |
-| -------- | ---------------------------------------------------------------------------------------------- |
-| 0        | Validity mark                                                                                  |
-| 1-4      | Ear position (up to 16, 0/1 L/R front, 2/3 L/R back).                                          |
-| 5-15     | Channel number (up to 2048, 0 highest frequency).                                              |
-| 16-23    | Neuron number (up to 256).                                                                     |
-| 24-30    | Filter number/type (up to 128).                                                                |
-| 31       | Polarity (1 - ON, 0 - OFF).                                                                    |
-
-### Configuration Event
-
-| Bytes    | Meaning           | Description                                                                                                                                                                                                                                                                            |
-| -------- | ---------------   | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0        | module address    | Holds information on the device configuration event, mainly the actual module address and the validity mark.                                                                                                                                                                           |
-| 1        | parameter address | Configuration parameter address.                                                                                                                                                                                                                                                       |
-| 2-5      | parameter         | Configuration parameter content (4 bytes as 32 bit integer).                                                                                                                                                                                                                           |
-| 6-9      | 32 bit timestamp  | Event-level microsecond timestamp. While the resolution of the timestamps for these events is in microseconds for compatibility with all other event types, the precision is in the order of ~1-20 milliseconds, given that these events are generated and injected on the host-side.  |
-
-Byte 0 is divided in the following way:
-
-| Bits     | Description                                       |
-| -------- | ------------------------------------------------- |
-| 0        | Validity mark                                     |
-| 1-7      | Configuration module address.                     |
-
-### Point1D Event
-
-| Bytes    | Meaning          | Description                               |
-| -------- | ---------------- | ----------------------------------------- |
-| 0-3      | 32 bit info      | Holds information on the Point1D event.   |
-| 4-7      | X (float)        | X axis measurement (one data point).      |
-| 8-11     | 32 bit timestamp | Event-level microsecond timestamp.        |
-
-Bytes 0-3 are divided in the following way:
-
-| Bits     | Description                                                                                                                                |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0        | Validity mark                                                                                                                              |
-| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported.                                                      |
-| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).    |
-| 16-31    | Reserved for future expansion                                                                                                              |
-
-All floating point values are in IEEE 754-2008 binary32 format, little
-endian.
-
-### Point2D Event
-
-| Bytes    | Meaning          | Description                               |
-| -------- | ---------------- | ----------------------------------------- |
-| 0-3      | 32 bit info      | Holds information on the Point1D event.   |
-| 4-7      | X (float)        | X axis measurement (one data point).      |
-| 8-11     | Y (float)        | Y axis measurement (second data point).   |
-| 12-15    | 32 bit timestamp | Event-level microsecond timestamp.        |
-
-Bytes 0-3 are divided in the following way:
-
-| Bits     | Description                                                                                                                                |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0        | Validity mark                                                                                                                              |
-| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported.                                                      |
-| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).    |
-| 16-31    | Reserved for future expansion                                                                                                              |
-
-All floating point values are in IEEE 754-2008 binary32 format, little
-endian.
-
-### Point3D Event
-
-| Bytes    | Meaning          | Description                               |
-| -------- | ---------------- | ------------------------------------------|
-| 0-3      | 32 bit info      | Holds information on the Point1D event.   |
-| 4-7      | X (float)        | X axis measurement (one data point).      |
-| 8-11     | Y (float)        | Y axis measurement (second data point).   |
-| 12-15    | Z (float)        | Z axis measurement (third data point).    |
-| 16-19    | 32 bit timestamp | Event-level microsecond timestamp.        |
-
-Bytes 0-3 are divided in the following way:
-
-| Bits     | Description                                                                                                                                |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0        | Validity mark                                                                                                                              |
-| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported.                                                      |
-| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).    |
-| 16-31    | Reserved for future expansion                                                                                                              |
-
-All floating point values are in IEEE 754-2008 binary32 format, little
-endian.
-
-### Point4D Event
-
-| Bytes    | Meaning          | Description                               |
-| -------- | ---------------- | ------------------------------------------|
-| 0-3      | 32 bit info      | Holds information on the Point1D event.   |
-| 4-7      | X (float)        | X axis measurement (one data point).      |
-| 8-11     | Y (float)        | Y axis measurement (second data point).   |
-| 12-15    | Z (float)        | Z axis measurement (third data point).    |
-| 16-19    | W (float)        | W axis measurement (fourth data point, complex coordinates).    |
-| 20-23    | 32 bit timestamp | Event-level microsecond timestamp.        |
-
-Bytes 0-3 are divided in the following way:
-
-| Bits     | Description                                                                                                                                |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0        | Validity mark                                                                                                                              |
-| 1-7      | Type, to distinguish between different types of data points, up to 128 are supported.                                                      |
-| 8-15     | Scale, to scale data points by orders of magnitude, from 10^-128 to 10^127 (take these 8 bits as a signed integer and use as exponent).    |
-| 16-31    | Reserved for future expansion                                                                                                              |
-
-All floating point values are in IEEE 754-2008 binary32 format, little
-endian.
-
-### Spike (Dynap-se) Event
+### Spike (Dynap-SE) Event
 
 | Bytes    | Meaning         | Description                                                    |
 | -------- | --------------- | -------------------------------------------------------------- |
@@ -881,19 +734,6 @@ the Format header line:
 A direct dump of the memory holding an event packet. No processing is
 needed at input, allocating the right amount of memory and reading the
 bytes into it directly is sufficient.
-
-### SerializedTS (ID=0x01)
-
-TODO: will serialize special, polarity, sample, ear event timestamps,
-since often the same timestamp is valid for many events, especially with
-serial AER or external input events.
-
-### PNGFrames (ID=0x02)
-
-TODO: compress image data of frame events with lossless PNG.
-
-TODO: will use LZ4 compression to save space. One event packet is one
-LZ4 frame.
 
 # AEDAT 3.0
 
@@ -947,12 +787,7 @@ Bytes 0-1 are divided in the following way:
 
 The following event types were not implemented in version 3.0:
 
-| Point1D       |
-| ------------- |
-| **Point2D**   |
-| **Point3D**   |
-| **Point4D**   |
-| **Spike**     |
+**Spike**
 
 # Network Streaming
 
