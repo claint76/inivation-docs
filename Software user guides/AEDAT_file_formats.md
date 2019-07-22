@@ -274,7 +274,6 @@ The following image explains the same thing in a more graphic way (IMU
 data is not shown in this graphic, however):
 
 <p align="center"><img src="media/apsDVS-event-raw.png" width="800"/></p>
-
 Frames, in this format, are laid out as a sequence of events, one for
 each pixel. The timestamp for each pixel is also stored and corresponds
 to the start of the readout of the column where the pixel resides. To
@@ -791,14 +790,12 @@ The following event types were not implemented in version 3.0:
 
 # AEDAT 4.0
 
-The latest release of the AEDAT format is 4.0, introduced in July 2019
-with the Dynamic Vision (DV) software platform.
-It uses [Google Flatbuffers](https://google.github.io/flatbuffers/) to
-serialize data in a convenient and efficient format, with an easy path
-to extend existing data structures and introduce new ones.
-Flatbuffers also allow quick and easy support for other languages,
-such as Python or Java, to be added, by auto-generating the appropriate
-support files for them.
+The latest release of the AEDAT format is 4.0, introduced in July 2019 with the Dynamic Vision (DV) software platform.
+
+It uses [Google Flatbuffers](https://google.github.io/flatbuffers/) to serialize data in a convenient and efficient format, with an easy path
+to extend existing data structures and introduce new ones. Flatbuffers also allow quick and easy support for other languages, such as Python or Java, to be added, by auto-generating the appropriate support files for them.
+
+All Flatbuffers are size-prefixed, meaning the first four bytes represent a 32 bit little-endian integer encoding the size of the following, actual Flatbuffer data.
 
 ## Header
 
@@ -808,15 +805,26 @@ support files for them.
       #!AER-DAT4.0\r\n
   ```
 
-- A size-prefixed Flatbuffer follows, the IOHeader ([FB Schema](https://gitlab.com/inivation/dv-runtime/blob/master/modules/output/IOHeader.fbs)). The first four
-  bytes represent a little-endian 32 bit integer encoding the size
-  of the actual Flatbuffer content following it.
+- A [size-prefixed Flatbuffer](#aedat-4.0) follows, the IOHeader ([FB Schema](https://gitlab.com/inivation/dv-runtime/blob/master/modules/output/IOHeader.fbs)).
   The IOHeader currently contains the following information:
 
 | Field name | Field type | Description |
-| compression | enumeration | Compression algorithm applied to all data streams in the file. Currently supported are: NONE, LZ4, LZ4_HIGH, ZSTD and ZSTD_HIGH. |
+| ---------- | ---------- | :---------- |
+| compression | enumeration | Compression algorithm applied to all data streams in the file. Currently supported are: NONE, LZ4, LZ4_HIGH, ZSTD and ZSTD_HIGH. The HIGH compression modes provide smaller file sizes in exchange for higher CPU usage. Scenarios where the highest performance is key should employ LZ4; for a good balance between speed and file size ZST should be used. |
 | dataTablePosition | int64 | Offset in bytes of the FileDataTable, containing all the information required to quickly interpret and jump around inside the file. '-1' means no table present. |
-| infoNode | string | Dump of the XML node describing all the data streams and their information (sizes, sources, ...). |
+| infoNode | string | Dump of the XML node describing all the data streams and their information (sizes, sources, ...). Each node represents a stream, with its name being an integer that is used as StreamID in the rest of the file's data. |
+
+- After the header, the actual data streams can be found.
+
+## Data
+
+Data packets consist of a PacketHeader ([FB Schema](https://gitlab.com/inivation/dv-runtime/blob/master/modules/output/FileDataTable.fbs), fixed 8 bytes struct) which identifies the stream (StreamID integer) and the size of the following content (Size integer).
+
+The content can be compressed or not. If it is compressed (compression != NONE), the whole data block should be fed to the appropriate decompressor for either LZ4 or ZSTD's frame format (each packet is one compressed frame). The result of decompression (or directly the content if compression == NONE) is a size-prefixed Flatbuffer. You can use 'flatbuffers::BufferHasIdentifier()' or similar to get the four character type identifier and parse the content using the appropriate Flatbuffers functions in your language of choice.
+
+## FileDataTable
+
+After the data section, there can be one more Flatbuffer, the FileDataTable ([FB Schema](https://gitlab.com/inivation/dv-runtime/blob/master/modules/output/FileDataTable.fbs)), that contains information on all the data packets written into the file previously. If the 'dataTablePosition' field in the IOHeader has a value of '-1' this table is not present in this file, else it starts at the given position (offset in bytes). No more data is present after that offset in the file.
 
 # Network Streaming
 
