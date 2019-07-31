@@ -808,6 +808,8 @@ to extend existing data structures and introduce new ones. Flatbuffers also allo
 
 All Flatbuffers are size-prefixed, meaning the first four bytes represent a 32 bit little-endian integer encoding the size of the following, actual Flatbuffer data.
 
+All timestamps inside the data are 64 bit integers, representing [Unix time](https://en.wikipedia.org/wiki/Unix_time) in microseconds.
+
 ## Header
 
 - The version header line reads as follows:
