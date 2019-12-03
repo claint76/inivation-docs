@@ -97,7 +97,7 @@ by creating, as root, an udev rule file such as:
 > /etc/udev/rules.d/65-inivation.rules
 
 You can find ready-to-use udev rules files in <!--TO CHANGE--> [our Git
-repository](https://gitlab.com/inivation/devices-bin/tree/master/drivers/linux/udev-rules).
+repository](https://gitlab.com/inivation/hardware/devices-bin/tree/master/drivers/linux/udev-rules).
 
 If you're using a distribution that supports SELinux tags, such as
 Fedora, please use the udev rules files in the selinux/ sub-folder.

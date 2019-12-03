@@ -818,7 +818,7 @@ All timestamps inside the data are 64 bit integers, representing [Unix time](htt
       #!AER-DAT4.0\r\n
   ```
 
-- A [size-prefixed Flatbuffer](#aedat-4.0) follows, the IOHeader ([FB Schema](https://gitlab.com/inivation/dv-runtime/blob/master/modules/output/IOHeader.fbs)).
+- A [size-prefixed Flatbuffer](#aedat-4.0) follows, the IOHeader ([FB Schema](https://gitlab.com/inivation/dv/dv-runtime/blob/master/modules/output/IOHeader.fbs)).
   The IOHeader currently contains the following information:
 
 | Field name | Field type | Description |
@@ -831,13 +831,13 @@ All timestamps inside the data are 64 bit integers, representing [Unix time](htt
 
 ## Data
 
-Data packets consist of a PacketHeader ([FB Schema](https://gitlab.com/inivation/dv-runtime/blob/master/modules/output/FileDataTable.fbs), fixed 8 bytes struct) which identifies the stream (StreamID integer) and the size of the following content (Size integer).
+Data packets consist of a PacketHeader ([FB Schema](https://gitlab.com/inivation/dv/dv-runtime/blob/master/modules/output/FileDataTable.fbs), fixed 8 bytes struct) which identifies the stream (StreamID integer) and the size of the following content (Size integer).
 
 The content can be compressed or not. If it is compressed (compression != NONE), the whole data block should be fed to the appropriate decompressor for either LZ4 or ZSTD's frame format (each packet is one compressed frame). The result of decompression (or directly the content if compression == NONE) is a size-prefixed Flatbuffer. You can use 'flatbuffers::BufferHasIdentifier()' or similar to get the four character type identifier and parse the content using the appropriate Flatbuffers functions in your language of choice.
 
 ## FileDataTable
 
-After the data section, there can be one more Flatbuffer, the FileDataTable ([FB Schema](https://gitlab.com/inivation/dv-runtime/blob/master/modules/output/FileDataTable.fbs)), that contains information on all the data packets written into the file previously. If the 'dataTablePosition' field in the IOHeader has a value of '-1' this table is not present in this file, else it starts at the given position (offset in bytes). No more data is present after that offset in the file.
+After the data section, there can be one more Flatbuffer, the FileDataTable ([FB Schema](https://gitlab.com/inivation/dv/dv-runtime/blob/master/modules/output/FileDataTable.fbs)), that contains information on all the data packets written into the file previously. If the 'dataTablePosition' field in the IOHeader has a value of '-1' this table is not present in this file, else it starts at the given position (offset in bytes). No more data is present after that offset in the file.
 
 # Network Streaming
 

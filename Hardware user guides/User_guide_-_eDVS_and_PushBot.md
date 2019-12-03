@@ -200,7 +200,7 @@ application's needs. The latest version of the firmware can be checked
 out with Git from:
 
 <!--TO CHANGE-->
-[https://gitlab.com/inivation/devices-bin/tree/master/firmware/eDVS4337](https://gitlab.com/inivation/devices-bin/tree/master/firmware/eDVS4337)
+[https://gitlab.com/inivation/hardware/devices-bin/tree/master/firmware/eDVS4337](https://gitlab.com/inivation/hardware/devices-bin/tree/master/firmware/eDVS4337)
 
 Please follow the instructions within that directories README.txt file
 to install the LPCXpresso development environment.
@@ -213,7 +213,7 @@ HEX file for reprogramming through the UART0 port or the USB plug.
 You can find already compiled HEX files at
 
 <!--TO CHANGE-->
-[https://gitlab.com/inivation/devices-bin/tree/master/firmware/eDVS4337/Releases](https://gitlab.com/inivation/devices-bin/tree/master/firmware/eDVS4337/Releases)
+[https://gitlab.com/inivation/hardware/devices-bin/tree/master/firmware/eDVS4337/Releases](https://gitlab.com/inivation/hardware/devices-bin/tree/master/firmware/eDVS4337/Releases)
 
 The latest hex files are EDVSBoardOS-4mbps.hex; EDVSBoardOS-6mbps.hex
 and EDVSBoardOS-12mbps.hex. Choose the hex file denoted with the baud

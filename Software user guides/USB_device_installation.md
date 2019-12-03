@@ -31,7 +31,7 @@ this can be achieved by creating, as root, the appropriate udev rules files:
 ```
 
 You can find ready-to-use udev rules files in [our Git
-repository](https://gitlab.com/inivation/devices-bin/tree/master/drivers/linux/udev-rules).
+repository](https://gitlab.com/inivation/hardware/devices-bin/tree/master/drivers/linux/udev-rules).
 
 If you're using a distribution that supports SELinux tags (i.e. Fedora
 since Fedora Core 2; Debian as of the Etch release; Ubuntu as of 8.04

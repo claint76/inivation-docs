@@ -25,7 +25,7 @@ defining event formats and a few functions for device control.
 It is intended to be used for integration into existing frameworks and
 code, also thanks to its open BSD license. If you don't have any
 existing code you need to work with, we recommend using the [Dynamic Vision
-(DV) framework](https://inivation.gitlab.io/dv-docs/),
+(DV) framework](https://inivation.gitlab.io/dv/dv-docs/),
 which adds a lot of useful functionality on top, such as configuration
 management, logging, modularity and provides ready-to-use modules for
 data processing and data visualization.
@@ -99,20 +99,20 @@ Please note you can also pass --HEAD to build from the latest Git master automat
 
 ### Manual Installation
 
-Please read the main [README](https://gitlab.com/inivation/libcaer/blob/master/README)
+Please read the main [README](https://gitlab.com/inivation/dv/libcaer/blob/master/README)
 file carefully, it explains all steps for manual installation on Linux
-and MacOS X systems. For Windows users, the additional file [README.Windows](https://gitlab.com/inivation/libcaer/blob/master/README.Windows)
+and MacOS X systems. For Windows users, the additional file [README.Windows](https://gitlab.com/inivation/dv/libcaer/blob/master/README.Windows)
 explains all the steps needed to get libcaer installed there.
 
 Building libcaer requires some dependencies to be installed, see the
-*REQUIREMENTS* section in the [README](https://gitlab.com/inivation/libcaer/blob/master/README)
+*REQUIREMENTS* section in the [README](https://gitlab.com/inivation/dv/libcaer/blob/master/README)
 file. You will need to find and install those using your system's
 package manager, some examples are provided for Fedora Linux, Ubuntu
 Linux and MacOS X (using Homebrew).
 
 ## Usage
 
-A full API documentation can be found [here](https://inivation.gitlab.io/libcaer/) (HTML format).
+A full API documentation can be found [here](https://inivation.gitlab.io/dv/libcaer/) (HTML format).
 
-Also be sure to take a look at the [README](https://gitlab.com/inivation/libcaer/blob/master/README)
+Also be sure to take a look at the [README](https://gitlab.com/inivation/dv/libcaer/blob/master/README)
 file and the examples/ directory.

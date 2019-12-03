@@ -109,7 +109,7 @@ this can be achieved by creating, as root, the appropriate udev rules files:
 ```
 
 You can find ready-to-use udev rules files in [our Git
-repository](https://gitlab.com/inivation/devices-bin/tree/master/drivers/linux/udev-rules).
+repository](https://gitlab.com/inivation/hardware/devices-bin/tree/master/drivers/linux/udev-rules).
 
 If you’re using a distribution that supports SELinux tags, such as
 Fedora or Ubuntu, please use the udev rules files in the selinux/ sub-folder.
@@ -289,7 +289,7 @@ For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
 file:
 
 <!--TO CHANGE-->
-[https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.bix](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.bix) (BIX format)
+[https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.bix](https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.bix) (BIX format)
 
 For DVS128 reprogramming, please also use the same DAVIS240 file as
 above at this step!
@@ -328,13 +328,13 @@ As you can see, it’s divided into three parts:
     file:
 
     <!--TO CHANGE-->
-    [https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.iic](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.iic)(IIC format)
+    [https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.iic](https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.iic)(IIC format)
 
     For DVS128 boards, it’s a different
     file:
 
     <!--TO CHANGE-->
-    [https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX2/DVS128_firmware.iic](https://gitlab.com/inivation/devices-bin/raw/master/firmware/CypressFX2/DVS128_firmware.iic)(IIC format)
+    [https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/DVS128_firmware.iic](https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/DVS128_firmware.iic)(IIC format)
 
 2. The second row is used to update the logic (bitstream) on the
     CPLD/FPGA.
@@ -347,22 +347,22 @@ As you can see, it’s divided into three parts:
     repository:
 
     <!--TO CHANGE-->
-    [https://gitlab.com/inivation/devices-bin/tree/master/logic/SystemLogic2/](https://gitlab.com/inivation/devices-bin/tree/master/logic/SystemLogic2/)
+    [https://gitlab.com/inivation/hardware/devices-bin/tree/master/logic/SystemLogic2/](https://gitlab.com/inivation/hardware/devices-bin/tree/master/logic/SystemLogic2/)
 
     For DAVIS240 V4 boards (small USB 2.0 boards with no full case), use the following files:
 
-      - DAVIS240a chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a_v18.1.xsvf](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a_v18.1.xsvf)
+      - DAVIS240a chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a_v18.1.xsvf](https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a_v18.1.xsvf)
 
-      - DAVIS240b chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b_v18.1.xsvf](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b_v18.1.xsvf)
+      - DAVIS240b chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b_v18.1.xsvf](https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b_v18.1.xsvf)
 
-      - DAVIS240c chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c_v18.1.xsvf](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c_v18.1.xsvf)
+      - DAVIS240c chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c_v18.1.xsvf](https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c_v18.1.xsvf)
 
     For DVS128 boards, uploading new logic is not usually required. If you
     still think it’s needed in your case, the following file is the right
     one:
 
     <!--TO CHANGE-->
-    [https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf](https://gitlab.com/inivation/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
+    [https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf](https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
 
     While flashing firmware or logic, you should see a progress dialog like
     this; if you don’t see this progress bar then there is some error, most

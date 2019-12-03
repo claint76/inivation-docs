@@ -53,7 +53,7 @@ Open the device using the 'CAER_DEVICE_DAVIS' device specifier.
 
 ### DV platform
 
-This camera is compatible with our [Dynamic Vision (DV)](https://inivation.gitlab.io/dv-docs/) software platform.
+This camera is compatible with our [Dynamic Vision (DV)](https://inivation.gitlab.io/dv/dv-docs/) software platform.
 Simply choose the camera from the Input Selector (or manually add the 'dv_davis' module) and it will automatically recognize the camera and create its default configuration.
 
 ### jAER

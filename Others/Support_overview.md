@@ -37,7 +37,7 @@ to further hardware via UART.
 ### Dynamic Vision (DV) platform
 
 You can use the Dynamic Vision software platform (dv-runtime plus dv-gui) for visualization, logging of data, and as a
-platform for custom development. Here is the [user guide](https://inivation.gitlab.io/dv-docs/).
+platform for custom development. Here is the [user guide](https://inivation.gitlab.io/dv/dv-docs/).
 
 ### jAER
 

@@ -88,7 +88,7 @@ by creating, as root, an udev rule file such as:
 > /etc/udev/rules.d/65-inivation.rules
 
 You can find ready-to-use udev rules files in <!--TO CHANGE--> [our Git
-repository](https://gitlab.com/inivation/devices-bin/tree/master/drivers/linux/udev-rules).
+repository](https://gitlab.com/inivation/hardware/devices-bin/tree/master/drivers/linux/udev-rules).
 Here they are:
 
 
@@ -373,7 +373,7 @@ window:
 
 Alternatively, you can enable AER external control using libcaer as
 shown in this C++ code example
-[here](https://gitlab.com/inivation/libcaer/blob/master/examples/davis_enable_aer.cpp).
+[here](https://gitlab.com/inivation/dv/libcaer/blob/master/examples/davis_enable_aer.cpp).
 
 ## Firmware upgrades
 
