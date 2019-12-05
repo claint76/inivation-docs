@@ -234,39 +234,38 @@ entering reprogramming mode. Just close the terminal window.
 For Windows and Mac OS X, the supported tool is FlashMagic, available at
 [http://www.flashmagictool.com/](http://www.flashmagictool.com/).
 
-The current version (9.51) runs on Windows XP/Vista/7/8 and version 8.50
+The current version (12.40) runs on Windows XP/Vista/7/8 and version 8.50
 on MacOS X 10.6+. The following instruction were written for FlashMagic
 7.85, but still apply to newer version as well.
 
-#### Step 1 - Communication
+#### Step 1 - Communication - Device Section
 
-Device: *LPC4337*
-Flash Bank: *A*
-Com Port: Serial port of the FTDI chip, depends on system.
+Device: *LPC4337*  
+Com Port: Serial port of the FTDI chip, depends on system.  
 Baud Rate: *115200* (try lower baud rates if connection fails; e.g.
 *19200*)
-Interface: *None (ISP)*
-Oscillator (MHz): *12*
 
-#### Step 2 - Erase 
+#### Step 2 - Erase
 
-*'Erase all Flash'* should be ticked
+*Entire device* should be selected
 
-#### Step 3 - Hex File 
+#### Step 3 - Hex File
 
 Select the Hex file provided or the one you generated. If you build the
 project with LPCExpresso, take the HEX file in the M4/Release (or
 M4/Debug) folder. The files in M4 contain the M0 code as well.
 
-#### Step 4 - Options 
+#### Step 4 - Options  
 
-'*Verify after programming'* and '*Activate Flash Bank*' must be ticked.
+'*Verify After Programming'*, '*Fill Unused Flash*' and '*Go After Programming*' must be ticked.
 
-#### Step 5 - Start 
+#### Step 5 - Start
 
 Click the *'Start'* button
 
-#### Step 6 - Waiting 
+<p align="center"><img src="media/FlashMagic.png" width="600"/></p>
+
+#### Step 6 - Waiting
 
 Please stand by while new firmware is sent through the Serial Port to
 your board.
@@ -274,7 +273,8 @@ your board.
 #### Step 7 - Executing
 
 After the programming and verification has ended, restart the device by
-simply re-plugging the USB cable. Note: at the end of the process you
+simply re-plugging the USB cable. Everything is working properly if you see the LED blinking on the back of the PCB board.
+Note: at the end of the process you
 might see a message "Operation Failed. (activating flash bank)", this is
 normal, and the programming has taken effect.
 
@@ -337,7 +337,7 @@ Once you've downloaded Putty, just run its executable. In the *Session*
 settings (top left), change the *Connection type* to *Serial* and then
 write the correct COM port (in our case *COM3*) into the *Serial line*
 textbox, and set the *Speed* to *4000000* for devices with serial number
-613xx or to 12000000 for devices with serial numbers 126xx. Then switch
+613xx or to *12000000* for devices with serial numbers 126xx. Then switch
 to the *Serial settings* (bottom left) and verify that they match what
 you just entered. Further, change *Flow control* to *RTS/CTS* (i.e.
 enable hardware handshaking) and ensure *Data bits* is *8*, *Stop bits*
@@ -349,7 +349,7 @@ CR* in every *LF*, as well as set to *Force off* both *Local echo* and
 After pressing the Open button, you'll be able to send commands to the
 device. The list of commands is available in the next section.
 
-## UART Protocol (PC->Board) 
+## UART Protocol (PC->Board)
 
 Supported Commands (all commands need to be terminated by '\n'; i.e. return):
 
@@ -773,7 +773,7 @@ If you choose to use your own software to acquire the data from the sensor you m
 #include <unistd.h>
 
 
-#define PORT "/dev/ttyUSB0"     // check the correct port identifier, run in the command line: dmesg | tail and look for /dev/ttyUSBxx 
+#define PORT "/dev/ttyUSB0"     // check the correct port identifier, run in the command line: dmesg | tail and look for /dev/ttyUSBxx
 #define RATE 12000000             // desired baudrate
 
 /* open serial port in raw mode, with custom baudrate */
@@ -783,12 +783,12 @@ int serial_port_init(const char *port, int baudrate)
     struct serial_struct ser;
     int temp, flags;
     int fd;
-    
+
     if((fd = open(port, O_RDWR))==-1){    // open port
         printf("ERROR - Unable to open \"%s\"\n",port);
         return -1;
     }
-    
+
     ioctl(fd, TIOCGSERIAL, &ser);                        // get the current port options
     printf("Baud_base = %d\n",ser.baud_base);            // check the base baud rate provided by system
     ser.flags |= ASYNC_SPD_CUST;                         // activate custom speed option
@@ -797,8 +797,8 @@ int serial_port_init(const char *port, int baudrate)
     printf("custom_divisor = %d\n",ser.custom_divisor);
     printf("closest baud rate = %d\n",ser.baud_base/ser.custom_divisor);
     ioctl(fd, TIOCSSERIAL, &ser);                        // set the options
-  
-    
+
+
     flags = B38400;                                      // default flags
     tcgetattr(fd,&options);                              //get current options from port
     cfsetispeed(&options, flags);                        //set input speed
@@ -809,7 +809,7 @@ int serial_port_init(const char *port, int baudrate)
     options.c_iflag = IGNBRK;                            //clear input options: Send a SIGINT when a break condition is detected
     options.c_lflag = 0;                                 //clear local options
     options.c_oflag = 0;                                 //clear output options
-    options.c_cc[VMIN] = 1;                              //set minimum character count to receive to 1 
+    options.c_cc[VMIN] = 1;                              //set minimum character count to receive to 1
     options.c_cc[VTIME] = 5;                             //set inter character timeout to 500 ms
     tcsetattr(fd,TCSANOW,&options);                      //set new options to port
     tcflush(fd,TCIFLUSH);                                //flush input buffer
@@ -820,7 +820,7 @@ int main(int argc, char*argv){
 	int fd, wnbytes, rnbytes;
 	char buffer[2200];
         char *bufptr;
-        
+
 	// open and configure port
 	if((fd=serial_port_init(PORT, RATE))<0){
 		printf("Cannot open port and set port attributes\n");
@@ -838,12 +838,12 @@ int main(int argc, char*argv){
     	while ((rnbytes = read(fd, bufptr, buffer + sizeof(buffer) - bufptr - 1)) > 0){
 	      bufptr += rnbytes;
        }
-       
+
        // nul terminate the string and print it
       *bufptr = '\0';
        printf("--------------------------------\n");
        printf("READ: \n %s\n", buffer);
-       
+
       return EXIT_SUCCESS;
 }
 ```
