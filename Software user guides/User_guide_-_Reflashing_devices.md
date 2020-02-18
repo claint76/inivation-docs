@@ -12,7 +12,7 @@ interfacing with the sensor chip, and another chip for communication via USB
   - “logic” refers to the programmable logic.
 
 **PLEASE NOTE:**
-- **THE LATEST FLASHY VERSION IS 1.4.2.**
+- **THE LATEST FLASHY VERSION IS 1.4.4.**
 - **THE LATEST FIRMWARE VERSION IS 6 FOR FX3 DEVICES (DAVIS346), 4 FOR FX2 DEVICES (DAVIS240).**
 - **THE LATEST LOGIC VERSION IS 18.1 (after 9912 we have reset the numbering scheme!).**
 
@@ -58,30 +58,17 @@ tool, named Flashy.
 
 # Getting Flashy
 
-The latest official version is 1.4.2. With the transition to Java 11,
-we now bundle the Java Runtime with the software, so you'll only have
-to download the appropriate ZIP for your platform.
+Flashy is available as part of our DV software.
 
-[Linux 64bit build](http://release.inivation.com/flashy/flashy-linux-1.4.2.tar.gz)
-
-[MacOS X 64bit build](http://release.inivation.com/flashy/flashy-mac-1.4.2.zip)
-
-[Windows 64bit build](http://release.inivation.com/flashy/flashy-win-1.4.2.zip)
+Please follow [these instructions](https://inivation.gitlab.io/dv/dv-docs/docs/getting-started/) to install.
 
 # How to use Flashy
 
 ## Launching Flashy
 
-Flashy is launched by executing the 'flashy' binary.
-Unzip the archive you downloaded in the previous step and run:
+Flashy can be launched from the DV GUI.
 
-On Linux - execute flashy-1.4.2/bin/flashy
-
-On MacOS X - execute flashy-mac-1.4.2/bin/flashy
-
-On Windows - execute flashy-win-1.4.2/bin/flashy.bat
-
-Note: ensure that jAER or dv-runtime/dv-gui are not running at the same time!
+Please follow [these instructions](https://inivation.gitlab.io/dv/dv-docs/docs/update-firmware/) to upgrade your firmware.
 
 ## Selecting a device
 
@@ -99,17 +86,15 @@ The appropriate udev files have to be installed first.
 Our libcaer packages for Fedora, Ubuntu, Arch and Gentoo already provide these
 files automatically, and libcaer compiled from source will also try to
 install them into the appropriate location at /lib/udev/rules.d/.
-If you're not using libcaer, or want to add the files manually,
+In any other case, you'll need to add the files manually,
 this can be achieved by creating, as root, the appropriate udev rules files:
 
 ```bash
     /etc/udev/rules.d/65-inivation.rules
-
-    /etc/udev/rules.d/66-inivation_dev.rules
 ```
 
 You can find ready-to-use udev rules files in [our Git
-repository](https://gitlab.com/inivation/hardware/devices-bin/tree/master/drivers/linux/udev-rules).
+repository](https://gitlab.com/inivation/dv/libcaer/-/tree/master/docs/udev-rules).
 
 If you’re using a distribution that supports SELinux tags, such as
 Fedora or Ubuntu, please use the udev rules files in the selinux/ sub-folder.
@@ -137,7 +122,7 @@ You may see for example, the message: “Impossible to open device ...”. In
 this case, even if your device shows up as a WinUSB device in the device
 manager you will need to use zadig to update the driver. You may have an
 older WinUSB driver or even an experimental libusb driver that can work
-sometimes but cause problems, for example in Windows 10 with jAER,
+sometimes but cause problems, for example in Windows 10,
 frames from DAVIS cameras can stop being transferred using some of
 these experimental drivers.
 
@@ -159,7 +144,6 @@ installed automatically for new instances of devices plugged into the
 computer).
 
 <p align="center"><img src="media/flashy_zadig_driver_install.png" width="600" /></p>
-
 If you already have a device installed, you may instead need to select
 *Replace Driver* rather than *Install WCID Driver*. You should check
 after installation (see below) that you actually have the correct WinUSB
@@ -168,7 +152,6 @@ driver installed.
 You will be notified once done.
 
 <p align="center"><img src="media/flashy_zadig_driver_installed.png" width="500" /></p>
-
 You should now see the correct driver (WinUSB Generic Device) in the
 Device Manager. The libUSB and libUSBK drivers should NOT be installed;
 they are intended for development of applications using the libusb-win32
@@ -198,192 +181,25 @@ Device Manager as shown below:
 ##### Windows 7 example:
 
 <p align="center"><img src="media/flashy_zadig_driver_install_win7.png" width="700" /></p>
-
 ##### Windows 10 example:
 
 <p align="center"><img src="media/flashy_zadig_driver_install_win10.png" width="700" /></p>
-
 Note that because iniVation uses a vendor/product identification (VID/PID)
 range purchased from Thesycon, Windows will identify the driver as shown
 below; this is OK.
 
 <p align="center"><img src="media/flashy_zadig_driver_install_identification.png" width="500" /></p>
-
 ## Automatic Upgrade
 
 This is the standard, recommended way of using Flashy.
 As soon as Flashy starts up, it will present you with the 'Basic' tab:
 
 <p align="center"><img src="media/flashy_basic_view.png" width="700" /></p>
-
 The first line of text summarizes information about your device.
 If your firmware or logic versions are obsolete, you will see an appropriate
 message, as well as a button to 'Upgrade Firmware' or 'Upgrade Logic'.
 Press the button to start the upgrade process and wait until it is completed.
 Then unplug and re-plug your device to complete the upgrade, you're done!
-
-## Manual Upgrade
-
-Please note this is not recommended for standard use-cases.
-To do simple upgrades, please follow the [Automatic Upgrade](#automatic-upgrade) instructions.
-
-First enable Advanced Mode by clicking on the 'Advanced' menu in the top
-menu bar and enabling 'Show advanced options'. This will add the two
-new tabs 'Advanced' and 'Vendor Requests', you'll use the 'Advanced'
-tab for most of the rest of this document.
-
-If you have an older device which still contains old firmware and logic,
-you will first need to erase its EEPROM. Flashy automatically detects
-when this is the case and offers you the option. Take a look at
-[Section 1](#section-1-erasing-the-eeprom) for detailed instructions.
-
-If you have a device with an empty EEPROM, the first thing to do then is
-to upload a temporary firmware, which is then used to write the new,
-final firmware to EEPROM and upload the new logic. Please see
-[Section 2](#section-2-uploading-firmware-for-the-first-time) for details
-on this.
-
-Once you have a running, new firmware, you can just update the firmware
-or logic with a new revision at the click of a button. See
-[Section 3](#section-3-uploading-new-firmware-and-new-logic) for details.
-
-## Section 1: erasing the EEPROM
-
-Connect your device and launch Flashy, then select your device from the
-drop-down menu at the top left. Devices that still run the older
-firmware will usually appear as “INI SeeBetter null”.
-
-Navigate then to the “Advanced” tab on the right.
-
-<p align="center"><img src="media/flashy_erase_eeprom.png" width="500" /></p>
-
-You will be presented with your only option of erasing the current
-content of the EEPROM.
-
-Please click on it and wait for the process to complete.
-
-<p align="center"><img src="media/flashy_erase_eeprom2.png" width="500" /></p>
-
-Once done, close Flashy and unplug the device. Plug it in again and
-continue to Section 2. 
-
-## Section 2: uploading firmware for the first time
-
-Brand new devices from the factory, or after an EEPROM erase such as in
-section 1, do not contain any firmware at all. A first, temporary
-firmware must be uploaded, to then write the final one to EEPROM.
-
-Connect your device and launch Flashy, then select your device from the
-drop-down menu at the top left. Devices without firmware will usually
-appear as “null null null”.
-
-Navigate then to the “Advanced” tab on the right.
-
-<p align="center"><img src="media/flashy_upload_firmware.png" width="500" /></p>
-
-There you will need to select a file, containing the firmware you wish
-to upload, and then press the appropriate button. The needed firmware
-can be found in our Git repository.
-
-For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
-file:
-
-<!--TO CHANGE-->
-[https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.bix](https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.bix) (BIX format)
-
-For DVS128 reprogramming, please also use the same DAVIS240 file as
-above at this step!
-
-<p align="center"><img src="media/flashy_upload_firmware2.png" width="500" /></p>
-
-This upload is usually completed very quickly, you may just see the
-progress bar window flash by. Don’t be alarmed by this, it’s expected.
-
-**Once done, close Flashy, but do *NOT* unplug the device! Continue
-with Section 3.**
-
-## Section 3: uploading new firmware and new logic
-
-Connect your device and launch Flashy, then select your device from the
-drop-down menu at the top left. Devices will usually appear as “INI
-DAVIS FX2”, followed by their serial number.
-
-Navigate then to the “Advanced” tab on the right.
-
-<p align="center"><img src="media/flashy_upload_firmware_logic.png" width="500" /></p>
-
-The following screen will appear:
-
-<p align="center"><img src="media/flashy_upload_firmware_logic2.png" width="700" /></p>
-
-As you can see, it’s divided into three parts:
-
-1.  The first row is concerned with updating the firmware of the USB chip
-    of the device (Cypress FX2 or FX3, depending on the board you have). You
-    can either load new firmware, or erase the EEPROM (“Erase Flash”
-    button). To load new firmware, select the appropriate file, and then
-    press the “Flash FX2/3 firmware” button.
-
-    For DAVIS240 V4 boards (small USB 2.0 boards), it’s the following
-    file:
-
-    <!--TO CHANGE-->
-    [https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.iic](https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/SeeBetterLogic_DAVIS_v4.iic)(IIC format)
-
-    For DVS128 boards, it’s a different
-    file:
-
-    <!--TO CHANGE-->
-    [https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/DVS128_firmware.iic](https://gitlab.com/inivation/hardware/devices-bin/raw/master/firmware/CypressFX2/DVS128_firmware.iic)(IIC format)
-
-2. The second row is used to update the logic (bitstream) on the
-    CPLD/FPGA.
-
-    Select the appropriate file and press “Upload CPLD bitstream”. Uploading
-    new logic to the small board CPLD requires about 4 minutes.
-
-    All bitstream binaries can be found in the following directory in our
-    Git
-    repository:
-
-    <!--TO CHANGE-->
-    [https://gitlab.com/inivation/hardware/devices-bin/tree/master/logic/SystemLogic2/](https://gitlab.com/inivation/hardware/devices-bin/tree/master/logic/SystemLogic2/)
-
-    For DAVIS240 V4 boards (small USB 2.0 boards with no full case), use the following files:
-
-      - DAVIS240a chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a_v18.1.xsvf](https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240a_v18.1.xsvf)
-
-      - DAVIS240b chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b_v18.1.xsvf](https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240b_v18.1.xsvf)
-
-      - DAVIS240c chips -> <!--TO CHANGE--> [MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c_v18.1.xsvf](https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic2/MachXO_DAVIS/SystemLogic2_MachXO_DAVIS240c_v18.1.xsvf)
-
-    For DVS128 boards, uploading new logic is not usually required. If you
-    still think it’s needed in your case, the following file is the right
-    one:
-
-    <!--TO CHANGE-->
-    [https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf](https://gitlab.com/inivation/hardware/devices-bin/raw/master/logic/SystemLogic1/DVS128_logic.xsvf)
-
-    While flashing firmware or logic, you should see a progress dialog like
-    this; if you don’t see this progress bar then there is some error, most
-    likely an outdated Java version.
-
-    <p align="center"><img src="media/flashy_dialog.png" width="800" /></p>
-
-3. The third row can be used to set the device’s serial number.
-
-    Just enter up to 8 characters into the text field and press “Write
-    Serial Number”. This should only be done the very first time, when the
-    device still shows its default serial number of “00000000”.
-
-    Please don’t change the serial number unless you really need to, and be
-    prepared to read tiny numbers printed on the board in case of support
-    requests to us if you do.
-
-    Once you’re done, close Flashy and unplug the device.
-
-    After plugging it in again, you’re ready to go! Enjoy your up-to-date
-    iniVation camera.
 
 # DAVIS240 problem with early prototypes
 
@@ -391,7 +207,6 @@ If you cannot flash the EEPROM please take a look at the camera’s upper
 side and make sure your device looks as follows:
 
 <p align="center"><img src="media/flashy_early_prototypes.png" width="800" /></p>
-
 If your device shows two rows of resistors instead of one as in the
 following image, please get in touch with us at
 [support@inivation.com](mailto:support@inivation.com)
