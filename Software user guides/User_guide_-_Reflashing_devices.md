@@ -27,6 +27,7 @@ interfacing with the sensor chip, and another chip for communication via USB
 
 
 ## Table of contents
+
 - [What is Flashy?](#what-is-flashy)
 - [Getting Flashy](#getting-flashy)
 - [How to use Flashy](#how-to-use-flashy)
@@ -34,14 +35,10 @@ interfacing with the sensor chip, and another chip for communication via USB
   - [Selecting a device](#selecting-a-device)
     - [Linux](#linux)
     - [Windows - Using Zadig to install WinUSB driver](#windows---using-zadig-to-install-winusb-driver)
-      - [Troubleshooting zadig driver installation:](#troubleshooting-zadig-driver-installation)
-        - [Windows 7 example:](#windows-7-example)
-        - [Windows 10 example:](#windows-10-example)
+      - [Troubleshooting zadig driver installation](#troubleshooting-zadig-driver-installation)
+        - [Windows 7 example](#windows-7-example)
+        - [Windows 10 example](#windows-10-example)
   - [Automatic Upgrade](#automatic-upgrade)
-  - [Manual Upgrade](#manual-upgrade)
-    - [Section 1: erasing the EEPROM](#section-1-erasing-the-eeprom)
-    - [Section 2: uploading firmware for the first time](#section-2-uploading-firmware-for-the-first-time)
-    - [Section 3: uploading new firmware and new logic](#section-3-uploading-new-firmware-and-new-logic)
 - [DAVIS240 problem with early prototypes](#davis240-problem-with-early-prototypes)
 
 # What is Flashy?
@@ -181,6 +178,7 @@ Device Manager as shown below:
 ##### Windows 7 example:
 
 <p align="center"><img src="media/flashy_zadig_driver_install_win7.png" width="700" /></p>
+
 ##### Windows 10 example:
 
 <p align="center"><img src="media/flashy_zadig_driver_install_win10.png" width="700" /></p>
@@ -189,6 +187,7 @@ range purchased from Thesycon, Windows will identify the driver as shown
 below; this is OK.
 
 <p align="center"><img src="media/flashy_zadig_driver_install_identification.png" width="500" /></p>
+
 ## Automatic Upgrade
 
 This is the standard, recommended way of using Flashy.
