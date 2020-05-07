@@ -898,4 +898,4 @@ lines:
 | DAVIS640       | Davis640Mono, Davis640Rgb                                                                                                                                                                        |
 | DAVISHet640    | DavisHet640Mono, DavisHet640Rgbw, CDavis, CDavis640, Davis640Rgbw, CDavis640Rgbw                                                                                                                 |
 | DYNAPSE        | Dynap-se, DYNAPSEFX2                                                                                                                                                                             |
-| DVXPLORER      | DVXplorer Lite                                                                                                                                                                        |
+| DVXplorer      | DVXplorer Lite                                                                                                                                                                        |
