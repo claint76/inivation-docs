@@ -889,7 +889,7 @@ lines:
 | DVS128         | Tmpdiff128                                                                                                                                                                                       |
 | DAVIS240A      | SBret10                                                                                                                                                                                          |
 | DAVIS240B      | SBret20                                                                                                                                                                                          |
-| DAVIS240C      | SBret21                                                                                                                                                                                          |
+| DAVIS240C      | SBret21, DVS240                                                                                                                                                                                  |
 | DAVIS128       | Davis128Mono, Davis128Rgb                                                                                                                                                                        |
 | DAVIS208       | Davis208Mono, Davis208Rgbw, PixelParade, SenseDavis192, SensDavis192                                                                                                                             |
 | DAVIS346A      | Davis346AMono, Davis346ARgb                                                                                                                                                                      |
@@ -898,3 +898,4 @@ lines:
 | DAVIS640       | Davis640Mono, Davis640Rgb                                                                                                                                                                        |
 | DAVISHet640    | DavisHet640Mono, DavisHet640Rgbw, CDavis, CDavis640, Davis640Rgbw, CDavis640Rgbw                                                                                                                 |
 | DYNAPSE        | Dynap-se, DYNAPSEFX2                                                                                                                                                                             |
+| DVXPLORER      | DVXplorer Lite                                                                                                                                                                        |
